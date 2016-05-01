@@ -7,6 +7,66 @@ function newEvent()
   window.location.href = "create";
 }
 
+function regEvent(btnId)
+{
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "/api/users/events/"+currUser.fbUserID+"?_event="+btnId, true);
+    
+   // var params = "_event="+newEvent._id;
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    xhttp.send();
+    xhttp.onload = function() {
+       if (xhttp.readyState === 4) { 
+            if (xhttp.status === 200) {
+                if (xhttp.responseText == "null") {
+                 
+                  }
+                  else
+                  {
+                    //window.location.href = "home";
+                  
+                  }
+                 
+              } else {
+                  console.error(xhttp.statusText);
+              }
+            }
+          };
+
+
+    var http = new XMLHttpRequest();
+    http.open("POST", "/api/events/users/"+btnId+"?_user="+currUser._id, true);
+    
+   // var params = "_event="+newEvent._id;
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    http.send();
+    http.onload = function() {
+       if (http.readyState === 4) { 
+            if (http.status === 200) {
+                if (http.responseText == "null") {
+                 
+                  }
+                  else
+                  {
+                    window.location.href = "home";
+                   
+                  }
+                 
+              } else {
+                  console.error(xhttp.statusText);
+              }
+            }
+          };
+
+
+       
+
+
+}
+
 
 $(document).on('click', '.js-msgGroup', function () {
   $('.js-msgGroup, .js-newMsg').addClass('hide')

@@ -1,0 +1,96 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'node-dev-g' ]
+2 info using npm@2.14.7
+3 info using node@v4.2.3
+4 verbose install initial load of /Users/Rubi/FinalProj/Playz/package.json
+5 warn package.json playz@0.0.1 No description
+6 warn package.json playz@0.0.1 No repository field.
+7 warn package.json playz@0.0.1 No README data
+8 verbose installManyTop reading scoped package data from /Users/Rubi/FinalProj/Playz/node_modules/async/package.json
+9 verbose installManyTop reading scoped package data from /Users/Rubi/FinalProj/Playz/node_modules/body-parser/package.json
+10 verbose installManyTop reading scoped package data from /Users/Rubi/FinalProj/Playz/node_modules/express/package.json
+11 verbose installManyTop reading scoped package data from /Users/Rubi/FinalProj/Playz/node_modules/moment/package.json
+12 verbose installManyTop reading scoped package data from /Users/Rubi/FinalProj/Playz/node_modules/mongoose/package.json
+13 verbose installManyTop reading scoped package data from /Users/Rubi/FinalProj/Playz/node_modules/wait.for/package.json
+14 verbose readDependencies loading dependencies from /Users/Rubi/FinalProj/Playz/package.json
+15 silly cache add args [ 'node-dev-g', null ]
+16 verbose cache add spec node-dev-g
+17 silly cache add parsed spec Result {
+17 silly cache add   raw: 'node-dev-g',
+17 silly cache add   scope: null,
+17 silly cache add   name: 'node-dev-g',
+17 silly cache add   rawSpec: '',
+17 silly cache add   spec: '*',
+17 silly cache add   type: 'range' }
+18 silly addNamed node-dev-g@*
+19 verbose addNamed "*" is a valid semver range for node-dev-g
+20 silly addNameRange { name: 'node-dev-g', range: '*', hasData: false }
+21 silly mapToRegistry name node-dev-g
+22 silly mapToRegistry using default registry
+23 silly mapToRegistry registry https://registry.npmjs.org/
+24 silly mapToRegistry uri https://registry.npmjs.org/node-dev-g
+25 verbose addNameRange registry:https://registry.npmjs.org/node-dev-g not in flight; fetching
+26 verbose request uri https://registry.npmjs.org/node-dev-g
+27 verbose request no auth needed
+28 info attempt registry request try #1 at 08:25:11
+29 verbose request id c4529d401a9624e7
+30 http request GET https://registry.npmjs.org/node-dev-g
+31 http 404 https://registry.npmjs.org/node-dev-g
+32 verbose headers { 'content-type': 'application/json',
+32 verbose headers   'cache-control': 'max-age=0',
+32 verbose headers   'content-length': '2',
+32 verbose headers   'accept-ranges': 'bytes',
+32 verbose headers   date: 'Thu, 14 Apr 2016 05:21:39 GMT',
+32 verbose headers   via: '1.1 varnish',
+32 verbose headers   age: '0',
+32 verbose headers   connection: 'keep-alive',
+32 verbose headers   'x-served-by': 'cache-fra1230-FRA',
+32 verbose headers   'x-cache': 'MISS',
+32 verbose headers   'x-cache-hits': '0',
+32 verbose headers   'x-timer': 'S1460611299.145947,VS0,VE720',
+32 verbose headers   vary: 'Accept-Encoding' }
+33 silly get cb [ 404,
+33 silly get   { 'content-type': 'application/json',
+33 silly get     'cache-control': 'max-age=0',
+33 silly get     'content-length': '2',
+33 silly get     'accept-ranges': 'bytes',
+33 silly get     date: 'Thu, 14 Apr 2016 05:21:39 GMT',
+33 silly get     via: '1.1 varnish',
+33 silly get     age: '0',
+33 silly get     connection: 'keep-alive',
+33 silly get     'x-served-by': 'cache-fra1230-FRA',
+33 silly get     'x-cache': 'MISS',
+33 silly get     'x-cache-hits': '0',
+33 silly get     'x-timer': 'S1460611299.145947,VS0,VE720',
+33 silly get     vary: 'Accept-Encoding' } ]
+34 verbose stack Error: Registry returned 404 for GET on https://registry.npmjs.org/node-dev-g
+34 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+34 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:242:14)
+34 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+34 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:198:22)
+34 verbose stack     at emitTwo (events.js:87:13)
+34 verbose stack     at Request.emit (events.js:172:7)
+34 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1063:14)
+34 verbose stack     at emitOne (events.js:82:20)
+34 verbose stack     at Request.emit (events.js:169:7)
+34 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1009:12)
+35 verbose statusCode 404
+36 verbose pkgid node-dev-g
+37 verbose cwd /Users/Rubi/FinalProj/Playz
+38 error Darwin 15.4.0
+39 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "node-dev-g"
+40 error node v4.2.3
+41 error npm  v2.14.7
+42 error code E404
+43 error 404 Registry returned 404 for GET on https://registry.npmjs.org/node-dev-g
+43 error 404
+43 error 404 'node-dev-g' is not in the npm registry.
+43 error 404 You should bug the author to publish it (or use the name yourself!)
+43 error 404 It was specified as a dependency of 'playz'
+43 error 404
+43 error 404 Note that you can also install from a
+43 error 404 tarball, folder, http url, or git url.
+44 verbose exit [ 1, true ]

@@ -15,7 +15,7 @@
       
     </title>
 
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
     <link href="../css/toolkit.css" rel="stylesheet">
     
     <link href="../css/application.css" rel="stylesheet">
@@ -49,25 +49,26 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand svg-icon" href="index.html">
-        <img src="/assets/assets_playz_logo.svg" alt="brand">
+      <a class="navbar-brand svg-icon" href="home">
+        <img src="../css/assets_playz_logo.svg" alt="brand">
       </a>
     </div>
     <div class="navbar-collapse collapse" id="navbar-collapse-main">
 
         <ul class="nav navbar-nav hidden-xs">
           <li class="active">
-            <a href="index.html">Home</a>
+            <a href="home">Home</a>
           </li>
           <li>
-            <a href="profile/index.html">Playzer Card</a>
+            <a href="playzer">Playzer Card</a>
           </li>
+          <!--
           <li>
             <a data-toggle="modal" href="#msgModal">Messages</a>
           </li>
           <li>
             <a href="docs/index.html">Docs</a>
-          </li>
+          </li>-->
         </ul>
 
         <ul class="nav navbar-nav navbar-right m-r-0 hidden-xs">
@@ -78,7 +79,7 @@
           </li>
           <li>
             <button class="btn btn-default navbar-btn navbar-btn-avitar" data-toggle="popover">
-              <img class="img-circle" src="assets/img/avatar-dhg.png">
+              <img class="img-circle" src="">
             </button>
           </li>
         </ul>
@@ -90,18 +91,19 @@
         </form>
 
         <ul class="nav navbar-nav hidden-sm hidden-md hidden-lg">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="profile/index.html">Playzer Card</a></li>
+          <li><a href="home">Home</a></li>
+          <li><a href="playzer">Playzer Card</a></li>
+          <!--
           <li><a href="notifications/index.html">Notifications</a></li>
           <li><a data-toggle="modal" href="#msgModal">Messages</a></li>
           <li><a href="docs/index.html">Docs</a></li>
-          <li><a href="#" data-action="growl">Growl</a></li>
-          <li><a href="login.html?logout=1">Logout</a></li>
+          <li><a href="#" data-action="growl">Growl</a></li>-->
+          <li><a href="login?logout=1">Logout</a></li>
         </ul>
 
         <ul class="nav navbar-nav hidden">
-          <li><a href="#" data-action="growl">Growl</a></li>
-          <li><a href="login.html?logout=1">Logout</a></li>
+         <!-- <li><a href="#" data-action="growl">Growl</a></li>-->
+          <li><a href="login?logout=1">Logout</a></li>
         </ul>
       </div>
   </div>
@@ -115,6 +117,30 @@
 		<li class="media list-group-item p-a">
 			<h4>Pick Your Activity</h4>
 		</li>
+    <li class="media list-group-item p-a">
+          <div class="media-body">
+            <div class="media-body-text">
+              <div class="media-heading" >
+                <div class="radio-inline custom-control custom-radio">
+                  <label>
+                 
+                    <input type="radio" id="publicEvt" name="privacy" checked>
+                    <span class="custom-control-indicator"></span>
+                    Public Event</input>
+                  </label>
+                </div>
+                <div class="radio-inline custom-control custom-radio">
+                  <label>
+                    <input type="radio" id="privateEvt" name="privacy">
+                    <span class="custom-control-indicator"></span>
+                    Private Event</input>
+                  </label>
+                </div>
+               
+               </div>  
+            </div>
+          </div>
+        </li>
 
 		<li class="media list-group-item p-a">
           <div class="media-body">
@@ -172,6 +198,79 @@
             </div>
           </div>
         </li>
+        <li class="media list-group-item p-a">
+          <div class="media-body">
+            <div class="media-body-text">
+              <div class="media-heading">
+                <label class="select">Group Size:</label>
+                   <span id="rangeSizeA">2</span>
+                   <input id="groupSlider"  type="text">  </input>
+                 
+               </div>  
+            </div>
+          </div>
+        </li>
+        
+
+      </ul>
+    </div>
+
+      <div class="col-md-6">
+      <ul class="list-group media-list media-list-stream">
+
+    <li class="media list-group-item p-a">
+      <h4>Pick Your Partner</h4>
+    </li>
+
+
+    <li class="media list-group-item p-a">
+          <div class="media-body">
+            <div class="media-body-text">
+              <div class="media-heading">
+                <div data-role="rangeslider">
+           
+                <b> Age Range:</b> 
+                <span id="rangeA" >20</span> to <span id="rangeB">40</span>
+                <input id="ex2"  type="text">  </input>
+              </div>
+         </div>  
+            </div>
+          </div>
+        </li>
+    
+
+        <li class="media list-group-item p-a">
+          <div class="media-body">
+            <div class="media-body-text">
+              <div class="media-heading">
+                  <label for="select-choice-0" class="select">Gender:</label>
+              <select name="select-choice-0" id="genderSelection" class="custom-select" ng-model="event.genderSelection">
+                 <option >Co-ed</option>
+                 <option >Male</option>
+                 <option >Female</option>
+                 
+              </select>
+         </div>  
+            </div>
+          </div>
+        </li>
+        
+      <li class="media list-group-item p-a">
+          <div class="media-body">
+            <div class="media-body-text">
+              <div class="media-heading">
+                 <label for="select-choice-0" class="select">Payed facilities:</label>
+              <select name="select-choice-0" id="payedSelection" class="custom-select" ng-model="event.payedSelection">
+                <option >OK</option>
+                 <option >No Way</option>
+                 <option >Don't Care</option>
+              </select>
+         </div>  
+            </div>
+          </div>
+        </li>
+
+        
 
       </ul>
     </div>
@@ -187,27 +286,25 @@
           <div class="media-body">
             <div class="media-body-text">
               <div class="media-heading" >
-                
                 <div class="radio-inline custom-control custom-radio">
-				  <label>
-				    <input type="radio" id="radio1" name="radio" checked>
-				    <span class="custom-control-indicator"></span>
-				    Current Location
-				  </label>
-				</div>
-				<div class="radio-inline custom-control custom-radio">
-				  <label>
-				    <input type="radio" id="radio2" name="radio">
-				    <span class="custom-control-indicator"></span>
-				    Home Location
-				  </label>
-				</div>
-     
-			   </div>  
+        				  <label>
+        				    <input type="radio" id="radio1" onclick="setCurrentLocation()" name="location" checked >
+        				    <span class="custom-control-indicator"></span>
+        				    Current Location</input>
+        				  </label>
+				        </div>
+        				<div class="radio-inline custom-control custom-radio">
+        				  <label>
+        				    <input type="radio" id="radio2" onclick="setLoc()" name="location">
+        				    <span class="custom-control-indicator"></span>
+        				    Home Location</input>
+        				  </label>
+        				</div>
+			         </div>  
             </div>
           </div>
         </li>
-		<li class="media list-group-item p-a">
+		    <li class="media list-group-item p-a">
           <div class="media-body">
             <div class="media-body-text">
               <div class="media-heading" >
@@ -225,81 +322,26 @@
           </div>
         </li>
 
-        
-
-      </ul>
-    </div>
-
- 	<div class="col-md-6">
-      <ul class="list-group media-list media-list-stream">
-
-		<li class="media list-group-item p-a">
-			<h4>Pick Yours Partner</h4>
-		</li>
-
-
-		<li class="media list-group-item p-a">
-          <div class="media-body">
-            <div class="media-body-text">
-              <div class="media-heading">
-                <div data-role="rangeslider">
-           
-		            <b> Age Range:</b> <!--<input id="ex2" type="text" class="span2" value="" data-slider-min="10" data-slider-max="100" data-slider-step="1" data-slider-value="[20,40]" ng-model="event.ageRange"></input>-->
-		            <span id="rangeA" >20</span> to <span id="rangeB">40</span>
-		            <input id="ex2"  type="text">  </input>
-          		</div>
-			   </div>  
-            </div>
-          </div>
-        </li>
-		
-
         <li class="media list-group-item p-a">
           <div class="media-body">
             <div class="media-body-text">
               <div class="media-heading">
-                  <label for="select-choice-0" class="select">Gender:</label>
-			        <select name="select-choice-0" id="genderSelection" class="custom-select" ng-model="event.genderSelection">
-			           <option >Male</option>
-			           <option >Female</option>
-			           <option >Co-ed</option>
-			        </select>
-			   </div>  
-            </div>
-          </div>
-        </li>
-        
-		<li class="media list-group-item p-a">
-          <div class="media-body">
-            <div class="media-body-text">
-              <div class="media-heading">
-                 <label for="select-choice-0" class="select">Payed facilities:</label>
-			        <select name="select-choice-0" id="payedSelection" class="custom-select" ng-model="event.payedSelection">
-			          <option >OK</option>
-			           <option >No Way</option>
-			           <option >Don't Care</option>
-			        </select>
-			   </div>  
-            </div>
-          </div>
-        </li>
-
-        <li class="media list-group-item p-a">
-          <div class="media-body">
-            <div class="media-body-text">
-              <div class="media-heading">
-	              	<form >
+                  <form >
                     <button type="button" class="btn btn-lg btn-pill btn-danger">Cancel</button>
-						        <button type="submit" ng-click="createEvent()" class="btn btn-lg btn-pill btn-success">Create Event</button>
-				          </form>
-			         </div>  
+                    <button type="submit" ng-click="createEvent()" class="btn btn-lg btn-pill btn-success">Create Event</button>
+                  </form>
+               </div>  
             </div>
           </div>
         </li>
 
+        
+
       </ul>
     </div>
-</div>
+
+ 
+  </div>
 
     </div>
   </div>
@@ -307,8 +349,6 @@
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-resource.js"></script>
- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAAQtY4RbKemiqGsidoXxgtquJpwmsfr8&callback=initMap"
-    async defer></script>
 
     <script src="../js/jquery.min.js"></script>
     <script src="../js/chart.js"></script>
@@ -316,10 +356,14 @@
     <script src="../js/application.js"></script>
     <script src="../js/app.js"></script>
     <script src="../js/slider.js"></script>
+    <script src="../js/maps.js"></script>
+
     <script type="text/javascript" src="/js/controllers/sports-controller.js"></script>
      <script type="text/javascript" src="/js/controllers/events-controller.js"></script>
-    <script src="../js/maps.js"></script>
     
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAAQtY4RbKemiqGsidoXxgtquJpwmsfr8&callback=initMap"
+    async defer></script>
+
 
     <script>
       // execute/clear BS loaders for docs

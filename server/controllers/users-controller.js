@@ -1,5 +1,6 @@
 
 var User = require ('../models/user')
+var moment = require('moment')
 
 module.exports.create = function(req,res){
 	console.log(req.body);
@@ -25,13 +26,44 @@ module.exports.remove = function(req,res){
 	});
 }
 
+module.exports.getMyEventList = function(req,res){
+	var id = req.params.id;
+	var populateQuery = [{path:'regiteredEvents._event'},{path:'regiteredEvents._event._user'}];
+	console.log(id);
+	
+	User.find({fbUserID : id}, function(err,results){
+		res.json(results);
+	}).populate(populateQuery)
+			.exec(function (err, event) {
+  				if (err) return handleError(err);
+			});
+}
+
 module.exports.update = function(req,res){
 	var id = req.params.id;
-	var cvrPic = req.query.coverPic;
+	var email = req.query.email;
+	console.log(req.query.birth);
 
-	console.log(req.query.coverPic);
+	var birthday = moment(req.query.birth).format('L');
+	var location = req.query.location;
+	var about = req.query.about;
 
-	User.findOneAndUpdate({ fbUserID : id}, {$set : {coverPic: cvrPic}}, function (err, model) {
+	console.log("update query");
+	console.log(birthday);
+
+
+	User.findOneAndUpdate({ fbUserID : id}, {$set : {email: email , birthday: birthday ,location: location}}, function (err, model) {
+    	console.log(model);
+    	res.status(200).send();
+	});
+}
+
+module.exports.addEvent = function(req,res){
+	var id = req.params.id;
+
+	console.log(req.query._event);
+
+	User.findOneAndUpdate({ fbUserID : id}, {$addToSet : {regiteredEvents: {_event : req.query._event}}}, function (err, model) {
     	console.log(model);
     	res.status(200).send();
 	});

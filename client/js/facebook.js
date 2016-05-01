@@ -14,12 +14,15 @@
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       var accessToken = response.authResponse.accessToken;
-      testAPI();
+      
       if(myParam=="1")
       {
         console.log('logged out');
         FB.logout();
         //window.location.href = "index.html";
+      }
+      else{
+        testAPI();
       }
       /*
       else
@@ -45,6 +48,7 @@
   // code below.
 
 function facebookLogin(){
+  myParam = "0";
   FB.login(function(response) {
     if (response.authResponse) {
       /*
@@ -126,12 +130,17 @@ function facebookLogin(){
           if (xhttp.status === 200) {
             if (xhttp.responseText == "null") 
             {
+              
                 var http = new XMLHttpRequest();
                 var url = "/api/users";
                 var profPic = "https://graph.facebook.com/"+uID+"/picture?type=large";
-                var cover = "https://graph.facebook.com/10152418919344559?fields=cover";
+                var cover = "";
+                if(response.location!=undefined)
+                  var location = response.location.name;
+                else
+                  var location = "undefined";
                 var params = "firstname="+response.first_name+"&lastname="+response.last_name+"&email="+response.email+"&fbUserID="+response.id+
-                  "&location="+response.location.name+"&birthday="+response.birthday+"&coverPic="+cover+"&profilePic="+profPic;
+                  "&location="+location+"&birthday="+response.birthday+"&coverPic="+cover+"&profilePic="+profPic;
                 http.open("POST", url, true);
 
                 //Send the proper header information along with the request
@@ -143,35 +152,16 @@ function facebookLogin(){
                 {//Call a function when the state changes.
                   if(http.readyState == 4 && http.status == 200) 
                   {
-                      window.location.href = "create";
+                      window.location.href = "register";
                   }
                 }
                 http.send(params);
+                
+               
             }
             else
             {
-                
-                var http = new XMLHttpRequest();
-                var url = "/api/users/update/"+uID;
-                
-          
-                var params = "coverPic="+response.cover.source;
-                http.open("get", url, true);
-
-                //Send the proper header information along with the request
-                http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                //http.setRequestHeader("Content-length", params.length);
-                //http.setRequestHeader("Connection", "close");
-
-                http.onreadystatechange = function() 
-                {//Call a function when the state changes.
-                  if(http.readyState == 4 && http.status == 200) 
-                  {
-                       window.location.href = "home";
-                  }
-                }
-                http.send(params);
-               
+                window.location.href = "home";
             }
              
           } else {

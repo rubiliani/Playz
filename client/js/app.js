@@ -1,29 +1,6 @@
 var app = angular.module('Playz',['ngResource']);
 
 var currUser;
-/*
-// Parse URL Queries
-function url_query( query ) {
-    query = query.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-    var expr = "[\\?&]"+query+"=([^&#]*)";
-    var regex = new RegExp( expr );
-    var results = regex.exec( window.location.href );
-    if ( results !== null ) {
-        return results[1];
-    } else {
-        return false;
-    }
-}
-*/
-
-// Example usage - /?load=yes
-//var userID = url_query('id');
-
-//var pic = document.getElementById('profileUserPic');
-//pic.src = 'https://graph.facebook.com/'+userID+'/picture?type=large';
-
-//localStorage.clear();
-
 
 var userID = localStorage.uid;// = userID;
 
@@ -34,25 +11,35 @@ xhttp.onload = function() {
 	if (xhttp.readyState === 4) { 
         if (xhttp.status === 200) {
             if (xhttp.responseText == "null") {
-             
+                  //window.location.href = "index.html";
               }
               else
               {
               	currUser = JSON.parse(xhttp.response);
                
-				var pic = document.getElementById('profileUserPic');
-				if(pic!=null)
-					pic.src = currUser.profilePic;
+				        var pic = document.getElementById('profileUserPic');
+				        if(pic!=null)
+					         pic.src = currUser.profilePic;
 
-				var cover = document.getElementsByClassName("panel-heading");
-				//if(cover.length>0)
-				//	cover[0].style.backgroundImage = "url("+currUser.coverPic+")";
+                var pic2 = document.getElementById('profileUserPicMin');
+                if(pic2!=null)
+                   pic2.src = currUser.profilePic;
 
+				        var cover = document.getElementsByClassName("panel-heading");
+
+		
 				
-				var profPic = document.getElementsByClassName("panel-profile-img");
-				if(profPic.length>0)
-					profPic[0].src = currUser.profilePic;
+				        var profPic = document.getElementsByClassName("panel-profile-img");
+				        if(profPic.length>0)
+					         profPic[0].src = currUser.profilePic;
+
+
+                 var uName = document.getElementById('currntUserName');
+                 if(uName!=null)
+                    uName.innerText = currUser.firstname+" "+currUser.lastname;
               
+                 
+
               }
              
           } else {
@@ -60,6 +47,9 @@ xhttp.onload = function() {
           }
         }
       };
+
+
+
 
 
 
@@ -90,3 +80,9 @@ window.fbAsyncInit = function() {
 });
 
 };
+
+function setLoc(){
+  setLocation(currUser.location);
+}
+
+

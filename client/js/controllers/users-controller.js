@@ -1,11 +1,21 @@
 app.controller('usersController', ['$scope', '$resource', function($scope,$resource) {
 
+
+   var uid = localStorage.uid;
+
 	var User = $resource('/api/users'); 
  	User.query(function(results){
  		$scope.users = results;
  	})
 
+   var UserEvents = $resource('/api/users/events/'+uid); 
+   UserEvents.query(function(results){
+      $scope.userEvents = results;
+      
+   });
+
    	$scope.users = []
+      $scope.userEvents = []
 
    	$scope.createUser = function(){
    		var newUser = new User();
