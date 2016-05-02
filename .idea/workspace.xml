@@ -2,223 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0863293-273e-4419-b9e4-9b66afc42687" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/Playz assets_+icon.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/Playz assets_add_icon.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/Playz assets_arrow_icon.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/Playz assets_attach_icon.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/Playz assets_chat_icon.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/Playz assets_connect_google_icon.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/Playz assets_google_maps.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/Playz assets_hamburger_icon.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/Playz assets_left_bar.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/Playz assets_right_bar.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/Playz assets_search_more_icon.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/Playz assets_user_pic_frame.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/Playz assets_v.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/Playz assets_waze_icon.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/assets_connect_facebook_icon.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/assets_playz_logo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/assets_playz_logo_1.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/assets_search_glass.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/fonts/toolkit-entypo.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/fonts/toolkit-entypo.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/fonts/toolkit-entypo.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/fonts/toolkit-entypo.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/img/avatar-dhg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/img/avatar-fat.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/img/avatar-mdo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/img/blur.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/img/blur1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/img/brand-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/img/brand.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/img/iceland.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_11.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_12.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_13.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_14.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_15.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_16.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_17.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_18.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_9.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/img/unsplash_1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/img/unsplash_2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/application.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/assets_playz_logo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/docs.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/ajax-loader.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/action-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/action-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/alert-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/alert-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-d-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-d-l-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-d-l-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-d-r-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-d-r-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-d-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-l-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-l-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-r-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-r-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-u-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-u-l-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-u-l-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-u-r-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-u-r-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-u-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/audio-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/audio-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/back-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/back-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/bars-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/bars-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/bullets-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/bullets-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/calendar-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/calendar-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/camera-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/camera-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/carat-d-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/carat-d-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/carat-l-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/carat-l-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/carat-r-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/carat-r-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/carat-u-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/carat-u-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/check-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/check-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/clock-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/clock-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/cloud-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/cloud-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/comment-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/comment-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/delete-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/delete-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/edit-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/edit-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/eye-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/eye-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/forbidden-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/forbidden-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/forward-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/forward-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/gear-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/gear-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/grid-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/grid-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/heart-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/heart-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/home-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/home-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/info-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/info-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/location-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/location-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/lock-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/lock-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/mail-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/mail-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/minus-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/minus-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/navigation-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/navigation-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/phone-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/phone-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/plus-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/plus-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/power-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/power-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/recycle-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/recycle-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/refresh-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/refresh-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/search-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/search-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/shop-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/shop-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/star-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/star-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/tag-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/tag-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/user-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/user-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/video-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/video-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/jquery.mobile.icons.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/playz.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/playz.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/slider.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/styles.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/stylesCards.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/toolkit.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/js/app.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/js/application.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/js/bootstrap-slider.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/js/bootstrap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/js/chart.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/js/controllers/events-controller.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/js/controllers/sports-controller.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/js/controllers/users-controller.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/js/facebook.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/js/home.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/js/jquery.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/js/maps.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/js/profile.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/js/register.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/js/scripts.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/js/slider.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/js/toolkit.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/views/EventFlow/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/views/EventFlow/index1.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/views/EventFlow/index2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/views/home/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/views/login/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/views/old/home.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/views/old/index copy.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/views/old/index org.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/views/old/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/views/old/main.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/views/profile/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/views/profile/index1.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/views/register/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/npm-debug.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/core/admin/public/directives/editable.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/core/admin/public/services/users.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/core/admin/server/controllers/module-settings.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/core/articles/server/models/article.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/core/articles/server/routes/articles.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/core/articles/server/tests/articles.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/core/circles/app.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/core/circles/public/routes/circles.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/core/circles/server/models/circle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/core/system/public/services/config.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/core/users/public/services/meanUser.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/core/users/server/controllers/users.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/core/users/server/routes/users.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/custom/i18n/app.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/controllers/events-controller.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/controllers/sports-controller.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/controllers/users-controller.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/models/event.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/models/sport.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/models/user.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Procfile" afterPath="$PROJECT_DIR$/Procfile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gitignore" afterPath="$PROJECT_DIR$/gitignore" />
     </list>
     <ignored path="Playz.iws" />
@@ -243,8 +26,8 @@
       <file leaf-file-name="gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.11290322">
+              <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -429,8 +212,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.11290322">
+          <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
           <folding />
         </state>
       </provider>
