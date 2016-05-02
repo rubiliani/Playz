@@ -41,10 +41,11 @@ angular.module('PlayzApp.services',['ngResource','ngRoute','ngStorage','ngFacebo
   	function setData(){
   		$facebook.api('/me').then( 
 	      function(response) {
+            console.log(response)
 	        	$rootScope.status=true;
-				$localStorage.userID=response.id;
-				$rootScope.user= response;
-				$location.url("/home");
+    				$localStorage.userID=response.id;
+    				$rootScope.user= response;
+    				$location.url("/home");
 		      },
 		      function(err) {
 		        console.log("Please log in")
@@ -55,25 +56,24 @@ angular.module('PlayzApp.services',['ngResource','ngRoute','ngStorage','ngFacebo
   	var login = function(check){
   		console.log("login")
   		if (check){
-			setData();
+			 setData();
   		}
-		else {
-			$facebook.login().then(function(response){
-				console.log(response);
-				if (response.authResponse) {
-			     setData();
-			    }
-			},function(err){
-			     	console.log('User cancelled login or did not fully authorize.');
-			})
-		}
+  		else {
+  			$facebook.login().then(function(response){
+  				console.log(response);
+  				if (response.authResponse) {
+  			     setData();
+  			  }
+  			},function(err){
+  			     	console.log('User cancelled login or did not fully authorize.');
+  			})
+  		}
   	}
 
   	var logout = function(){
-  		connected=false;
   		$rootScope.status=false;
   		delete $localStorage.userID;
-  		$facebook.logout() 
+  		$facebook.logout().then(function(response){ }); 
   	}
 
   	return{

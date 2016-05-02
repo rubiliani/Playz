@@ -86,7 +86,7 @@ var app = angular.module('PlayzApp', ['ngResource','ngRoute','ngStorage','PlayzA
     //   }
     // })
     .otherwise({
-      redirectTo: '/'
+      redirectTo: '/home'
     });
 
 }); 
