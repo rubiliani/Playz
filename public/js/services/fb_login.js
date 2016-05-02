@@ -1,31 +1,27 @@
 'use-strict';
+/**
+ * https://github.com/GoDisco/ngFacebook
+ */
 angular.module('PlayzApp.services',['ngResource','ngRoute','ngStorage','ngFacebook'])
 .config( function( $facebookProvider ) {
   	$facebookProvider.setAppId('281543515348880');
-  	$facebookProvider.setPermissions("email,user_likes");
+  	$facebookProvider.setPermissions("public_profile,email,user_friends");
+	$facebookProvider.setVersion("v2.0");
   	$facebookProvider.setCustomInit({
   		xfbml      : true
 	});
+
+
+	(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "https://connect.facebook.net/en_US/sdk.js";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+
 })
 .service('fbLogin', function($http, $q, $rootScope, $localStorage, $location,$facebook){
-
-  	(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "https://connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-
-
-	// window.fbAsyncInit = function() {
-	// 	FB.init({
-	// 	  appId      : '281543515348880',
-	// 	  cookie     : true,  // enable cookies to allow the server to access the session
-	// 	  xfbml      : true,  // parse social plugins on this page
-	// 	  version    : 'v2.5' // use version 2.2
-	// 	});
-	// };
 
   	var getStatus = function(){
   		console.log("getStatus")
@@ -35,11 +31,10 @@ angular.module('PlayzApp.services',['ngResource','ngRoute','ngStorage','ngFacebo
 	    		login(true);
 	    	}
   		})
-  		
   	}
 
   	function setData(){
-  		$facebook.api('/me').then( 
+  		$facebook.api('/me?fields=id,email,birthday,first_name,last_name,location,cover,picture').then(
 	      function(response) {
             console.log(response)
 	        	$rootScope.status=true;

@@ -19,7 +19,6 @@
     "node-gcm": "^0.12.1",
     "nodemailer": "^1.8.0",
     "nodemailer-sendmail-transport": "^1.0.0",
-    "nodemon": "^1.8.1",
     "passport": "^0.3.2",
     "passport-oauth": "^1.0.0",
     "passport-paypal-oauth": "^0.1.0",
@@ -37,8 +36,7 @@
   "scripts": {
     "start": "node index.js"
   },
-  "main": "server.js",
-  "devDependencies": {},
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rubiliani/Playz.git"

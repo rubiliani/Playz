@@ -1,4 +1,4 @@
-<nav ng-show="status" class="navbar navbar-inverse navbar-fixed-top app-navbar">
+<nav ng-controller="navbarCtrl" ng-show="status" class="navbar navbar-inverse navbar-fixed-top app-navbar">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-main">
@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand svg-icon" href="#/home">
-        <img src="../css/assets_playz_logo.svg" alt="brand">
+        <img src="img/assets_playz_logo.svg" alt="brand">
       </a>
     </div>
     <div class="navbar-collapse collapse" id="navbar-collapse-main">
@@ -20,6 +20,7 @@
           <li>
             <a href="#/playzer">Playzer Card</a>
           </li>
+          <li><a href="#/" ng-click="facebookLogout()">Logout</a></li>
           <!--
           <li>
             <a data-toggle="modal" href="#msgModal">Messages</a>
@@ -37,7 +38,7 @@
           </li>
           <li>
             <button class="btn btn-default navbar-btn navbar-btn-avitar" data-toggle="popover">
-              <img class="img-circle" id="profileUserPic" ng-src="https://graph.facebook.com/{{user.id}}/picture?type=large">
+              <img class="img-circle" id="profileUserPic" ng-src="{{user.picture.data.url}}">
             </button>
           </li>
         </ul>
@@ -55,7 +56,7 @@
           <li><a data-toggle="modal" href="#msgModal">Messages</a></li>
           <li><a href="docs/index.html">Docs</a></li>
           <li><a href="#" data-action="growl">Growl</a></li>-->
-          <li><a href="#/logout">Logout</a></li>
+            <li><a href="#/" ng-click="facebookLogout()">Logout</a></li>
         </ul>
 
         <ul class="nav navbar-nav hidden">
