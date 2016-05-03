@@ -16,11 +16,11 @@
     <link href="assets/css/application.css" rel="stylesheet">
 
   </head>
-  <body class="with-top-navbar">
+  <body class="{{styles.body}}">
     
     <ng-include src="'views/includes/navbar.html'"> </ng-include>
     
-    <div class="container" ng-view  autoscroll="true" > </div> 
+    <div class="{{styles.container}}" ng-view  autoscroll="true" > </div> 
 
     <script type="text/javascript" src="angular/angular.min.js"></script>
     <script type="text/javascript" src="angular/angular-resource.min.js"></script>
