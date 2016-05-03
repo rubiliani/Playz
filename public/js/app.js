@@ -16,7 +16,6 @@ var app = angular.module('PlayzApp', ['ngResource','ngRoute','ngStorage','PlayzA
         deferred.resolve();
     }
     else {
-        $location.url('/');
         deferred.reject();
     }
     return deferred.promise;
@@ -44,49 +43,29 @@ var app = angular.module('PlayzApp', ['ngResource','ngRoute','ngStorage','PlayzA
   // Define all the routes
   //================================================
   $routeProvider
-    .when('/', {
-      defaultRoute:true,
-      // abstract: true,
-      templateUrl: 'views/login.html',
-      controller: 'loginCtrl'
-    })
-    .when('/home',{
+    .when('/',{
+      //defaultRoute:true,
+      //abstract: true,
       templateUrl: 'views/home.html',
       controller: 'homeCtrl',
       resolve:{
         loggedin : checkLoggedin
       }
     })
-    //  .when('/seller_management',{
-    //   templateUrl: 'views/seller_management.html',
-    //   controller: 'sellerManagementCtrl',
-    //   resolve:{
-    //     loggedin : checkLoggedin
-    //   }
-    // })
-    //   .when('/old_wash_management',{
-    //   templateUrl: 'views/old_wash_management.html',
-    //   controller: 'oldWashManagementCtrl',
-    //   resolve:{
-    //     loggedin : checkLoggedin
-    //   }
-    // })
-    //    .when('/new_wash_management',{
-    //   templateUrl: 'views/new_wash_management.html',
-    //   controller: 'newWashManagementCtrl',
-    //   resolve:{
-    //     loggedin : checkLoggedin
-    //   }
-    // })
-    // .when('/manager_chat',{
-    //   templateUrl: 'views/manager_chat.html',
-    //   controller: 'manager_chatCtrl',
-    //   resolve:{
-    //     loggedin : checkLoggedin
-    //   }
-    // })
+    .when('/login', {
+      templateUrl: 'views/login.html',
+      controller: 'loginCtrl',
+
+    })
+    .when('/playzcard',{
+      templateUrl: 'views/playzCard.html',
+      controller: 'playzcardCtrl',
+      resolve:{
+        loggedin : checkLoggedin
+      }
+    })
     .otherwise({
-      redirectTo: '/home'
+      redirectTo: '/'
     });
 
 }); 
@@ -101,10 +80,31 @@ app.run(function($q, $rootScope, $window, $http, $localStorage, $route, $locatio
     },
     domain: 'https://agile-depths-92655.herokuapp.com/'
   };
+  $rootScope.status=false;
+  $rootScope.$watch("status", function(newValue, oldValue){
+    if (newValue){
+      $location.url( "/" );
+    }
+    else{
+      $location.url( "/login" );
+    }
+  });
 
-  $timeout(function(){
-    fbLogin.getStatus()
-  },1000);
+  fbLogin.getStatus();
+
+  // register listener to watch route changes
+  $rootScope.$on( "$routeChangeStart", function(event, next, current) {
+    console.log("routeChangeStart next->",next.templateUrl)
+    if ( next.templateUrl == "views/login.html" ) {
+      if ($rootScope.status) {
+        event.preventDefault();
+      }
+    }
+    //else if (!next.templateUrl){
+    //  $location.url( "/" );
+    //}
+  });
+
   //$http.defaults.headers.common.uid = $localStorage.uid;
   //$location.url("/user_management")
   // $http.post($rootScope.app.domain+'validate_admin',$rootScope.admin)
