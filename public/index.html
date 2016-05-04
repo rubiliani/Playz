@@ -14,6 +14,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
     <link href="assets/css/toolkit.css" rel="stylesheet">
     <link href="assets/css/application.css" rel="stylesheet">
+    <link href="css/plugins/slider.css" rel="stylesheet">
 
   </head>
   <body ng-class="{'with-top-navbar':status  , 'container-content-middle loginBody':!status }">
@@ -39,8 +40,17 @@
     <script type="text/javascript" src="js/services/DB_queries.js"></script>
     <script type="text/javascript" src="js/controllers/login.js"></script>
     <script type="text/javascript" src="js/controllers/home.js"></script>
-    <script type="text/javascript" src="js/controllers/playzcard.js"></script>
+    <script type="text/javascript" src="js/controllers/profile.js"></script>
+    <script type="text/javascript" src="js/controllers/register.js"></script>
+    <script type="text/javascript" src="js/controllers/create.js"></script>
+    <script type="text/javascript" src="js/controllers/event.js"></script>
     <script type="text/javascript" src="js/controllers/navbar.js"></script>
+
+    <script type="text/javascript" src="js/plugins/map.js"></script>
+    <script type="text/javascript" src="js/plugins/slider.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAAQtY4RbKemiqGsidoXxgtquJpwmsfr8&callback=initMap"
+            async defer></script>
 
     <script>
       // execute/clear BS loaders for docs

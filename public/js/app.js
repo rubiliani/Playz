@@ -57,13 +57,34 @@ var app = angular.module('PlayzApp', ['ngResource','ngRoute','ngStorage','PlayzA
       controller: 'loginCtrl',
 
     })
-    .when('/playzcard',{
-      templateUrl: 'views/playzCard.html',
-      controller: 'playzcardCtrl',
+    .when('/register',{
+      templateUrl: 'views/register.html',
+      controller: 'registerCtrl',
       resolve:{
         loggedin : checkLoggedin
       }
     })
+      .when('/create',{
+        templateUrl: 'views/create.html',
+        controller: 'createCtrl',
+        resolve:{
+          loggedin : checkLoggedin
+        }
+      })
+      .when('/event',{
+        templateUrl: 'views/event.html',
+        controller: 'eventCtrl',
+        resolve:{
+          loggedin : checkLoggedin
+        }
+      })
+      .when('/profile',{
+        templateUrl: 'views/profile.html',
+        controller: 'profileCtrl',
+        resolve:{
+          loggedin : checkLoggedin
+        }
+      })
     .otherwise({
       redirectTo: '/'
     });
