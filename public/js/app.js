@@ -83,6 +83,7 @@ app.run(function($q, $rootScope, $window, $http, $localStorage, $route, $locatio
   $rootScope.status=false;
   $rootScope.$watch("status", function(newValue, oldValue){
     if (newValue){
+      //TODO improve redirection
       $location.url( "/" );
     }
     else{
@@ -104,18 +105,6 @@ app.run(function($q, $rootScope, $window, $http, $localStorage, $route, $locatio
     //  $location.url( "/" );
     //}
   });
-
-  //$http.defaults.headers.common.uid = $localStorage.uid;
-  //$location.url("/user_management")
-  // $http.post($rootScope.app.domain+'validate_admin',$rootScope.admin)
-  //     .success(function(data){
-  //         console.log("success",data)
-  //         if(data.status != 1) return;
-          
-  //         $rootScope.status=true;
-  //     }).error(function(data){$rootScope.status=false; })
-  //     ['finally'](function() {
-  // });
 
 })
 
