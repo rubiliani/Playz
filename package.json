@@ -34,7 +34,7 @@
     "npm": "2.14.7"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "main": "index.js",
   "repository": {

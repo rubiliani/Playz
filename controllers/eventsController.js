@@ -1,5 +1,4 @@
 
-var Event = require ('../models/event');
 var async = require("async");
 
 
@@ -27,14 +26,13 @@ module.exports.getList = function(req,res){
 
 
 
-module.exports.getOtherList = function(req,res){
+exports.getOtherList = function(req,res){
 	var id = req.params.id;
 
 	var populateQuery = [{path:'_user'}, {path:'regiteredUsers._user'}];
 	console.log(id);
 
-	Event
-		.find({fbUserID:{ $ne : id}}, function(err,results){
+	Event.find({fbUserID:{ $ne : id}}, function(err,results){
 			res.json(results);
 		}).populate(populateQuery)
 			.exec(function (err, event) {

@@ -96,10 +96,8 @@ app.run(function($q, $rootScope, $window, $http, $localStorage, $route, $locatio
 
   $rootScope.app = {
     name:'Playz',
-    _comment:{
-      domain: (document.domain == 'localhost')?'http://localhost:8080/':'https://agile-depths-92655.herokuapp.com/'
-    },
-    domain: 'https://agile-depths-92655.herokuapp.com/'
+    domain: (document.domain == 'localhost')?'http://localhost:3000/':'https://agile-depths-92655.herokuapp.com/'
+
   };
   $rootScope.status=false;
   $rootScope.$watch("status", function(newValue, oldValue){

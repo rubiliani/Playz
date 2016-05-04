@@ -20,7 +20,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 3000;
 app.set('port', port);
 
 app.locals.name = 'Playz';
@@ -71,25 +71,25 @@ else{ }
 
 //REST API
 //events
-app.post('/api/events/:id', controllers.eventsController.create);
-app.post('/api/events/users/:id', controllers.eventsController.addUser);
-app.get('/api/events/:id', controllers.eventsController.getList);
-app.get('/api/events/other/:id', controllers.eventsController.getOtherList);
-app.get('/api/events/today/:id', controllers.eventsController.getTodayOtherList);
-app.get('/api/events/tomorrow/:id', controllers.eventsController.getTomorrowOtherList);
-app.get('/api/events/negotiable/:id', controllers.eventsController.getNegotOtherList);
+app.post('/events/:id', controllers.eventsController.create);
+app.post('/events/users/:id', controllers.eventsController.addUser);
+app.get('/events/:id', controllers.eventsController.getList);
+app.get('/events/other/:id', controllers.eventsController.getOtherList);
+app.get('/events/today/:id', controllers.eventsController.getTodayOtherList);
+app.get('/events/tomorrow/:id', controllers.eventsController.getTomorrowOtherList);
+app.get('/events/negotiable/:id', controllers.eventsController.getNegotOtherList);
 //sports
-app.get('/api/sports', controllers.sportsController.getList);
+app.get('/sports', controllers.sportsController.getList);
 
 
 //users
-app.post('/api/users', controllers.usersController.create);
-app.post('/api/users/events/:id', controllers.usersController.addEvent);
-app.get('/api/users/events/:id', controllers.usersController.getMyEventList);
-app.get('/api/users', controllers.usersController.getList);
-app.get('/api/users/remove/:id', controllers.usersController.remove);
-app.get('/api/users/update/:id', controllers.usersController.update);
-app.get('/api/users/checkExist/:id', controllers.usersController.checkExist);
+app.post('/users', controllers.usersController.create);
+app.post('/users/events/:id', controllers.usersController.addEvent);
+app.get('/users/events/:id', controllers.usersController.getMyEventList);
+app.get('/users', controllers.usersController.getList);
+app.get('/users/remove/:id', controllers.usersController.remove);
+app.get('/users/update/:id', controllers.usersController.update);
+app.get('/users/checkExist/:id', controllers.usersController.checkExist);
 
 
 
