@@ -88,7 +88,7 @@ function setCurrentLocation(){
 	     zoom: 11});
 
 
-
+	map.setOptions({draggable: false,scrollwheel: false});
 	  infoWindow = new google.maps.InfoWindow({map: map});
 			  // Try HTML5 geolocation.
 	if (navigator.geolocation) {
@@ -115,7 +115,8 @@ function setCurrentLocation(){
 			    fillOpacity: 0.35,
 			    map: map,
 			    radius: 5000,
-			    center:pos
+			    center:pos,
+
 			  });
 		},function() {
 			handleLocationError(true, infoWindow, map.getCenter());

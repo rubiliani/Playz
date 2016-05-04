@@ -42,6 +42,7 @@ app.use('/create', express.static(process.env.PWD + '/client/views/EventFlow/ind
 app.use('/main', express.static(process.env.PWD + '/client/views/main.html'));
 app.use('/playzer', express.static(process.env.PWD + '/client/views/profile/index.html'));
 app.use('/register', express.static(process.env.PWD + '/client/views/register/index.html'));
+app.use('/event', express.static(process.env.PWD + '/client/views/eventcard/index.html'));
 
 app.use('/assets/fonts', express.static(process.env.PWD + '/client/Assets/fonts'));
 app.use('/assets/img', express.static(process.env.PWD + '/client/Assets/img'));
