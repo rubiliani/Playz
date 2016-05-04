@@ -16,7 +16,7 @@ app.use(bodyParser.json({ limit: '50mb' }));
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, uid, upwd");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, uid");
   next();
 });
 
@@ -71,7 +71,7 @@ else{ }
 
 //REST API
 //events
-app.post('/api/events/:id', controllers.eventsController.create);
+app.post('/api/events/:id' ,controllers.eventsController.create);
 app.post('/api/events/users/:id', controllers.eventsController.addUser);
 app.get('/api/events/:id', controllers.eventsController.getList);
 app.get('/api/events/other/:id', controllers.eventsController.getOtherList);

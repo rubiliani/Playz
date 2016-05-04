@@ -71,7 +71,7 @@ var app = angular.module('PlayzApp', ['ngResource','ngRoute','ngStorage','PlayzA
 }); 
 
 
-app.run(function($q, $rootScope, $window, $http, $localStorage, $route, $location,$document, $timeout, fbLogin){
+app.run(function($q, $rootScope, $window, $http, $localStorage, $route, $location,$document, $timeout, fbLogin,DB_queries){
 
   $rootScope.app = {
     name:'Playz',
@@ -81,8 +81,10 @@ app.run(function($q, $rootScope, $window, $http, $localStorage, $route, $locatio
     domain: 'https://agile-depths-92655.herokuapp.com/'
   };
   $rootScope.status=false;
+  //TODO improve performance
   $rootScope.$watch("status", function(newValue, oldValue){
     if (newValue){
+      //TODO fix the redirection
       $location.url( "/" );
     }
     else{
@@ -91,7 +93,9 @@ app.run(function($q, $rootScope, $window, $http, $localStorage, $route, $locatio
   });
 
   fbLogin.getStatus();
-
+  //DB_queries.getEvents().then(function(res){
+  //  console.log('getEvents then',res)
+  //});
   // register listener to watch route changes
   $rootScope.$on( "$routeChangeStart", function(event, next, current) {
     console.log("routeChangeStart next->",next.templateUrl)
@@ -105,17 +109,6 @@ app.run(function($q, $rootScope, $window, $http, $localStorage, $route, $locatio
     //}
   });
 
-  //$http.defaults.headers.common.uid = $localStorage.uid;
-  //$location.url("/user_management")
-  // $http.post($rootScope.app.domain+'validate_admin',$rootScope.admin)
-  //     .success(function(data){
-  //         console.log("success",data)
-  //         if(data.status != 1) return;
-          
-  //         $rootScope.status=true;
-  //     }).error(function(data){$rootScope.status=false; })
-  //     ['finally'](function() {
-  // });
 
 })
 

@@ -45,6 +45,7 @@ angular.module('PlayzApp.services',['ngResource','ngRoute','ngStorage','ngFacebo
 	        		$rootScope.status=true;
     				$localStorage.userID=response.id;
     				$rootScope.user= response;
+			  		$http.defaults.headers.common.uid = response.id;
 			  		//deferred.resolve(true);
 		      },
 		      function(err) {
