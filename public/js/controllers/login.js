@@ -4,6 +4,9 @@ angular.module('PlayzApp')
 .controller('loginCtrl', function($scope, $http, $rootScope, $location, fbLogin) {
 	console.log('login controller')
 	$scope.facebookLogin = function(){
-		fbLogin.login();
+		fbLogin.login().then(function(){
+			console.log('i am connected redirect to /')
+			$location.url( "/" );
+		});
 	}
 });

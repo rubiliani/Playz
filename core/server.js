@@ -96,6 +96,6 @@ app.get('/users/checkExist/:id', controllers.usersController.checkExist);
 
 app.get('/*', function(req, res) 
 {
-  console.log({data:'page not found', url: req.url});
-	res.json({msg:['page not allowed '+app.locals.name]});
+    //console.log({data:'page not found', url: req.url});
+    res.json({msg:['page not allowed '+app.locals.name]});
 });

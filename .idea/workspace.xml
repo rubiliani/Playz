@@ -2,288 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0863293-273e-4419-b9e4-9b66afc42687" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/temp/assets/fonts/toolkit-entypo.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/temp/assets/fonts/toolkit-entypo.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/temp/assets/fonts/toolkit-entypo.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/temp/assets/fonts/toolkit-entypo.woff2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/config.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/database.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/server.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/models/sport.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/angular/angular-animate.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/angular/angular-animate.min.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/angular/angular-resource.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/angular/angular-resource.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/angular/angular-resource.min.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/angular/angular-route.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/angular/angular-route.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/angular/angular-route.min.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/angular/angular-vs-repeat.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/angular/angular.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/angular/angular.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/angular/angular.min.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/angular/fileModel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/angular/fileReader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/angular/loading-bar.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/angular/loading-bar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/angular/lodash.core.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/angular/lodash.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/angular/ng-infinite-scroll.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/angular/ngFacebook.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/angular/ngLoader.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/angular/ngStorage.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/angular/ngToast/angular-sanitize.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/angular/ngToast/ngFacebook.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/angular/ngToast/ngToast-animations.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/angular/ngToast/ngToast-animations.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/angular/ngToast/ngToast.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/angular/ngToast/ngToast.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/angular/ngToast/ngToast.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/angular/ngToast/ngToast.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/application.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/plugins/slider.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/app.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/controllers/create.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/controllers/event.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/controllers/home.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/controllers/login.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/controllers/navbar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/controllers/playzcard.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/controllers/profile.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/controllers/register.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/plugins/map.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/plugins/slider.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/services/DB_queries.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/services/fb_login.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/temp/chart.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/temp/toolkit.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/create.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/event.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/home.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/includes/navbar.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/login.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/profile.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/register.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/assets_connect_facebook_icon.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/assets_playz_logo_1.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/assets/assets_search_glass.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/css/assets_playz_logo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/js/app.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/js/controllers/events-controller.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/js/controllers/sports-controller.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/js/controllers/users-controller.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/npm-debug.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/core/admin/public/directives/editable.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/core/admin/public/services/users.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/core/admin/server/controllers/module-settings.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/core/articles/server/models/article.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/core/articles/server/routes/articles.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/core/articles/server/tests/articles.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/core/circles/app.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/core/circles/public/routes/circles.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/core/circles/server/models/circle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/core/system/public/services/config.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/core/users/public/services/meanUser.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/core/users/server/controllers/users.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/core/users/server/routes/users.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/custom/i18n/app.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/models/sport.js" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/run.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gitignore" afterPath="$PROJECT_DIR$/gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/Playz assets_+icon.svg" afterPath="$PROJECT_DIR$/public/img/Playz assets_+icon.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/Playz assets_add_icon.svg" afterPath="$PROJECT_DIR$/public/img/Playz assets_add_icon.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/Playz assets_arrow_icon.svg" afterPath="$PROJECT_DIR$/public/img/Playz assets_arrow_icon.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/Playz assets_attach_icon.svg" afterPath="$PROJECT_DIR$/public/img/Playz assets_attach_icon.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/Playz assets_chat_icon.svg" afterPath="$PROJECT_DIR$/public/img/Playz assets_chat_icon.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/Playz assets_connect_google_icon.svg" afterPath="$PROJECT_DIR$/public/img/Playz assets_connect_google_icon.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/Playz assets_google_maps.svg" afterPath="$PROJECT_DIR$/public/img/Playz assets_google_maps.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/Playz assets_hamburger_icon.svg" afterPath="$PROJECT_DIR$/public/img/Playz assets_hamburger_icon.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/Playz assets_left_bar.svg" afterPath="$PROJECT_DIR$/public/img/Playz assets_left_bar.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/Playz assets_right_bar.svg" afterPath="$PROJECT_DIR$/public/img/Playz assets_right_bar.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/Playz assets_search_more_icon.svg" afterPath="$PROJECT_DIR$/public/img/Playz assets_search_more_icon.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/Playz assets_user_pic_frame.svg" afterPath="$PROJECT_DIR$/public/img/Playz assets_user_pic_frame.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/Playz assets_v.svg" afterPath="$PROJECT_DIR$/public/img/Playz assets_v.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/Playz assets_waze_icon.svg" afterPath="$PROJECT_DIR$/public/img/Playz assets_waze_icon.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/assets_playz_logo.svg" afterPath="$PROJECT_DIR$/public/img/assets_playz_logo.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/fonts/toolkit-entypo.eot" afterPath="$PROJECT_DIR$/public/assets/fonts/toolkit-entypo.eot" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/fonts/toolkit-entypo.ttf" afterPath="$PROJECT_DIR$/public/assets/fonts/toolkit-entypo.ttf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/fonts/toolkit-entypo.woff" afterPath="$PROJECT_DIR$/public/assets/fonts/toolkit-entypo.woff" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/fonts/toolkit-entypo.woff2" afterPath="$PROJECT_DIR$/public/assets/fonts/toolkit-entypo.woff2" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/img/avatar-dhg.png" afterPath="$PROJECT_DIR$/public/assets/img/avatar-dhg.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/img/avatar-fat.jpg" afterPath="$PROJECT_DIR$/public/assets/img/avatar-fat.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/img/avatar-mdo.png" afterPath="$PROJECT_DIR$/public/assets/img/avatar-mdo.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/img/blur.png" afterPath="$PROJECT_DIR$/public/assets/img/blur.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/img/blur1.png" afterPath="$PROJECT_DIR$/public/assets/img/blur1.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/img/brand-white.png" afterPath="$PROJECT_DIR$/public/assets/img/brand-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/img/brand.png" afterPath="$PROJECT_DIR$/public/assets/img/brand.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/img/iceland.jpg" afterPath="$PROJECT_DIR$/public/assets/img/iceland.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_1.jpg" afterPath="$PROJECT_DIR$/public/assets/img/instagram_1.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_10.jpg" afterPath="$PROJECT_DIR$/public/assets/img/instagram_10.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_11.jpg" afterPath="$PROJECT_DIR$/public/assets/img/instagram_11.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_12.jpg" afterPath="$PROJECT_DIR$/public/assets/img/instagram_12.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_13.jpg" afterPath="$PROJECT_DIR$/public/assets/img/instagram_13.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_14.jpg" afterPath="$PROJECT_DIR$/public/assets/img/instagram_14.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_15.jpg" afterPath="$PROJECT_DIR$/public/assets/img/instagram_15.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_16.jpg" afterPath="$PROJECT_DIR$/public/assets/img/instagram_16.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_17.jpg" afterPath="$PROJECT_DIR$/public/assets/img/instagram_17.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_18.jpg" afterPath="$PROJECT_DIR$/public/assets/img/instagram_18.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_2.jpg" afterPath="$PROJECT_DIR$/public/assets/img/instagram_2.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_3.jpg" afterPath="$PROJECT_DIR$/public/assets/img/instagram_3.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_4.jpg" afterPath="$PROJECT_DIR$/public/assets/img/instagram_4.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_5.jpg" afterPath="$PROJECT_DIR$/public/assets/img/instagram_5.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_6.jpg" afterPath="$PROJECT_DIR$/public/assets/img/instagram_6.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_7.jpg" afterPath="$PROJECT_DIR$/public/assets/img/instagram_7.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_8.jpg" afterPath="$PROJECT_DIR$/public/assets/img/instagram_8.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/img/instagram_9.jpg" afterPath="$PROJECT_DIR$/public/assets/img/instagram_9.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/img/unsplash_1.jpg" afterPath="$PROJECT_DIR$/public/assets/img/unsplash_1.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/assets/img/unsplash_2.jpg" afterPath="$PROJECT_DIR$/public/assets/img/unsplash_2.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/application.css" afterPath="$PROJECT_DIR$/public/assets/css/application.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/public/assets/css/bootstrap.min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/docs.css" afterPath="$PROJECT_DIR$/public/assets/css/docs.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/ajax-loader.gif" afterPath="$PROJECT_DIR$/public/img/ajax-loader.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/action-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/action-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/action-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/action-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/alert-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/alert-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/alert-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/alert-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-d-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/arrow-d-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-d-l-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/arrow-d-l-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-d-l-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/arrow-d-l-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-d-r-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/arrow-d-r-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-d-r-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/arrow-d-r-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-d-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/arrow-d-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-l-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/arrow-l-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-l-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/arrow-l-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-r-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/arrow-r-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-r-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/arrow-r-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-u-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/arrow-u-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-u-l-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/arrow-u-l-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-u-l-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/arrow-u-l-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-u-r-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/arrow-u-r-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-u-r-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/arrow-u-r-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/arrow-u-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/arrow-u-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/audio-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/audio-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/audio-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/audio-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/back-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/back-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/back-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/back-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/bars-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/bars-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/bars-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/bars-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/bullets-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/bullets-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/bullets-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/bullets-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/calendar-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/calendar-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/calendar-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/calendar-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/camera-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/camera-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/camera-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/camera-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/carat-d-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/carat-d-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/carat-d-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/carat-d-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/carat-l-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/carat-l-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/carat-l-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/carat-l-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/carat-r-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/carat-r-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/carat-r-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/carat-r-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/carat-u-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/carat-u-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/carat-u-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/carat-u-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/check-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/check-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/check-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/check-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/clock-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/clock-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/clock-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/clock-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/cloud-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/cloud-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/cloud-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/cloud-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/comment-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/comment-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/comment-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/comment-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/delete-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/delete-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/delete-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/delete-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/edit-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/edit-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/edit-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/edit-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/eye-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/eye-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/eye-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/eye-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/forbidden-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/forbidden-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/forbidden-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/forbidden-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/forward-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/forward-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/forward-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/forward-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/gear-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/gear-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/gear-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/gear-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/grid-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/grid-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/grid-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/grid-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/heart-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/heart-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/heart-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/heart-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/home-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/home-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/home-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/home-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/info-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/info-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/info-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/info-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/location-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/location-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/location-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/location-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/lock-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/lock-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/lock-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/lock-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/mail-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/mail-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/mail-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/mail-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/minus-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/minus-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/minus-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/minus-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/navigation-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/navigation-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/navigation-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/navigation-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/phone-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/phone-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/phone-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/phone-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/plus-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/plus-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/plus-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/plus-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/power-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/power-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/power-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/power-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/recycle-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/recycle-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/recycle-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/recycle-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/refresh-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/refresh-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/refresh-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/refresh-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/search-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/search-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/search-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/search-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/shop-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/shop-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/shop-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/shop-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/star-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/star-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/star-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/star-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/tag-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/tag-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/tag-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/tag-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/user-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/user-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/user-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/user-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/video-black.png" afterPath="$PROJECT_DIR$/public/css/icons-png/video-black.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/images/icons-png/video-white.png" afterPath="$PROJECT_DIR$/public/css/icons-png/video-white.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/jquery.mobile.icons.min.css" afterPath="$PROJECT_DIR$/public/assets/css/jquery.mobile.icons.min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/playz.css" afterPath="$PROJECT_DIR$/public/assets/css/playz.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/playz.min.css" afterPath="$PROJECT_DIR$/public/assets/css/playz.min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/slider.css" afterPath="$PROJECT_DIR$/public/assets/css/slider.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/styles.css" afterPath="$PROJECT_DIR$/public/assets/css/styles.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/stylesCards.css" afterPath="$PROJECT_DIR$/public/assets/css/stylesCards.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/css/toolkit.css" afterPath="$PROJECT_DIR$/public/assets/css/toolkit.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/js/application.js" afterPath="$PROJECT_DIR$/public/temp/application.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/js/bootstrap-slider.js" afterPath="$PROJECT_DIR$/public/temp/bootstrap-slider.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/public/temp/bootstrap.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/js/chart.js" afterPath="$PROJECT_DIR$/public/assets/js/chart.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/js/facebook.js" afterPath="$PROJECT_DIR$/public/temp/facebook.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/js/home.js" afterPath="$PROJECT_DIR$/public/temp/home.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/js/jquery.min.js" afterPath="$PROJECT_DIR$/public/assets/js/jquery.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/js/maps.js" afterPath="$PROJECT_DIR$/public/temp/maps.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/js/profile.js" afterPath="$PROJECT_DIR$/public/temp/profile.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/js/register.js" afterPath="$PROJECT_DIR$/public/temp/register.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/js/scripts.js" afterPath="$PROJECT_DIR$/public/temp/scripts.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/js/slider.js" afterPath="$PROJECT_DIR$/public/temp/slider.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/js/toolkit.js" afterPath="$PROJECT_DIR$/public/assets/js/toolkit.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/views/EventFlow/index.html" afterPath="$PROJECT_DIR$/public/temp/EventFlow/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/views/EventFlow/index1.html" afterPath="$PROJECT_DIR$/public/temp/EventFlow/index1.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/views/EventFlow/index2.html" afterPath="$PROJECT_DIR$/public/temp/EventFlow/index2.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/views/home/index.html" afterPath="$PROJECT_DIR$/public/temp/home/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/views/login/index.html" afterPath="$PROJECT_DIR$/public/temp/login/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/views/old/home.html" afterPath="$PROJECT_DIR$/public/temp/old/home.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/views/old/index copy.html" afterPath="$PROJECT_DIR$/public/temp/old/index copy.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/views/old/index org.html" afterPath="$PROJECT_DIR$/public/temp/old/index org.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/views/old/index.html" afterPath="$PROJECT_DIR$/public/temp/old/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/views/old/main.html" afterPath="$PROJECT_DIR$/public/temp/old/main.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/views/profile/index.html" afterPath="$PROJECT_DIR$/public/temp/profile/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/views/profile/index1.html" afterPath="$PROJECT_DIR$/public/temp/profile/index1.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/views/register/index.html" afterPath="$PROJECT_DIR$/public/temp/register/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/server/controllers/events-controller.js" afterPath="$PROJECT_DIR$/controllers/eventsController.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/server/controllers/sports-controller.js" afterPath="$PROJECT_DIR$/controllers/sportsController.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/server/controllers/users-controller.js" afterPath="$PROJECT_DIR$/controllers/usersController.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/server/models/event.js" afterPath="$PROJECT_DIR$/models/event.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/server/models/user.js" afterPath="$PROJECT_DIR$/models/user.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/server.js" afterPath="$PROJECT_DIR$/core/server.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/app.js" afterPath="$PROJECT_DIR$/public/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/controllers/login.js" afterPath="$PROJECT_DIR$/public/js/controllers/login.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/services/fb_login.js" afterPath="$PROJECT_DIR$/public/js/services/fb_login.js" />
     </list>
     <ignored path="Playz.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -303,7 +29,38 @@
     <favorites_list name="Playz" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-13.166667">
+              <caret line="48" column="60" selection-start-line="48" selection-start-column="60" selection-end-line="48" selection-end-column="60" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="run.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/run.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fb_login.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/js/services/fb_login.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.43150684">
+              <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -311,15 +68,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/views/login.html" />
         <option value="$PROJECT_DIR$/public/assets/js/application.js" />
         <option value="$PROJECT_DIR$/public/js/controllers/navbar.js" />
         <option value="$PROJECT_DIR$/public/js/controllers/playzcard.js" />
-        <option value="$PROJECT_DIR$/public/js/controllers/login.js" />
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/public/js/services/queries.js" />
         <option value="$PROJECT_DIR$/public/todos.md" />
-        <option value="$PROJECT_DIR$/public/js/services/fb_login.js" />
         <option value="$PROJECT_DIR$/public/js/controllers/event.js" />
         <option value="$PROJECT_DIR$/public/js/controllers/profile.js" />
         <option value="$PROJECT_DIR$/public/js/controllers/register.js" />
@@ -332,16 +86,21 @@
         <option value="$PROJECT_DIR$/public/css/plugins/slider.css" />
         <option value="$PROJECT_DIR$/public/js/controllers/create.js" />
         <option value="$PROJECT_DIR$/public/js/plugins/map.js" />
-        <option value="$PROJECT_DIR$/public/index.html" />
-        <option value="$PROJECT_DIR$/public/views/home.html" />
         <option value="$PROJECT_DIR$/models/event.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/public/js/app.js" />
         <option value="$PROJECT_DIR$/public/js/services/DB_queries.js" />
-        <option value="$PROJECT_DIR$/core/server.js" />
         <option value="$PROJECT_DIR$/controllers/eventsController.js" />
         <option value="$PROJECT_DIR$/public/js/controllers/home.js" />
         <option value="$PROJECT_DIR$/gitignore" />
+        <option value="$PROJECT_DIR$/core/server.js" />
+        <option value="$PROJECT_DIR$/public/views/login.html" />
+        <option value="$PROJECT_DIR$/public/js/app.js" />
+        <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/public/js/controllers/login.js" />
+        <option value="$PROJECT_DIR$/public/views/home.html" />
+        <option value="$PROJECT_DIR$/public/js/run.js" />
+        <option value="$PROJECT_DIR$/public/js/config.js" />
+        <option value="$PROJECT_DIR$/public/js/services/fb_login.js" />
       </list>
     </option>
   </component>
@@ -381,6 +140,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -399,10 +159,125 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Playz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Playz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Playz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Playz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Playz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Playz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Playz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Playz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Playz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Playz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Playz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Playz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -414,17 +289,17 @@
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files (x86)\nodejs\node.exe" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Documents\Documents\GitHub\Playz\public\js\controllers" />
-      <recent name="D:\Documents\Documents\GitHub\Playz\public\views" />
-      <recent name="D:\Documents\Documents\GitHub\Playz\public\theme" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Documents\Documents\GitHub\Playz\public\js" />
       <recent name="D:\Documents\Documents\GitHub\Playz\public\img" />
       <recent name="D:\Documents\Documents\GitHub\Playz\public\assets\img" />
       <recent name="D:\Documents\Documents\GitHub\Playz\public\assets\css" />
       <recent name="D:\Documents\Documents\GitHub\Playz\public" />
-      <recent name="D:\Documents\Documents\GitHub\Playz\public\assets" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Documents\Documents\GitHub\Playz\public\js\controllers" />
+      <recent name="D:\Documents\Documents\GitHub\Playz\public\views" />
+      <recent name="D:\Documents\Documents\GitHub\Playz\public\theme" />
     </key>
   </component>
   <component name="RunManager">
@@ -492,19 +367,19 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2157738" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34313726" sideWeight="0.5029762" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34313726" sideWeight="0.49702382" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34313726" sideWeight="0.49702382" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20895523" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -539,30 +414,92 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.054830287">
+        <state vertical-scroll-proportion="0.056149732">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5988372">
+          <caret line="37" column="27" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39848197">
+          <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7123288">
+          <caret line="99" column="4" selection-start-line="99" selection-start-column="4" selection-end-line="99" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.72">
+          <caret line="59" column="26" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/controllers/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.4444447">
+          <caret line="7" column="53" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="62" column="17" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17979452">
+          <caret line="5" column="96" selection-start-line="5" selection-start-column="96" selection-end-line="5" selection-end-column="96" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.2719548">
-          <caret line="55" column="6" selection-start-line="55" selection-start-column="6" selection-end-line="55" selection-end-column="6" />
+        <state vertical-scroll-proportion="-13.166667">
+          <caret line="48" column="60" selection-start-line="48" selection-start-column="60" selection-end-line="48" selection-end-column="60" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/public/js/run.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0">
-          <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/services/fb_login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43150684">
+          <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
           <folding />
         </state>
       </provider>
