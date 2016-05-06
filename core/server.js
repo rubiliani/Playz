@@ -11,7 +11,7 @@ var http = require('http').Server(app);
 
 app.use(express.static(process.cwd() + '/public'));
 app.use(bodyParser({limit: '50mb'}));
-app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json({ limit: '50mb' }));
 
 app.use(function(req, res, next) {
