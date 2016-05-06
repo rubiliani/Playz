@@ -52,7 +52,7 @@ var env = process.env.NODE_ENV || 'development';
 if ('development' == env) { }
 else{ }
 
-
+app.get('/', function(rez,res,next){ });
 //events
 app.post('/events/:id', controllers.eventsController.create);
 app.post('/events/users/:id', controllers.eventsController.addUser);
