@@ -1,15 +1,31 @@
-
-var User = require ('../models/user')
 var moment = require('moment')
+/**
+ * receive user and update or create in the db
+ * @param req
+ * @param res
+ */
+exports.update_user = function(req,res,next){
+	var r = {msg:[],status:0};
+	var user = req.body.user;
+
+	if (!user || typeof(user) !== 'object' || !user.id){
+		r.msg.push('user not exist or user id not found',user);
+		return res.json(r);
+	}
+
+	User.update_user(user,function(result){
+		return res.json(result)
+	});
+}
 
 module.exports.create = function(req,res){
-	console.log(req.body);
-
-
-	var usr = new User(req.body);
-	usr.save(function(err,result){
-		res.json(result);
-	});
+	//console.log(req.body);
+    //
+    //
+	//var usr = new User(req.body);
+	//usr.save(function(err,result){
+	//	res.json(result);
+	//});
 }
 
 module.exports.getList = function(req,res){
@@ -29,7 +45,7 @@ module.exports.remove = function(req,res){
 module.exports.getMyEventList = function(req,res){
 	var id = req.params.id;
 	var populateQuery = [{path:'regiteredEvents._event'},{path:'regiteredEvents._event._user'}];
-	console.log(id);
+	//console.log(id);
 	
 	User.find({fbUserID : id}, function(err,results){
 		res.json(results);

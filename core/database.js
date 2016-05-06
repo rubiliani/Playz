@@ -10,7 +10,7 @@ fs.readdirSync(models_path).forEach(function (file) {
 
 
 mongoose.connect(config.db.mongoUrl, config.db.options);
-db = mongoose.connection;
+var db = mongoose.connection;
 
 db.on('error', function (err) {
     console.error('MongoDB connection error:', err);

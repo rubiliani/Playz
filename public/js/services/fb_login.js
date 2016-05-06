@@ -13,7 +13,7 @@ angular.module('PlayzApp.services',['ngResource','ngRoute','ngStorage','ngFacebo
 	}(document, 'script', 'facebook-jssdk'));
 
   	$facebookProvider.setAppId('281543515348880');
-  	$facebookProvider.setPermissions("public_profile,email,user_friends");
+  	$facebookProvider.setPermissions("public_profile,email,user_friends,user_hometown,user_location,user_birthday");
 	$facebookProvider.setVersion("v2.0");
   	$facebookProvider.setCustomInit({
   		xfbml:true,
@@ -21,7 +21,7 @@ angular.module('PlayzApp.services',['ngResource','ngRoute','ngStorage','ngFacebo
 	});
 
 })
-.service('fbLogin', function($http, $q, $rootScope, $localStorage, $location,$facebook){
+.service('fbLogin', function($http, $q, $rootScope, $localStorage, $location,$facebook, DB_queries){
 	var isLoggedIn = false;
 
 	var _routeStatus = function(){
@@ -59,7 +59,7 @@ angular.module('PlayzApp.services',['ngResource','ngRoute','ngStorage','ngFacebo
 
   	function getUserData(){
 		var deferred = $q.defer();
-  		$facebook.api('/me?fields=id,email,birthday,first_name,last_name,location,cover,picture').then(
+  		$facebook.api('/me?fields=id,email,birthday,gender,age_range,name,first_name,last_name,location,cover,picture{url}').then(
 	      function(response) {
             console.log('api',response)
 			  		isLoggedIn=true;
@@ -67,6 +67,7 @@ angular.module('PlayzApp.services',['ngResource','ngRoute','ngStorage','ngFacebo
     				$localStorage.userID=response.id;
     				$rootScope.user= response;
 			  		$http.defaults.headers.common.uid = response.id;
+			  		DB_queries.updateUser(response);
 			  		deferred.resolve(true);
 		      },
 		      function(err) {

@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 
 
-var EventSchema = new mongoose.Schema({ 
+var EventSchema = new Schema({
 	fbUserID:'string',
 	_user: { type: 'string', ref: 'User' },
 	createdDate :'string',
