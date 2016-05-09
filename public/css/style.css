@@ -1,5 +1,5 @@
-.googlePlaces *{
-    /*position: relative !important;*/
-    /*text-align: center;*/
-    /*width: 100%;*/
+.fullBackground {
+    background-position: center;
+    background-size:cover ;
+    background-repeat: no-repeat;
 }

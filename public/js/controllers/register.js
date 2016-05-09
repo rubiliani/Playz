@@ -28,7 +28,8 @@ angular.module('PlayzApp')
             }
 
            DB_queries.updateUser($scope.register).then(function(user){
-               console.log('register - update user',user)
+               console.log('register - update user',user);
+               $rootScope.user=user;
                 $location.url('/')
            })
         }
