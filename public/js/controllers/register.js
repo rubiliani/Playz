@@ -9,13 +9,22 @@ angular.module('PlayzApp')
             about:$rootScope.user.about,
             hometown:$rootScope.user.hometown
         };
-
+        $scope.options = {
+            types: '(cities)',
+            //country: 'ca',
+            typesEnabled: true,
+            boundsEnabled: true,
+            componentEnabled: true,
+            watchEnter: true
+        }
         $scope.updateUser=function(){
             if ($scope.register.hometown.data) {
-                console.log($scope.register.hometown)
+                var lat = ($scope.register.hometown.data.geometry.location.lat===typeof 'function')?$scope.register.hometown.data.geometry.location.lat():$scope.register.hometown.data.geometry.location.lat;
+                var lng = ($scope.register.hometown.data.geometry.location.lng===typeof 'function')?$scope.register.hometown.data.geometry.location.lng():$scope.register.hometown.data.geometry.location.lng;
                 $scope.register.hometown.name = $scope.register.hometown.data.formatted_address;
-                $scope.register.hometown.latitude = $scope.register.hometown.data.geometry.viewport.south
-                $scope.register.hometown.longitude = $scope.register.hometown.data.geometry.viewport.east
+                $scope.register.hometown.latitude = lat;
+                $scope.register.hometown.longitude = lng;
+                console.log($scope.register.hometown)
             }
 
            DB_queries.updateUser($scope.register).then(function(user){
