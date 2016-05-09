@@ -20,7 +20,7 @@ var EventSchema = new Schema({
 	ageRangeMax:'string', 
 	genderSelection:'string',
 	payedSelection:'string',
-	regiteredUsers:[{ _user:{ type: 'string', ref: 'User' }, picLink: String }]
+	registeredUsers:[{ _user:{ type: 'string', ref: 'User' }, picLink: String }]
 });
 
 //module.exports = mongoose.model('Event',schema);

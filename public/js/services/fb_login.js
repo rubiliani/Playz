@@ -26,12 +26,17 @@ angular.module('PlayzApp.services',['ngResource','ngRoute','ngStorage','ngFacebo
 
 	var _routeStatus = function(){
 		var deferred = $q.defer();
+		if (isLoggedIn){
+			deferred.resolve();
+		}
 		$facebook.getLoginStatus().then(function(response){
 			console.log('get route status',response);
 			if (response.status === "connected"){
-				deferred.resolve(true);
+				isLoggedIn=true;
+				deferred.resolve(response);
 			}
 			else{
+				isLoggedIn=false;
 				deferred.reject(false);
 			}
 		})
@@ -45,8 +50,8 @@ angular.module('PlayzApp.services',['ngResource','ngRoute','ngStorage','ngFacebo
   			console.log('getLoginStatus',response);
 	    	if (response.status === "connected"){
 				$rootScope.status=true;
-	    		getUserData().then(function(){
-					deferred.resolve(true);
+	    		getUserData().then(function(user){
+					deferred.resolve(user);
 				})
 	    	}
 			else{
@@ -65,15 +70,19 @@ angular.module('PlayzApp.services',['ngResource','ngRoute','ngStorage','ngFacebo
 			  		isLoggedIn=true;
 	        		$rootScope.status=true;
     				$localStorage.userID=response.id;
-    				$rootScope.user= response;
+    				//$rootScope.user= response;
 			  		$http.defaults.headers.common.uid = response.id;
-			  		DB_queries.updateUser(response);
-			  		deferred.resolve(true);
+			  		DB_queries.updateUser(response).then(function(user){
+						console.log('user from the server - ',user)
+						$rootScope.user=user;
+						deferred.resolve(user);
+					});
+
 		      },
 		      function(err) {
 		        	console.log("Please log in");
 				  	$rootScope.status=false;
-				    deferred.reject(false);
+				    deferred.reject(err);
 	      });
 		return deferred.promise;
   	}
@@ -84,14 +93,14 @@ angular.module('PlayzApp.services',['ngResource','ngRoute','ngStorage','ngFacebo
 		$facebook.login().then(function(response){
 			console.log('login',response);
 			if (response.authResponse) {
-				getUserData().then(function(){
-					deferred.resolve(true);
+				getUserData().then(function(user){
+					deferred.resolve(user);
 				})
 		  	}
 		},function(err){
 			$rootScope.status=false;
 			console.log('User cancelled login or did not fully authorize.');
-			deferred.reject(false);
+			deferred.reject(err);
 		})
 		return deferred.promise;
   	}
@@ -100,7 +109,7 @@ angular.module('PlayzApp.services',['ngResource','ngRoute','ngStorage','ngFacebo
 		isLoggedIn=false;
   		$rootScope.status=false;
   		delete $localStorage.userID;
-  		$facebook.logout().then(function(response){ }); 
+  		$facebook.logout().then(function(response){ });
   	}
 
   	return{

@@ -1,9 +1,9 @@
-
+<form>
 <div class="profile-header text-center blur-bgimage"
      style="background-image: url(../assets/img/iceland.jpg); ">
   <div class="container">
     <div class="container-inner">
-      <img class="img-circle media-object" id="profileUserPic" src="">
+      <img class="img-circle media-object" id="profileUserPic" src="{{user.picture.data.url}}">
       <h3 class="profile-header-user" id="currntUserName"></h3>
     </div>
   </div>
@@ -18,24 +18,12 @@
       <h4>Complete Registration</h4>
     </li>
 
-    <li class="media list-group-item p-a">
-          <div class="media-body">
-            <div class="media-body-text">
-              <div class="media-heading">
-                <label  class="select">Email:</label>
-                <input class="form-control" id="userEmail" type="text">
-            
-         </div>  
-            </div>
-          </div>
-        </li>
-
         <li class="media list-group-item p-a">
           <div class="media-body">
             <div class="media-body-text">
               <div class="media-heading">
                   <label  class="select">Birthday:</label>
-                  <input class="form-control" id="userBirth" type="date">
+                  <input class="form-control" type="date" ng-value="register.birthday" ng-model="register.birthday">
               </div>  
             </div>
           </div>
@@ -44,9 +32,10 @@
           <div class="media-body">
             <div class="media-body-text">
               <div class="media-heading">
-                  <label  class="select">Home Location:</label>
-                  <input class="form-control" id="userHome" type="text">
-              </div>  
+                  <label>Home Location:</label>
+                  <!--<input class="form-control" id="userHome" type="text">-->
+                  <input type="text" class="form-control" ng-value="register.hometown.name" g-places-autocomplete ng-model="register.hometown.data" />
+              </div>
             </div>
           </div>
         </li>
@@ -56,7 +45,8 @@
               <div class="media-heading">
                   <label  class="select">Say somthing about you:</label>
                   
-                  <textarea  class="form-control" rows="2" cols="50">
+                  <textarea  class="form-control" rows="2" cols="50" ng-model="register.about">
+                      {{register.about}}
                   </textarea>
               </div>  
             </div>
@@ -66,7 +56,7 @@
           <div class="media-body">
             <div class="media-body-text">
               <div class="media-heading">
-                  <button class="btn btn-lg btn-pill btn-success" onclick="saveUserParams()">Start Playzing</button>
+                  <button class="btn btn-lg btn-pill btn-success" ng-click="updateUser()">Start Playzing</button>
               </div>  
             </div>
           </div>
@@ -83,5 +73,4 @@
     </div>
   </div>
 </div>
-
-
+</form>

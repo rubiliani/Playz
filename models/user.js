@@ -20,7 +20,8 @@ var userSchema = new Schema({
 	hometown:{
 		name: { type : String, default:''},
 		latitude: { type : Number, default:0},
-		longitude: { type : Number, default:0}
+		longitude: { type : Number, default:0},
+		data: { type: Schema.Types.Mixed, default:{}}
 	},
 	location: {
 		name: { type : String, default:''},
@@ -30,7 +31,8 @@ var userSchema = new Schema({
  	registeredEvents:[{
 		event:{ type : String, default:'', ref: 'events'},
 		default:[]
-	}]
+	}],
+	about:{type : String, default:''}
 });
 
 userSchema.statics.update_user=function(user,callback){

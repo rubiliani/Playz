@@ -21,19 +21,22 @@ angular.module('PlayzApp.services')
         }
 
         var _updateUser = function(user){
-            //var deferred = $q.defer();
+            var deferred = $q.defer();
             $http.post($rootScope.app.domain+'users/update_user',{user:user})
                 .success(function(data){
-                    console.log("update user success",data)
-                    //deferred.resolve(data);
+                    console.log("update user success",data.user)
+                    if (data.newUser){
+                        data.user.newUser=data.newUser;
+                    }
+                    deferred.resolve(data.user);
                 }).error(function(err){
-                console.log("update user err",err)
-                //deferred.reject(err);
+                    console.log("update user err",err)
+                    deferred.reject(err);
             })
             ['finally'](function() {
 
             });
-            //return deferred.promise;
+            return deferred.promise;
         }
 
         return{

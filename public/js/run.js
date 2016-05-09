@@ -9,9 +9,14 @@ angular.module('PlayzApp')
         domain: (document.domain == 'localhost')?'http://localhost:3000/':'https://agile-depths-92655.herokuapp.com/'
     };
 
-    fbLogin.getStatus().then(function(){
-        console.log('status received')
+    fbLogin.getStatus().then(function(user){
+        console.log('status received',user);
+        if (user.newUser){
+            $location.url( "/register" );
+        }
+
         $route.reload();
+
     });
 
     // register listener to watch route changes
@@ -24,11 +29,6 @@ angular.module('PlayzApp')
             event.preventDefault();
             $location.url('/login')
         })
-        //if ( next.templateUrl == "views/login.html" ) {
-        //  if ($rootScope.status) {
-        //    event.preventDefault();
-        //  }
-        //}
     });
 
 })

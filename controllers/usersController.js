@@ -14,6 +14,9 @@ exports.update_user = function(req,res,next){
 	}
 
 	User.update_user(user,function(result){
+		if (result.status==1 && (!result.user.birthday || !result.user.hometown.name)){
+			result.newUser=true;
+		}
 		return res.json(result)
 	});
 }

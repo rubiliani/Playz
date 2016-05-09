@@ -6,9 +6,14 @@ angular.module('PlayzApp')
     //================================================
     // Check if the user is connected
     //================================================
-    var checkLoggedin = function($q, $timeout, $http, $location, $rootScope){
+    var checkLoggedin = function($q, $timeout, $http, $location, $rootScope,fbLogin){
         // Initialize a new promise
         var deferred = $q.defer();
+        //fbLogin.routeStatus().then(function(){
+        //    deferred.resolve();
+        //},function(){
+        //    deferred.reject();
+        //})
         if($rootScope.status) {
             deferred.resolve();
         }
