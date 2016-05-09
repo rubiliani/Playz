@@ -16,7 +16,7 @@ module.exports.getList = function(req,res){
 	var populateQuery = [{path:'_user'}, {path:'regiteredUsers._user'}];
 	console.log(id);
 	
-	Event.find({fbUserID : id}, function(err,results){
+	Event.find({id : id}, function(err,results){
 		res.json(results);
 	}).populate(populateQuery)
 			.exec(function (err, event) {
@@ -29,10 +29,10 @@ module.exports.getList = function(req,res){
 exports.getOtherList = function(req,res){
 	var id = req.params.id;
 
-	var populateQuery = [{path:'_user'}, {path:'regiteredUsers._user'}];
+	var populateQuery = [{path:'user'}, {path:'registeredUsers.user'}];
 	console.log(id);
 
-	Event.find({fbUserID:{ $ne : id}}, function(err,results){
+	Event.find({id:{ $ne : id}}, function(err,results){
 			res.json(results);
 		}).populate(populateQuery)
 			.exec(function (err, event) {

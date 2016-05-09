@@ -20,4 +20,8 @@ angular.module('PlayzApp')
             //document.getElementById("rangeSizeA").innerHTML = slideEvt.value[0];
 
         });
+
+        $scope.createEvent=function(){
+            console.log($scope.event);
+        }
     });

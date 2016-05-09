@@ -14,14 +14,14 @@
                 <div class="radio-inline custom-control custom-radio">
                   <label>
                  
-                    <input type="radio" id="publicEvt" name="privacy" checked>
+                    <input type="radio" id="publicEvt" name="privacy" ng-model="event.privacyType" ng-value="public" checked >
                     <span class="custom-control-indicator"></span>
                     Public Event</input>
                   </label>
                 </div>
                 <div class="radio-inline custom-control custom-radio">
                   <label>
-                    <input type="radio" id="privateEvt" name="privacy">
+                    <input type="radio" id="privateEvt" name="privacy" ng-model="event.privacyType" ng-value="private">
                     <span class="custom-control-indicator"></span>
                     Private Event</input>
                   </label>
@@ -31,32 +31,15 @@
             </div>
           </div>
         </li>
-
 		<li class="media list-group-item p-a">
           <div class="media-body">
             <div class="media-body-text">
               <div class="media-heading" >
-                <label for="select-choice-0" class="select">Choose Sport:</label>
-		        <select id="sportSelection" class="custom-select" ng-model="event.sport">
-		          <option ng-repeat="sport in sports">{{sport.name}}</option>
-		        </select>
-			   </div>  
-            </div>
-          </div>
-        </li>
-
-        <li class="media list-group-item p-a">
-          <div class="media-body">
-            <div class="media-body-text">
-              <div class="media-heading">
-                  <label for="select-choice-0" class="select">Level of expertese:   </label>
-			        <select name="select-choice-0" id="levelSelection" class="custom-select" ng-model="event.level">
-			           <option >Any Level</option>
-			           <option >Newbie</option>
-			           <option >Intermediate</option>
-			           <option >Proffesional</option>
-					 </select>
-			   </div>  
+                <label class="select">Choose Sport:</label>
+		              <select id="sportSelection" class="custom-select" ng-model="event.sportType" ng-value="Football">
+		                <option ng-repeat="sport in sports">{{sport.name}}</option>
+		              </select>
+			          </div>  
             </div>
           </div>
         </li>
@@ -64,8 +47,23 @@
           <div class="media-body">
             <div class="media-body-text">
               <div class="media-heading">
-                <label for="select-choice-0" class="select">Mind-set:</label>
-      		        <select name="select-choice-0" id="mindsetSelection" class="custom-select" ng-model="event.mindset">
+                  <label class="select">Level of expertese:</label>
+    			        <select name="levelSelect" id="levelSelection" class="custom-select" ng-model="event.level" ng-value="Any Level">
+    			           <option >Any Level</option>
+    			           <option >Newbie</option>
+    			           <option >Intermediate</option>
+    			           <option >Proffesional</option>
+    					     </select>
+			         </div>  
+            </div>
+          </div>
+        </li>
+        <li class="media list-group-item p-a">
+          <div class="media-body">
+            <div class="media-body-text">
+              <div class="media-heading">
+                <label class="select">Mind-set:</label>
+      		        <select name="mindsetSelect" id="mindsetSelection" class="custom-select" ng-model="event.mindset" ng-value="Just for fun">
       		          <option >Just for fun</option>
       		          <option >Turnament</option>
       		          <option >By the book</option>
@@ -78,8 +76,8 @@
           <div class="media-body">
             <div class="media-body-text">
               <div class="media-heading">
-                <label for="select-choice-0" class="select">When:</label>
-                  <select name="select-choice-0" id="mindsetSelection" class="custom-select" ng-model="event.when">
+                <label class="select">When:</label>
+                  <select name="select-choice-0" id="mindsetSelection" class="custom-select" ng-model="event.whenDate" ng-value="Today">
                     <option >Today</option>
                     <option >Tomorrow</option>
                     <option >Negotiable</option>
@@ -94,7 +92,7 @@
               <div class="media-heading">
                 <label class="select">Group Size:</label>
                    <span id="rangeSizeA">2</span>
-                   <input id="groupSlider"  type="text">  </input>
+                   <input id="groupSlider"  type="text" ng-model="event.groupSize" ng-value="2"> 
                  
                </div>  
             </div>
@@ -121,7 +119,7 @@
            
                 <b> Age Range:</b> 
                 <span id="rangeA" >20</span> to <span id="rangeB">40</span>
-                <input id="ex2"  type="text">  </input>
+                <input id="ex2" type="text" ng-model="event.ageRange">
               </div>
          </div>  
             </div>
@@ -134,7 +132,7 @@
             <div class="media-body-text">
               <div class="media-heading">
                   <label for="select-choice-0" class="select">Gender:</label>
-              <select name="select-choice-0" id="genderSelection" class="custom-select" ng-model="event.genderSelection">
+              <select name="select-choice-0" id="genderSelection" class="custom-select" ng-model="event.gender">
                  <option >Co-ed</option>
                  <option >Male</option>
                  <option >Female</option>
@@ -150,7 +148,7 @@
             <div class="media-body-text">
               <div class="media-heading">
                  <label for="select-choice-0" class="select">Payed facilities:</label>
-              <select name="select-choice-0" id="payedSelection" class="custom-select" ng-model="event.payedSelection">
+              <select name="select-choice-0" id="payedSelection" class="custom-select" ng-model="event.payedFacility">
                 <option >OK</option>
                  <option >No Way</option>
                  <option >Don't Care</option>
@@ -205,8 +203,8 @@
           <br>
           <br>
             <div id="map" ></div>
-            <span id="mapLat" class="hidden"></span>
-            <span id="mapLong" class="hidden"></span>
+            <span id="mapLat" class="hidden" ng-model="event.location.latitude"></span>
+            <span id="mapLong" class="hidden" ng-model="event.location.longitudes"></span>
      
          </div>  
             </div>
