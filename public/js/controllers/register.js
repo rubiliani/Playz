@@ -5,20 +5,18 @@ angular.module('PlayzApp')
         console.log("register controller")
         $scope.register={
             id:$rootScope.user.id,
-            birthday: new Date(),
+            birthday:($rootScope.user.birthday) ? new Date($rootScope.user.birthday) : new Date(),
             about:$rootScope.user.about,
-            hometown:{
-                name:$rootScope.user.hometown.name,
-                latitude:'',
-                longitude:'',
-                data:{}
-            }
+            hometown:$rootScope.user.hometown
         };
 
         $scope.updateUser=function(){
-            $scope.register.hometown.name=$scope.register.hometown.data.formatted_address;
-            $scope.register.hometown.latitude=$scope.register.hometown.data.geometry.location.lat()
-            $scope.register.hometown.longitude=$scope.register.hometown.data.geometry.location.lng()
+            if ($scope.register.hometown.data) {
+                console.log($scope.register.hometown)
+                $scope.register.hometown.name = $scope.register.hometown.data.formatted_address;
+                $scope.register.hometown.latitude = $scope.register.hometown.data.geometry.viewport.south
+                $scope.register.hometown.longitude = $scope.register.hometown.data.geometry.viewport.east
+            }
 
            DB_queries.updateUser($scope.register).then(function(user){
                console.log('register - update user',user)
