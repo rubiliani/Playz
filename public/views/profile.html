@@ -14,26 +14,33 @@
 
             <div class="panel panel-default visible-md-block visible-lg-block">
                 <div class="panel-body">
-                    <h5 class="m-t-0">About
-                        <small>· <a href="#">Edit</a></small>
+                    <h5 class="m-t-0" ng-click="changeDisable()">About
+                        <small><a>Edit</a></small>
                     </h5>
                     <ul class="list-unstyled list-spaced">
-                        <li><span class="text-muted icon icon-calendar m-r"></span>Birthday<a href="#">14/11/86</a>
-                        <li><span class="text-muted icon icon-location-pin m-r"></span>Location <a href="#">Hod
-                            Hasharon, IL</a>
+                        <li><span class="text-muted icon icon-calendar m-r"></span>
+                            Birthday &nbsp;
+                            <input type="date" ng-model="profile.birthday" ng-value="profile.birthday" ng-disabled="disable">
+                        </li>
+                        <li><span class="text-muted icon icon-location-pin m-r"></span>
+                            Location &nbsp;
+                            <input type="text" class="form-control" ng-disabled="disable" ng-autocomplete
+                                   ng-model="profile.hometown.name" options="options" details="profile.hometown.data"/>
+                        </li>
                     </ul>
+                    <h5 class="m-t-0" ng-hide="disable" ng-click="updateUser()">
+                        <a>Save</a>
+                    </h5>
                 </div>
             </div>
         </div>
 
 
-
-
-
         <div class="col-md-6 col-lg-6">
             <ul class="list-group media-list media-list-stream">
                 <li class="list-group-item p-a">
-                    <button type="button" class="btn btn-sm btn-primary pull-right app-new-msg js-newMsg">
+                    <button ng-click="createNewEvent()" type="button"
+                            class="btn btn-sm btn-primary pull-right app-new-msg js-newMsg">
                         New event
                     </button>
                     <h3 class="modal-title">My Events</h3>
@@ -61,11 +68,17 @@
                     </ul>
                 </div>
                 <div ng-tab-body="animated fadeInUp media list-group-item" class="tab-pane">
-                    <p>Feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+                    <p>Feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas
+                        semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et
+                        sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit
+                        amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis
+                        tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent
+                        dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.
+                        Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus,
+                        metus</p>
                 </div>
             </div>
         </div>
-
 
 
         <div class="col-md-3 hidden-sm hidden-xs">
