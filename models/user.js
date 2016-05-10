@@ -5,7 +5,7 @@ var userSchema = new Schema({
 	id : { type : String ,  index : true, unique : true , required :true},
 	email : { type : String, default:''},
 	gender: { type : String, default:''},
-	birthday : {type : String, default:''},
+	birthday : {type : Date, default:''},
 	"age_range": {
 		"min": Number, default:0
 	},

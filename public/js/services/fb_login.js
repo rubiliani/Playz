@@ -66,13 +66,16 @@ angular.module('PlayzApp.services',['ngResource','ngRoute','ngStorage','ngFacebo
 		var deferred = $q.defer();
   		$facebook.api('/me?fields=id,email,birthday,gender,age_range,name,first_name,last_name,location,cover,picture{url}').then(
 	      function(response) {
-            console.log('api',response)
-			  		isLoggedIn=true;
-	        		$rootScope.status=true;
-    				$localStorage.userID=response.id;
-    				//$rootScope.user= response;
-			  		$http.defaults.headers.common.uid = response.id;
-			  		DB_queries.updateUser(response).then(function(user){
+				  console.log('api',response)
+				  isLoggedIn=true;
+				  $rootScope.status=true;
+				  $localStorage.userID=response.id;
+
+				  if (response.birthday){
+					  response.birthday = new Date(response.birthday);
+				  }
+					$http.defaults.headers.common.uid = response.id;
+					DB_queries.updateUser(response).then(function(user){
 						console.log('user from the server - ',user)
 						$rootScope.user=user;
 						deferred.resolve(user);
