@@ -39,4 +39,8 @@ angular.module('PlayzApp')
                 register.birthday = new Date(user.birthday)
             }
         }
+
+        $scope.show_profile_completeness=function(){
+
+        }
     });
