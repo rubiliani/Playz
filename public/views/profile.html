@@ -15,7 +15,10 @@
             <div class="panel panel-default visible-md-block visible-lg-block">
                 <div class="panel-body">
                     <h5 class="m-t-0" ng-click="changeDisable()">About
-                        <small><a>Edit</a></small>
+                        <small>
+                            <a ng-show="disable">Edit</a>
+                            <a ng-show="!disable">Cancel</a>
+                        </small>
                     </h5>
                     <ul class="list-unstyled list-spaced">
                         <li><span class="text-muted icon icon-calendar m-r"></span>
