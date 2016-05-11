@@ -1,164 +1,88 @@
-<div class="container p-t-md">
+<div ng-tabs class="container p-t-md">
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="list-group media-list media-list-stream">
+                <li class="media list-group-item p-a">
+                    <div class="">
+                        <h2>Explore new events</h2>
 
-
-  <div class="row">
-
-  <!--
-    <div class="col-md-3">
-
-
-    </div>-->
-
-    <div class="col-md-6">
-      <ul class="list-group media-list media-list-stream">
-
-        <li class="media list-group-item p-a">
-          <div class="input-group">
-            <h2>Explore new events</h2>
-
-            <ul class="nav nav-pills">
-              <li  id="todayListView" class="active">
-                <a href="#" onclick="todayView()">
-                  <span class="icon icon icon-hour-glass"></span>
-                  Today
-                </a>
-              </li>
-              <li id="tomorrowListView" >
-                <a href="#" onclick="tomorrowView()">
-                  <span class="icon icon-clock"></span>
-                  Tomorrow
-                </a>
-              </li>
-              <li id="negotiableListView" >
-                <a href="#" onclick="negotiableView()">
-                  <span class="icon icon-calendar"></span>
-                  Negotiable
-                </a>
-              </li>
-
-
-          </ul>
-          </div>
-        </li>
-
-      <div>
-        <div id="todayList">
-          <li class="media list-group-item p-a">
-
-            <a class="media-left" href="#">
-              <img
-                class="media-object img-circle"
-                ng-src="">
-            </a>
-            <div class="media-body">
-              <div class="media-heading">
-                <small class="pull-right text-muted"></small>
-                <h5></h5>
-              </div>
-
-              <p>
-                Created {{event.sport}} event in '{{event.mindset}}' mindset, and {{event.level}} level.
-              </p>
-              <p>
-              Already Registerd: {{event.regiteredUsers.length}}/{{event.groupSize}}
-                <ul class="avatar-list" >
-                    <li class="avatar-list-item" ng-repeat="reg in event.regiteredUsers">
-                    <img class="img-circle" ng-src="{{reg._user.profilePic}}"></li>
-                  </ul>
-
-
-              </p>
-
-              <button class="btn btn-default-outline pull-right" type="button"  onclick="regEvent(this.id)">
-                <span class="icon icon-add-user"></span>
-                  Join
-                </button>
-
+                        <ul class="nav nav-pills nav-justified">
+                            <li ng-tab-head="active" ng-click="tabChanged('today')">
+                                <a href="#" ng-click="$event.preventDefault()">
+                                    <span class="icon icon icon-hour-glass"></span> Today </a>
+                            </li>
+                            <li ng-tab-head ng-click="tabChanged('tomorrow')">
+                                <a href="#" ng-click="$event.preventDefault()">
+                                    <span class="icon icon-clock"></span> Tomorrow</a>
+                            </li>
+                            <li ng-tab-head ng-click="tabChanged('negotiable')">
+                                <a href="#" ng-click="$event.preventDefault()">
+                                    <span class="icon icon-clock"></span> Negotiable</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <div class="tab-content" style="overflow: hidden">
+                <div ng-tab-body="animated bounceInLeft" class="tab-pane media-list list-group">
+                    <div class="list-group-item">
+                        avishay hajbi
+                    </div>
+                    <div class="list-group-item">
+                        avishay hajbi
+                    </div>
+                </div>
+                <div ng-tab-body="animated fadeInUp " class="tab-pane  media-list list-group">
+                    <div class="list-group-item">
+                        avishay hajbi
+                    </div>
+                    <div class="list-group-item">
+                        avishay hajbi
+                    </div>
+                </div>
+                <div ng-tab-body="animated bounceIn " class="tab-pane  media-list list-group">
+                    <div class="list-group-item">
+                        avishay hajbi
+                    </div>
+                    <div class="list-group-item">
+                        avishay hajbi
+                    </div>
+                </div>
             </div>
+            <!--<div>-->
+            <!--<ul id="todayList">-->
+            <!--<li class="media list-group-item p-a">-->
+            <!--<div class="media-body">-->
+            <!--<div class="media-heading">-->
+            <!--<small class="pull-right text-muted"></small>-->
+            <!--<h5></h5>-->
+            <!--</div>-->
 
-          </li>
+            <!--<p>-->
+            <!--Created {{event.sport}} event in '{{event.mindset}}' mindset, and {{event.level}}-->
+            <!--level.-->
+            <!--</p>-->
+            <!--<p>-->
+            <!--Already Registerd: {{event.regiteredUsers.length}}/{{event.groupSize}}-->
+            <!--<ul class="avatar-list">-->
+            <!--<li class="avatar-list-item" ng-repeat="reg in event.regiteredUsers">-->
+            <!--<img class="img-circle" ng-src="{{reg._user.profilePic}}"></li>-->
+            <!--</ul>-->
+
+
+            <!--</p>-->
+
+            <!--<button class="btn btn-default-outline pull-right" type="button"-->
+            <!--onclick="regEvent(this.id)">-->
+            <!--<span class="icon icon-add-user"></span>-->
+            <!--Join-->
+            <!--</button>-->
+
+            <!--</div>-->
+
+            <!--</li>-->
+            <!--</ul>-->
+            <!--</div>-->
         </div>
-
-        <div id="tomorrowList" class="hide">
-         <li class="media list-group-item p-a" ng-repeat="event in otherTomorrowEvents">
-
-          <a class="media-left" href="#">
-            <img
-              class="media-object img-circle"
-              ng-src="{{event._user.profilePic}}">
-          </a>
-          <div class="media-body">
-            <div class="media-heading">
-              <small class="pull-right text-muted">{{event.when}}</small>
-              <h5>{{event._user.firstname}} {{event._user.lastname}}</h5>
-            </div>
-
-            <p>
-              Created {{event.sport}} event in '{{event.mindset}}' mindset, and {{event.level}} level.
-            </p>
-            <p>
-            Already Registerd: {{event.regiteredUsers.length}}/{{event.groupSize}}
-              <ul class="avatar-list" >
-                  <li class="avatar-list-item" ng-repeat="reg in event.regiteredUsers">
-                  <img class="img-circle" ng-src="{{reg._user.profilePic}}"></li>
-                </ul>
-
-
-            </p>
-
-            <button class="btn btn-default-outline pull-right" type="button" onclick="regEvent(this.id)">
-              <span class="icon icon-add-user"></span>
-                Join
-              </button>
-
-            </div>
-          </li>
-        </div>
-
-        <div id="negotiableList" class="hide">
-         <li class="media list-group-item p-a">
-
-          <a class="media-left" href="#">
-            <img
-              class="media-object img-circle"
-              ng-src="{{event._user.profilePic}}">
-          </a>
-          <div class="media-body">
-            <div class="media-heading">
-              <small class="pull-right text-muted">{{event.when}}</small>
-              <h5>{{event._user.firstname}} {{event._user.lastname}}</h5>
-            </div>
-
-            <p>
-              Created {{event.sport}} event in '{{event.mindset}}' mindset, and {{event.level}} level.
-            </p>
-            <p>
-            Already Registerd: {{event.regiteredUsers.length}}/{{event.groupSize}}
-              <ul class="avatar-list" >
-                  <li class="avatar-list-item" ng-repeat="reg in event.regiteredUsers">
-                  <img class="img-circle" ng-src="{{reg._user.profilePic}}"></li>
-                </ul>
-
-
-            </p>
-
-            <button class="btn btn-default-outline pull-right" type="button" id={{event._id}} onclick="regEvent(this.id)">
-              <span class="icon icon-add-user"></span>
-                Join
-              </button>
-
-          </div>
-
-        </li>
-        </div>
-
-      </div>
-
-
-
-
-      </ul>
     </div>
-
-  </div>
 </div>
