@@ -23,7 +23,7 @@
                     <ul class="list-unstyled list-spaced">
                         <li><span class="text-muted icon icon-calendar m-r"></span>
                             Birthday &nbsp;
-                            <input type="date" ng-model="profile.birthday" ng-value="profile.birthday" ng-disabled="disable">
+                            <input type="date" style="width: 100%" ng-model="profile.birthday" ng-value="profile.birthday" ng-disabled="disable">
                         </li>
                         <li><span class="text-muted icon icon-location-pin m-r"></span>
                             Location &nbsp;
@@ -49,12 +49,12 @@
                     <h3 class="modal-title">My Events</h3>
                 </li>
                 <li class="media list-group-item p-a">
-                    <ul class="nav nav-pills nav-tabs-justified">
-                        <li ng-tab-head="active">
+                    <ul class="nav nav-pills nav-justified">
+                        <li ng-tab-head="active" ng-click="tabChanged('upcoming')">
                             <a href="#" ng-click="$event.preventDefault()">
                                 <span class="icon icon icon-hour-glass"></span> Upcomming </a>
                         </li>
-                        <li ng-tab-head>
+                        <li ng-tab-head ng-click="tabChanged('past')">
                             <a href="#" ng-click="$event.preventDefault()">
                                 <span class="icon icon-clock"></span> Past</a>
                         </li>
@@ -63,22 +63,21 @@
             </ul>
 
             <div class="tab-content" style="overflow: hidden">
-                <div ng-tab-body="animated bounceInLeft media list-group-item" class="tab-pane">
-                    <ul>
-                        <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-                        <li>Aliquam tincidunt mauris eu risus.</li>
-                        <li>Vestibulum auctor dapibus neque.</li>
-                    </ul>
+                <div ng-tab-body="animated bounceInLeft" class="tab-pane media-list list-group">
+                    <div class="list-group-item">
+                        avishay hajbi
+                    </div>
+                    <div class="list-group-item">
+                        avishay hajbi
+                    </div>
                 </div>
-                <div ng-tab-body="animated fadeInUp media list-group-item" class="tab-pane">
-                    <p>Feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas
-                        semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et
-                        sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit
-                        amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis
-                        tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent
-                        dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.
-                        Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus,
-                        metus</p>
+                <div ng-tab-body="animated fadeInUp " class="tab-pane  media-list list-group">
+                    <div class="list-group-item">
+                        avishay hajbi
+                    </div>
+                    <div class="list-group-item">
+                        avishay hajbi
+                    </div>
                 </div>
             </div>
         </div>

@@ -52,9 +52,29 @@ var env = process.env.NODE_ENV || 'development';
 if ('development' == env) { }
 else{ }
 
-app.get('/', function(rez,res,next){ });
+global.authenticating_user=function(req,res,next){
+    var r = {msg:[],status:0};
+    var uid = req.headers.uid;
+
+    if (!String(uid)){
+        r.push('headers not found')
+        return res.json(r)
+    }
+    User.get_user(uid,function(result){
+        if (!result.status){
+            r.push('user not found')
+            return res.json(r)
+        }
+        req.user = result;
+        next();
+    })
+}
+
+app.get('/', function(req,res,next){ });
 //events
-app.post('/events/:id', controllers.eventsController.create);
+app.post('/events/create:id', controllers.eventsController.create);
+app.post('/events/getUpcomingEvents', authenticating_user ,controllers.eventsController.getUpcomingEvents);
+app.post('/events/getPastEvents', authenticating_user ,controllers.eventsController.getPastEvents);
 app.post('/events/users/:id', controllers.eventsController.addUser);
 app.get('/events/:id', controllers.eventsController.getList);
 app.get('/events/other/:id', controllers.eventsController.getOtherList);

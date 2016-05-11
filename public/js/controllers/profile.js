@@ -41,4 +41,18 @@ angular.module('PlayzApp')
         $scope.changeDisable=function(){
             $scope.disable=!$scope.disable;
         }
+
+        $scope.tabChanged=function(type){
+            if (type=="upcoming"){
+                DB_queries.getUpcomingEvents().then(function(data){
+                    $scope.upcomingEvents=data.events;
+                })
+            }
+            else if (type=="past"){
+                DB_queries.getPastEvents().then(function(data){
+                    $scope.pastEvents=data.events;
+                })
+            }
+        }
+        $scope.tabChanged('upcoming')
     });

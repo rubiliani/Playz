@@ -58,4 +58,30 @@ userSchema.statics.update_user=function(user,callback){
 		});
 }
 
+userSchema.statics.get_user=function(userid,callback){
+	var r = {msg:[],status:0};
+	var query = {
+		id:userid
+	};
+
+	this.model('users').findOne(query)
+		.exec(function(err,result){
+			if (err){
+				r.msg.push(err);
+				return callback(r);
+			}
+
+			if (!result){
+				r.msg.push("user was not found");
+			}
+			else{
+				r.msg.push("user found");
+				r.user=result;
+				r.status=1;
+			}
+
+			return callback(r);
+		});
+}
+
 User = mongoose.model('users', userSchema);

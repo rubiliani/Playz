@@ -112,6 +112,13 @@ module.exports.addUser = function(req,res){
 
 
 
+exports.getUpcomingEvents = function(req,res){
+	res.json({"getUpcomingEvents":"NOT READY"})
+}
+exports.getPastEvents = function(req,res){
+	res.json({"getPastEvents":"NOT READY"})
+}
+
 
 
 

@@ -38,9 +38,40 @@ angular.module('PlayzApp.services')
             });
             return deferred.promise;
         }
+        var _getUpcomingEvents = function(){
+            var deferred = $q.defer();
+            $http.post($rootScope.app.domain+'events/getUpcomingEvents')
+                .success(function(data){
+                    console.log("getUpcomingEvents success",data)
+                    deferred.resolve(data);
+                }).error(function(err){
+                console.log("getUpcomingEvents err",err)
+                deferred.reject(err);
+            })
+                ['finally'](function() {
 
+            });
+            return deferred.promise;
+        }
+        var _getPastEvents = function(){
+            var deferred = $q.defer();
+            $http.post($rootScope.app.domain+'events/getPastEvents')
+                .success(function(data){
+                    console.log("getPastEvents success",data)
+                    deferred.resolve(data);
+                }).error(function(err){
+                console.log("getPastEvents err",err)
+                deferred.reject(err);
+            })
+                ['finally'](function() {
+
+            });
+            return deferred.promise;
+        }
         return{
             getEvents:_getEvents,
-            updateUser:_updateUser
+            updateUser:_updateUser,
+            getUpcomingEvents:_getUpcomingEvents,
+            getPastEvents:_getPastEvents
         }
     })
