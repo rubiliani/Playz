@@ -26,10 +26,7 @@ var eventSchema = new Schema({
 	},
 	radius: { type : Number, default:5},
 	creator:{ type : Schema.Types.ObjectId, ref: 'users'},
- 	registeredUsers:[
-		{ type : Schema.Types.ObjectId, ref: 'users'}
-		
-	]
+ 	registeredUsers:[{ type : Schema.Types.ObjectId, ref: 'users'}]
 });
 
 eventSchema.statics.update_event=function(event,callback){

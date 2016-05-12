@@ -28,12 +28,8 @@ var userSchema = new Schema({
 		latitude: { type : Number, default:0},
 		longitude: { type : Number, default:0}
 	},
-	userEvents:[ {type : Schema.Types.ObjectId , ref: 'events'}
-	
-	],
- 	registeredEvents:[{type : Schema.Types.ObjectId ,  ref: 'events'}
-	
-	],
+	userEvents:[{type : Schema.Types.ObjectId , ref: 'events'}],
+ 	registeredEvents:[{type : Schema.Types.ObjectId ,  ref: 'events'}],
 	about:{type : String, default:''}
 });
 

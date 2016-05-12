@@ -13,8 +13,10 @@ module.exports.create = function(req,res){
 	event.registeredUsers.push(req.user._id);
 	Event.update_event(event,function(result){
 		if (!result.status){
-			return res.json(result);
+			//return res.json(result);
+			res.status(404).json(result);
 		}
+
 		req.user.userEvents.push(result.event._id);
 		req.user.registeredEvents.push(result.event._id);
 		req.user.save();

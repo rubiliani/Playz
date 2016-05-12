@@ -65,7 +65,7 @@ global.authenticating_user=function(req,res,next){
             r.push('user not found')
             return res.json(r)
         }
-        req.user = result;
+        req.user = result.user;
         next();
     })
 }
