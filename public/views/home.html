@@ -25,28 +25,13 @@
             </ul>
             <div class="tab-content" style="overflow: hidden">
                 <div ng-tab-body="animated bounceInLeft" class="tab-pane media-list list-group">
-                    <div class="list-group-item">
-                        avishay hajbi
-                    </div>
-                    <div class="list-group-item">
-                        avishay hajbi
-                    </div>
+                    <div ng-repeat="card in todayEvents track by $index" ng-include src="'views/includes/card.html'" > </div>
                 </div>
                 <div ng-tab-body="animated fadeInUp " class="tab-pane  media-list list-group">
-                    <div class="list-group-item">
-                        avishay hajbi
-                    </div>
-                    <div class="list-group-item">
-                        avishay hajbi
-                    </div>
+                    <div ng-repeat="card in tomorrowEvents track by $index" ng-include src="'views/includes/card.html'" > </div>
                 </div>
                 <div ng-tab-body="animated bounceIn " class="tab-pane  media-list list-group">
-                    <div class="list-group-item">
-                        avishay hajbi
-                    </div>
-                    <div class="list-group-item">
-                        avishay hajbi
-                    </div>
+                    <div ng-repeat="card in negotiableEvents track by $index" ng-include src="'views/includes/card.html'" > </div>
                 </div>
             </div>
             <!--<div>-->

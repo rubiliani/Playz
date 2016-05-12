@@ -69,8 +69,8 @@ angular.module('PlayzApp')
             }
         })
         .when('/register',{
-            templateUrl: 'views/register.html',
             controller: 'registerCtrl',
+            templateUrl: 'views/register.html',
             resolve:{
                 loggedin : checkLoggedin
             }
@@ -90,8 +90,8 @@ angular.module('PlayzApp')
             }
         })
         .when('/profile',{
-            templateUrl: 'views/profile.html',
             controller: 'profileCtrl',
+            templateUrl: 'views/profile.html',
             resolve:{
                 loggedin : checkLoggedin
             }

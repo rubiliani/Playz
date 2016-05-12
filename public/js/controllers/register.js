@@ -6,7 +6,7 @@ angular.module('PlayzApp')
         if ($rootScope.user) {
             $scope.register = {
                 id: $rootScope.user.id,
-                birthday: ($rootScope.user.birthday) ? new Date($rootScope.user.birthday) : new Date(),
+                birthday: new Date($rootScope.user.birthday),
                 about: $rootScope.user.about,
                 hometown: $rootScope.user.hometown
             };

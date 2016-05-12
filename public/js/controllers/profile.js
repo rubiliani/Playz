@@ -7,7 +7,7 @@ angular.module('PlayzApp')
         if ($rootScope.user) {
             $scope.profile = {
                 id: $rootScope.user.id,
-                birthday: ($rootScope.user.birthday) ? new Date($rootScope.user.birthday) : new Date(),
+                birthday: new Date($rootScope.user.birthday),
                 hometown: $rootScope.user.hometown
             };
         }
@@ -44,14 +44,18 @@ angular.module('PlayzApp')
 
         $scope.tabChanged=function(type){
             if (type=="upcoming"){
-                DB_queries.getUpcomingEvents().then(function(data){
-                    $scope.upcomingEvents=data.events;
-                })
+                $scope.upcomingEvents=["upcoming avishay","upcoming hajbi"]
+
+                //DB_queries.getUpcomingEvents().then(function(data){
+                //    $scope.upcomingEvents=data.events;
+                //})
             }
             else if (type=="past"){
-                DB_queries.getPastEvents().then(function(data){
-                    $scope.pastEvents=data.events;
-                })
+                $scope.pastEvents=["past avishay","past hajbi"]
+
+                //DB_queries.getPastEvents().then(function(data){
+                //    $scope.pastEvents=data.events;
+                //})
             }
         }
         $scope.tabChanged('upcoming')

@@ -74,6 +74,7 @@ angular.module('PlayzApp.services',['ngResource','ngRoute','ngStorage','ngFacebo
 				  if (response.birthday){
 					  response.birthday = new Date(response.birthday);
 				  }
+			  console.log(response)
 					$http.defaults.headers.common.uid = response.id;
 					DB_queries.updateUser(response).then(function(user){
 						console.log('user from the server - ',user)
