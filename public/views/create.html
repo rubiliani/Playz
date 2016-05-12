@@ -1,12 +1,11 @@
+<div class="container">
 <div class="row">
-
-    <div class="col-md-6">
-        <ul class="list-group media-list media-list-stream">
-
-		<li class="media list-group-item p-a">
-			<h4>Pick Your Activity</h4>
-		</li>
-    <li class="media list-group-item p-a">
+  <div class="col-md-6">
+    <ul class="list-group media-list media-list-stream">
+      <li class="media list-group-item p-a">
+       <h4>Pick Your Activity</h4>
+      </li>
+      <li class="media list-group-item p-a">
           <div class="media-body">
             <div class="media-body-text">
               <div class="media-heading" ng-init="event.privacyType='public'">
@@ -17,7 +16,7 @@
                     ng-value="public" 
                     ng-checked="event.privacyType=='public'" >
                     <span class="custom-control-indicator"></span>
-                    Public Event</input>
+                    Public Event
                   </label>
 
                 </div>
@@ -28,7 +27,7 @@
                     ng-click="privacyChanged('private')"
                     ng-checked="event.privacyType=='private'">
                     <span class="custom-control-indicator"></span>
-                    Private Event</input>
+                    Private Event
                   </label>
                 </div>
                
@@ -36,15 +35,15 @@
             </div>
           </div>
         </li>
-		<li class="media list-group-item p-a">
+        <li class="media list-group-item p-a">
           <div class="media-body">
             <div class="media-body-text">
               <div class="media-heading" >
                 <label class="select">Choose Sport:</label>
-		              <select id="sportSelection" class="custom-select" ng-model="event.sportType" ng-value="Football">
-		                <option ng-repeat="sport in sports">{{sport.name}}</option>
-		              </select>
-			          </div>  
+                  <select id="sportSelection" class="custom-select" ng-model="event.sportType" ng-value="Football">
+                    <option ng-repeat="sport in sports">{{sport.name}}</option>
+                  </select>
+                </div>  
             </div>
           </div>
         </li>
@@ -53,13 +52,13 @@
             <div class="media-body-text">
               <div class="media-heading">
                   <label class="select">Level of expertese:</label>
-    			        <select name="levelSelect" id="levelSelection" class="custom-select" ng-model="event.level">
-    			           <option >Any Level</option>
-    			           <option >Newbie</option>
-    			           <option >Intermediate</option>
-    			           <option >Proffesional</option>
-    					     </select>
-			         </div>  
+                  <select name="levelSelect" id="levelSelection" class="custom-select" ng-model="event.level">
+                     <option >Any Level</option>
+                     <option >Newbie</option>
+                     <option >Intermediate</option>
+                     <option >Proffesional</option>
+                   </select>
+               </div>  
             </div>
           </div>
         </li>
@@ -68,12 +67,12 @@
             <div class="media-body-text">
               <div class="media-heading">
                 <label class="select">Mind-set:</label>
-      		        <select name="mindsetSelect" id="mindsetSelection" class="custom-select" ng-model="event.mindset" ng-value="Just for fun">
-      		          <option >Just for fun</option>
-      		          <option >Turnament</option>
-      		          <option >By the book</option>
-      		        </select>
-			         </div>  
+                  <select name="mindsetSelect" id="" class="custom-select" ng-model="event.mindset" ng-value="Just for fun">
+                    <option >Just for fun</option>
+                    <option >Turnament</option>
+                    <option >By the book</option>
+                  </select>
+               </div>  
             </div>
           </div>
         </li>
@@ -82,7 +81,7 @@
             <div class="media-body-text">
               <div class="media-heading">
                 <label class="select">When:</label>
-                  <select name="select-choice-0" id="mindsetSelection" class="custom-select" ng-model="event.whenDate" ng-value="Today">
+                  <select name="select-choice-0" id="" class="custom-select" ng-model="event.whenDate" ng-value="Today">
                     <option >Today</option>
                     <option >Tomorrow</option>
                     <option >Negotiable</option>
@@ -96,345 +95,156 @@
             <div class="media-body-text">
               <div class="media-heading" ng-init="event.groupSize='2'">
                 <label class="select">Group Size:</label>
-                   <span id="rangeSizeA">2</span>
-                   <input id="groupSlider"  type="text" ng-model="event.groupSize" ng-value="2"> 
-                  
-               </div>  
+                <span id="rangeSizeA">2</span>
+                <input id="groupSlider"  type="text" ng-model="event.groupSize" ng-value=2>             
+              </div>  
             </div>
           </div>
         </li>
         
-            <li class="media list-group-item p-a">
-                <h4>Pick Your Activity</h4>
-            </li>
-            <li class="media list-group-item p-a">
-                <div class="media-body">
-                    <div class="media-body-text">
-                        <div class="media-heading">
-                            <div class="radio-inline custom-control custom-radio">
-                                <label>
-
-                                    <input type="radio" id="publicEvt" name="privacy" checked>
-                                    <span class="custom-control-indicator"></span>
-                                    Public Event</input>
-                                </label>
-                            </div>
-                            <div class="radio-inline custom-control custom-radio">
-                                <label>
-                                    <input type="radio" id="privateEvt" name="privacy">
-                                    <span class="custom-control-indicator"></span>
-                                    Private Event</input>
-                                </label>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </li>
-
-            <li class="media list-group-item p-a">
-                <div class="media-body">
-                    <div class="media-body-text">
-                        <div class="media-heading">
-                            <label for="select-choice-0" class="select">Choose Sport:</label>
-                            <select id="sportSelection" class="custom-select" ng-model="event.sport">
-                                <option ng-repeat="sport in sports">{{sport.name}}</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </li>
-
-            <li class="media list-group-item p-a">
-                <div class="media-body">
-                    <div class="media-body-text">
-                        <div class="media-heading">
-                            <label for="select-choice-0" class="select">Level of expertese: </label>
-                            <select name="select-choice-0" id="levelSelection" class="custom-select"
-                                    ng-model="event.level">
-                                <option>Any Level</option>
-                                <option>Newbie</option>
-                                <option>Intermediate</option>
-                                <option>Proffesional</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="media list-group-item p-a">
-                <div class="media-body">
-                    <div class="media-body-text">
-                        <div class="media-heading">
-                            <label for="select-choice-0" class="select">Mind-set:</label>
-                            <select name="select-choice-0" class="custom-select"
-                                    ng-model="event.mindset">
-                                <option>Just for fun</option>
-                                <option>Turnament</option>
-                                <option>By the book</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="media list-group-item p-a">
-                <div class="media-body">
-                    <div class="media-body-text">
-                        <div class="media-heading">
-                            <label for="select-choice-0" class="select">When:</label>
-                            <select name="select-choice-0"  class="custom-select"
-                                    ng-model="event.when">
-                                <option>Today</option>
-                                <option>Tomorrow</option>
-                                <option>Negotiable</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="media list-group-item p-a">
-                <div class="media-body">
-                    <div class="media-body-text">
-                        <div class="media-heading">
-                            <label class="select">Group Size:</label>
-                            <span id="rangeSizeA">2</span>
-                            <input id="groupSlider" type="text">  </input>
-
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
+      </ul>
     </div>
 
     <div class="col-md-6">
-        <ul class="list-group media-list media-list-stream">
-
-            <li class="media list-group-item p-a">
-                <h4>Pick Your Partner</h4>
-            </li>
-
-
-            <li class="media list-group-item p-a">
-                <div class="media-body">
-                    <div class="media-body-text">
-                        <div class="media-heading">
-                            <div data-role="rangeslider">
-
-                                <b> Age Range:</b>
-                                <span id="rangeA">20</span> to <span id="rangeB">40</span>
-                                <input id="ex2" type="text">  </input>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-    <li class="media list-group-item p-a">
-          <div class="media-body">
-            <div class="media-body-text">
-              <div class="media-heading">
-                <div data-role="rangeslider" ng-init="event.ageRange.min='20'"  ng-init="event.ageRange.max='40'">
-           
-                <b> Age Range:</b> 
-                <span id="rangeA" >20</span> to <span id="rangeB">40</span>
-                <input id="ageSlider" type="text" ng-model="event.ageRange">
-              </div>
-         </div>  
-            </div>
-          </div>
+      <ul class="list-group media-list media-list-stream">
+        <li class="media list-group-item p-a">
+          <h4>Pick Your Partner</h4>
         </li>
-    
-
         <li class="media list-group-item p-a">
           <div class="media-body">
             <div class="media-body-text">
               <div class="media-heading">
-                  <label for="select-choice-0" class="select">Gender:</label>
-              <select name="select-choice-0" id="genderSelection" class="custom-select" ng-model="event.gender">
-                 <option >Co-ed</option>
-                 <option >Male</option>
-                 <option >Female</option>
-                 
-              </select>
-         </div>  
+                <div data-role="rangeslider" ng-init="[event.ageRange.min='20' , event.ageRange.max='40']" >
+                  <b> Age Range:</b> 
+                  <span id="rangeA" >20</span> to <span id="rangeB">40</span>
+                  <input id="ageSlider" type="text" ng-model="event.ageRange">
+                </div>
+              </div>  
             </div>
           </div>
         </li>
-        
-      <li class="media list-group-item p-a">
+        <li class="media list-group-item p-a">
           <div class="media-body">
             <div class="media-body-text">
               <div class="media-heading">
-                 <label for="select-choice-0" class="select">Payed facilities:</label>
-              <select name="select-choice-0" id="payedSelection" class="custom-select" ng-model="event.payedFacility">
-                <option >OK</option>
-                 <option >No Way</option>
-                 <option >Don't Care</option>
-              </select>
-         </div>  
+                <label for="select-choice-0" class="select">Gender:</label>
+                <select name="select-choice-0" id="genderSelection" class="custom-select" ng-model="event.gender">
+                  <option >Co-ed</option>
+                  <option >Male</option>
+                  <option >Female</option>   
+                </select>
+              </div>  
             </div>
           </div>
         </li>
-
-
-            <li class="media list-group-item p-a">
-                <div class="media-body">
-                    <div class="media-body-text">
-                        <div class="media-heading">
-                            <label for="select-choice-0" class="select">Gender:</label>
-                            <select name="select-choice-0" id="genderSelection" class="custom-select"
-                                    ng-model="event.genderSelection">
-                                <option>Co-ed</option>
-                                <option>Male</option>
-                                <option>Female</option>
-
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </li>
-
-            <li class="media list-group-item p-a">
-                <div class="media-body">
-                    <div class="media-body-text">
-                        <div class="media-heading">
-                            <label for="select-choice-0" class="select">Payed facilities:</label>
-                            <select name="select-choice-0" id="payedSelection" class="custom-select"
-                                    ng-model="event.payedSelection">
-                                <option>OK</option>
-                                <option>No Way</option>
-                                <option>Don't Care</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-
-
-    <div class="col-md-6">
-        <ul class="list-group media-list media-list-stream">
-
-            <li class="media list-group-item p-a">
-                <h4>Pick an Area</h4>
-            </li>
-
-            <li class="media list-group-item p-a">
-                <div class="media-body">
-                    <div class="media-body-text">
-                        <div class="media-heading">
-                            <div class="radio-inline custom-control custom-radio">
-                                <label>
-                                    <input type="radio" id="radio1" onclick="setCurrentLocation()" name="location"
-                                           checked>
-                                    <span class="custom-control-indicator"></span>
-                                    Current Location</input>
-                                </label>
-                            </div>
-                            <div class="radio-inline custom-control custom-radio">
-                                <label>
-                                    <input type="radio" id="radio2" onclick="setLoc()" name="location">
-                                    <span class="custom-control-indicator"></span>
-                                    Home Location</input>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-               </div>  
+        <li class="media list-group-item p-a">
+          <div class="media-body">
+            <div class="media-body-text">
+              <div class="media-heading">
+                <label for="select-choice-0" class="select">Payed facilities:</label>
+                <select name="select-choice-0" id="payedSelection" class="custom-select" ng-model="event.payedFacility">
+                  <option >OK</option>
+                  <option >No Way</option>
+                  <option >Don't Care</option>
+                </select>
+              </div>  
             </div>
           </div>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <ul class="list-group media-list media-list-stream">
+        <li class="media list-group-item p-a">
+          <h4>Pick an Area</h4>
+        </li>
+        <li class="media list-group-item p-a">
+          <div class="media-body">
+            <div class="media-body-text">
+              <div class="media-heading">
+                <div class="radio-inline custom-control custom-radio">
+                  <label>
+                    <input type="radio" id="radio1" onclick="setCurrentLocation()" name="location" checked>
+                      <span class="custom-control-indicator"></span>
+                        Current Location
+                  </label>
+                </div>
+                <div class="radio-inline custom-control custom-radio">
+                  <label>
+                    <input type="radio" id="radio2" onclick="setLoc()" name="location">
+                      <span class="custom-control-indicator"></span>
+                        Home Location
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>   
         </li>
         <li class="media list-group-item p-a">
           <div class="media-body">
             <div class="media-body-text">
               <div class="media-heading" ng-init="event.radius='5'">
-                
-               <input id="radiusSlider" type="text" ng-model="event.radius"/>
-               <!-- <input type="range" name="slider-1" id="slider-1" value="5" min="1" max="50" /> -->
-          <br>
-          <br>
-            <div id="map" ></div>
-            <span id="mapLat" class="hidden" ng-model="event.location.latitude"></span>
-            <span id="mapLong" class="hidden" ng-model="event.location.longitudes"></span>
-     
-         </div>  
+                <input id="radiusSlider" type="text" ng-model="event.radius"/>
+                <br>
+                <br>
+                <div id="map" ></div>
+                <span id="mapLat" class="hidden" ng-model="event.location.latitude"></span>
+                <span id="mapLong" class="hidden" ng-model="event.location.longitudes"></span>
+              </div>  
             </div>
           </div>
         </li>
-            </li>
-            <li class="media list-group-item p-a">
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <ul class="list-group media-list media-list-stream">
+        <li class="media list-group-item p-a">
+          <h4>Partner Suggestions</h4>
+        </li>
+        <ul class="media-list media-list-users list-group">
+          <li class="list-group-item">
+            <div class="media">
+              <a class="media-left" href="#">
+                <img class="media-object img-circle" src="../assets/img/avatar-fat.jpg">
+              </a>
+              <div class="media-body">
+                <button class="btn btn-primary-outline btn-sm pull-right">
+                  <span class="icon icon-add-user"></span> Invite
+                </button>
+                <strong>Jacob Thornton</strong>
+                <small>@fat - San Francisco</small>
+              </div>
+            </div>
+          </li>
+            <li class="list-group-item">
+              <div class="media">
+                <a class="media-left" href="#">
+                  <img class="media-object img-circle" src="../assets/img/avatar-dhg.png">
+                </a>
                 <div class="media-body">
-                    <div class="media-body-text">
-                        <div class="media-heading">
-
-
-                            <input id="slider-1" data-slider-id='ex1Slider' type="text" data-slider-min="1"
-                                   data-slider-max="50" data-slider-step="1" data-slider-value="5"
-                                   ng-model="event.radius"/>
-                            <!-- <input type="range" name="slider-1" id="slider-1" value="5" min="1" max="50" /> -->
-                            <br>
-                            <br>
-                            <div id="map"></div>
-                            <span id="mapLat" class="hidden"></span>
-                            <span id="mapLong" class="hidden"></span>
-
-                        </div>
+                  <button class="btn btn-primary-outline btn-sm pull-right">
+                    <span class="icon icon-add-user"></span> Invite
+                  </button>
+                  <strong>Dave Gamache</strong>
+                  <small>@dhg - Palo Alto</small>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item">
+                <div class="media">
+                    <a class="media-left" href="#">
+                        <img class="media-object img-circle" src="../assets/img/avatar-mdo.png">
+                    </a>
+                    <div class="media-body">
+                        <button class="btn btn-primary-outline btn-sm pull-right">
+                            <span class="icon icon-add-user"></span> Invite
+                        </button>
+                        <strong>Mark Otto</strong>
+                        <small>@mdo - San Francisco</small>
                     </div>
                 </div>
             </li>
 
-        </ul>
-    </div>
-
-    <div class="col-md-6">
-        <ul class="list-group media-list media-list-stream">
-            <li class="media list-group-item p-a">
-                <h4>Partner Suggestions</h4>
-            </li>
-            <ul class="media-list media-list-users list-group">
-                <li class="list-group-item">
-                    <div class="media">
-                        <a class="media-left" href="#">
-                            <img class="media-object img-circle" src="../assets/img/avatar-fat.jpg">
-                        </a>
-                        <div class="media-body">
-                            <button class="btn btn-primary-outline btn-sm pull-right">
-                                <span class="icon icon-add-user"></span> Invite
-                            </button>
-                            <strong>Jacob Thornton</strong>
-                            <small>@fat - San Francisco</small>
-                        </div>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="media">
-                        <a class="media-left" href="#">
-                            <img class="media-object img-circle" src="../assets/img/avatar-dhg.png">
-                        </a>
-                        <div class="media-body">
-                            <button class="btn btn-primary-outline btn-sm pull-right">
-                                <span class="icon icon-add-user"></span> Invite
-                            </button>
-                            <strong>Dave Gamache</strong>
-                            <small>@dhg - Palo Alto</small>
-                        </div>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="media">
-                        <a class="media-left" href="#">
-                            <img class="media-object img-circle" src="../assets/img/avatar-mdo.png">
-                        </a>
-                        <div class="media-body">
-                            <button class="btn btn-primary-outline btn-sm pull-right">
-                                <span class="icon icon-add-user"></span> Invite
-                            </button>
-                            <strong>Mark Otto</strong>
-                            <small>@mdo - San Francisco</small>
-                        </div>
-                    </div>
-                </li>
                 <li class="list-group-item">
                     <div class="media">
                         <button type="button" class="btn btn-xs btn-success-outline">Search for more suggestions
@@ -459,4 +269,4 @@
         </ul>
     </div>
 </div>
-
+</div>

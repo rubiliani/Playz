@@ -4,6 +4,7 @@ angular.module('PlayzApp')
     .controller('createCtrl', function($scope, $http, $rootScope, $location,DB_queries) {
         console.log("create controller")
 
+        $scope.sports=["a","b"];
         $("#radiusSlider").slider({min  : 1, max  : 50, value: 5});
         $("#groupSlider").slider({min  : 1, max  : 50, value: 2});
         $("#ageSlider").slider({min  : 10, max  : 100, value: [20, 40]});
@@ -32,6 +33,7 @@ angular.module('PlayzApp')
         $scope.createEvent=function(){
             console.log($scope.event);
 
+            $scope.event.registeredUsers=[];
             DB_queries.createEvent($scope.event).then(function(event){
                console.log('events - create event',event)
                 $location.url('/profile')
