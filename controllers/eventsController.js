@@ -2,6 +2,8 @@
 var async = require("async");
 
 
+/*
+
 module.exports.create = function(req,res){
 	console.log(req.body);
 
@@ -10,6 +12,33 @@ module.exports.create = function(req,res){
 		res.json(result);
 	});
 }
+*/
+
+
+exports.createEvent = function(req,res,next){
+	var r = {msg:[],status:0};
+	//var event = req.body.event;
+	var evt = req.body.event;
+	console.log("in create event: "+evt);
+
+	Event.create_event(evt,function(err,result){
+		res.json(result);
+	});
+
+/*
+	if (!event || typeof(event) !== 'object' || !user.id){
+		r.msg.push('user not exist or user id not found',user);
+		return res.json(r);
+	}
+*//*
+	Event.create_event(event,function(result){
+		//if (result.status==1 && (!result.user.birthday || !result.user.hometown.name)){
+		//	result.newUser=true;
+		//}
+		return res.json(result)
+	});*/
+}
+
 
 module.exports.getList = function(req,res){
 	var id = req.params.id;

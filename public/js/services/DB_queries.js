@@ -39,8 +39,26 @@ angular.module('PlayzApp.services')
             return deferred.promise;
         }
 
+        var _createEvent = function(event){
+            var deferred = $q.defer();
+            $http.post($rootScope.app.domain+'events/createEvent',{event:event})
+                .success(function(data){
+                    console.log("create event success",data.event)
+                    
+                    deferred.resolve(data.event);
+                }).error(function(err){
+                    console.log("create event err",err)
+                    deferred.reject(err);
+            })
+            ['finally'](function() {
+
+            });
+            return deferred.promise;
+        }
+
         return{
             getEvents:_getEvents,
-            updateUser:_updateUser
+            updateUser:_updateUser,
+            createEvent:_createEvent
         }
     })

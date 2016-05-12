@@ -10,18 +10,24 @@
     <li class="media list-group-item p-a">
           <div class="media-body">
             <div class="media-body-text">
-              <div class="media-heading" >
+              <div class="media-heading" ng-init="event.privacyType='public'">
                 <div class="radio-inline custom-control custom-radio">
                   <label>
-                 
-                    <input type="radio" id="publicEvt" name="privacy" ng-model="event.privacyType" ng-value="public" checked >
+                
+                    <input type="radio" name="privacy" ng-click="privacyChanged('public')" ng-model="event.privacyType" 
+                    ng-value="public" 
+                    ng-checked="event.privacyType=='public'" >
                     <span class="custom-control-indicator"></span>
                     Public Event</input>
                   </label>
+
                 </div>
                 <div class="radio-inline custom-control custom-radio">
                   <label>
-                    <input type="radio" id="privateEvt" name="privacy" ng-model="event.privacyType" ng-value="private">
+                    <input type="radio" name="privacy" ng-model="event.privacyType" 
+                    ng-value="private" 
+                    ng-click="privacyChanged('private')"
+                    ng-checked="event.privacyType=='private'">
                     <span class="custom-control-indicator"></span>
                     Private Event</input>
                   </label>
@@ -48,7 +54,7 @@
             <div class="media-body-text">
               <div class="media-heading">
                   <label class="select">Level of expertese:</label>
-    			        <select name="levelSelect" id="levelSelection" class="custom-select" ng-model="event.level" ng-value="Any Level">
+    			        <select name="levelSelect" id="levelSelection" class="custom-select" ng-model="event.level">
     			           <option >Any Level</option>
     			           <option >Newbie</option>
     			           <option >Intermediate</option>
@@ -89,11 +95,11 @@
         <li class="media list-group-item p-a">
           <div class="media-body">
             <div class="media-body-text">
-              <div class="media-heading">
+              <div class="media-heading" ng-init="event.groupSize='2'">
                 <label class="select">Group Size:</label>
                    <span id="rangeSizeA">2</span>
                    <input id="groupSlider"  type="text" ng-model="event.groupSize" ng-value="2"> 
-                 
+                  
                </div>  
             </div>
           </div>
@@ -115,11 +121,11 @@
           <div class="media-body">
             <div class="media-body-text">
               <div class="media-heading">
-                <div data-role="rangeslider">
+                <div data-role="rangeslider" ng-init="event.ageRange.min='20'"  ng-init="event.ageRange.max='40'">
            
                 <b> Age Range:</b> 
                 <span id="rangeA" >20</span> to <span id="rangeB">40</span>
-                <input id="ex2" type="text" ng-model="event.ageRange">
+                <input id="ageSlider" type="text" ng-model="event.ageRange">
               </div>
          </div>  
             </div>
@@ -196,9 +202,9 @@
         <li class="media list-group-item p-a">
           <div class="media-body">
             <div class="media-body-text">
-              <div class="media-heading" >
+              <div class="media-heading" ng-init="event.radius='5'">
                 
-               <input id="slider-1" data-slider-id='ex1Slider' type="text" data-slider-min="1" data-slider-max="50" data-slider-step="1" data-slider-value="5" ng-model="event.radius"/>
+               <input id="radiusSlider" type="text" ng-model="event.radius"/>
                <!-- <input type="range" name="slider-1" id="slider-1" value="5" min="1" max="50" /> -->
           <br>
           <br>

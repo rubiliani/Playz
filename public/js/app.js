@@ -3,7 +3,7 @@
 /**********************************************************************
  * Angular Application
  **********************************************************************/
-var app = angular.module('PlayzApp', ['ngResource','ngRoute','ngStorage','PlayzApp.services','google.places']) ;
+var app = angular.module('PlayzApp', ['ngResource','ngRoute','ngStorage','PlayzApp.services','ngAutocomplete']) ;
 
 
 

@@ -34,7 +34,8 @@
               <div class="media-heading">
                   <label>Home Location:</label>
                   <!--<input class="form-control" id="userHome" type="text">-->
-                  <input type="text" class="form-control" ng-value="register.hometown.name" g-places-autocomplete ng-model="register.hometown.data" />
+                  <!--<input type="text" class="form-control" ng-value="register.hometown.name" g-places-autocomplete ng-model="register.hometown.data" />-->
+                  <input type="text" class="form-control" ng-autocomplete ng-model="register.hometown.name" options="options" details="register.hometown.data"/>
               </div>
             </div>
           </div>

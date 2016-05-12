@@ -54,13 +54,15 @@ else{ }
 
 app.get('/', function(rez,res,next){ });
 //events
-app.post('/events/:id', controllers.eventsController.create);
+//app.post('/events/:id', controllers.eventsController.create);
 app.post('/events/users/:id', controllers.eventsController.addUser);
 app.get('/events/:id', controllers.eventsController.getList);
 app.get('/events/other/:id', controllers.eventsController.getOtherList);
 app.get('/events/today/:id', controllers.eventsController.getTodayOtherList);
 app.get('/events/tomorrow/:id', controllers.eventsController.getTomorrowOtherList);
 app.get('/events/negotiable/:id', controllers.eventsController.getNegotOtherList);
+
+app.post('/events/createEvent', controllers.eventsController.createEvent);
 
 //sports
 app.get('/sports', controllers.sportsController.getList);

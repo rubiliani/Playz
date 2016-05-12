@@ -13,7 +13,7 @@ var eventSchema = new Schema({
 	whenDate : { type : Date, default:''},
 	groupSize: { type : Number, default:'2'},
 	ageRange:{
-		min:{ type : Number, default:'20'},
+		min: {type : Number, default:'20'},
 		max: {type : Number, default:'40'}
 	},
 	gender: { type : String, default:''},
@@ -31,7 +31,7 @@ var eventSchema = new Schema({
 	}]
 });
 
-eventSchema.statics.update_event=function(user,callback){
+eventSchema.statics.update_event=function(event,callback){
 	var r = {msg:[],status:0};
 	var query = {
 		id:event._id
@@ -41,6 +41,28 @@ eventSchema.statics.update_event=function(user,callback){
 		new: true
 	}
 	this.model('events').findOneAndUpdate(query,{$set:event},options)
+		.exec(function(err,result){
+			if (err){
+				r.msg.push(err);
+				return callback(r);
+			}
+
+			r.msg.push("event found");
+			r.status=1;
+			r.event=result;
+			return callback(r);
+		});
+}
+
+eventSchema.statics.create_event=function(event,callback){
+	var r = {msg:[],status:0};
+	/*var query = {
+		id:event._id
+	};*/
+
+	console.log("in model "+event);
+	
+	this.model('events').save()
 		.exec(function(err,result){
 			if (err){
 				r.msg.push(err);
