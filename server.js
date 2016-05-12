@@ -54,7 +54,10 @@ app.use('/assets', express.static(process.env.PWD + '/client/Assets'));
 
 //REST API
 //events
-app.post('/api/events/:id', eventsController.create);
+//app.post('/api/events/:id', eventsController.create);
+app.post('/events/createEvent', controllers.eventsController.createEvent);
+
+
 app.post('/api/events/users/:id', eventsController.addUser);
 app.get('/api/events/:id', eventsController.getList);
 app.get('/api/events/other/:id', eventsController.getOtherList);
