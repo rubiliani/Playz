@@ -93,7 +93,7 @@ angular.module('PlayzApp.services',['ngResource','ngRoute','ngStorage','ngFacebo
 
 	var _getFriends = function(){
 		var deferred = $q.defer();
-		$facebook.api('/me/friends?fields=id,email,name,picture{url}').then(
+		$facebook.api('/me/friends?fields=id,email,name,picture{url}&limit=5&offset=0').then(
 			function(response) {
 				console.log('friends',response)
 				deferred.resolve(response)
