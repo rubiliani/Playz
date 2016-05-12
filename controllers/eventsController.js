@@ -3,12 +3,26 @@ var async = require("async");
 
 
 module.exports.create = function(req,res){
-	console.log(req.body);
+	var event = req.body.event;
+	if (!event){
+		return res.json({status:0,msg:['no event']})
+	}
 
-	var evt = new Event(req.body);
-	evt.save(function(err,result){
-		res.json(result);
-	});
+	event.registeredUsers.push(req.user._id);
+	Event.update_event(event,function(result){
+		if (!result.status){
+			return res.json(result);
+		}
+		req.user.userEvents.push(result.event._id);
+		req.user.registeredEvents.push(result.event._id);
+		req.user.save();
+
+		return res.json(result);
+	})
+	// var evt = new Event(req.body.event);
+	// evt.save(function(err,result){
+	// 	res.json(result);
+	// });
 }
 
 module.exports.getList = function(req,res){

@@ -1,3 +1,4 @@
+<div class="container">
 <div class="row">
   <div class="col-md-6">
     <ul class="list-group media-list media-list-stream">
@@ -66,7 +67,7 @@
             <div class="media-body-text">
               <div class="media-heading">
                 <label class="select">Mind-set:</label>
-      		        <select name="mindsetSelect" id="mindsetSelection" class="custom-select" ng-model="event.mindset" ng-value="Just for fun">
+      		        <select name="mindsetSelect" id="" class="custom-select" ng-model="event.mindset" ng-value="Just for fun">
       		          <option >Just for fun</option>
       		          <option >Turnament</option>
       		          <option >By the book</option>
@@ -80,7 +81,7 @@
             <div class="media-body-text">
               <div class="media-heading">
                 <label class="select">When:</label>
-                  <select name="select-choice-0" id="mindsetSelection" class="custom-select" ng-model="event.whenDate" ng-value="Today">
+                  <select name="select-choice-0" id="" class="custom-select" ng-model="event.whenDate" ng-value="Today">
                     <option >Today</option>
                     <option >Tomorrow</option>
                     <option >Negotiable</option>
@@ -95,7 +96,7 @@
               <div class="media-heading" ng-init="event.groupSize='2'">
                 <label class="select">Group Size:</label>
                 <span id="rangeSizeA">2</span>
-                <input id="groupSlider"  type="text" ng-model="event.groupSize" ng-value="2">             
+                <input id="groupSlider"  type="text" ng-model="event.groupSize" ng-value=2>             
               </div>  
             </div>
           </div>
@@ -113,7 +114,7 @@
           <div class="media-body">
             <div class="media-body-text">
               <div class="media-heading">
-                <div data-role="rangeslider" ng-init="event.ageRange.min='20'"  ng-init="event.ageRange.max='40'">
+                <div data-role="rangeslider" ng-init="[event.ageRange.min='20' , event.ageRange.max='40']" >
                   <b> Age Range:</b> 
                   <span id="rangeA" >20</span> to <span id="rangeB">40</span>
                   <input id="ageSlider" type="text" ng-model="event.ageRange">
@@ -268,4 +269,4 @@
         </ul>
     </div>
 </div>
-
+</div>

@@ -119,7 +119,7 @@ angular.module('PlayzApp.services')
             var deferred = $q.defer();
             $http.post($rootScope.app.domain+'events/createEvent',{event:event})
                 .success(function(data){
-                    console.log("create event success",data.event)
+                    console.log("create event success",data)
                     
                     deferred.resolve(data.event);
                 }).error(function(err){
