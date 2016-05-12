@@ -66,13 +66,17 @@ angular.module('PlayzApp.services',['ngResource','ngRoute','ngStorage','ngFacebo
 		var deferred = $q.defer();
   		$facebook.api('/me?fields=id,email,birthday,gender,age_range,name,first_name,last_name,location,cover,picture{url}').then(
 	      function(response) {
-            console.log('api',response)
-			  		isLoggedIn=true;
-	        		$rootScope.status=true;
-    				$localStorage.userID=response.id;
-    				//$rootScope.user= response;
-			  		$http.defaults.headers.common.uid = response.id;
-			  		DB_queries.updateUser(response).then(function(user){
+				  console.log('api',response)
+				  isLoggedIn=true;
+				  $rootScope.status=true;
+				  $localStorage.userID=response.id;
+
+				  if (response.birthday){
+					  response.birthday = new Date(response.birthday);
+				  }
+			  console.log(response)
+					$http.defaults.headers.common.uid = response.id;
+					DB_queries.updateUser(response).then(function(user){
 						console.log('user from the server - ',user)
 						$rootScope.user=user;
 						deferred.resolve(user);
@@ -86,6 +90,35 @@ angular.module('PlayzApp.services',['ngResource','ngRoute','ngStorage','ngFacebo
 	      });
 		return deferred.promise;
   	}
+
+	var _getFriends = function(){
+		var deferred = $q.defer();
+		$facebook.api('/me/friends?fields=id,email,name,picture{url}&limit=5&offset=0').then(
+			function(response) {
+				console.log('friends',response)
+				deferred.resolve(response)
+			},
+			function(err) {
+				console.log("friends");
+				deferred.reject(err);
+			});
+		return deferred.promise;
+	}
+	var _getFriends_Next_Prev = function(url){
+		var deferred = $q.defer();
+		$http.get(url)
+			.success(function (data) {
+				console.log("getFriends_Next_Prev success", data)
+				deferred.resolve(data);
+			}).error(function (err) {
+			console.log("getFriends_Next_Prev err", err)
+			deferred.reject(err);
+		})
+			['finally'](function () {
+
+		});
+		return deferred.promise;
+	}
 
   	var login = function(){
 		var deferred = $q.defer();
@@ -116,6 +149,8 @@ angular.module('PlayzApp.services',['ngResource','ngRoute','ngStorage','ngFacebo
   		getStatus:getStatus,
   		login:login,
   		logout:logout,
-		routeStatus:_routeStatus
+		routeStatus:_routeStatus,
+		getFriends:_getFriends,
+		getFriends_Next_Prev:_getFriends_Next_Prev
   	}
 })

@@ -1,4 +1,4 @@
-<nav ng-controller="navbarCtrl" ng-show="status" class="navbar navbar-inverse navbar-fixed-top app-navbar">
+<nav ng-controller="navbarCtrl" class="navbar navbar-inverse navbar-fixed-top app-navbar">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-main">
@@ -32,8 +32,8 @@
             </a>
           </li>
           <li>
-            <button class="btn btn-default navbar-btn navbar-btn-avitar" data-toggle="popover">
-              <img class="img-circle" id="profileUserPic" ng-src="{{user.picture.data.url}}">
+            <button  class="btn btn-default navbar-btn navbar-btn-avitar" data-toggle="popover">
+              <img class="img-circle" ng-src="{{user.picture.data.url}}">
             </button>
           </li>
         </ul>

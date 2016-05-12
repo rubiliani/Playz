@@ -15,17 +15,22 @@
     <link href="assets/css/toolkit.css" rel="stylesheet">
     <link href="assets/css/application.css" rel="stylesheet">
     <link href="css/plugins/slider.css" rel="stylesheet">
+    <link href="angular/tabs/tabs.css" rel="stylesheet">
+    <link href="angular/tabs/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
   </head>
   <body ng-class="{'with-top-navbar':status  , 'loginBody':!status }">
     
-    <ng-include src="'views/includes/navbar.html'"> </ng-include>
-    
+    <ng-include  ng-show="status"  src="'views/includes/navbar.html'"> </ng-include>
+    <ng-include  ng-show="status"  src="'views/includes/profile_completeness.html'"> </ng-include>
+
+
     <div ng-class="{'container':status  , 'container-content-middle':!status }" ng-view  autoscroll="true" > </div>
 
     <script type="text/javascript" src="angular/angular.min.js"></script>
     <script type="text/javascript" src="angular/angular-resource.min.js"></script>
+    <script type="text/javascript" src="angular/tabs/tabs.js"></script>
     <script type="text/javascript" src="angular/angular-route.min.js"></script>
     <script type="text/javascript" src="angular/loading-bar.js"></script>
     <script type="text/javascript" src="angular/ngStorage.js"></script>
@@ -37,7 +42,7 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/chart.js"></script>
     <script src="assets/js/toolkit.js"></script>
-    <script src="assets/js/application.js"></script>
+    <!--<script src="assets/js/application.js"></script>-->
 
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/services/fb_login.js"></script>
@@ -45,6 +50,7 @@
     <script type="text/javascript" src="js/controllers/login.js"></script>
     <script type="text/javascript" src="js/controllers/home.js"></script>
     <script type="text/javascript" src="js/controllers/profile.js"></script>
+    <script type="text/javascript" src="js/controllers/playzcard.js"></script>
     <script type="text/javascript" src="js/controllers/register.js"></script>
     <script type="text/javascript" src="js/controllers/create.js"></script>
     <script type="text/javascript" src="js/controllers/event.js"></script>

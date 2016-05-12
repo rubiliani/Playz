@@ -5,7 +5,7 @@ var userSchema = new Schema({
 	id : { type : String ,  index : true, unique : true , required :true},
 	email : { type : String, default:''},
 	gender: { type : String, default:''},
-	birthday : {type : String, default:''},
+	birthday : {type : Date, default:''},
 	"age_range": {
 		"min": Number, default:0
 	},
@@ -54,6 +54,32 @@ userSchema.statics.update_user=function(user,callback){
 			r.msg.push("user found");
 			r.status=1;
 			r.user=result;
+			return callback(r);
+		});
+}
+
+userSchema.statics.get_user=function(userid,callback){
+	var r = {msg:[],status:0};
+	var query = {
+		id:userid
+	};
+
+	this.model('users').findOne(query)
+		.exec(function(err,result){
+			if (err){
+				r.msg.push(err);
+				return callback(r);
+			}
+
+			if (!result){
+				r.msg.push("user was not found");
+			}
+			else{
+				r.msg.push("user found");
+				r.user=result;
+				r.status=1;
+			}
+
 			return callback(r);
 		});
 }

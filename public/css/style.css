@@ -1,5 +1,8 @@
-.googlePlaces *{
-    /*position: relative !important;*/
-    /*text-align: center;*/
-    /*width: 100%;*/
+.fullBackground {
+    background-position: center;
+    background-size:cover ;
+    background-repeat: no-repeat;
+}
+.profile_completeness{
+    margin: 0 15px 0 15px;
 }

@@ -3,12 +3,14 @@
 angular.module('PlayzApp')
     .controller('registerCtrl', function($scope, $http, $rootScope, $location,DB_queries, $window, $document) {
         console.log("register controller")
-        $scope.register={
-            id:$rootScope.user.id,
-            birthday:($rootScope.user.birthday) ? new Date($rootScope.user.birthday) : new Date(),
-            about:$rootScope.user.about,
-            hometown:$rootScope.user.hometown
-        };
+        if ($rootScope.user) {
+            $scope.register = {
+                id: $rootScope.user.id,
+                birthday: new Date($rootScope.user.birthday),
+                about: $rootScope.user.about,
+                hometown: $rootScope.user.hometown
+            };
+        }
         $scope.options = {
             types: '(cities)',
             //country: 'ca',
@@ -28,7 +30,8 @@ angular.module('PlayzApp')
             }
 
            DB_queries.updateUser($scope.register).then(function(user){
-               console.log('register - update user',user)
+               console.log('register - update user',user);
+               $rootScope.user=user;
                 $location.url('/')
            })
         }
@@ -36,6 +39,17 @@ angular.module('PlayzApp')
         $scope.getBirthday=function(){
             if (user.birthday){
                 register.birthday = new Date(user.birthday)
+            }
+        }
+
+        $scope.show_profile_completeness=function(){
+            if ($rootScope.user){
+                if (!$rootScope.user.hometown.name || !$rootScope.user.birthday){
+                    return true
+                }
+                else{
+                    return false;
+                }
             }
         }
     });
