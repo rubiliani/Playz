@@ -7,7 +7,7 @@ var userSchema = new Schema({
 	gender: { type : String, default:''},
 	birthday : {type : Date, default:''},
 	"age_range": {
-		"min": Number, default:0
+		"min": {type : Number, default:0},
 	},
 	name : { type : String, default:''},
 	first_name: { type : String, default:''},
@@ -30,6 +30,10 @@ var userSchema = new Schema({
 	},
 	userEvents:[{type : Schema.Types.ObjectId , ref: 'events'}],
  	registeredEvents:[{type : Schema.Types.ObjectId ,  ref: 'events'}],
+ 	notifications:[{
+		notification:{type : Schema.Types.ObjectId ,  ref: 'notifications'},
+		read: { type : Boolean, default:false}
+	}],
 	about:{type : String, default:''}
 });
 
