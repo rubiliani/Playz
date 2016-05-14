@@ -14,14 +14,16 @@
     <div class="navbar-collapse collapse" id="navbar-collapse-main">
 
         <ul class="nav navbar-nav hidden-xs">
-          <li class="active" ng-click="urlChanged()">
-            <a href="#/">Home</a>
+          <li class="active" ng-click="urlChanged('navHome')">
+            <a class="navHome" href="#/">Home</a>
           </li>
-          <li ng-click="urlChanged()">
-            <a href="#/profile">Playzer Card</a>
+          <li ng-click="urlChanged('navProfile')">
+            <a class="navProfile" href="#/profile">Playzer Card</a>
           </li>
 
-          <li ng-click="urlChanged()"><a href="#/login" ng-click="facebookLogout()">Logout</a></li>
+          <li ng-click="urlChanged()">
+            <a href="#/login" ng-click="facebookLogout()">Logout</a>
+          </li>
 
         </ul>
 
@@ -45,13 +47,16 @@
         </form>
 
         <ul class="nav navbar-nav hidden-sm hidden-md hidden-lg">
+          <li class="active" ng-click="urlChanged('navHome')">
+            <a class="navHome" href="#/">Home</a>
+          </li>
+          <li ng-click="urlChanged('navProfile')">
+            <a class="navProfile" href="#/profile">Playzer Card</a>
+          </li>
+
           <li ng-click="urlChanged()">
-            <a href="#/">Home</a>
-          </li >
-          <li ng-click="urlChanged()">
-            <a href="#/profile">Playzer Card</a>
-          </li >
-            <li ng-click="urlChanged()"><a href="#/login" ng-click="facebookLogout()">Logout</a></li>
+            <a href="#/login" ng-click="facebookLogout()">Logout</a>
+          </li>
         </ul>
 
   </div>

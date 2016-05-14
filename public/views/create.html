@@ -42,7 +42,10 @@
                             <div class="media-heading">
                                 <label class="select">Choose Sport:</label>
                                 <select id="sportSelection" class="custom-select" ng-model="event.sportType">
-                                    <option ng-repeat="sport in sports">{{sport.name}}</option>
+                                    <option ng-repeat="sport in sports track by $index"
+                                    ng-selected="$index==0">
+                                        {{sport.name}}
+                                    </option>
                                 </select>
                             </div>
                         </div>
@@ -55,10 +58,7 @@
                                 <label class="select">Level of expertese:</label>
                                 <select name="levelSelect" id="levelSelection" class="custom-select"
                                         ng-model="event.level">
-                                    <option>Any Level</option>
-                                    <option>Newbie</option>
-                                    <option>Intermediate</option>
-                                    <option>Proffesional</option>
+                                    <option ng-repeat="level in levels track by $index" ng-selected="$index==0">{{level}}</option>
                                 </select>
                             </div>
                         </div>
@@ -70,9 +70,7 @@
                             <div class="media-heading">
                                 <label class="select">Mind-set:</label>
                                 <select name="mindsetSelect" class="custom-select" ng-model="event.mindset">
-                                    <option>Just for fun</option>
-                                    <option>Turnament</option>
-                                    <option>By the book</option>
+                                    <option ng-repeat="mindset in mindsets track by $index" ng-selected="$index==0">{{mindset}}</option>
                                 </select>
                             </div>
                         </div>
@@ -85,9 +83,7 @@
                                 <label class="select">When:</label>
                                 <select name="select-choice-0" id="" class="custom-select" ng-model="event.whenDate"
                                         ng-value="Today">
-                                    <option>Today</option>
-                                    <option>Tomorrow</option>
-                                    <option>Negotiable</option>
+                                    <option ng-repeat="date in whenDates track by $index" ng-selected="$index==0">{{date}}</option>
                                 </select>
                             </div>
                         </div>
@@ -134,9 +130,7 @@
                                 <label class="select">Gender:</label>
                                 <select name="select-choice-0" id="genderSelection" class="custom-select"
                                         ng-model="event.gender">
-                                    <option>Co-ed</option>
-                                    <option>Male</option>
-                                    <option>Female</option>
+                                    <option ng-repeat="gen in gender track by $index" ng-selected="$index==0">{{gen}}</option>
                                 </select>
                             </div>
                         </div>
@@ -149,9 +143,7 @@
                                 <label class="select">Payed facilities:</label>
                                 <select name="select-choice-0" id="payedSelection" class="custom-select"
                                         ng-model="event.payedFacility">
-                                    <option>OK</option>
-                                    <option>No Way</option>
-                                    <option>Don't Care</option>
+                                    <option ng-repeat="pf in paidFacilities track by $index" ng-selected="$index==0">{{pf}}</option>
                                 </select>
                             </div>
                         </div>
@@ -264,7 +256,7 @@
                         <div class="media-body-text">
                             <div class="media-heading">
                                 <form>
-                                    <button type="button" class="btn btn-lg btn-pill btn-danger">Cancel</button>
+                                    <button type="button" class="btn btn-lg btn-pill btn-danger" ng-click="cancel()">Cancel</button>
                                     <button type="submit" ng-click="createEvent()"
                                             class="btn btn-lg btn-pill btn-success">
                                         Create Event

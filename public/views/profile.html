@@ -1,12 +1,14 @@
 <div ng-tabs class="container p-t-md">
     <div class="row">
         <div class="col-md-3">
-            <div class="profile-header text-center blur-bgimage"
+            <div class="profile-header text-center blur-bgimage p-a"
                  style="background-image: url(../assets/img/iceland.jpg); ">
                 <div class="container">
                     <div class="container-inner">
                         <img class="img-circle media-object" id="profileUserPic" src="{{user.picture.data.url}}">
-                        <h3 class="profile-header-user" id="currntUserName"></h3>
+                        <h3 class="profile-header-user" id="currntUserName">
+                            {{user.name}}
+                        </h3>
                     </div>
                 </div>
             </div>
@@ -41,12 +43,14 @@
 
         <div class="col-md-6 col-lg-6">
             <ul class="list-group media-list media-list-stream">
-                <li class="list-group-item p-a">
-                    <button ng-click="createNewEvent()" type="button"
-                            class="btn btn-sm btn-primary pull-right app-new-msg js-newMsg">
-                        New event
-                    </button>
-                    <h3 class="modal-title">My Events</h3>
+                <li class="list-group-item">
+
+                    <h3 class="">My Events
+                        <button ng-click="createNewEvent()" type="button"
+                                class="btn btn-sm btn-primary pull-right">
+                            New event
+                        </button>
+                    </h3>
                 </li>
                 <li class="media list-group-item p-a">
                     <ul class="nav nav-pills nav-justified">

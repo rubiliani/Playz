@@ -64,7 +64,7 @@ angular.module('PlayzApp.services',['ngResource','ngRoute','ngStorage','ngFacebo
 
   	function getUserData(){
 		var deferred = $q.defer();
-  		$facebook.api('/me?fields=id,email,birthday,gender,age_range,name,first_name,last_name,location,cover,picture{url}').then(
+  		$facebook.api('/me?fields=id,email,birthday,gender,age_range,name,first_name,last_name,location,cover,picture.type(large){url}').then(
 	      function(response) {
 				  console.log('api',response)
 				  isLoggedIn=true;

@@ -6,8 +6,9 @@ angular.module('PlayzApp')
 		fbLogin.logout();
 	}
 
-	$scope.urlChanged=function(){
-
+	$scope.urlChanged=function(elem){
+		$("nav ul li").removeClass('active')
+		$("."+elem).parent().addClass('active')
 		$(".navbar-collapse").collapse('hide');
 	}
 });
