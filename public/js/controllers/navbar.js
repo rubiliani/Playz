@@ -5,4 +5,9 @@ angular.module('PlayzApp')
 	$scope.facebookLogout = function(){
 		fbLogin.logout();
 	}
+
+	$scope.urlChanged=function(){
+
+		$(".navbar-collapse").collapse('hide');
+	}
 });
