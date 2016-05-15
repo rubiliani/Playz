@@ -45,6 +45,7 @@ angular.module('PlayzApp')
         }
         $scope.createEvent=function(){
             console.log($scope.event);
+            var d = translateTime($scope.event.whenDate);
 
             $scope.event.registeredUsers=[];
             DB_queries.createEvent($scope.event).then(function(event){
