@@ -136,6 +136,7 @@ angular.module('PlayzApp')
         };
 
         $scope.init=function(){
+            /*
             $("#radiusSlider").slider({min  : 1, max  : 50, value: 5});
             $("#groupSlider").slider({min  : 1, max  : 50, value: 2});
             $("#ageSlider").slider({min  : 10, max  : 100, value: [20, 40]});
@@ -155,7 +156,7 @@ angular.module('PlayzApp')
             $("#radiusSlider").on("slide", function(slideEvt) {
                 $scope.event.radius = slideEvt.value;
                 $scope.radiusChange($scope.event.radius);
-            });
+            });*/
             $scope.refreshSlider();
         }
         $scope.init();
@@ -175,6 +176,7 @@ angular.module('PlayzApp')
             $scope.event.groupSize = $scope.groupSlider.value;
             $scope.event.ageRange.min = $scope.ageSlider.minValue;
             $scope.event.ageRange.max = $scope.ageSlider.maxValue;
+            $scope.event.radius = $scope.radiusSlider.value;
 
             $scope.event.registeredUsers=[];
             DB_queries.createEvent($scope.event).then(function(event){
