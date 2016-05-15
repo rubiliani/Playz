@@ -6324,14 +6324,14 @@ fieldset[disabled] .btn-danger-outline.active {
 }
 /* Checked state */
 .custom-control input:checked ~ .custom-control-indicator {
-  background-color: #3097d1;
-  border-color: #3097d1;
+  background-color: #44a762;
+  border-color: #44a762;
   box-shadow: none;
 }
 /* Active */
 .custom-control input:active ~ .custom-control-indicator {
-  background-color: #6fb6df;
-  border-color: #6fb6df;
+  background-color: #44a762;
+  border-color: #44a762;
   box-shadow: none;
 }
 .custom-control input:disabled ~ .custom-control-indicator {
