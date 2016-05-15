@@ -98,10 +98,11 @@
                 <li class="media list-group-item p-a">
                     <div class="media-body">
                         <div class="media-body-text">
-                            <div class="media-heading" ng-init="event.groupSize='2'">
+                            <div class="media-heading">
                                 <label class="select">Group Size:</label>
-                                <span id="rangeSizeA">2</span>
-                                 <rzslider rz-slider-model="minSlider.value"></rzslider>
+                                <!--<span ng-model="slider.value">{{slider.value}}</span>-->
+                                <rzslider rz-slider-model="groupSlider.value" 
+                                rz-slider-options="groupSlider.options"></rzslider>
 
                                <!-- <input id="groupSlider" type="text" ng-model="event.groupSize" ng-value=2>  -->
 
@@ -125,8 +126,7 @@
                                 <div data-role="rangeslider"
                                      ng-init="[event.ageRange.min='20' , event.ageRange.max='40']">
                                     <b> Age Range:</b>
-                                    <span id="rangeA">20</span> to <span id="rangeB">40</span>
-                                    <input id="ageSlider" type="text" ng-model="event.ageRange">
+                                    <rzslider rz-slider-model="ageSlider.minValue" rz-slider-high="ageSlider.maxValue" rz-slider-options="ageSlider.options"></rzslider>
                                 </div>
                             </div>
                         </div>
@@ -195,7 +195,8 @@
                     <div class="media-body">
                         <div class="media-body-text">
                             <div class="media-heading" ng-init="event.radius='5'">
-                                <input id="radiusSlider" type="text" ng-model="event.radius"/>
+                                <rzslider rz-slider-model="radiusSlider.value" 
+                                    rz-slider-options="radiusSlider.options"></rzslider>
 
                                 <span id="mapLat" class="hidden" ng-model="event.location.latitude"></span>
                                 <span id="mapLong" class="hidden" ng-model="event.location.longitudes"></span>
@@ -225,7 +226,7 @@
                     <li ng-repeat="friend in friends.data track by $index" class="list-group-item">
                         <div class="media">
                             <a class="media-left" href="#">
-                                <img class="media-object img-circle" ng-src="{{friend.picture.data.url}}">
+                                <img class="img-circle" ng-src="{{friend.picture.data.url}}">
                             </a>
                             <div class="media-body">
                                 <button class="btn btn-primary-outline btn-sm pull-right">

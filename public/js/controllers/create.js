@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('PlayzApp')
-    .controller('createCtrl', function($scope, $http, $rootScope, $location,DB_queries,geolocation,$window,fbLogin) {
+    .controller('createCtrl', function($scope, $http, $rootScope, $location,DB_queries,geolocation,$window,fbLogin,$timeout) {
         console.log("create controller")
         $scope.location={lat:0,lng:0};
         $scope.sports=[{name:"basketball"},{name:"tennis"}];
@@ -21,8 +21,33 @@ angular.module('PlayzApp')
             ageRange:{}
         };
          
-       $scope.minSlider = {
-            value: 10
+       $scope.groupSlider = {
+            value: 2,
+            options: {
+                floor: 2,
+                ceil: 50,
+                step: 1
+            }
+        };
+
+        $scope.ageSlider = {
+            minValue: 20,
+            maxValue: 40,
+            options: {
+                floor: 0,
+                ceil: 100,
+                step: 1
+            }
+        };
+
+        $scope.radiusSlider = {
+            value: 5,
+            options: {
+                floor: 0,
+                ceil: 100,
+                step: 5,
+                showTicks: true
+            }
         };
 
 
@@ -104,6 +129,12 @@ angular.module('PlayzApp')
             }
         };
 
+        $scope.refreshSlider = function () {
+            $timeout(function () {
+                $scope.$broadcast('rzSliderForceRender');
+            });
+        };
+
         $scope.init=function(){
             $("#radiusSlider").slider({min  : 1, max  : 50, value: 5});
             $("#groupSlider").slider({min  : 1, max  : 50, value: 2});
@@ -125,6 +156,7 @@ angular.module('PlayzApp')
                 $scope.event.radius = slideEvt.value;
                 $scope.radiusChange($scope.event.radius);
             });
+            $scope.refreshSlider();
         }
         $scope.init();
 
@@ -138,6 +170,11 @@ angular.module('PlayzApp')
             $scope.event.whenDate = translateTime($scope.event.whenDate);
             $scope.event.location.latitude = $scope.map.center[0];
             $scope.event.location.longitude = $scope.map.center[1];
+
+            //sliders
+            $scope.event.groupSize = $scope.groupSlider.value;
+            $scope.event.ageRange.min = $scope.ageSlider.minValue;
+            $scope.event.ageRange.max = $scope.ageSlider.maxValue;
 
             $scope.event.registeredUsers=[];
             DB_queries.createEvent($scope.event).then(function(event){
@@ -179,6 +216,11 @@ angular.module('PlayzApp')
                 $scope.map.circles.geometries[0].radius = (value * 1000);
             }
         };
+
+
+
+         
+
 
         fbLogin.getFriends().then(function(friends){
             console.log(friends)
