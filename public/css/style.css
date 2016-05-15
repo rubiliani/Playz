@@ -9,3 +9,9 @@
 #playzerCard{
     margin-bottom: 20px;
 }
+.google-map {
+    height: 100%;
+}
+.map-height{
+    height: 350px;
+}

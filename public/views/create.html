@@ -43,7 +43,7 @@
                                 <label class="select">Choose Sport:</label>
                                 <select id="sportSelection" class="custom-select" ng-model="event.sportType">
                                     <option ng-repeat="sport in sports track by $index"
-                                    ng-selected="$index==0">
+                                            ng-selected="$index==0">
                                         {{sport.name}}
                                     </option>
                                 </select>
@@ -58,7 +58,9 @@
                                 <label class="select">Level of expertese:</label>
                                 <select name="levelSelect" id="levelSelection" class="custom-select"
                                         ng-model="event.level">
-                                    <option ng-repeat="level in levels track by $index" ng-selected="$index==0">{{level}}</option>
+                                    <option ng-repeat="level in levels track by $index" ng-selected="$index==0">
+                                        {{level}}
+                                    </option>
                                 </select>
                             </div>
                         </div>
@@ -70,7 +72,9 @@
                             <div class="media-heading">
                                 <label class="select">Mind-set:</label>
                                 <select name="mindsetSelect" class="custom-select" ng-model="event.mindset">
-                                    <option ng-repeat="mindset in mindsets track by $index" ng-selected="$index==0">{{mindset}}</option>
+                                    <option ng-repeat="mindset in mindsets track by $index" ng-selected="$index==0">
+                                        {{mindset}}
+                                    </option>
                                 </select>
                             </div>
                         </div>
@@ -83,7 +87,9 @@
                                 <label class="select">When:</label>
                                 <select name="select-choice-0" id="" class="custom-select" ng-model="event.whenDate"
                                         ng-value="Today">
-                                    <option ng-repeat="date in whenDates track by $index" ng-selected="$index==0">{{date}}</option>
+                                    <option ng-repeat="date in whenDates track by $index" ng-selected="$index==0">
+                                        {{date}}
+                                    </option>
                                 </select>
                             </div>
                         </div>
@@ -130,7 +136,8 @@
                                 <label class="select">Gender:</label>
                                 <select name="select-choice-0" id="genderSelection" class="custom-select"
                                         ng-model="event.gender">
-                                    <option ng-repeat="gen in gender track by $index" ng-selected="$index==0">{{gen}}</option>
+                                    <option ng-repeat="gen in gender track by $index" ng-selected="$index==0">{{gen}}
+                                    </option>
                                 </select>
                             </div>
                         </div>
@@ -143,7 +150,9 @@
                                 <label class="select">Payed facilities:</label>
                                 <select name="select-choice-0" id="payedSelection" class="custom-select"
                                         ng-model="event.payedFacility">
-                                    <option ng-repeat="pf in paidFacilities track by $index" ng-selected="$index==0">{{pf}}</option>
+                                    <option ng-repeat="pf in paidFacilities track by $index" ng-selected="$index==0">
+                                        {{pf}}
+                                    </option>
                                 </select>
                             </div>
                         </div>
@@ -162,7 +171,7 @@
                             <div class="media-heading">
                                 <div class="radio-inline custom-control custom-radio">
                                     <label>
-                                        <input type="radio" id="radio1" onclick="setCurrentLocation()" name="location"
+                                        <input type="radio" id="radio1" ng-click="setCurrentLocation()" name="location"
                                                checked>
                                         <span class="custom-control-indicator"></span>
                                         Current Location
@@ -170,7 +179,7 @@
                                 </div>
                                 <div class="radio-inline custom-control custom-radio">
                                     <label>
-                                        <input type="radio" id="radio2" onclick="setLoc()" name="location">
+                                        <input type="radio" id="radio2" ng-click="setHomeLoc()" name="location">
                                         <span class="custom-control-indicator"></span>
                                         Home Location
                                     </label>
@@ -184,12 +193,20 @@
                         <div class="media-body-text">
                             <div class="media-heading" ng-init="event.radius='5'">
                                 <input id="radiusSlider" type="text" ng-model="event.radius"/>
-                                <br>
-                                <br>
-                                <div id="map"></div>
+
                                 <span id="mapLat" class="hidden" ng-model="event.location.latitude"></span>
                                 <span id="mapLong" class="hidden" ng-model="event.location.longitudes"></span>
                             </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="media list-group-item p-a">
+                    <div class="media-body">
+                        <div class="media-body-text map-height">
+                            <map ng-transclude class="google-map" center="map.center" options="map.options" events="map.events">
+                                <marker position="map.marker.position" options="map.marker.options" events="map.marker.events"></marker>
+                                <circles geometries="map.circles.geometries" options="map.circles.options"></circles>
+                            </map>
                         </div>
                     </div>
                 </li>
@@ -256,7 +273,9 @@
                         <div class="media-body-text">
                             <div class="media-heading">
                                 <form>
-                                    <button type="button" class="btn btn-lg btn-pill btn-danger" ng-click="cancel()">Cancel</button>
+                                    <button type="button" class="btn btn-lg btn-pill btn-danger" ng-click="cancel()">
+                                        Cancel
+                                    </button>
                                     <button type="submit" ng-click="createEvent()"
                                             class="btn btn-lg btn-pill btn-success">
                                         Create Event
