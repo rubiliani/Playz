@@ -194,12 +194,9 @@
                 <li class="media list-group-item p-a">
                     <div class="media-body">
                         <div class="media-body-text">
-                            <div class="media-heading" ng-init="event.radius='5'">
+                            <div class="media-heading">
                                 <rzslider rz-slider-model="radiusSlider.value" 
                                     rz-slider-options="radiusSlider.options"></rzslider>
-
-                                <span id="mapLat" class="hidden" ng-model="event.location.latitude"></span>
-                                <span id="mapLong" class="hidden" ng-model="event.location.longitudes"></span>
                             </div>
                         </div>
                     </div>
@@ -207,10 +204,11 @@
                 <li class="media list-group-item p-a">
                     <div class="media-body">
                         <div class="media-body-text map-height">
-                            <map ng-transclude class="google-map" center="map.center" options="map.options" events="map.events">
-                                <marker position="map.marker.position" options="map.marker.options" events="map.marker.events"></marker>
-                                <circles geometries="map.circles.geometries" options="map.circles.options" 
-                                events="map.circle.events"></circles>
+                            {{location.name}}
+                            <map ng-transclude class="google-map" center="mymap.center" options="mymap.options" events="mymap.events">
+                                <marker position="mymap.marker.position" options="mymap.marker.options" events="mymap.marker.events"></marker>
+                                <circles geometries="mymap.circles.geometries" options="mymap.circles.options"
+                                events="mymap.circle.events"> </circles>
                             </map>
                         </div>
                     </div>
