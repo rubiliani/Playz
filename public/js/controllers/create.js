@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('PlayzApp')
-    .controller('createCtrl', function($scope, $http, $rootScope, $location,DB_queries,geolocation,$window) {
+    .controller('createCtrl', function($scope, $http, $rootScope, $location,DB_queries,geolocation,$window,fbLogin) {
         console.log("create controller")
         $scope.location={lat:0,lng:0};
         $scope.sports=[{name:"basketball"},{name:"tennis"}];
@@ -20,6 +20,12 @@ angular.module('PlayzApp')
             location:{},
             ageRange:{}
         };
+         
+       $scope.minSlider = {
+            value: 10
+        };
+
+
         //http://willleahy.info/ng-maps/#/
 
         $scope.map = {
@@ -40,7 +46,13 @@ angular.module('PlayzApp')
                     // some action here
                 },
                 center_changed: function(){
-                    console.log("changed location!!")
+                    console.log("changed location!!");
+                    $scope.map.center[0] = $scope.location.lat;
+                    $scope.map.center[1] = $scope.location.lng;
+                    $scope.map.marker.position[0] = $scope.location.lat;
+                    $scope.map.marker.position[1] = $scope.location.lng;
+                    $scope.$apply();
+
                 }
             },
             marker:{
@@ -85,6 +97,7 @@ angular.module('PlayzApp')
                 {
                     radius_changed: function(){
                         console.log("circle radius radius_changed");
+                         $scope.$apply();
                     }
                 }
 
@@ -115,6 +128,8 @@ angular.module('PlayzApp')
         }
         $scope.init();
 
+
+
         $scope.privacyChanged=function(type){
             $scope.event.privacyType=type;
         }
@@ -138,8 +153,8 @@ angular.module('PlayzApp')
         $scope.setHomeLoc=function(){
             if ($rootScope.user.hometown.data){
                 $scope.location.lat = $rootScope.user.hometown.latitude;
-                $scope.location.lng = $rootScope.user.hometown.logitude;
-                $scope.map.setCenter(new google.maps.LatLng($scope.location.lat, $scope.location.lng), 5);
+                $scope.location.lng = $rootScope.user.hometown.longitude;
+                //$scope.map.setCenter(new google.maps.LatLng($scope.location.lat, $scope.location.lng), 5);
             }
             else{
                 $scope.setCurrentLocation();
@@ -148,24 +163,26 @@ angular.module('PlayzApp')
     
         $scope.setCurrentLocation=function(){
            geolocation.getCurrentPosition().then(function(val){
-                    console.log('create page geo',val)
+                console.log('create page geo',val)
                 $scope.location.lat = val.coords.latitude;
-                $scope.location.lng = val.coords.logitude;
-                return;
-                
+                $scope.location.lng = val.coords.longitude;
+                $scope.map.center[0] = $scope.location.lat;
+                $scope.map.center[1] = $scope.location.lng;
            });
         }
+         $scope.setCurrentLocation();
 
         $scope.radiusChange = function(value) {
             console.log("slider value changed : " + value);
            
             if ($scope.map !== undefined) {
-                $scope.map.circles.geometries[0].radius = value * 1000;
-                return;
-                
+                $scope.map.circles.geometries[0].radius = (value * 1000);
             }
         };
 
-        $scope.setHomeLoc();
-        
+        fbLogin.getFriends().then(function(friends){
+            console.log(friends)
+            $scope.friends=friends;
+        })
+
     });
