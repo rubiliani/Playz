@@ -1,8 +1,9 @@
 'use strict';
 
 angular.module('PlayzApp')
-    .controller('createCtrl', function($scope, $http, $rootScope, $location,DB_queries,$window) {
+    .controller('createCtrl', function($scope, $http, $rootScope, $location,DB_queries,geolocation,$window) {
         console.log("create controller")
+        $scope.location={lat:0,lng:0};
         $scope.sports=[{name:"basketball"},{name:"tennis"}];
         $scope.levels=["Any Level", "Newbie", "Intermediate", "Proffesional"];
         $scope.mindsets=["Just for fun", "Turnament", "By the book"];
@@ -16,14 +17,16 @@ angular.module('PlayzApp')
             whenDate:$scope.whenDates[0],
             gender:$scope.gender[0],
             payedFacility:$scope.paidFacilities[0],
+            location:{},
             ageRange:{}
         };
         //http://willleahy.info/ng-maps/#/
+
         $scope.map = {
-            center: [39, -121],
+            center: [$scope.location.lat, $scope.location.lng],
             options: function() {
                 return {
-                    //zoom:15,
+                    zoom:11,
                     streetViewControl: false,
                     scrollwheel: true,
                     draggable: true
@@ -35,10 +38,13 @@ angular.module('PlayzApp')
                 },
                 drag: function(e, p, map, points) {
                     // some action here
+                },
+                center_changed: function(){
+                    console.log("changed location!!")
                 }
             },
             marker:{
-                position: [39, -121],
+                position: [$scope.location.lat, $scope.location.lng],
                 //decimals: 4,
                 options: function(){
                     return {
@@ -61,8 +67,8 @@ angular.module('PlayzApp')
             circles :{
                 geometries: [
                     {
-                        center: [39, -121],
-                        radius: 100000
+                        center: [$scope.location.lat, $scope.location.lng],
+                        radius: 5000
                     }
                 ],
                 options: function(geometry, properties, map, i) {
@@ -70,9 +76,18 @@ angular.module('PlayzApp')
                     return {
                         fillOpacity: 0.35,
                         fillColor: "#5bd75b",
-                        strokeColor: "#5bd75b"
+                        strokeColor: "#5bd75b",
+                        geodesic: true,
+                        editable: true
+                    }
+                },
+                events:
+                {
+                    radius_changed: function(){
+                        console.log("circle radius radius_changed");
                     }
                 }
+
             }
         };
 
@@ -95,6 +110,7 @@ angular.module('PlayzApp')
             });
             $("#radiusSlider").on("slide", function(slideEvt) {
                 $scope.event.radius = slideEvt.value;
+                $scope.radiusChange($scope.event.radius);
             });
         }
         $scope.init();
@@ -104,7 +120,9 @@ angular.module('PlayzApp')
         }
         $scope.createEvent=function(){
             console.log($scope.event);
-            var d = translateTime($scope.event.whenDate);
+            $scope.event.whenDate = translateTime($scope.event.whenDate);
+            $scope.event.location.latitude = $scope.map.center[0];
+            $scope.event.location.longitude = $scope.map.center[1];
 
             $scope.event.registeredUsers=[];
             DB_queries.createEvent($scope.event).then(function(event){
@@ -118,9 +136,36 @@ angular.module('PlayzApp')
         }
 
         $scope.setHomeLoc=function(){
-
+            if ($rootScope.user.hometown.data){
+                $scope.location.lat = $rootScope.user.hometown.latitude;
+                $scope.location.lng = $rootScope.user.hometown.logitude;
+                $scope.map.setCenter(new google.maps.LatLng($scope.location.lat, $scope.location.lng), 5);
+            }
+            else{
+                $scope.setCurrentLocation();
+            }
         }
+    
         $scope.setCurrentLocation=function(){
-
+           geolocation.getCurrentPosition().then(function(val){
+                    console.log('create page geo',val)
+                $scope.location.lat = val.coords.latitude;
+                $scope.location.lng = val.coords.logitude;
+                return;
+                
+           });
         }
+
+        $scope.radiusChange = function(value) {
+            console.log("slider value changed : " + value);
+           
+            if ($scope.map !== undefined) {
+                $scope.map.circles.geometries[0].radius = value * 1000;
+                return;
+                
+            }
+        };
+
+        $scope.setHomeLoc();
+        
     });

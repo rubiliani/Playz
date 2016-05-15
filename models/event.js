@@ -6,7 +6,7 @@ var ObjectId = mongoose.Types.ObjectId;
 var eventSchema = new Schema({
 	//id : { type : String ,  index : true, unique : true , required :true},
 	eventTitle : { type : String, default:''},
-	createdDate : { type : Date, default:Date.now},
+	createdDate : { type : Date, default:Date.now()},
 	privacyType: { type : String, default:''},
 	sportType : {type : String, default:''},
 	level : {type : String, default:''},

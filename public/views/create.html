@@ -205,7 +205,8 @@
                         <div class="media-body-text map-height">
                             <map ng-transclude class="google-map" center="map.center" options="map.options" events="map.events">
                                 <marker position="map.marker.position" options="map.marker.options" events="map.marker.events"></marker>
-                                <circles geometries="map.circles.geometries" options="map.circles.options"></circles>
+                                <circles geometries="map.circles.geometries" options="map.circles.options" 
+                                events="map.circle.events"></circles>
                             </map>
                         </div>
                     </div>
