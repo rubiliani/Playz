@@ -26,6 +26,7 @@ app.set('port', port);
 app.locals.name = 'Playz';
 
 var controllers = { },controllers_path = process.cwd() + '/controllers';
+console.log("loading controllers")
 
 fs.readdirSync(controllers_path).forEach(function (file) 
 {

@@ -29,7 +29,7 @@
 
         <ul class="nav navbar-nav navbar-right m-r-0 hidden-xs">
           <li >
-            <a class="app-notifications" href="#/">
+            <a class="app-notifications" ng-click="openNotification()">
               <span class="icon icon-bell"></span>
             </a>
           </li>
@@ -52,6 +52,10 @@
           </li>
           <li ng-click="urlChanged('navProfile')">
             <a class="navProfile" href="#/profile">Playzer Card</a>
+          </li>
+
+           <li ng-click="">
+            <a class="navProfile" ng-click="openNotification()">Notifications</a>
           </li>
 
           <li ng-click="urlChanged()">
