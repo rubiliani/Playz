@@ -66,7 +66,7 @@ angular.module('PlayzApp')
                     zoom:11,
                     streetViewControl: false,
                     scrollwheel: true,
-                    draggable: false
+                    draggable: true
                 }
             },
             events: {
