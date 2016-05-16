@@ -207,6 +207,14 @@ angular.module('PlayzApp')
 
 
 
+        $scope.inviteFriend = function(fbId){
+            console.log("invited user " +fbId)
+            DB_queries.inviteFriend($scope.event,fbId).then(function(event){
+                console.log('friend invited',event)
+              
+            })
+
+        }
 
 
         fbLogin.getFriends().then(function(friends){

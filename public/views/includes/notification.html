@@ -1,33 +1,31 @@
-<div ng-controller="notificationCtrl" ng-show="show_notification()">
-    <div class="modal fade" id="notificationModal" tabindex="-1" role="dialog" aria-labelledby="msgModal" aria-hidden="true">
+
+  <div ng-controller="notificationCtrl" class="modal fade" data-target="#notificationModal"  id="notificationModal" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="false">&times;</button>
             <h4 class="modal-title">Notifications</h4>
           </div>
 
           <div class="modal-body p-a-0 js-modalBody">
             <div class="modal-body-scroller">
-              <div class="media-list media-list-users list-group js-msgGroup">
-                <a href="#" class="list-group-item">
+              <div class="media-list media-list-users list-group">
+                <a class="list-group-item" ng-repeat="notification in notifications">
                   <div class="media">
                     <span class="media-left">
-                    <img class="img-circle media-object" src="../assets/img/avatar-fat.jpg">
+                    <img class="img-circle media-object" ng-src="{{notification.creator.picture.url}}">
                     </span>
                     <div class="media-body">
-                      <strong>Jacob Thornton</strong> and <strong>1 other</strong>
+                      <strong>{{notification.creator.name}}</strong> Invited you to <strong>{{notification.event.sportType}}</strong> event.
                       <div class="media-body-secondary">
-                        Aenean eu leo quam. Pellentesque ornare sem lacinia quam &hellip;
+                        in {{notification.event.address}} at {{notification.event.whenDate}}
                       </div>
                     </div>
                   </div>
                 </a>
-                
               </div>
             </div>
           </div>
         </div>
       </div>
 	</div>
-</div>

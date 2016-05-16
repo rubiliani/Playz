@@ -227,7 +227,7 @@
                                 <img class="img-circle" ng-src="{{friend.picture.data.url}}">
                             </a>
                             <div class="media-body">
-                                <button class="btn btn-primary-outline btn-sm pull-right">
+                                <button class="btn btn-primary-outline btn-sm pull-right" ng-click="inviteFriend(friend.id)">
                                     <span class="icon icon-add-user"></span> Invite
                                 </button>
                                 <strong>{{friend.name}}</strong>
