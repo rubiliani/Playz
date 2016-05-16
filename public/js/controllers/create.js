@@ -18,7 +18,7 @@ angular.module('PlayzApp')
             gender:$scope.gender[0],
             payedFacility:$scope.paidFacilities[0],
             location:{},
-            radius:500,
+            radius:50,
             ageRange:{},
             registeredUsers:[]
         };
@@ -43,14 +43,14 @@ angular.module('PlayzApp')
         };
 
         $scope.radiusSlider = {
-            value: 5,
+            value: 50,
             options: {
                 floor: 0,
                 ceil: 100,
                 step: 5,
                 showTicks: true,
                 onChange:function(){
-                     $scope.event.radius=$scope.radiusSlider.value*100;
+                     $scope.event.radius=$scope.radiusSlider.value;
                     google.maps.event.trigger($scope.refMap, 'click');
                 }
             }
