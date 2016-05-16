@@ -18,7 +18,7 @@ angular.module('PlayzApp')
             gender:$scope.gender[0],
             payedFacility:$scope.paidFacilities[0],
             location:{},
-            radius:50,
+            radius:100,
             ageRange:{},
             registeredUsers:[]
         };
@@ -43,14 +43,14 @@ angular.module('PlayzApp')
         };
 
         $scope.radiusSlider = {
-            value: 50,
+            value: 10,
             options: {
                 floor: 0,
                 ceil: 100,
                 step: 5,
                 showTicks: true,
                 onChange:function(){
-                     $scope.event.radius=$scope.radiusSlider.value;
+                     $scope.event.radius=$scope.radiusSlider.value*10;
                     google.maps.event.trigger($scope.refMap, 'click');
                 }
             }
@@ -63,7 +63,7 @@ angular.module('PlayzApp')
             center: [$scope.location.lat, $scope.location.lng],
             options: function() {
                 return {
-                    zoom:11,
+                    zoom:15,
                     streetViewControl: false,
                     scrollwheel: true,
                     draggable: true
