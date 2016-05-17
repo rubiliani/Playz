@@ -8,4 +8,9 @@ angular.module('PlayzApp')
 	$scope.changeCardData=function(card){
 		$scope.click++;
 	}
+
+	//after joining event it will be removed from the home lists.
+	$scope.joinEvent = function(card){
+		console.log("joined "+card)
+	}
 });

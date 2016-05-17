@@ -1,0 +1,36 @@
+      
+          <div class="media-body" ng-controller="mycardCtrl" class="list-group-item" id="myCard">
+         
+            <small class="pull-right text-muted">{{card.whenDate}}</small>
+            
+            <div class="media-heading">
+              <strong>{{card.sportType}}</strong> Event in '{{card.mindset}}' mindset, at {{card.location}}<br>
+              Group size: {{card.registeredUsers.length}}/{{card.groupSize}}<br>
+              Level: {{card.level}}
+
+
+
+              <div class="pull-right">
+            	
+            </div>
+            <ul class="avatar-list">
+              <li class="avatar-list-item">
+                <img class="img-circle" src="../assets/img/avatar-dhg.png">
+              </li>
+              <li class="avatar-list-item">
+                <img class="img-circle" src="../assets/img/avatar-mdo.png">
+              </li>
+              <li class="avatar-list-item">
+                <img class="img-circle" src="../assets/img/avatar-fat.jpg">
+              </li>
+            </ul>
+            </div>
+           
+          </div>
+       
+
+        <!--
+<div ng-controller="playzcardCtrl" class="list-group-item" id="playzerCard">
+    {{$index}} {{card}}
+    <button ng-click="changeCardData(card)"> Change Card Data {{click}}</button>
+</div>-->

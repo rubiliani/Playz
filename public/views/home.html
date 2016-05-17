@@ -25,7 +25,10 @@
             </ul>
             <div class="tab-content" style="overflow: hidden">
                 <div ng-tab-body="animated bounceInLeft" class="tab-pane media-list list-group">
-                    <div ng-repeat="card in todayEvents track by $index" ng-include src="'views/includes/card.html'" > </div>
+                <ul class="media-list media-list-stream c-w-md">
+                    <li class="list-group-item media p-a" ng-repeat="card in todayEvents track by $index" ng-include src="'views/includes/card.html'" > </li>
+                </ul>
+                    
                 </div>
                 <div ng-tab-body="animated fadeInUp " class="tab-pane  media-list list-group">
                     <div ng-repeat="card in tomorrowEvents track by $index" ng-include src="'views/includes/card.html'" > </div>

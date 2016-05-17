@@ -1,4 +1,26 @@
+          
+          <div class="media-body" ng-controller="playzcardCtrl" class="list-group-item" id="playzerCard">
+            <small class="pull-right text-muted">{{card.whenDate}}</small>
+            
+            <div class="media-heading">
+              <strong>{{card.sportType}}</strong> Event in '{{card.mindset}}' mindset, at {{card.location}}<br>
+              Group size: {{card.registeredUsers.length}}/{{card.groupSize}}<br>
+              Level: {{card.level}}
+
+              <div class="pull-right">
+
+            	<button type="button" class="btn btn-success" ng-click="joinEvent(card)">
+            		<span class="icon icon-add-user"></span>  
+            		Join
+            	</button>
+
+            </div>
+            </div>
+          </div>
+        
+
+        <!--
 <div ng-controller="playzcardCtrl" class="list-group-item" id="playzerCard">
     {{$index}} {{card}}
     <button ng-click="changeCardData(card)"> Change Card Data {{click}}</button>
-</div>
+</div>-->
