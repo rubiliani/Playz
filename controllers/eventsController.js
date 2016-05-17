@@ -11,23 +11,24 @@ module.exports.create = function(req,res){
     }
 
     User.get_user_ids(event.registeredUsers,function(result){
-        event.regiteredUsers=result.users;
+        event.registeredUsers=result.users.map(function(val){return val._id});
 
         var evt = new Event(event);
-        evt.save(function(err,result){
+        evt.save(function(err){
             if (err){
                 return res.status(404).json({status:0,msg:['failed to save event']})
             }
 
-            req.user.userEvents.push(result._id);
-            req.user.registeredEvents.push(result._id);
+            req.user.userEvents.push(evt._id);
             req.user.save();
 
-            return res.json(result);
+            register_users_to_event(evt,"create");
+
+            return res.json({event:evt,msg:['create event success'],status:1});
 
         });
     },function(err){
-        return res.status(404).json(err)
+        return res.status(404).json({msg:['create event success'],status:0})
     })
 
 
@@ -49,6 +50,34 @@ module.exports.update = function(req,res){
 
 }
 
+function register_users_to_event(event,action){
+    var notification = new Notification({
+        event: event._id,
+        creator: event.creator,
+        action:action
+    })
+    notification.save(function(err){
+        if (err){
+            console.log("failed to register_users_to_event",err)
+            return;
+        }
+        var data={
+            notificationid:notification._id,
+            eventid:event._id,
+            registeredUsers:event.registeredUsers
+        }
+
+        User.register_users_to_event(data,function(result){
+            console.log(result)
+        },
+        function(err){
+            console.log(err)
+        });
+    },function(err){
+        console.log("failed to register_users_to_event",err)
+    })
+
+}
 
 
 

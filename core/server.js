@@ -58,12 +58,12 @@ global.authenticating_user=function(req,res,next){
     var uid = req.headers.uid;
 
     if (!String(uid)){
-        r.push('headers not found')
+        r.msg.push('headers not found')
         return res.status(404).json(r);
     }
     User.get_user(uid,function(result){
         if (!result.status){
-            r.push('user not found')
+            r.msg.push('user not found')
             return res.status(404).json(r);
         }
         req.user = result.user;
@@ -80,6 +80,7 @@ app.post('/events/getPastEvents', authenticating_user ,controllers.eventsControl
 
 ///notifications
 app.post('/notifications/createNotification', authenticating_user ,controllers.notificationController.createNotification);
+app.post('/notifications/getNotifications', authenticating_user ,controllers.notificationController.getNotifications);
 
 
 
@@ -96,13 +97,13 @@ app.get('/sports', controllers.sportsController.getList);
 
 //users
 app.post('/users/update_user', controllers.usersController.update_user);
-app.post('/users', controllers.usersController.create);
-app.post('/users/events/:id', controllers.usersController.addEvent);
-app.get('/users/events/:id', controllers.usersController.getMyEventList);
-app.get('/users', controllers.usersController.getList);
-app.get('/users/remove/:id', controllers.usersController.remove);
-app.get('/users/update/:id', controllers.usersController.update);
-app.get('/users/checkExist/:id', controllers.usersController.checkExist);
+//app.post('/users', controllers.usersController.create);
+//app.post('/users/events/:id', controllers.usersController.addEvent);
+//app.get('/users/events/:id', controllers.usersController.getMyEventList);
+//app.get('/users', controllers.usersController.getList);
+//app.get('/users/remove/:id', controllers.usersController.remove);
+//app.get('/users/update/:id', controllers.usersController.update);
+//app.get('/users/checkExist/:id', controllers.usersController.checkExist);
 
 
 

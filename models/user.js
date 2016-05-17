@@ -60,10 +60,10 @@ userSchema.statics.update_user=function(user,callback){
 		});
 }
 
-userSchema.statics.get_user_ids=function(uids,callbackSuccess,callbackError){
+userSchema.statics.get_user_ids=function(regiteredUsers,callbackSuccess,callbackError){
 	var r = {msg:[],status:0};
 	var query = {
-		id:{$in:uids}
+		id:{$in:regiteredUsers}
 	};
 
 	this.model('users').find(query).select('_id')
@@ -73,7 +73,7 @@ userSchema.statics.get_user_ids=function(uids,callbackSuccess,callbackError){
 				return callbackError(r);
 			}
 
-			r.msg.push("users found");
+			r.msg.push("users found",result);
 			r.users=result;
 			r.status=1;
 
@@ -103,6 +103,30 @@ userSchema.statics.get_user=function(userid,callback){
 			}
 
 			return callback(r);
+		});
+}
+
+userSchema.statics.register_users_to_event=function(data,callbackSuccess,callbackError){
+	var r = {msg:[],status:0};
+	var query = {
+		_id:{$in:data.registeredUsers}
+	};
+
+	this.model('users').update(query, {
+			$addToSet: {
+					notifications: {notification: data.notificationid}, read: false
+				, registeredEvents: data.eventid
+			}
+	}).exec(function(err,result){
+			if (err){
+				r.msg.push("register_users_to_event",err);
+				return callbackError(r);
+			}
+
+			r.msg.push("register_users_to_event");
+			r.status=1;
+
+			return callbackSuccess(r);
 		});
 }
 

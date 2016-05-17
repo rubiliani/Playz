@@ -1,9 +1,16 @@
 'use strict';
 
 angular.module('PlayzApp')
-    .controller('notificationCtrl', function($scope, $http, $rootScope, $location,DB_queries) {
+    .controller('notificationCtrl', function($scope, $http, $rootScope, $location,DB_queries,$timeout) {
         console.log("notif controller")
-        $scope.notifications = [{
+
+		$rootScope.openNotification=function(){
+			DB_queries.getNotifications().then(function(data){
+				console.table(data.notifications);
+			})
+		}
+
+		$scope.notifications = [{
         	event :{ 
         		id:1,
         		sportType: "Basketball",

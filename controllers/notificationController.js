@@ -24,3 +24,34 @@ exports.createNotification = function(req,res,next){
 	});
 }
 
+exports.getNotifications = function(req,res,next){
+	User.populate(req.user.notifications,{
+			path: 'notification',
+			model: 'notifications'
+			//	path: 'notification.event',
+			//	model: 'events'
+			//	path: 'notification.creator',
+			//	model: 'users'
+
+	}
+	,function (err, projects) {
+		console.log(projects)
+		res.json(projects);
+	})
+
+	//User.populate(req.user,{
+	//	path: 'notifications',
+	//	populate: {
+	//		path: 'notifications.notification'
+	//		,model: 'notifications'
+	//	}
+	//	 ,populate: {
+	//		path: 'notification.creator'
+	//		,model: 'users'
+	//	}
+	//},function(err, docs) {
+	//	console.log(docs.notifications)
+	//	res.json(docs.notifications)
+	//});
+}
+

@@ -14,7 +14,4 @@ angular.module('PlayzApp')
 		$(".navbar-collapse").collapse('hide');
 	}
 
-	//$scope.openNotification = function(){
-		//$scope.$parent.show_notifications();
-	//}
 });

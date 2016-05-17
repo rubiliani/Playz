@@ -3,33 +3,33 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var notificationSchema = new Schema({
-    eventTitle : { type : String, default:''},
-    event:[{type : Schema.Types.ObjectId ,  ref: 'events'}],
+    event:{type : Schema.Types.ObjectId ,  ref: 'events'},
     creator:{ type : Schema.Types.ObjectId, ref: 'users'},
-    whenDate : { type : String, default:''}
+    action : { type : String, default:'create'},
+
 });
 
-notificationSchema.statics.create_notification=function(event,fbId,callback){
-	var r = {msg:[],status:0};
-	/*var query = {
-		id:event._id
-	};*/
-
-	console.log("in noti model"+event+" "+fbId);
-	
-	this.model('notifications').save()
-		.exec(function(err,result){
-			if (err){
-				r.msg.push(err);
-				return callback(r);
-			}
-
-			r.msg.push("noti pushed");
-			r.status=1;
-			r.notification=result;
-			return callback(r);
-		});
-}
+//notificationSchema.statics.create_notification=function(event,fbId,callback){
+//	var r = {msg:[],status:0};
+//	/*var query = {
+//		id:event._id
+//	};*/
+//
+//	console.log("in noti model"+event+" "+fbId);
+//
+//	this.model('notifications').save()
+//		.exec(function(err,result){
+//			if (err){
+//				r.msg.push(err);
+//				return callback(r);
+//			}
+//
+//			r.msg.push("noti pushed");
+//			r.status=1;
+//			r.notification=result;
+//			return callback(r);
+//		});
+//}
 
 
 Notification = mongoose.model('notifications', notificationSchema);

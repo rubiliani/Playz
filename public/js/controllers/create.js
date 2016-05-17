@@ -21,6 +21,7 @@ angular.module('PlayzApp')
             location:{},
             radius:100,
             ageRange:{},
+            creator:$rootScope.user._id,
             registeredUsers:[$rootScope.user.id]
         };
          
