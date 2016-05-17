@@ -59,12 +59,12 @@ global.authenticating_user=function(req,res,next){
 
     if (!String(uid)){
         r.push('headers not found')
-        return res.json(r)
+        return res.status(404).json(r);
     }
     User.get_user(uid,function(result){
         if (!result.status){
             r.push('user not found')
-            return res.json(r)
+            return res.status(404).json(r);
         }
         req.user = result.user;
         next();
@@ -74,6 +74,7 @@ global.authenticating_user=function(req,res,next){
 app.get('/', function(req,res,next){ });
 //events
 app.post('/events/createEvent', authenticating_user, controllers.eventsController.create);
+app.post('/events/updateEvent', authenticating_user, controllers.eventsController.update);
 app.post('/events/getUpcomingEvents', authenticating_user ,controllers.eventsController.getUpcomingEvents);
 app.post('/events/getPastEvents', authenticating_user ,controllers.eventsController.getPastEvents);
 

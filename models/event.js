@@ -32,12 +32,12 @@ var eventSchema = new Schema({
 eventSchema.statics.update_event=function(event,callback){
 	var r = {msg:[],status:0};
 	var query = {
-		_id:(event._id) ? new ObjectId(event._id) : new ObjectId() 
+		_id:event._id
 	};
 
 	var options={
-		upsert:true,
-		new: true
+		upsert:false,
+		new: false
 	}
 	
 	this.model('events').findOneAndUpdate(query,{$set:event},options)

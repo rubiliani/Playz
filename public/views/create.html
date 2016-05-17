@@ -227,10 +227,10 @@
                                 <img class="img-circle" ng-src="{{friend.picture.data.url}}">
                             </a>
                             <div class="media-body">
-                                <button class="btn btn-primary-outline btn-sm pull-right" ng-click="inviteFriend(friend.id)">
+                                <button ng-show="event.registeredUsers.indexOf(friend.id)==-1" class="btn btn-primary-outline btn-sm pull-right" ng-click="inviteFriend(friend.id)">
                                     <span class="icon icon-add-user"></span> Invite
                                 </button>
-                                <button class="hide btn btn-danger-outline btn-sm pull-right" ng-click="cancelInviteFriend($index,friend.id)">
+                                <button ng-show="event.registeredUsers.indexOf(friend.id)!=-1" class="btn btn-danger-outline btn-sm pull-right" ng-click="cancelInviteFriend($index,friend.id)">
                                     <span class="icon icon-remove-user"></span> Cancel
                                 </button>
                                 <strong>{{friend.name}}</strong>

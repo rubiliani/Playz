@@ -3,7 +3,6 @@
 angular.module('PlayzApp')
     .controller('createCtrl', function($scope, $http, $q ,$rootScope, $location,DB_queries,geolocation,$window,fbLogin,$timeout) {
         console.log("create controller")
-        $scope.inviteCollection = [];
 
         $scope.location={lat:0,lng:0,name:''};
         $scope.sports=[{name:"basketball"},{name:"tennis"}];
@@ -22,7 +21,7 @@ angular.module('PlayzApp')
             location:{},
             radius:100,
             ageRange:{},
-            registeredUsers:[]
+            registeredUsers:[$rootScope.user.id]
         };
          
        $scope.groupSlider = {
@@ -213,9 +212,9 @@ angular.module('PlayzApp')
 
         $scope.inviteFriend = function(fbId){
             console.log("invited user " +fbId)
-            $scope.inviteCollection.push(fbId);
-            $(".btn-danger-outline").removeClass('hide');
-            $(".btn-primary-outline").addClass('hide');
+            $scope.event.registeredUsers.push(fbId);
+            //$(".btn-danger-outline").removeClass('hide');
+            //$(".btn-primary-outline").addClass('hide');
 
             /*
             DB_queries.inviteFriend($scope.event,fbId).then(function(event){
@@ -224,12 +223,12 @@ angular.module('PlayzApp')
             })*/
 
         }
-        $scope.cancelInviteFriend = function(index,fbId){
+        $scope.cancelInviteFriend = function($index,fbId){
             console.log("cancel invited user " +fbId)
-            $(".btn-danger-outline").addClass('hide');
-            $(".btn-primary-outline").removeClass('hide');
-            $scope.inviteCollection.splice(index, 1);
-           
+            //$(".btn-danger-outline").addClass('hide');
+            //$(".btn-primary-outline").removeClass('hide');
+            $scope.event.registeredUsers.splice($index, 1);
+
 
         }
 

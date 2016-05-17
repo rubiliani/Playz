@@ -60,6 +60,26 @@ userSchema.statics.update_user=function(user,callback){
 		});
 }
 
+userSchema.statics.get_user_ids=function(uids,callbackSuccess,callbackError){
+	var r = {msg:[],status:0};
+	var query = {
+		id:{$in:uids}
+	};
+
+	this.model('users').find(query).select('_id')
+		.exec(function(err,result){
+			if (err){
+				r.msg.push(err);
+				return callbackError(r);
+			}
+
+			r.msg.push("users found");
+			r.users=result;
+			r.status=1;
+
+			return callbackSuccess(r);
+		});
+}
 userSchema.statics.get_user=function(userid,callback){
 	var r = {msg:[],status:0};
 	var query = {

@@ -5,28 +5,48 @@ var async = require("async");
 
 
 module.exports.create = function(req,res){
+    var event = req.body.event;
+    if (!event){
+        return res.status(404).json({status:0,msg:['no event']})
+    }
+
+    User.get_user_ids(event.registeredUsers,function(result){
+        event.regiteredUsers=result.users;
+
+        var evt = new Event(event);
+        evt.save(function(err,result){
+            if (err){
+                return res.status(404).json({status:0,msg:['failed to save event']})
+            }
+
+            req.user.userEvents.push(result._id);
+            req.user.registeredEvents.push(result._id);
+            req.user.save();
+
+            return res.json(result);
+
+        });
+    },function(err){
+        return res.status(404).json(err)
+    })
+
+
+}
+
+module.exports.update = function(req,res){
 	var event = req.body.event;
 	if (!event){
-		return res.json({status:0,msg:['no event']})
+		return res.status(404).json({status:0,msg:['no event received']})
 	}
 
-	event.registeredUsers.push(req.user._id);
-	Event.update_event(event,function(result){
+    Event.update_event(event,function(result){
 		if (!result.status){
-			//return res.json(result);
-			res.status(404).json(result);
+			return res.status(404).json(result);
 		}
-
-		req.user.userEvents.push(result.event._id);
-		req.user.registeredEvents.push(result.event._id);
-		req.user.save();
 
 		return res.json(result);
 	})
-	// var evt = new Event(req.body.event);
-	// evt.save(function(err,result){
-	// 	res.json(result);
-	// });
+
 }
 
 
