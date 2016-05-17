@@ -6,10 +6,9 @@ angular.module('PlayzApp')
 
 		$rootScope.openNotification=function(){
 			DB_queries.getNotifications().then(function(data){
-				$scope.notifications=data;
+				$rootScope.notifications=data;
 			})
 		}
-
         //$scope.notifications = [{
         //	event :{
         //		id:1,

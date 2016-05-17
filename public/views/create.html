@@ -11,8 +11,8 @@
                             <div class="media-heading" ng-init="event.privacyType='public'">
                                 <div class="radio-inline custom-control custom-radio">
                                     <label>
-
-                                        <input type="radio" name="privacy" ng-click="privacyChanged('public')"
+                                        <input type="radio" name="privacy"
+                                               ng-click="privacyChanged('public')"
                                                ng-model="event.privacyType"
                                                ng-value="public"
                                                ng-checked="event.privacyType=='public'">
@@ -23,7 +23,8 @@
                                 </div>
                                 <div class="radio-inline custom-control custom-radio">
                                     <label>
-                                        <input type="radio" name="privacy" ng-model="event.privacyType"
+                                        <input type="radio" name="privacy"
+                                               ng-model="event.privacyType"
                                                ng-value="private"
                                                ng-click="privacyChanged('private')"
                                                ng-checked="event.privacyType=='private'">

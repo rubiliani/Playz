@@ -14,7 +14,13 @@
     </div>
     <div class="navbar-collapse collapse" id="navbar-collapse-main">
 
-        <ul class="nav navbar-nav hidden-xs">
+      <form class="navbar-form navbar-right app-search hidden-lg hidden-md hidden-sm" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" data-action="grow" placeholder="Search">
+        </div>
+      </form>
+
+        <ul class="nav navbar-nav">
           <li class="active" ng-click="urlChanged('navHome')">
             <a class="navHome" href="#/">Home</a>
           </li>
@@ -28,41 +34,44 @@
 
         </ul>
 
-        <ul class="nav navbar-nav navbar-right m-r-0 hidden-xs">
+        <ul class="nav navbar-nav navbar-right m-r-0">
           <li>
             <a href="#notificationModal"  data-toggle="modal" ng-click="[$event.preventDefault(),urlChanged(''),openNotification()]">
-              <span class="icon icon-bell"></span>
+              <span class="icon icon-bell hidden-xs"></span>
+              <span class="icon icon-bell  hidden-lg hidden-md hidden-sm"> Notification</span>
+              <span class="badge">{{notifications.length}}</span>
             </a>
           </li>
-          <li>
+          <li class="hidden-xs">
             <button  class="btn btn-default navbar-btn navbar-btn-avitar" data-toggle="popover">
               <img class="img-circle" ng-src="{{user.picture.data.url}}">
             </button>
           </li>
         </ul>
 
-        <form class="navbar-form navbar-right app-search" role="search">
+        <form class="navbar-form navbar-right app-search hidden-xs" role="search">
           <div class="form-group">
             <input type="text" class="form-control" data-action="grow" placeholder="Search">
           </div>
         </form>
 
-        <ul class="nav navbar-nav hidden-sm hidden-md hidden-lg">
-          <li class="active" ng-click="urlChanged('navHome')">
-            <a class="navHome" href="#/">Home</a>
-          </li>
-          <li ng-click="urlChanged('navProfile')">
-            <a class="navProfile" href="#/profile">Playzer Card</a>
-          </li>
+        <!--<ul class="nav navbar-nav hidden-sm hidden-md hidden-lg">-->
+          <!--<li class="active" ng-click="urlChanged('navHome')">-->
+            <!--<a class="navHome" href="#/">Home</a>-->
+          <!--</li>-->
+          <!--<li ng-click="urlChanged('navProfile')">-->
+            <!--<a class="navProfile" href="#/profile">Playzer Card</a>-->
+          <!--</li>-->
 
-           <li>
-            <a href="#notificationModal"  data-toggle="modal" ng-click="[$event.preventDefault(),urlChanged(''),openNotification()]">Notifications</a>
-          </li>
-
-          <li ng-click="urlChanged()">
-            <a href="#/login" ng-click="facebookLogout()">Logout</a>
-          </li>
-        </ul>
+          <!--<li ng-controller="notificationCtrl">-->
+            <!--<a href="#notificationModal"  data-toggle="modal" ng-click="[$event.preventDefault(),openNotification()]">-->
+              <!--Notification <span class="badge">{{notifications.length}}</span>-->
+            <!--</a>-->
+          <!--</li>-->
+          <!--<li ng-click="urlChanged()">-->
+            <!--<a href="#/login" ng-click="facebookLogout()">Logout</a>-->
+          <!--</li>-->
+        <!--</ul>-->
 
   </div>
 </nav>

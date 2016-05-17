@@ -14,7 +14,7 @@ angular.module('PlayzApp')
         if (user.newUser){
             $location.url( "/register" );
         }
-
+        $rootScope.openNotification()
         $route.reload();
 
     });
