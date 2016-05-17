@@ -57,8 +57,8 @@ global.authenticating_user=function(req,res,next){
     var r = {msg:[],status:0};
     var uid = req.headers.uid;
 
-    if (!String(uid)){
-        r.msg.push('headers not found')
+    if (typeof (uid) !== 'string'){
+        r.msg.push('headers not found',uid)
         return res.status(404).json(r);
     }
     User.get_user(uid,function(result){

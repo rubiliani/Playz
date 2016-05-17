@@ -27,31 +27,24 @@ exports.createNotification = function(req,res,next){
 exports.getNotifications = function(req,res,next){
 	User.populate(req.user.notifications,{
 			path: 'notification',
-			model: 'notifications'
-			//	path: 'notification.event',
-			//	model: 'events'
-			//	path: 'notification.creator',
-			//	model: 'users'
+			model: 'notifications',
+			populate: [{
+				path: 'event'
+				, model: 'events'
+				, select: 'id sportType whenDate location'
+			},{
+				path: 'creator'
+				,model: 'users'
+				,select:'id name picture'
+			}],
 
-	}
-	,function (err, projects) {
-		console.log(projects)
-		res.json(projects);
+	},function (err, projects) {
+		//console.log(err||projects)
+		if (err){
+			return res.status(404).json(err)
+		}
+		return res.json(projects);
 	})
 
-	//User.populate(req.user,{
-	//	path: 'notifications',
-	//	populate: {
-	//		path: 'notifications.notification'
-	//		,model: 'notifications'
-	//	}
-	//	 ,populate: {
-	//		path: 'notification.creator'
-	//		,model: 'users'
-	//	}
-	//},function(err, docs) {
-	//	console.log(docs.notifications)
-	//	res.json(docs.notifications)
-	//});
 }
 

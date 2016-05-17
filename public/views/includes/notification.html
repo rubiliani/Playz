@@ -13,19 +13,19 @@
                 <div class="list-group-item" ng-repeat="notification in notifications">
                   <div class="media">
                     <span class="media-left">
-                    <img class="img-circle media-object" ng-src="{{notification.creator.picture.url}}">
+                    <img class="img-circle media-object" ng-src="{{notification.notification.creator.picture.data.url}}">
                     </span>
                     <div class="media-body">
-                      <strong>{{notification.creator.name}}</strong> Invited you to <strong>{{notification.event.sportType}}</strong> event.
+                      <strong>{{notification.notification.creator.name}}</strong> Invited you to <strong>{{notification.notification.event.sportType}}</strong> event.
                       <div class="media-body-secondary">
-                        in {{notification.event.address}} at {{notification.event.whenDate}}
+                        in {{notification.notification.event.location.name}} at {{notification.notification.event.whenDate}}
                       </div>
                     </div>
                     <span class="media-right">
                     <button type="button" class="btn btn-sm btn-success-outline" 
-                    ng-click="acceptNotification(notification.event.id)">Accept <span class="icon icon-check"></span></button><br><br>
+                    ng-click="acceptNotification(notification.notification.event.id)">Accept <span class="icon icon-check"></span></button><br><br>
                     <button type="button" class="btn btn-sm btn-danger-outline" 
-                    ng-click="deleteNotification($index,notification.event.id)">Delete <span class="icon icon-trash"></span></button>
+                    ng-click="deleteNotification($index,notification.notification.event.id)">Delete <span class="icon icon-trash"></span></button>
                     </span>
                   </div>
                 </div>
