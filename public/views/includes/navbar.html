@@ -1,3 +1,4 @@
+<div ng-controller="notificationCtrl as parent" class="ng-scope">
 <nav ng-controller="navbarCtrl" class="navbar navbar-inverse navbar-fixed-top app-navbar">
   <div class="container">
     <div class="navbar-header">
@@ -29,7 +30,7 @@
 
         <ul class="nav navbar-nav navbar-right m-r-0 hidden-xs">
           <li >
-            <a class="app-notifications" href="#/">
+            <a  class="app-notifications" ng-click="openNotification()">
               <span class="icon icon-bell"></span>
             </a>
           </li>
@@ -54,6 +55,10 @@
             <a class="navProfile" href="#/profile">Playzer Card</a>
           </li>
 
+           <li>
+            <a href="#notificationModal"  data-toggle="modal" ng-click="[$event.preventDefault(),urlChanged('')]">Notifications</a>
+          </li>
+
           <li ng-click="urlChanged()">
             <a href="#/login" ng-click="facebookLogout()">Logout</a>
           </li>
@@ -61,3 +66,4 @@
 
   </div>
 </nav>
+</div>

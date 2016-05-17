@@ -3,6 +3,8 @@
 angular.module('PlayzApp')
     .controller('createCtrl', function($scope, $http, $q ,$rootScope, $location,DB_queries,geolocation,$window,fbLogin,$timeout) {
         console.log("create controller")
+        $scope.inviteCollection = [];
+
         $scope.location={lat:0,lng:0,name:''};
         $scope.sports=[{name:"basketball"},{name:"tennis"}];
         $scope.levels=["Any Level", "Newbie", "Intermediate", "Proffesional"];
@@ -171,6 +173,8 @@ angular.module('PlayzApp')
 
             console.log($scope.event);
 
+
+            //todo - send invite notif only after submit to all inviteCollection array
             DB_queries.createEvent($scope.event).then(function(event){
                 console.log('events - create event',event)
                 $location.url('/profile')
@@ -206,6 +210,28 @@ angular.module('PlayzApp')
         }
 
 
+
+        $scope.inviteFriend = function(fbId){
+            console.log("invited user " +fbId)
+            $scope.inviteCollection.push(fbId);
+            $(".btn-danger-outline").removeClass('hide');
+            $(".btn-primary-outline").addClass('hide');
+
+            /*
+            DB_queries.inviteFriend($scope.event,fbId).then(function(event){
+                console.log('friend invited',event)
+              
+            })*/
+
+        }
+        $scope.cancelInviteFriend = function(index,fbId){
+            console.log("cancel invited user " +fbId)
+            $(".btn-danger-outline").addClass('hide');
+            $(".btn-primary-outline").removeClass('hide');
+            $scope.inviteCollection.splice(index, 1);
+           
+
+        }
 
 
 

@@ -1,7 +1,4 @@
-$( "#slider-1" ).on( 'slide', function( event ) {
-    var value = $( "#slider-1" ).val();
-    updateRadius(circle,value);
-});
+
 
 function updateRadius(circle, rad){
     circle.setRadius(parseInt(rad)*1000);

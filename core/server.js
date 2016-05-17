@@ -26,6 +26,7 @@ app.set('port', port);
 app.locals.name = 'Playz';
 
 var controllers = { },controllers_path = process.cwd() + '/controllers';
+console.log("loading controllers")
 
 fs.readdirSync(controllers_path).forEach(function (file) 
 {
@@ -75,6 +76,12 @@ app.get('/', function(req,res,next){ });
 app.post('/events/createEvent', authenticating_user, controllers.eventsController.create);
 app.post('/events/getUpcomingEvents', authenticating_user ,controllers.eventsController.getUpcomingEvents);
 app.post('/events/getPastEvents', authenticating_user ,controllers.eventsController.getPastEvents);
+
+///notifications
+app.post('/notifications/createNotification', authenticating_user ,controllers.notificationController.createNotification);
+
+
+
 // app.post('/events/users/:id', controllers.eventsController.addUser);
 // app.get('/events/:id', controllers.eventsController.getList);
 // app.get('/events/other/:id', controllers.eventsController.getOtherList);

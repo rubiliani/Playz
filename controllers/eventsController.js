@@ -31,6 +31,7 @@ module.exports.create = function(req,res){
 
 
 
+
 exports.createEvent = function(req,res,next){
 	var r = {msg:[],status:0};
 	//var event = req.body.event;
@@ -151,6 +152,8 @@ module.exports.addUser = function(req,res){
     	res.status(200).send();
 	});
 }
+
+
 
 
 

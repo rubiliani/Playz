@@ -7,8 +7,14 @@ angular.module('PlayzApp')
 	}
 
 	$scope.urlChanged=function(elem){
-		$("nav ul li").removeClass('active')
-		$("."+elem).parent().addClass('active')
+		if (elem){
+			$("nav ul li").removeClass('active')
+			$("."+elem).parent().addClass('active')
+		}
 		$(".navbar-collapse").collapse('hide');
 	}
+
+	//$scope.openNotification = function(){
+		//$scope.$parent.show_notifications();
+	//}
 });

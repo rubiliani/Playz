@@ -23,8 +23,11 @@
   </head>
   <body ng-class="{'with-top-navbar':status  , 'loginBody':!status }">
     
+    <ng-include  ng-show="status"  src="'views/includes/notification.html'"> </ng-include>
     <ng-include  ng-show="status"  src="'views/includes/navbar.html'"> </ng-include>
     <ng-include  ng-show="status"  src="'views/includes/profile_completeness.html'"> </ng-include>
+   
+
 
 
     <div ng-class="{'container':status  , 'container-content-middle':!status }" ng-view  autoscroll="true" > </div>
@@ -57,7 +60,9 @@
     <script type="text/javascript" src="js/controllers/register.js"></script>
     <script type="text/javascript" src="js/controllers/create.js"></script>
     <script type="text/javascript" src="js/controllers/event.js"></script>
+    <script type="text/javascript" src="js/controllers/notification.js"></script>
     <script type="text/javascript" src="js/controllers/navbar.js"></script>
+   
     <script type="text/javascript" src="js/config.js"></script>
     <script type="text/javascript" src="js/run.js"></script>
 
@@ -78,6 +83,10 @@
         //}
       //})
     </script>
+
+    
+
+
    
   </body>
 </html>
