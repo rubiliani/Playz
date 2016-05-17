@@ -230,6 +230,9 @@
                                 <button class="btn btn-primary-outline btn-sm pull-right" ng-click="inviteFriend(friend.id)">
                                     <span class="icon icon-add-user"></span> Invite
                                 </button>
+                                <button class="hide btn btn-danger-outline btn-sm pull-right" ng-click="cancelInviteFriend($index,friend.id)">
+                                    <span class="icon icon-remove-user"></span> Cancel
+                                </button>
                                 <strong>{{friend.name}}</strong>
                                 <!-- <small>@fat - San Francisco</small> -->
                             </div>

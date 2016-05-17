@@ -10,7 +10,7 @@
           <div class="modal-body p-a-0 js-modalBody">
             <div class="modal-body-scroller">
               <div class="media-list media-list-users list-group">
-                <a class="list-group-item" ng-repeat="notification in notifications">
+                <div class="list-group-item" ng-repeat="notification in notifications">
                   <div class="media">
                     <span class="media-left">
                     <img class="img-circle media-object" ng-src="{{notification.creator.picture.url}}">
@@ -21,8 +21,14 @@
                         in {{notification.event.address}} at {{notification.event.whenDate}}
                       </div>
                     </div>
+                    <span class="media-right">
+                    <button type="button" class="btn btn-sm btn-success-outline" 
+                    ng-click="acceptNotification(notification.event.id)">Accept <span class="icon icon-check"></span></button><br><br>
+                    <button type="button" class="btn btn-sm btn-danger-outline" 
+                    ng-click="deleteNotification($index,notification.event.id)">Delete <span class="icon icon-trash"></span></button>
+                    </span>
                   </div>
-                </a>
+                </div>
               </div>
             </div>
           </div>
