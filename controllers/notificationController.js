@@ -24,3 +24,27 @@ exports.createNotification = function(req,res,next){
 	});
 }
 
+exports.getNotifications = function(req,res,next){
+	User.populate(req.user.notifications,{
+			path: 'notification',
+			model: 'notifications',
+			populate: [{
+				path: 'event'
+				, model: 'events'
+				, select: 'id sportType whenDate location'
+			},{
+				path: 'creator'
+				,model: 'users'
+				,select:'id name picture'
+			}],
+
+	},function (err, projects) {
+		//console.log(err||projects)
+		if (err){
+			return res.status(404).json(err)
+		}
+		return res.json(projects);
+	})
+
+}
+
