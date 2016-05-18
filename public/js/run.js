@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('PlayzApp')
-.run(function($q, $rootScope, $window, $http, $localStorage, $route, $location,$document, $timeout, fbLogin){
+.run(function($q, $rootScope, $window, $http, $localStorage, $route, $location,$document, $timeout, fbLogin,Sockets){
 
     $rootScope.status=false;
     $rootScope.app = {
@@ -14,7 +14,9 @@ angular.module('PlayzApp')
         if (user.newUser){
             $location.url( "/register" );
         }
-        $rootScope.openNotification()
+
+        Sockets.connect($rootScope.app.domain,user._id)
+        $rootScope.getNotifications()
         $route.reload();
 
     });

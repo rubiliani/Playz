@@ -3,11 +3,11 @@ var express = require('express');
 var path = require('path');
 var bodyParser  = require('body-parser');
 var fs = require("fs-extra");
+socket = require('./sockets.js');
 
 app = express();
 var http = require('http').Server(app);
-
-//TODO sockest for messages
+socket.init(http);
 
 app.use(express.static(process.cwd() + '/public'));
 app.use(bodyParser({limit: '50mb'}));

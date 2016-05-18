@@ -20,6 +20,7 @@ exports.update_user = function(req,res,next){
 		if (!result.user.birthday || !result.user.hometown.name){
 			result.newUser=true;
 		}
+		socket.onUserConnected(result.user);
 		return res.json(result)
 	});
 }

@@ -68,7 +68,10 @@ function invite_users_to_event(event,invitedUsers,action){
         }
 
         User.invite_users_to_event(data,function(result){
-            console.log(result)
+            console.log(result);
+			//TODO populate notification
+			socket.newEventReceived(invitedUsers,notification)
+
         },
         function(err){
             console.log(err)
