@@ -78,8 +78,10 @@ eventSchema.statics.create_event=function(event,callback){
 
 eventSchema.statics.getAllEvents=function(user,filter,callback){
 	var r = {msg:[],status:0};
+	console.log(user._id)
+	var id = mongoose.Types.ObjectId(user._id);
 	var query = {
-		
+		"registeredUsers":{ $ne : id}
 	};
 
 	
@@ -91,6 +93,30 @@ eventSchema.statics.getAllEvents=function(user,filter,callback){
 			}
 
 			r.msg.push("getAllEvents found");
+			r.status=1;
+			r.events=result;
+			return callback(r);
+		});
+}
+
+
+eventSchema.statics.getMyEvents=function(user,filter,callback){
+	var r = {msg:[],status:0};
+	console.log(user._id)
+	var id = mongoose.Types.ObjectId(user._id);
+	var query = {
+		"registeredUsers": id
+	};
+
+	
+	this.model('events').find(query)
+		.exec(function(err,result){
+			if (err){
+				r.msg.push("get My Events",err);
+				return callback(r);
+			}
+
+			r.msg.push("get My Events found");
 			r.status=1;
 			r.events=result;
 			return callback(r);
