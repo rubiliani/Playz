@@ -149,6 +149,20 @@ exports.getAllEvents = function(req,res){
 
 }
 
+
+exports.getMyEvents = function(req,res){
+	var filter = req.body;
+	Event.getMyEvents(req.user,filter,function(result){
+		if (!result.status){
+			return res.status(404).json(result)
+		}
+		return res.json(result)
+	})
+
+}
+
+
+
 module.exports.getTodayOtherList = function(req,res){
 	var id = req.params.id;
 

@@ -42,8 +42,14 @@ angular.module('PlayzApp')
             $scope.disable=!$scope.disable;
         }
 
+        $scope.getMyEvents = function() {
+            DB_queries.getMyEvents($rootScope.user.id).then(function(events){
+                $scope.upcomingEvents = events.events;
+            })
+        }
+
         $scope.tabChanged=function(type){
-            if (type=="upcoming"){
+            /*if (type=="upcoming"){
 
                 $scope.upcomingEvents=[{
                 sportType: "Football",
@@ -79,7 +85,8 @@ angular.module('PlayzApp')
                 //DB_queries.getPastEvents().then(function(data){
                 //    $scope.pastEvents=data.events;
                 //})
-            }
+            }*/
         }
         $scope.tabChanged('upcoming')
+         $scope.getMyEvents();
     });

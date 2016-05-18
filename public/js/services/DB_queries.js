@@ -38,9 +38,9 @@ angular.module('PlayzApp.services')
             });
             return deferred.promise;
         }
-        var _getUpcomingEvents = function () {
+        var _getMyEvents = function () {
             var deferred = $q.defer();
-            $http.post($rootScope.app.domain + 'events/getUpcomingEvents')
+            $http.post($rootScope.app.domain + 'events/getMyEvents')
                 .success(function (data) {
                     console.log("getUpcomingEvents success", data)
                     deferred.resolve(data);
@@ -185,7 +185,6 @@ angular.module('PlayzApp.services')
         return {
             getEvents: _getEvents,
             updateUser: _updateUser,
-            getUpcomingEvents: _getUpcomingEvents,
             getPastEvents: _getPastEvents,
             getTodayEvents: _getTodayEvents,
             getTomorrowEvents: _getTomorrowEvents,
@@ -193,6 +192,7 @@ angular.module('PlayzApp.services')
             createEvent:_createEvent,
             inviteFriend: _inviteFriend,
             getNotifications: _getNotifications,
-            getAllEvents:_getAllEvents
+            getAllEvents:_getAllEvents,
+            getMyEvents:_getMyEvents
         }
     })

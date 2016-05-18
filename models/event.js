@@ -102,14 +102,14 @@ eventSchema.statics.getAllEvents=function(user,filter,callback){
 
 eventSchema.statics.getMyEvents=function(user,filter,callback){
 	var r = {msg:[],status:0};
-	console.log(user._id)
+	
 	var id = mongoose.Types.ObjectId(user._id);
 	var query = {
 		"registeredUsers": id
 	};
 
 	
-	this.model('events').find(query)
+	this.model('events').find(query).populate('registeredUsers')
 		.exec(function(err,result){
 			if (err){
 				r.msg.push("get My Events",err);
