@@ -48,6 +48,10 @@ angular.module('PlayzApp')
             })
         }
 
+        $scope.eventPage = function(){
+            $location.url('/event')
+        }
+
         $scope.tabChanged=function(type){
             /*if (type=="upcoming"){
 
