@@ -82,11 +82,19 @@ angular.module('PlayzApp')
                 loggedin : checkLoggedin
             }
         })
-        .when('/event',{
+        .when('/event/:id',{
             templateUrl: 'views/event.html',
             controller: 'eventCtrl',
             resolve:{
-                loggedin : checkLoggedin
+                loggedin : checkLoggedin,
+                resolveGetEventById: function($q,DB_queries,$route,$window) {
+                    return DB_queries.getEventById($route.current.params.id).then(function (event) {
+                        return event;
+                    },function(){
+                        $window.history.back()
+                        return false
+                    })
+                }
             }
         })
         .when('/profile',{

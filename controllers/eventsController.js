@@ -228,6 +228,13 @@ exports.getUpcomingEvents = function(req,res){
 exports.getPastEvents = function(req,res){
 	res.json({"getPastEvents":"NOT READY"})
 }
+exports.getEventById = function(req,res){
+	var eid=req.body.eventid;
+	if (!eid){
+		return res.status(404).json({"getEventById":"NOT READY"})
+	}
+	res.json({"getEventById":"NOT READY"})
+}
 
 
 

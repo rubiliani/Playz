@@ -78,6 +78,7 @@ app.post('/events/updateEvent', authenticating_user, controllers.eventsControlle
 app.post('/events/getUpcomingEvents', authenticating_user ,controllers.eventsController.getUpcomingEvents);
 app.post('/events/getPastEvents', authenticating_user ,controllers.eventsController.getPastEvents);
 app.post('/events/getAllEvents', authenticating_user ,controllers.eventsController.getAllEvents);
+app.post('/events/getEventById', authenticating_user ,controllers.eventsController.getEventById);
 
 
 ///notifications

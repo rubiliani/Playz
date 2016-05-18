@@ -46,6 +46,7 @@ angular.module('PlayzApp')
             if (type=="upcoming"){
 
                 $scope.upcomingEvents=[{
+                    _id:"aaaa",
                 sportType: "Football",
                 whenDate: "17/6/16",
                 level: "Proffesional",
@@ -57,6 +58,7 @@ angular.module('PlayzApp')
                 ]
             },
             {
+                _id:"bbbb",
                 sportType: "Basketball",
                 whenDate: "17/6/16",
                 level: "Beginner",
@@ -82,4 +84,10 @@ angular.module('PlayzApp')
             }
         }
         $scope.tabChanged('upcoming')
+
+
+        $scope.cardSelected=function(card){
+            console.log(card)
+            $location.url('/event/'+card._id);
+        }
     });

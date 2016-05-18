@@ -168,7 +168,11 @@ angular.module('PlayzApp')
         }
         $scope.createEvent=function(){
             $scope.event.whenDate.setHours(0,0,0,0);
-            $scope.event.location=$scope.location;
+            $scope.event.location={
+                "name":$scope.location.name,
+                "latitude":$scope.location.lat,
+                "longitude":$scope.location.lng
+            };
 
             //sliders
             $scope.event.groupSize = $scope.groupSlider.value;
@@ -178,8 +182,6 @@ angular.module('PlayzApp')
 
             console.log($scope.event);
 
-
-            //todo - send invite notif only after submit to all inviteCollection array
             DB_queries.createEvent($scope.event).then(function(event){
                 console.log('events - create event',event)
                 $location.url('/profile')
