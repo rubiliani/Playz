@@ -106,16 +106,15 @@ userSchema.statics.get_user=function(userid,callback){
 		});
 }
 
-userSchema.statics.register_users_to_event=function(data,callbackSuccess,callbackError){
+userSchema.statics.invite_users_to_event=function(data,callbackSuccess,callbackError){
 	var r = {msg:[],status:0};
 	var query = {
-		_id:{$in:data.registeredUsers}
+		_id:{$in:data.invitedUsers}
 	};
 
 	this.model('users').update(query, {
 			$addToSet: {
 					notifications: {notification: data.notificationid}, read: false
-				, registeredEvents: data.eventid
 			}
 	}).exec(function(err,result){
 			if (err){

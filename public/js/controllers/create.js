@@ -22,7 +22,8 @@ angular.module('PlayzApp')
             radius:100,
             ageRange:{},
             creator:$rootScope.user._id,
-            registeredUsers:[$rootScope.user.id]
+            invitedUsers:[],
+            registeredUsers:[$rootScope.user._id]
         };
          
        $scope.groupSlider = {
@@ -213,7 +214,7 @@ angular.module('PlayzApp')
 
         $scope.inviteFriend = function(fbId){
             console.log("invited user " +fbId)
-            $scope.event.registeredUsers.push(fbId);
+            $scope.event.invitedUsers.push(fbId);
             //$(".btn-danger-outline").removeClass('hide');
             //$(".btn-primary-outline").addClass('hide');
 
@@ -228,7 +229,7 @@ angular.module('PlayzApp')
             console.log("cancel invited user " +fbId)
             //$(".btn-danger-outline").addClass('hide');
             //$(".btn-primary-outline").removeClass('hide');
-            $scope.event.registeredUsers.splice($index, 1);
+            $scope.event.invitedUsers.splice($index, 1);
 
 
         }

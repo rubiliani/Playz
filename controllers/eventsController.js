@@ -10,19 +10,19 @@ module.exports.create = function(req,res){
         return res.status(404).json({status:0,msg:['no event']})
     }
 
-    User.get_user_ids(event.registeredUsers,function(result){
-        event.registeredUsers=result.users.map(function(val){return val._id});
-
+    User.get_user_ids(event.invitedUsers,function(result){
+        // event.registeredUsers=result.users.map(function(val){return val._id});
+        var invitedUsers = result.users.map(function(val){return val._id});
         var evt = new Event(event);
         evt.save(function(err){
             if (err){
-                return res.status(404).json({status:0,msg:['failed to save event']})
+                return res.status(404).json({status:0,msg:['failed to save event',err]})
             }
 
             req.user.userEvents.push(evt._id);
             req.user.save();
 
-            register_users_to_event(evt,"create");
+            invite_users_to_event(evt,invitedUsers,"create");
 
             return res.json({event:evt,msg:['create event success'],status:1});
 
@@ -50,7 +50,7 @@ module.exports.update = function(req,res){
 
 }
 
-function register_users_to_event(event,action){
+function invite_users_to_event(event,invitedUsers,action){
     var notification = new Notification({
         event: event._id,
         creator: event.creator,
@@ -64,10 +64,10 @@ function register_users_to_event(event,action){
         var data={
             notificationid:notification._id,
             eventid:event._id,
-            registeredUsers:event.registeredUsers
+            invitedUsers:invitedUsers
         }
 
-        User.register_users_to_event(data,function(result){
+        User.invite_users_to_event(data,function(result){
             console.log(result)
         },
         function(err){
