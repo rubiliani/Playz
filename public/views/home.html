@@ -1,4 +1,4 @@
-<div ng-tabs class="container p-t-md">
+<div class="container p-t-md">
     <div class="row">
         <div class="col-md-12">
             <ul class="list-group media-list media-list-stream">
@@ -6,7 +6,7 @@
                     <div class="">
                         <h2>Explore new events</h2>
 
-                        <ul class="nav nav-pills nav-justified">
+                        <!-- <ul class="nav nav-pills nav-justified">
                             <li ng-tab-head="active" ng-click="tabChanged('today')">
                                 <a href="#" ng-click="$event.preventDefault()">
                                     <span class="icon icon icon-hour-glass"></span> Today </a>
@@ -19,11 +19,19 @@
                                 <a href="#" ng-click="$event.preventDefault()">
                                     <span class="icon icon-clock"></span> Negotiable</a>
                             </li>
-                        </ul>
+                        </ul> -->
                     </div>
                 </li>
             </ul>
-            <div class="tab-content" style="overflow: hidden">
+            <div class="tab-content" >
+                <div class=" media-list list-group">
+                    <ul class="media-list media-list-stream c-w-md">
+                        <li class="list-group-item media p-a" ng-repeat="card in events track by $index" ng-include src="'views/includes/card.html'" > </li>
+                    </ul>
+                </div>
+                
+            </div>
+            <!-- <div class="tab-content" style="overflow: hidden">
                 <div ng-tab-body="animated bounceInLeft" class="tab-pane media-list list-group">
                 <ul class="media-list media-list-stream c-w-md">
                     <li class="list-group-item media p-a" ng-repeat="card in todayEvents track by $index" ng-include src="'views/includes/card.html'" > </li>
@@ -36,41 +44,8 @@
                 <div ng-tab-body="animated bounceIn " class="tab-pane  media-list list-group">
                     <div ng-repeat="card in negotiableEvents track by $index" ng-include src="'views/includes/card.html'" > </div>
                 </div>
-            </div>
-            <!--<div>-->
-            <!--<ul id="todayList">-->
-            <!--<li class="media list-group-item p-a">-->
-            <!--<div class="media-body">-->
-            <!--<div class="media-heading">-->
-            <!--<small class="pull-right text-muted"></small>-->
-            <!--<h5></h5>-->
-            <!--</div>-->
-
-            <!--<p>-->
-            <!--Created {{event.sport}} event in '{{event.mindset}}' mindset, and {{event.level}}-->
-            <!--level.-->
-            <!--</p>-->
-            <!--<p>-->
-            <!--Already Registerd: {{event.regiteredUsers.length}}/{{event.groupSize}}-->
-            <!--<ul class="avatar-list">-->
-            <!--<li class="avatar-list-item" ng-repeat="reg in event.regiteredUsers">-->
-            <!--<img class="img-circle" ng-src="{{reg._user.profilePic}}"></li>-->
-            <!--</ul>-->
-
-
-            <!--</p>-->
-
-            <!--<button class="btn btn-default-outline pull-right" type="button"-->
-            <!--onclick="regEvent(this.id)">-->
-            <!--<span class="icon icon-add-user"></span>-->
-            <!--Join-->
-            <!--</button>-->
-
-            <!--</div>-->
-
-            <!--</li>-->
-            <!--</ul>-->
-            <!--</div>-->
+            </div> -->
+          
         </div>
     </div>
 </div>

@@ -6,12 +6,12 @@ var ObjectId = mongoose.Types.ObjectId;
 var eventSchema = new Schema({
 	//id : { type : String ,  index : true, unique : true , required :true},
 	eventTitle : { type : String, default:''},
-	createdDate : { type : Date, default:Date.now()},
+	createdDate : { type : Date, default:Date.now},
 	privacyType: { type : String, default:''},
 	sportType : {type : String, default:''},
 	level : {type : String, default:''},
 	mindset: { type : String, default:''},
-	whenDate : { type : String, default:''},
+	whenDate : { type : Date, default:Date.now},
 	groupSize: { type : Number, default:2},
 	ageRange:{
 		min: {type : Number, default:20},
@@ -72,6 +72,27 @@ eventSchema.statics.create_event=function(event,callback){
 			r.msg.push("event found");
 			r.status=1;
 			r.event=result;
+			return callback(r);
+		});
+}
+
+eventSchema.statics.getAllEvents=function(user,filter,callback){
+	var r = {msg:[],status:0};
+	var query = {
+		
+	};
+
+	
+	this.model('events').find(query)
+		.exec(function(err,result){
+			if (err){
+				r.msg.push("getAllEvents",err);
+				return callback(r);
+			}
+
+			r.msg.push("getAllEvents found");
+			r.status=1;
+			r.events=result;
 			return callback(r);
 		});
 }

@@ -15,7 +15,7 @@ angular.module('PlayzApp')
             sportType:$scope.sports[0].name,
             level:$scope.levels[0],
             mindset:$scope.mindsets[0],
-            whenDate:$scope.whenDates[0],
+            whenDate:new Date(),
             gender:$scope.gender[0],
             payedFacility:$scope.paidFacilities[0],
             location:{},
@@ -157,13 +157,17 @@ angular.module('PlayzApp')
         }
         $scope.init();
 
-
+        $scope.validateDate=function(){
+            if (!$scope.event.whenDate){
+                $scope.event.whenDate=new Date();
+            }
+        }
 
         $scope.privacyChanged=function(type){
             $scope.event.privacyType=type;
         }
         $scope.createEvent=function(){
-            $scope.event.whenDate = translateTime($scope.event.whenDate);
+            $scope.event.whenDate.setHours(0,0,0,0);
             $scope.event.location=$scope.location;
 
             //sliders

@@ -86,12 +86,13 @@
                         <div class="media-body-text">
                             <div class="media-heading">
                                 <label class="select">When:</label>
-                                <select name="select-choice-0" id="" class="custom-select" ng-model="event.whenDate"
+                                <input type="date" ng-value="event.whenDate" ng-blur="validateDate()" class="custom-input" ng-model="event.whenDate" >
+                                <!-- <select name="select-choice-0" id="" class="custom-select" ng-model="event.whenDate"
                                         ng-value="Today">
                                     <option ng-repeat="date in whenDates track by $index" ng-selected="$index==0">
                                         {{date}}
                                     </option>
-                                </select>
+                                </select> -->
                             </div>
                         </div>
                     </div>

@@ -14,7 +14,7 @@ angular.module('PlayzApp.services',['ngResource','ngRoute','ngStorage','ngFacebo
 
   	$facebookProvider.setAppId('281543515348880');
   	$facebookProvider.setPermissions("public_profile,email,user_friends,user_hometown,user_location,user_birthday");
-	$facebookProvider.setVersion("v2.0");
+	$facebookProvider.setVersion("v2.6");
   	$facebookProvider.setCustomInit({
   		xfbml:true,
 		cookie:true

@@ -99,6 +99,23 @@ angular.module('PlayzApp.services')
             });
             return deferred.promise;
         }
+
+        var _getAllEvents = function (filter) {
+            var deferred = $q.defer();
+            $http.post($rootScope.app.domain + 'events/getAllEvents',filter)
+                .success(function (data) {
+                    console.log("getAllEvents success", data)
+                    deferred.resolve(data.events);
+                }).error(function (err) {
+                console.log("getAllEvents err", err)
+                deferred.reject(err);
+            })
+                ['finally'](function () {
+
+            });
+            return deferred.promise;
+        }
+
         var _getNegotiableEvents = function () {
             var deferred = $q.defer();
             $http.post($rootScope.app.domain + 'events/getNegotiableEvents')
@@ -175,6 +192,7 @@ angular.module('PlayzApp.services')
             getNegotiableEvents: _getNegotiableEvents,
             createEvent:_createEvent,
             inviteFriend: _inviteFriend,
-            getNotifications: _getNotifications
+            getNotifications: _getNotifications,
+            getAllEvents:_getAllEvents
         }
     })
