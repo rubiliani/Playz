@@ -10,7 +10,7 @@ module.exports.create = function (req, res) {
         var invitedUsers = result.users.map(function (val) {
             return val._id
         });
-        invitedUsers.push(req.user._id)
+        //invitedUsers.push(req.user._id)
         var evt = new Event(event);
         evt.save(function (err) {
             if (err) {

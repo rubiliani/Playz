@@ -8,9 +8,9 @@ angular.module('PlayzApp')
         $scope.sports=[{name:"basketball"},{name:"tennis"}];
         $scope.levels=["Any Level", "Newbie", "Intermediate", "Proffesional"];
         $scope.mindsets=["Just for fun", "Turnament", "By the book"];
-        $scope.whenDates=["Today", "Tomorrow", "Negotiable"]
         $scope.gender=["Co-ed", "Male", "Female"]
         $scope.paidFacilities=["OK", "No Way", "Don't Care"]
+
         $scope.event={
             sportType:$scope.sports[0].name,
             level:$scope.levels[0],
@@ -181,7 +181,7 @@ angular.module('PlayzApp')
             $scope.event.radius = $scope.radiusSlider.value;
 
             console.log($scope.event);
-
+            return
             DB_queries.createEvent($scope.event).then(function(event){
                 console.log('events - create event',event)
                 $location.url('/profile')
