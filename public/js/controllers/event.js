@@ -14,7 +14,12 @@ angular.module('PlayzApp')
 
 	$scope.createMessage = function(){
 		DB_queries.createMessage($rootScope.user._id,$scope.event._id,$scope.textMsg).then(function(messages){
-				$scope.messages=messages;
+				$scope.messages.push({
+					sender:$rootScope.user,
+					text:$scope.textMsg,
+					timestamp:new Date()
+				});
+			$scope.textMsg='';
     	});
 	}
 
