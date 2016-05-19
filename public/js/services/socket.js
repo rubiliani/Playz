@@ -20,7 +20,7 @@ angular.module('PlayzApp.services')
             socket.on('newEventReceived', function (notification) {
                 console.log("newEventReceived", notification)
                 if ($rootScope.notifications){
-                    $rootScope.notifications.push(notification);
+                    $rootScope.notifications.push({notification:notification});
                     $rootScope.$apply();
                 }
             });
