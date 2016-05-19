@@ -13,8 +13,8 @@ module.exports.init =  function (http) {
 }
 
 module.exports.onUserConnected = function(user){
-    delete io.nsps['/'+user._id];
-    var nsp = io.of('/'+user._id);
+    console.log('onUserConnected socket',user._id)
+    var nsp = io.of(user._id);
     clients[user._id] = nsp;
     //console.log("sockets on user connected","*****************"+Object.keys(io.nsps)+"*****************")
     setTimeout(function(){
@@ -28,14 +28,16 @@ module.exports.onUserConnected = function(user){
 }
 
 module.exports.newEventReceived = function(toUsers,notification){
-    //console.log("on post change","*****************"+Object.keys((io)?io.nsps:"no users connected")+"*****************")
+    //console.log("newEventReceived","*****************"+Object.keys((io)?io.nsps:"no users connected")+"*****************")
+    //console.log("newEventReceived","*****************",toUsers,"*****************")
     toUsers.forEach(function(val){
-        var index = (io)?Object.keys(io.nsps).indexOf("/"+val._id):-1;
+        var index = (io)?Object.keys(io.nsps).indexOf("/"+val):-1;
         if (index != -1) {
             try {
-                clients[val._id].emit('on event received',notification);
+                //console.log("newEventReceived to"+val)
+                clients[val].emit('newEventReceived',notification);
             }catch (err){
-               console.log('sockets notification',err)
+               console.log('newEventReceived sockets notification',err)
             }
         }
     })

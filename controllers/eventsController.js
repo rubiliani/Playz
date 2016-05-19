@@ -1,348 +1,348 @@
-
 var async = require("async");
 
-module.exports.create = function(req,res){
+module.exports.create = function (req, res) {
     var event = req.body.event;
-    if (!event){
-        return res.status(404).json({status:0,msg:['no event']})
+    if (!event) {
+        return res.status(404).json({status: 0, msg: ['no event']})
     }
 
-    User.get_user_ids(event.invitedUsers,function(result){
-        // event.registeredUsers=result.users.map(function(val){return val._id});
-        var invitedUsers = result.users.map(function(val){return val._id});
+    User.get_user_ids(event.invitedUsers, function (result) {
+        var invitedUsers = result.users.map(function (val) {
+            return val._id
+        });
+        invitedUsers.push(req.user._id)
         var evt = new Event(event);
-        evt.save(function(err){
-            if (err){
-                return res.status(404).json({status:0,msg:['failed to save event',err]})
+        evt.save(function (err) {
+            if (err) {
+                return res.status(404).json({status: 0, msg: ['failed to save event', err]})
             }
 
             req.user.userEvents.push(evt._id);
             req.user.registeredEvents.push(evt._id);
             req.user.save();
 
-            invite_users_to_event(evt,invitedUsers,"create");
+            invite_users_to_event(evt, invitedUsers, "create");
 
-            return res.json({event:evt,msg:['create event success'],status:1});
+            return res.json({event: evt, msg: ['create event success'], status: 1});
 
         });
-    },function(err){
-        return res.status(404).json({msg:['create event success'],status:0})
+    }, function (err) {
+        return res.status(404).json({msg: ['create event failed'], status: 0})
     })
 
 
 }
 
-module.exports.update = function(req,res){
-	var event = req.body.event;
-	if (!event){
-		return res.status(404).json({status:0,msg:['no event received']})
-	}
+module.exports.update = function (req, res) {
+    var event = req.body.event;
+    if (!event) {
+        return res.status(404).json({status: 0, msg: ['no event received']})
+    }
 
-    Event.update_event(event,function(result){
-		if (!result.status){
-			return res.status(404).json(result);
-		}
+    Event.update_event(event, function (result) {
+        if (!result.status) {
+            return res.status(404).json(result);
+        }
 
-		return res.json(result);
-	})
+        return res.json(result);
+    })
 
 }
 
-function invite_users_to_event(event,invitedUsers,action){
+function invite_users_to_event(event, invitedUsers, action) {
     var notification = new Notification({
         event: event._id,
         creator: event.creator,
-        action:action
+        action: action
     })
-    notification.save(function(err){
-        if (err){
-            console.log("failed to register_users_to_event",err)
+    notification.save(function (err) {
+        if (err) {
+            console.log("failed to register_users_to_event", err)
             return;
         }
-        var data={
-            notificationid:notification._id,
-            eventid:event._id,
-            invitedUsers:invitedUsers
+        var users_to_invite = {
+            notificationid: notification._id,
+            eventid: event._id,
+            invitedUsers: invitedUsers
         }
 
-        User.invite_users_to_event(data,function(result){
-            console.log(result);
-			//TODO populate notification
-			socket.newEventReceived(invitedUsers,notification)
+        User.invite_users_to_event(users_to_invite, function (result) {
+                console.log(result, notification);
+                Notification.findOne({_id: notification._id})
+                    .populate('event', '-messages').populate('creator', 'id _id name picture')
+                    .exec(function (err, result) {
+                        if (!err)
+                            socket.newEventReceived(invitedUsers, result)
 
-        },
-        function(err){
-            console.log(err)
-        });
-    },function(err){
-        console.log("failed to register_users_to_event",err)
+                    })
+            },
+            function (err) {
+                console.log(err)
+            });
     })
-
 }
 
-module.exports.createMessage=function(req,res){
-    var data=req.body;
-    console.log("event id "+data.event);
+module.exports.createMessage = function (req, res) {
+    var data = req.body;
+    console.log("event id " + data.event);
     var msg = new Message({
         sender: data.user,
         text: data.message
     })
 
-    msg.save(function(err){
-        if (err){
-            console.log("failed to add message",err)
-            return res.status(404).json({createMessage:"failed to save msg",err:err})
+    msg.save(function (err) {
+        if (err) {
+            console.log("failed to add message", err)
+            return res.status(404).json({createMessage: "failed to save msg", err: err})
         }
-        
 
-        Event.addChatMessage(msg._id,data.event,function(result){
+
+        Event.addChatMessage(msg._id, data.event, function (result) {
             console.log(result);
-			//TODO populate notification
-			//socket.newEventReceived(invitedUsers,notification)
-			if (!result.status){
- 				return res.status(404).json({createMessage:"failed to save msg"})
-			}
-			return res.json(result)
+            //TODO populate notification
+            //socket.newEventReceived(invitedUsers,notification)
+            if (!result.status) {
+                return res.status(404).json({createMessage: "failed to save msg"})
+            }
+            return res.json(result)
         })
-    
+
     });
 }
 
 
+exports.createEvent = function (req, res, next) {
+    var r = {msg: [], status: 0};
+    //var event = req.body.event;
+    var evt = req.body.event;
+    console.log("in create event: " + evt);
 
-exports.createEvent = function(req,res,next){
-	var r = {msg:[],status:0};
-	//var event = req.body.event;
-	var evt = req.body.event;
-	console.log("in create event: "+evt);
+    Event.create_event(evt, function (err, result) {
+        res.json(result);
+    });
 
-	Event.create_event(evt,function(err,result){
-		res.json(result);
-	});
-
-/*
-	if (!event || typeof(event) !== 'object' || !user.id){
-		r.msg.push('user not exist or user id not found',user);
-		return res.json(r);
-	}
-*//*
-	Event.create_event(event,function(result){
-		//if (result.status==1 && (!result.user.birthday || !result.user.hometown.name)){
-		//	result.newUser=true;
-		//}
-		return res.json(result)
-	});*/
+    /*
+     if (!event || typeof(event) !== 'object' || !user.id){
+     r.msg.push('user not exist or user id not found',user);
+     return res.json(r);
+     }
+     */
+    /*
+     Event.create_event(event,function(result){
+     //if (result.status==1 && (!result.user.birthday || !result.user.hometown.name)){
+     //	result.newUser=true;
+     //}
+     return res.json(result)
+     });*/
 }
 
 /*
-module.exports.getList = function(req,res){
-	var id = req.params.id;
-	var populateQuery = [{path:'_user'}, {path:'regiteredUsers._user'}];
-	console.log(id);
-	
-	Event.find({id : id}, function(err,results){
-		res.json(results);
-	}).populate(populateQuery)
-			.exec(function (err, event) {
-  				if (err) return handleError(err);
-			});
-}*/
+ module.exports.getList = function(req,res){
+ var id = req.params.id;
+ var populateQuery = [{path:'_user'}, {path:'regiteredUsers._user'}];
+ console.log(id);
+
+ Event.find({id : id}, function(err,results){
+ res.json(results);
+ }).populate(populateQuery)
+ .exec(function (err, event) {
+ if (err) return handleError(err);
+ });
+ }*/
 
 /*
 
-exports.getOtherList = function(req,res){
-	var id = req.params.id;
+ exports.getOtherList = function(req,res){
+ var id = req.params.id;
 
-	var populateQuery = [{path:'user'}, {path:'registeredUsers.user'}];
-	console.log(id);
+ var populateQuery = [{path:'user'}, {path:'registeredUsers.user'}];
+ console.log(id);
 
-	Event.find({id:{ $ne : id}}, function(err,results){
-			res.json(results);
-		}).populate(populateQuery)
-			.exec(function (err, event) {
-  				if (err) return handleError(err);
-			});
+ Event.find({id:{ $ne : id}}, function(err,results){
+ res.json(results);
+ }).populate(populateQuery)
+ .exec(function (err, event) {
+ if (err) return handleError(err);
+ });
 
 
 
-}*/
+ }*/
 
-exports.getAllEvents = function(req,res){
-	var filter = req.body;
-	Event.getAllEvents(req.user,filter,function(result){
-		if (!result.status){
-			return res.status(404).json(result)
-		}
-		return res.json(result)
-	})
-
-}
-
-exports.getMyEvents = function(req,res){
-	var filter = req.body;
-	Event.getMyEvents(req.user,filter,function(result){
-		if (!result.status){
-			return res.status(404).json(result)
-		}
-		return res.json(result)
-	})
+exports.getAllEvents = function (req, res) {
+    var filter = req.body;
+    Event.getAllEvents(req.user, filter, function (result) {
+        if (!result.status) {
+            return res.status(404).json(result)
+        }
+        return res.json(result)
+    })
 
 }
 
-exports.getMessages = function(req,res){
-	//var filter = req.body;
-	//console.log(req.body)
-	var ev = req.body.event;
-	console.log("event "+ev);
-	Event.getMessages(ev,function(result){
-		if (!result.status){
-			return res.status(404).json(result)
-		}
-		Event.populate(result.messages,{
-		path: 'messages',
-		model: 'messages',
-		populate: {
-			path: 'sender'
-			, model: 'users'
-			, select: 'id name picture'
-		}
+exports.getMyEvents = function (req, res) {
+    var filter = req.body;
+    Event.getMyEvents(req.user, filter, function (result) {
+        if (!result.status) {
+            return res.status(404).json(result)
+        }
+        return res.json(result)
+    })
 
-	},function (err, projects) {
-		//console.log(err||projects)
-		if (err){
-			return res.status(404).json(result)
-		}
-		return res.json (projects[0]);
-	})
-	})
+}
+
+exports.getMessages = function (req, res) {
+    //var filter = req.body;
+    //console.log(req.body)
+    var ev = req.body.event;
+    console.log("event " + ev);
+    Event.getMessages(ev, function (result) {
+        if (!result.status) {
+            return res.status(404).json(result)
+        }
+        Event.populate(result.messages, {
+            path: 'messages',
+            model: 'messages',
+            populate: {
+                path: 'sender'
+                , model: 'users'
+                , select: 'id name picture'
+            }
+
+        }, function (err, projects) {
+            //console.log(err||projects)
+            if (err) {
+                return res.status(404).json(result)
+            }
+            return res.json(projects[0]);
+        })
+    })
 
 }
 
 
-module.exports.getTodayOtherList = function(req,res){
-	var id = req.params.id;
+module.exports.getTodayOtherList = function (req, res) {
+    var id = req.params.id;
 
-	var populateQuery = [{path:'_user'}, {path:'regiteredUsers._user'}];
-	console.log(id);
+    var populateQuery = [{path: '_user'}, {path: 'regiteredUsers._user'}];
+    console.log(id);
 
-	Event
-		.find({$and:[{fbUserID:{ $ne : id}},{when:"Today"}]}, function(err,results){
-			res.json(results);
-		}).populate(populateQuery)
-			.exec(function (err, event) {
-  				if (err) return handleError(err);
-			});
+    Event
+        .find({$and: [{fbUserID: {$ne: id}}, {when: "Today"}]}, function (err, results) {
+            res.json(results);
+        }).populate(populateQuery)
+        .exec(function (err, event) {
+            if (err) return handleError(err);
+        });
 }
-module.exports.getTomorrowOtherList = function(req,res){
-	var id = req.params.id;
+module.exports.getTomorrowOtherList = function (req, res) {
+    var id = req.params.id;
 
-	var populateQuery = [{path:'_user'}, {path:'regiteredUsers._user'}];
-	console.log(id);
+    var populateQuery = [{path: '_user'}, {path: 'regiteredUsers._user'}];
+    console.log(id);
 
-	Event
-		.find({$and:[{fbUserID:{ $ne : id}},{when:"Tomorrow"}]}, function(err,results){
-			res.json(results);
-		}).populate(populateQuery)
-			.exec(function (err, event) {
-  				if (err) return handleError(err);
-			});
+    Event
+        .find({$and: [{fbUserID: {$ne: id}}, {when: "Tomorrow"}]}, function (err, results) {
+            res.json(results);
+        }).populate(populateQuery)
+        .exec(function (err, event) {
+            if (err) return handleError(err);
+        });
 
-
-
-}
-module.exports.getNegotOtherList = function(req,res){
-	var id = req.params.id;
-
-	var populateQuery = [{path:'_user'}, {path:'regiteredUsers._user'}];
-	console.log(id);
-
-	Event
-		.find({$and:[{fbUserID:{ $ne : id}},{when:"Negotiable"}]}, function(err,results){
-			res.json(results);
-		}).populate(populateQuery)
-			.exec(function (err, event) {
-  				if (err) return handleError(err);
-			});
-}
-
-module.exports.addUser = function(req,res){
-	var id = req.params.id;
-	console.log("evt id "+id);
-	console.log("link user to evt: "+ req.query._user);
-
-	Event.findOneAndUpdate({ _id : id}, {$addToSet : {regiteredUsers: {_user : req.query._user}}}, function (err, model) {
-    	console.log(model);
-    	res.status(200).send();
-	});
-}
-
-
-
-exports.getUpcomingEvents = function(req,res){
-	populateEvents(req.user,function(user){
-		var millis = new Date().setHours(0,0,0,0);
-
-		var upcomingEvents = user.registeredEvents.filter(function(val){
-			var emillis = new Date(val.whenDate).setHours(0,0,0,0);
-			if (emillis >= millis){
-				return val;
-			}
-		})
-		return res.json(upcomingEvents)
-	})
-}
-exports.getPastEvents = function(req,res){
-	populateEvents(req.user,function(user){
-		var millis = new Date().setHours(0,0,0,0);
-
-		var upcomingEvents = user.registeredEvents.filter(function(val){
-			var emillis = new Date(val.whenDate).setHours(0,0,0,0);
-			if (emillis < millis){
-				return val;
-			}
-		})
-		return res.json(upcomingEvents)
-	})
 
 }
-exports.getEventById = function(req,res){
-	var eid=req.body.eventid;
-	if (!eid){
-		return res.status(404).json({"getEventById":"event id not found"})
-	}
-	var index=req.user.registeredEvents.indexOf(eid)
-	if (index!=-1) {
-		var event = req.user.registeredEvents[index];
-		populateEvents({registeredEvents:[event]}, function (user) {
-			var millis = new Date().setHours(0, 0, 0, 0);
-			return res.json(user.registeredEvents[0])
-		})
-	}else{
-		return res.status(404).json({"getEventById":"user not allow to see this. he is not register to the event"})
-	}
+module.exports.getNegotOtherList = function (req, res) {
+    var id = req.params.id;
+
+    var populateQuery = [{path: '_user'}, {path: 'regiteredUsers._user'}];
+    console.log(id);
+
+    Event
+        .find({$and: [{fbUserID: {$ne: id}}, {when: "Negotiable"}]}, function (err, results) {
+            res.json(results);
+        }).populate(populateQuery)
+        .exec(function (err, event) {
+            if (err) return handleError(err);
+        });
 }
 
-function populateEvents(user,callback){
-	User.populate(user,{
-		path: 'registeredEvents',
-		model: 'events',
-		populate: [{
-			path: 'registeredUsers'
-			, model: 'users'
-			, select: 'id name picture'
-		},{
-			path: 'creator'
-			,model: 'users'
-			,select:'id name picture'
-		}],
+module.exports.addUser = function (req, res) {
+    var id = req.params.id;
+    console.log("evt id " + id);
+    console.log("link user to evt: " + req.query._user);
 
-	},function (err, projects) {
-		//console.log(err||projects)
-		if (err){
-			callback ([]);
-		}
-		callback (projects);
-	})
+    Event.findOneAndUpdate({_id: id}, {$addToSet: {regiteredUsers: {_user: req.query._user}}}, function (err, model) {
+        console.log(model);
+        res.status(200).send();
+    });
+}
+
+
+exports.getUpcomingEvents = function (req, res) {
+    populateEvents(req.user, function (user) {
+        var millis = new Date().setHours(0, 0, 0, 0);
+
+        var upcomingEvents = user.registeredEvents.filter(function (val) {
+            var emillis = new Date(val.whenDate).setHours(0, 0, 0, 0);
+            if (emillis >= millis) {
+                return val;
+            }
+        })
+        return res.json(upcomingEvents)
+    })
+}
+exports.getPastEvents = function (req, res) {
+    populateEvents(req.user, function (user) {
+        var millis = new Date().setHours(0, 0, 0, 0);
+
+        var upcomingEvents = user.registeredEvents.filter(function (val) {
+            var emillis = new Date(val.whenDate).setHours(0, 0, 0, 0);
+            if (emillis < millis) {
+                return val;
+            }
+        })
+        return res.json(upcomingEvents)
+    })
+
+}
+exports.getEventById = function (req, res) {
+    var eid = req.body.eventid;
+    if (!eid) {
+        return res.status(404).json({"getEventById": "event id not found"})
+    }
+    var index = req.user.registeredEvents.indexOf(eid)
+    if (index != -1) {
+        var event = req.user.registeredEvents[index];
+        populateEvents({registeredEvents: [event]}, function (user) {
+            var millis = new Date().setHours(0, 0, 0, 0);
+            return res.json(user.registeredEvents[0])
+        })
+    } else {
+        return res.status(404).json({"getEventById": "user not allow to see this. he is not register to the event"})
+    }
+}
+
+function populateEvents(user, callback) {
+    User.populate(user, {
+        path: 'registeredEvents',
+        model: 'events',
+        populate: [{
+            path: 'registeredUsers'
+            , model: 'users'
+            , select: 'id name picture'
+        }, {
+            path: 'creator'
+            , model: 'users'
+            , select: 'id name picture'
+        }],
+
+    }, function (err, populateevents) {
+        //console.log(err||populateevents)
+        if (err) {
+            callback([]);
+        }
+        callback(populateevents);
+    })
 }
 
 
