@@ -181,7 +181,7 @@ angular.module('PlayzApp')
             $scope.event.radius = $scope.radiusSlider.value;
 
             console.log($scope.event);
-            return
+            
             DB_queries.createEvent($scope.event).then(function(event){
                 console.log('events - create event',event)
                 $location.url('/profile')

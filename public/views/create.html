@@ -44,7 +44,8 @@
                                 <label class="select">Choose Sport:</label>
                                 <select id="sportSelection" class="custom-select" ng-model="event.sportType">
                                     <option ng-repeat="sport in sports track by $index"
-                                            ng-selected="$index==0">
+                                            ng-selected="$index==0"
+                                    ng-value="sport.name">
                                         {{sport.name}}
                                     </option>
                                 </select>
@@ -59,7 +60,9 @@
                                 <label class="select">Level of expertese:</label>
                                 <select name="levelSelect" id="levelSelection" class="custom-select"
                                         ng-model="event.level">
-                                    <option ng-repeat="level in levels track by $index" ng-selected="$index==0">
+                                    <option ng-repeat="level in levels track by $index"
+                                            ng-selected="$index==0"
+                                    ng-value="level">
                                         {{level}}
                                     </option>
                                 </select>
@@ -73,7 +76,9 @@
                             <div class="media-heading">
                                 <label class="select">Mind-set:</label>
                                 <select name="mindsetSelect" class="custom-select" ng-model="event.mindset">
-                                    <option ng-repeat="mindset in mindsets track by $index" ng-selected="$index==0">
+                                    <option ng-repeat="mindset in mindsets track by $index"
+                                            ng-selected="$index==0"
+                                    ng-value="mindset">
                                         {{mindset}}
                                     </option>
                                 </select>
