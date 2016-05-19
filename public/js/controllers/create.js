@@ -173,7 +173,7 @@ angular.module('PlayzApp')
                 "latitude":$scope.location.lat,
                 "longitude":$scope.location.lng
             };
-
+            $scope.whenDate =  new Date($scope.whenDate).setHours(0,0,0,0)
             //sliders
             $scope.event.groupSize = $scope.groupSlider.value;
             $scope.event.ageRange.min = $scope.ageSlider.minValue;

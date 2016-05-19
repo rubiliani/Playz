@@ -79,7 +79,7 @@ eventSchema.statics.create_event=function(event,callback){
 eventSchema.statics.getAllEvents=function(user,filter,callback){
 	var r = {msg:[],status:0};
 	var query = {
-		
+		whenDate:{$gt:new Date()}
 	};
 
 	
@@ -96,5 +96,6 @@ eventSchema.statics.getAllEvents=function(user,filter,callback){
 			return callback(r);
 		});
 }
+
 
 Event = mongoose.model('events', eventSchema);
