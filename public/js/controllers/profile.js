@@ -55,35 +55,38 @@ angular.module('PlayzApp')
         $scope.tabChanged=function(type){
             /*if (type=="upcoming"){
 
-                $scope.upcomingEvents=[{
-                sportType: "Football",
-                whenDate: "17/6/16",
-                level: "Proffesional",
-                mindset: "Just for fun",
-                groupSize: 10,
-                location: "Hod Hasharon",
-                registeredUsers:[
-                    "1","2","3","4"
-                ]
-            },
-            {
-                sportType: "Basketball",
-                whenDate: "17/6/16",
-                level: "Beginner",
-                mindset: "Turnament",
-                groupSize: 5,
-                location: "Ashdod",
-                registeredUsers:[
-                    "1","2","3","4"
-                ]
-            }]
+            //    $scope.upcomingEvents=[{
+            //        _id:"aaaa",
+            //    sportType: "Football",
+            //    whenDate: "17/6/16",
+            //    level: "Proffesional",
+            //    mindset: "Just for fun",
+            //    groupSize: 10,
+            //    location: "Hod Hasharon",
+            //    registeredUsers:[
+            //        "1","2","3","4"
+            //    ]
+            //},
+            //{
+            //    _id:"bbbb",
+            //    sportType: "Basketball",
+            //    whenDate: "17/6/16",
+            //    level: "Beginner",
+            //    mindset: "Turnament",
+            //    groupSize: 5,
+            //    location: "Ashdod",
+            //    registeredUsers:[
+            //        "1","2","3","4"
+            //    ]
+            //}]
 
 
-                //DB_queries.getUpcomingEvents().then(function(data){
-                //    $scope.upcomingEvents=data.events;
-                //})
+                DB_queries.getUpcomingEvents().then(function(data){
+                    $scope.upcomingEvents=data;
+                })
             }
             else if (type=="past"){
+<<<<<<< HEAD
                 $scope.pastEvents=["past avishay","past hajbi"]
 
                 //DB_queries.getPastEvents().then(function(data){
@@ -92,5 +95,18 @@ angular.module('PlayzApp')
             }*/
         }
         $scope.tabChanged('upcoming')
-         $scope.getMyEvents();
+        $scope.getMyEvents();
+        DB_queries.getPastEvents().then(function(data){
+            $scope.pastEvents=data;
+        });
+    
+        
+        $scope.tabChanged('upcoming')
+
+
+        $scope.cardSelected=function(card){
+            console.log(card)
+            $location.url('/event/'+card._id);
+        }
+
     });

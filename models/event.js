@@ -81,7 +81,11 @@ eventSchema.statics.getAllEvents=function(user,filter,callback){
 	console.log(user._id)
 	var id = mongoose.Types.ObjectId(user._id);
 	var query = {
+<<<<<<< HEAD
 		"registeredUsers":{ $ne : id}
+=======
+		whenDate:{$gt:new Date()}
+>>>>>>> a299a11a28b56cf97be7de6a3b14d8c09bb378bb
 	};
 
 	
@@ -98,6 +102,7 @@ eventSchema.statics.getAllEvents=function(user,filter,callback){
 			return callback(r);
 		});
 }
+
 
 
 eventSchema.statics.getMyEvents=function(user,filter,callback){
@@ -124,3 +129,4 @@ eventSchema.statics.getMyEvents=function(user,filter,callback){
 }
 
 Event = mongoose.model('events', eventSchema);
+

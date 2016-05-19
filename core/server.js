@@ -3,11 +3,11 @@ var express = require('express');
 var path = require('path');
 var bodyParser  = require('body-parser');
 var fs = require("fs-extra");
+socket = require('./sockets.js');
 
 app = express();
 var http = require('http').Server(app);
-
-//TODO sockest for messages
+socket.init(http);
 
 app.use(express.static(process.cwd() + '/public'));
 app.use(bodyParser({limit: '50mb'}));
@@ -78,6 +78,7 @@ app.post('/events/updateEvent', authenticating_user, controllers.eventsControlle
 app.post('/events/getMyEvents', authenticating_user ,controllers.eventsController.getMyEvents);
 app.post('/events/getPastEvents', authenticating_user ,controllers.eventsController.getPastEvents);
 app.post('/events/getAllEvents', authenticating_user ,controllers.eventsController.getAllEvents);
+app.post('/events/getEventById', authenticating_user ,controllers.eventsController.getEventById);
 
 
 ///notifications

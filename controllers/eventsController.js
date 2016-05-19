@@ -20,6 +20,7 @@ module.exports.create = function(req,res){
             }
 
             req.user.userEvents.push(evt._id);
+            req.user.registeredEvents.push(evt._id);
             req.user.save();
 
             invite_users_to_event(evt,invitedUsers,"create");
@@ -68,7 +69,10 @@ function invite_users_to_event(event,invitedUsers,action){
         }
 
         User.invite_users_to_event(data,function(result){
-            console.log(result)
+            console.log(result);
+			//TODO populate notification
+			socket.newEventReceived(invitedUsers,notification)
+
         },
         function(err){
             console.log(err)
@@ -234,13 +238,71 @@ module.exports.addUser = function(req,res){
 
 
 exports.getUpcomingEvents = function(req,res){
-	res.json({"getUpcomingEvents":"NOT READY"})
+	populateEvents(req.user,function(user){
+		var millis = new Date().setHours(0,0,0,0);
+
+		var upcomingEvents = user.registeredEvents.filter(function(val){
+			var emillis = new Date(val.whenDate).setHours(0,0,0,0);
+			if (emillis >= millis){
+				return val;
+			}
+		})
+		return res.json(upcomingEvents)
+	})
 }
 exports.getPastEvents = function(req,res){
-	res.json({"getPastEvents":"NOT READY"})
+	populateEvents(req.user,function(user){
+		var millis = new Date().setHours(0,0,0,0);
+
+		var upcomingEvents = user.registeredEvents.filter(function(val){
+			var emillis = new Date(val.whenDate).setHours(0,0,0,0);
+			if (emillis < millis){
+				return val;
+			}
+		})
+		return res.json(upcomingEvents)
+	})
+
+}
+exports.getEventById = function(req,res){
+	var eid=req.body.eventid;
+	if (!eid){
+		return res.status(404).json({"getEventById":"event id not found"})
+	}
+	var index=req.user.registeredEvents.indexOf(eid)
+	if (index!=-1) {
+		var event = req.user.registeredEvents[index];
+		populateEvents({registeredEvents:[event]}, function (user) {
+			var millis = new Date().setHours(0, 0, 0, 0);
+			return res.json(user.registeredEvents[0])
+		})
+	}else{
+		return res.status(404).json({"getEventById":"user not allow to see this. he is not register to the event"})
+	}
 }
 
+function populateEvents(user,callback){
+	User.populate(user,{
+		path: 'registeredEvents',
+		model: 'events',
+		populate: [{
+			path: 'registeredUsers'
+			, model: 'users'
+			, select: 'id name picture'
+		},{
+			path: 'creator'
+			,model: 'users'
+			,select:'id name picture'
+		}],
 
+	},function (err, projects) {
+		//console.log(err||projects)
+		if (err){
+			callback ([]);
+		}
+		callback (projects);
+	})
+}
 
 
 

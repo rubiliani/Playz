@@ -182,6 +182,22 @@ angular.module('PlayzApp.services')
             return deferred.promise;
         }
 
+        var _getEventById = function(eid){
+            var deferred = $q.defer();
+            $http.post($rootScope.app.domain+'events/getEventById',{eventid:eid})
+                .success(function(data){
+                    console.log("getEventById success",data)
+                    deferred.resolve(data);
+                }).error(function(err){
+                console.log("getEventById err",err)
+                deferred.reject(err);
+            })
+                ['finally'](function() {
+
+            });
+            return deferred.promise;
+        }
+
         return {
             getEvents: _getEvents,
             updateUser: _updateUser,
@@ -193,6 +209,8 @@ angular.module('PlayzApp.services')
             inviteFriend: _inviteFriend,
             getNotifications: _getNotifications,
             getAllEvents:_getAllEvents,
-            getMyEvents:_getMyEvents
+            getMyEvents:_getMyEvents,
+            getEventById:_getEventById
+
         }
     })
