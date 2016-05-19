@@ -23,9 +23,9 @@
                     </div>
                     <span class="media-right">
                     <button type="button" class="btn btn-sm btn-success-outline" 
-                    ng-click="acceptNotification(notification.notification.event.id)">Accept <span class="icon icon-check"></span></button><br><br>
+                    ng-click="acceptNotification(notification.notification.event._id,notification.notification._id)">Accept <span class="icon icon-check"></span></button><br><br>
                     <button type="button" class="btn btn-sm btn-danger-outline" 
-                    ng-click="deleteNotification($index,notification.notification.event.id)">Delete <span class="icon icon-trash"></span></button>
+                    ng-click="deleteNotification($index,notification.notification.event._id,notification.notification._id)">Delete <span class="icon icon-trash"></span></button>
                     </span>
                   </div>
                 </div>

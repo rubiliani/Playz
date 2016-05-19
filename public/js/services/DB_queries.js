@@ -53,6 +53,37 @@ angular.module('PlayzApp.services')
             });
             return deferred.promise;
         }
+        var _getUpcomingEvents = function () {
+            var deferred = $q.defer();
+            $http.post($rootScope.app.domain + 'events/getUpcomingEvents')
+                .success(function (data) {
+                    console.log("getUpcomingEvents success", data)
+                    deferred.resolve(data);
+                }).error(function (err) {
+                console.log("getUpcomingEvents err", err)
+                deferred.reject(err);
+            })
+                ['finally'](function () {
+
+            });
+            return deferred.promise;
+        }
+        var _getPastEvents = function () {
+            var deferred = $q.defer();
+            $http.post($rootScope.app.domain + 'events/getPastEvents')
+                .success(function (data) {
+                    console.log("getPastEvents success", data)
+                    deferred.resolve(data);
+                }).error(function (err) {
+                console.log("getPastEvents err", err)
+                deferred.reject(err);
+            })
+                ['finally'](function () {
+
+            });
+            return deferred.promise;
+        }
+
         var _getPastEvents = function () {
             var deferred = $q.defer();
             $http.post($rootScope.app.domain + 'events/getPastEvents')
@@ -182,6 +213,40 @@ angular.module('PlayzApp.services')
             return deferred.promise;
         }
 
+        var _getMessages = function(eventid){
+            var deferred = $q.defer();
+            $http.post($rootScope.app.domain+'events/getMessages',{event:eventid})
+                .success(function(data){
+                    console.log("getMessages success",data)
+                    deferred.resolve(data.messages);
+                }).error(function(err){
+                console.log("getMessages err",err)
+                deferred.reject(err);
+            })
+                ['finally'](function() {
+
+            });
+            return deferred.promise;
+        }
+
+        var _createMessage = function(userid,eventid,message){
+            var deferred = $q.defer();
+            $http.post($rootScope.app.domain+'events/createMessage',{user:userid,event:eventid,message:message})
+                .success(function(data){
+                    console.log("create msg success",data)
+                    
+                    deferred.resolve(data.event);
+                }).error(function(err){
+                    console.log("create msg err",err)
+                    deferred.reject(err);
+            })
+            ['finally'](function() {
+
+            });
+            return deferred.promise;
+        }
+
+
         var _getEventById = function(eid){
             var deferred = $q.defer();
             $http.post($rootScope.app.domain+'events/getEventById',{eventid:eid})
@@ -201,6 +266,7 @@ angular.module('PlayzApp.services')
         return {
             getEvents: _getEvents,
             updateUser: _updateUser,
+            getUpcomingEvents: _getUpcomingEvents,
             getPastEvents: _getPastEvents,
             getTodayEvents: _getTodayEvents,
             getTomorrowEvents: _getTomorrowEvents,
@@ -210,6 +276,8 @@ angular.module('PlayzApp.services')
             getNotifications: _getNotifications,
             getAllEvents:_getAllEvents,
             getMyEvents:_getMyEvents,
+            getMessages:_getMessages,
+            createMessage:_createMessage,
             getEventById:_getEventById
 
         }

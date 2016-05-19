@@ -6,8 +6,8 @@ var userSchema = new Schema({
 	email : { type : String, default:''},
 	gender: { type : String, default:''},
 	birthday : {type : Date, default:''},
-	"age_range": {
-		"min": {type : Number, default:0},
+	age_range: {
+		min: {type : Number, default:0},
 	},
 	name : { type : String, default:''},
 	first_name: { type : String, default:''},

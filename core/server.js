@@ -33,6 +33,7 @@ fs.readdirSync(controllers_path).forEach(function (file)
     if (file.indexOf('.js') != -1) 
     {
         controllers[file.split('.')[0]] = require(controllers_path + '/' + file);
+        console.log(file);
     }
 });
 
@@ -76,10 +77,12 @@ app.get('/', function(req,res,next){ });
 app.post('/events/createEvent', authenticating_user, controllers.eventsController.create);
 app.post('/events/updateEvent', authenticating_user, controllers.eventsController.update);
 app.post('/events/getMyEvents', authenticating_user ,controllers.eventsController.getMyEvents);
+app.post('/events/getUpcomingEvents', authenticating_user ,controllers.eventsController.getUpcomingEvents);
 app.post('/events/getPastEvents', authenticating_user ,controllers.eventsController.getPastEvents);
 app.post('/events/getAllEvents', authenticating_user ,controllers.eventsController.getAllEvents);
 app.post('/events/getEventById', authenticating_user ,controllers.eventsController.getEventById);
-
+app.post('/events/getMessages' ,controllers.eventsController.getMessages);
+app.post('/events/createMessage', authenticating_user ,controllers.eventsController.createMessage);
 
 ///notifications
 app.post('/notifications/createNotification', authenticating_user ,controllers.notificationController.createNotification);

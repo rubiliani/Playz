@@ -9,27 +9,5 @@ var notificationSchema = new Schema({
 
 });
 
-//notificationSchema.statics.create_notification=function(event,fbId,callback){
-//	var r = {msg:[],status:0};
-//	/*var query = {
-//		id:event._id
-//	};*/
-//
-//	console.log("in noti model"+event+" "+fbId);
-//
-//	this.model('notifications').save()
-//		.exec(function(err,result){
-//			if (err){
-//				r.msg.push(err);
-//				return callback(r);
-//			}
-//
-//			r.msg.push("noti pushed");
-//			r.status=1;
-//			r.notification=result;
-//			return callback(r);
-//		});
-//}
-
 
 Notification = mongoose.model('notifications', notificationSchema);

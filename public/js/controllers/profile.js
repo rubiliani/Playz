@@ -42,18 +42,8 @@ angular.module('PlayzApp')
             $scope.disable=!$scope.disable;
         }
 
-        $scope.getMyEvents = function() {
-            DB_queries.getMyEvents($rootScope.user.id).then(function(events){
-                $scope.upcomingEvents = events.events;
-            })
-        }
-
-        $scope.eventPage = function(){
-            $location.url('/event')
-        }
-
         $scope.tabChanged=function(type){
-            /*if (type=="upcoming"){
+            if (type=="upcoming"){
 
             //    $scope.upcomingEvents=[{
             //        _id:"aaaa",
@@ -86,21 +76,11 @@ angular.module('PlayzApp')
                 })
             }
             else if (type=="past"){
-<<<<<<< HEAD
-                $scope.pastEvents=["past avishay","past hajbi"]
-
-                //DB_queries.getPastEvents().then(function(data){
-                //    $scope.pastEvents=data.events;
-                //})
-            }*/
+                DB_queries.getPastEvents().then(function(data){
+                    $scope.pastEvents=data;
+                })
+            }
         }
-        $scope.tabChanged('upcoming')
-        $scope.getMyEvents();
-        DB_queries.getPastEvents().then(function(data){
-            $scope.pastEvents=data;
-        });
-    
-        
         $scope.tabChanged('upcoming')
 
 
@@ -108,5 +88,4 @@ angular.module('PlayzApp')
             console.log(card)
             $location.url('/event/'+card._id);
         }
-
     });

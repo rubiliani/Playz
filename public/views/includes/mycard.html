@@ -1,25 +1,24 @@
-
-          <div class="media-body" ng-controller="mycardCtrl" class="list-group-item" id="myCard">
+<div class="media">
+         <div class="media-body" ng-controller="mycardCtrl" ng-click="cardSelected(card)">
          
-            <small class="pull-right text-muted">{{event.whenDate |  date:"dd/MM/yy"}}</small>
+            <small class="pull-right text-muted">{{card.whenDate |  date:"dd/MM/yy"}}</small>
             
             <div class="media-heading">
-              <strong>{{event.sportType}}</strong> Event in '{{event.mindset}}' mindset, at {{event.location.name}}<br>
-              Group size: {{event.registeredUsers.length}}/{{event.groupSize}}<br>
-              Level: {{event.level}}
-
-
+              <strong>{{card.sportType}}</strong> Event in '{{card.mindset}}' mindset, at {{card.location.name}}<br>
+              Group size: {{card.registeredUsers.length}}/{{card.groupSize}}<br>
+              Level: {{card.level}}
 
               <div class="pull-right">
             	
             </div>
             <ul class="avatar-list">
-              <li class="avatar-list-item" ng-repeat="user in event.registeredUsers">
+              <li class="avatar-list-item" ng-repeat="user in card.registeredUsers">
                 <img class="img-circle" ng-src="{{user.picture.data.url}}">
               </li>
             </ul>
             </div>
            
+          </div>
           </div>
        
 

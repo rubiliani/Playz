@@ -1,94 +1,77 @@
 
-
-<div class="modal fade" id="msgModal" tabindex="-1" role="dialog" aria-labelledby="msgModal" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Messages</h4>
-      </div>
-
-          <div class="modal-body">
-        <input type="text" class="form-control" placeholder="Message">
-      </div>
-     
-      <div class="modal-body p-a-0 js-modalBody">
-        <div class="modal-body-scroller">
-
-          <div class="m-a js-conversation">
-            <ul class="media-list media-list-conversation">
-              <li class="media media-current-user m-b-md">
-                <div class="media-body">
-                  <div class="media-body-text">
-                   Hajbi! You are the King!!!
-                  </div>
-                  <div class="media-footer">
-                    <small class="text-muted">
-                      <a href="#">Rubi Liani</a> at 4:20PM
-                    </small>
-                  </div>
-                </div>
-                <a class="media-right" href="#">
-                  <img class="img-circle media-object" src="../assets/img/avatar-dhg.png">
-                </a>
-              </li>
-
-              <li class="media m-b-md">
-                <a class="media-left" href="#">
-                  <img class="img-circle media-object" src="../assets/img/avatar-fat.jpg">
-                </a>
-                <div class="media-body">
-                  <div class="media-body-text">
-                  You need to learn Angular!! you code is bad!
-                  </div>
-                  <div class="media-footer">
-                    <small class="text-muted">
-                      <a href="#">Avishay Hajbi</a> at 4:28PM
-                    </small>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
 <div class="container p-t-md">
-
-
   <div class="row">
-
     <div class="col-md-6">
       <ul class="list-group media-list media-list-stream">
           <li class="list-group-item p-a">
-            <button type="button" class="btn btn-sm btn-primary pull-right app-new-msg js-newMsg">Edit Event</button>
-            <h3 class="modal-title">Event Name</h3>
-        </li>
-          
-		<div>
-        	<li class="media list-group-item p-a">
-
-          		
-          	<div class="media-body">
-            	<div class="media-heading">
-              		<small class="pull-right text-muted">{{event._event.when}}</small>
+              <button type="button" class="btn btn-sm btn-primary pull-right app-new-msg js-newMsg">Edit Event</button>
+              <h3 class="modal-title">{{event.sportType}}</h3>
+          </li>
+		      <div>
+        	    <li class="media list-group-item p-a">
+                  <div class="media-body">
+            	       <div class="media-heading">
+              		   <small class="pull-right text-muted"></small>
             	</div>
-                When: {{event._event.genderSelection}}<br>
-	              Registerd Playzers: {{event._event.regiteredUsers.length}}          
+                When: {{event.whenDate | date:"dd/MM/yyyy"}}<br>
+                Where: {{event.location.name}}<br>
+	              Registerd Playzers: {{event.registeredUsers.length}}          
             </div>
        	 </li>
        	 <li class="media list-group-item p-a">
-       	 
-          <button type="button" class="btn btn-lg btn-success-outline" data-toggle="modal" href="#msgModal">
-          <span class="icon icon-chat"></span>
-          Open Group Chat</button>
-       	 </li>
-       	 <li class="media list-group-item p-a">
-       	 	<div id="map"></div>
+            <div class="modal-body">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Message" ng-model="textMsg">
+              <div class="input-group-btn">
+              <button type="button" class="btn btn-default" ng-click="createMessage()">
+                <span class="icon icon-direction"></span>
+              </button>
+            </div>
+            </div>
+             
+            </div>
+       	 	
+             <div class="modal-body-scroller">
+                <div class="m-a js-conversation">
+                  <ul class="media-list media-list-conversation">
+                    <li class="media  m-b-md" ng-repeat="message in messages"
+                    ng-class="{'media-current-user':user._id==message.sender._id}">
+                      <div class="media-body">
+                        <div class="media-body-text">
+                         {{message.text}}
+                        </div>
+                        <div class="media-footer">
+                          <small class="text-muted">
+                            <a href="#">{{message.sender.name}}</a> at {{message.timestamp | date:"dd/MM/yy HH:mm"}}
+                          </small>
+                        </div>
+                      </div>
+                      <a class="media-right" href="#">
+                        <img class="img-circle media-object" ng-src="{{message.sender.picture.data.url}}">
+                      </a>
+                    </li>
+
+                    <!-- <li class="media m-b-md">
+                      <a class="media-left" href="#">
+                        <img class="img-circle media-object" src="../assets/img/avatar-fat.jpg">
+                      </a>
+                      <div class="media-body">
+                        <div class="media-body-text">
+                        You need to learn Angular!! you code is bad!
+                        </div>
+                        <div class="media-footer">
+                          <small class="text-muted">
+                            <a href="#">Avishay Hajbi</a> at 4:28PM
+                          </small>
+                        </div>
+                      </div>
+                    </li>
+ -->                 
+              
+            </ul>
+  
+        </div>
+          </div>
        	 </li>
           <li class="media list-group-item p-a">
           <button type="button" class="btn btn-lg btn-pill btn-primary">

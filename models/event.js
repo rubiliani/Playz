@@ -26,7 +26,8 @@ var eventSchema = new Schema({
 	},
 	radius: { type : Number, default:5},
 	creator:{ type : Schema.Types.ObjectId, ref: 'users'},
- 	registeredUsers:[{ type : Schema.Types.ObjectId, ref: 'users'}]
+ 	registeredUsers:[{ type : Schema.Types.ObjectId, ref: 'users'}],
+ 	messages:[{ type : Schema.Types.ObjectId, ref: 'messages'}]
 });
 
 eventSchema.statics.update_event=function(event,callback){
@@ -81,11 +82,11 @@ eventSchema.statics.getAllEvents=function(user,filter,callback){
 	console.log(user._id)
 	var id = mongoose.Types.ObjectId(user._id);
 	var query = {
-<<<<<<< HEAD
-		"registeredUsers":{ $ne : id}
-=======
+
+		//"registeredUsers":{ $ne : id}
+
 		whenDate:{$gt:new Date()}
->>>>>>> a299a11a28b56cf97be7de6a3b14d8c09bb378bb
+
 	};
 
 	
@@ -127,6 +128,53 @@ eventSchema.statics.getMyEvents=function(user,filter,callback){
 			return callback(r);
 		});
 }
+
+eventSchema.statics.getMessages=function(eventid,callback){
+	
+	var r = {msg:[],status:0};
+	
+	var id = mongoose.Types.ObjectId(eventid);
+	console.log("event "+id);
+	var query = {
+		_id: id
+	};
+
+	this.model('events').find(query).select('messages')
+		.exec(function(err,result){
+			if (err){
+				r.msg.push("get messages",err);
+				return callback(r);
+			}
+			console.log(result);
+			r.msg.push("get messages");
+			r.status=1;
+			r.messages=result;
+			return callback(r);
+		});
+}
+
+eventSchema.statics.addChatMessage=function(msgid,eventid,callback){
+	var r = {msg:[],status:0};
+	
+	var id = mongoose.Types.ObjectId(eventid);
+	var query = {
+		_id:id
+	};
+
+	
+	this.model('events').findOneAndUpdate(query,{$push:{messages:msgid}})
+		.exec(function(err,result){
+			if (err){
+				r.msg.push("addChatMessage",err);
+				return callback(r);
+			}
+
+			r.msg.push("addChatMessage success");
+			r.status=1;
+			return callback(r);
+		});
+}
+
 
 Event = mongoose.model('events', eventSchema);
 

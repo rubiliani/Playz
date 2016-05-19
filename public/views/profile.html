@@ -66,16 +66,20 @@
                 </li>
             </ul>
 
-            <div class="tab-content" style="overflow: hidden">
+         
+            <div class="media-list list-group tab-content">
                 <div ng-tab-body="animated bounceInLeft" class="tab-pane media-list list-group">
                     <div class="media-list media-list-stream c-w-md">
+                        
+                        <div class="list-group-item media p-a" ng-repeat="card in upcomingEvents track by $index" 
+                        ng-include src="'views/includes/mycard.html'"> 
+                        </div>
 
-                        <a class="list-group-item media p-a" ng-repeat="card in upcomingEvents track by $index" ng-include src="'views/includes/mycard.html'" > </a>
                     </div>
                 </div>
-                <div ng-tab-body="animated fadeInUp " class="tab-pane  media-list list-group">
+                <div ng-tab-body="animated fadeInUp " class="tab-pane  media-list list-group" style="overflow: hidden">
                     <div class="media-list media-list-stream c-w-md">
-                        <a class="list-group-item media p-a" ng-repeat="card in pastEvents track by $index" ng-include src="'views/includes/mycard.html'" > </a>
+                        <a class="list-group-item media p-a" ng-repeat="card in pastEvents track by $index" ng-include src="'views/includes/mycard.html'"> </a>
                     </div>
                 </div>
             </div>
@@ -130,4 +134,3 @@
         </div>
     </div>
 </div>
-

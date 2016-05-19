@@ -1,9 +1,6 @@
 
 var async = require("async");
 
-
-
-
 module.exports.create = function(req,res){
     var event = req.body.event;
     if (!event){
@@ -83,6 +80,34 @@ function invite_users_to_event(event,invitedUsers,action){
 
 }
 
+module.exports.createMessage=function(req,res){
+    var data=req.body;
+    console.log("event id "+data.event);
+    var msg = new Message({
+        sender: data.user,
+        text: data.message
+    })
+
+    msg.save(function(err){
+        if (err){
+            console.log("failed to add message",err)
+            return res.status(404).json({createMessage:"failed to save msg",err:err})
+        }
+        
+
+        Event.addChatMessage(msg._id,data.event,function(result){
+            console.log(result);
+			//TODO populate notification
+			//socket.newEventReceived(invitedUsers,notification)
+			if (!result.status){
+ 				return res.status(404).json({createMessage:"failed to save msg"})
+			}
+			return res.json(result)
+        })
+    
+    });
+}
+
 
 
 exports.createEvent = function(req,res,next){
@@ -109,7 +134,7 @@ exports.createEvent = function(req,res,next){
 	});*/
 }
 
-
+/*
 module.exports.getList = function(req,res){
 	var id = req.params.id;
 	var populateQuery = [{path:'_user'}, {path:'regiteredUsers._user'}];
@@ -121,9 +146,9 @@ module.exports.getList = function(req,res){
 			.exec(function (err, event) {
   				if (err) return handleError(err);
 			});
-}
+}*/
 
-
+/*
 
 exports.getOtherList = function(req,res){
 	var id = req.params.id;
@@ -140,7 +165,7 @@ exports.getOtherList = function(req,res){
 
 
 
-}
+}*/
 
 exports.getAllEvents = function(req,res){
 	var filter = req.body;
@@ -153,7 +178,6 @@ exports.getAllEvents = function(req,res){
 
 }
 
-
 exports.getMyEvents = function(req,res){
 	var filter = req.body;
 	Event.getMyEvents(req.user,filter,function(result){
@@ -165,6 +189,34 @@ exports.getMyEvents = function(req,res){
 
 }
 
+exports.getMessages = function(req,res){
+	//var filter = req.body;
+	//console.log(req.body)
+	var ev = req.body.event;
+	console.log("event "+ev);
+	Event.getMessages(ev,function(result){
+		if (!result.status){
+			return res.status(404).json(result)
+		}
+		Event.populate(result.messages,{
+		path: 'messages',
+		model: 'messages',
+		populate: {
+			path: 'sender'
+			, model: 'users'
+			, select: 'id name picture'
+		}
+
+	},function (err, projects) {
+		//console.log(err||projects)
+		if (err){
+			return res.status(404).json(result)
+		}
+		return res.json (projects[0]);
+	})
+	})
+
+}
 
 
 module.exports.getTodayOtherList = function(req,res){
@@ -180,9 +232,6 @@ module.exports.getTodayOtherList = function(req,res){
 			.exec(function (err, event) {
   				if (err) return handleError(err);
 			});
-
-
-
 }
 module.exports.getTomorrowOtherList = function(req,res){
 	var id = req.params.id;
@@ -214,9 +263,6 @@ module.exports.getNegotOtherList = function(req,res){
 			.exec(function (err, event) {
   				if (err) return handleError(err);
 			});
-
-
-
 }
 
 module.exports.addUser = function(req,res){
@@ -229,11 +275,6 @@ module.exports.addUser = function(req,res){
     	res.status(200).send();
 	});
 }
-
-
-
-
-
 
 
 
