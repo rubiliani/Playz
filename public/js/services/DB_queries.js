@@ -262,6 +262,21 @@ angular.module('PlayzApp.services')
             });
             return deferred.promise;
         }
+        var _joinEvent = function(eid){
+            var deferred = $q.defer();
+            $http.post($rootScope.app.domain+'events/joinEvent',{eventid:eid})
+                .success(function(data){
+                    console.log("joinEvent success",data)
+                    deferred.resolve(data);
+                }).error(function(err){
+                console.log("joinEvent err",err)
+                deferred.reject(err);
+            })
+                ['finally'](function() {
+
+            });
+            return deferred.promise;
+        }
 
         return {
             getEvents: _getEvents,
@@ -278,7 +293,8 @@ angular.module('PlayzApp.services')
             getMyEvents:_getMyEvents,
             getMessages:_getMessages,
             createMessage:_createMessage,
-            getEventById:_getEventById
+            getEventById:_getEventById,
+            joinEvent:_joinEvent
 
         }
     })

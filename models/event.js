@@ -55,6 +55,31 @@ eventSchema.statics.update_event=function(event,callback){
 		});
 }
 
+eventSchema.statics.getEventById=function(eid,uid,callback){
+	var r = {msg:[],status:0};
+	eid = mongoose.Types.ObjectId(eid);
+	var query = {
+		_id:eid
+	};
+
+	var options={
+		upsert:false,
+		new: false
+	}
+	this.model('events').findOneAndUpdate(query,{$addToSet:{registeredUsers:uid}},options)
+		.exec(function(err,result){
+			if (err){
+				r.msg.push(err);
+				return callback(r);
+			}
+
+			r.msg.push("event found");
+			r.status=1;
+			r.event=result;
+			return callback(r);
+		});
+}
+
 eventSchema.statics.create_event=function(event,callback){
 	var r = {msg:[],status:0};
 	/*var query = {

@@ -1,4 +1,5 @@
 var async = require("async");
+var mongoose = require('mongoose');
 
 module.exports.create = function (req, res) {
     var event = req.body.event;
@@ -199,6 +200,22 @@ exports.getMyEvents = function (req, res) {
             return res.status(404).json(result)
         }
         return res.json(result)
+    })
+
+}
+
+exports.joinEvent = function (req, res) {
+    var eid = req.body.eventid;
+
+    Event.getEventById(eid,req.user._id,function(result){
+        if (!result.status){
+            return res.status(404).json(result)
+        }
+
+        //TODO send ws to all registered users for a new user in the team
+        req.user.registeredEvents.push(result.event._id);
+        req.user.save();
+        return res.json(result);
     })
 
 }

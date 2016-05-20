@@ -1,16 +1,17 @@
 'use strict';
 
 angular.module('PlayzApp')
-.controller('playzcardCtrl', function($scope, $http, $rootScope, $location) {
+.controller('playzcardCtrl', function($scope, $http, $rootScope, $location,DB_queries) {
 	console.log("playzcard controller");
-	$scope.click=0;
-
-	$scope.changeCardData=function(card){
-		$scope.click++;
-	}
 
 	//after joining event it will be removed from the home lists.
 	$scope.joinEvent = function(card){
-		console.log("joined "+card)
+		console.log("joined ",card)
+		DB_queries.joinEvent(card._id).then(function(){
+			$rootScope.user.registeredEvents.push(card._id)
+		},
+		function(err){
+
+		});
 	}
 });
