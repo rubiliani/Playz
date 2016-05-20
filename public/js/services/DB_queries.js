@@ -277,6 +277,21 @@ angular.module('PlayzApp.services')
             });
             return deferred.promise;
         }
+        var _leaveEvent = function(eid){
+            var deferred = $q.defer();
+            $http.post($rootScope.app.domain+'events/leaveEvent',{eventid:eid})
+                .success(function(data){
+                    console.log("leaveEvent success",data)
+                    deferred.resolve(data);
+                }).error(function(err){
+                console.log("leaveEvent err",err)
+                deferred.reject(err);
+            })
+                ['finally'](function() {
+
+            });
+            return deferred.promise;
+        }
 
         return {
             getEvents: _getEvents,
@@ -294,7 +309,8 @@ angular.module('PlayzApp.services')
             getMessages:_getMessages,
             createMessage:_createMessage,
             getEventById:_getEventById,
-            joinEvent:_joinEvent
+            joinEvent:_joinEvent,
+            leaveEvent:_leaveEvent
 
         }
     })

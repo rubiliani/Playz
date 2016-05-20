@@ -207,7 +207,7 @@ exports.getMyEvents = function (req, res) {
 exports.joinEvent = function (req, res) {
     var eid = req.body.eventid;
 
-    Event.getEventById(eid,req.user._id,function(result){
+    Event.joinToEvent(eid,req.user._id,function(result){
         if (!result.status){
             return res.status(404).json(result)
         }
@@ -215,6 +215,25 @@ exports.joinEvent = function (req, res) {
         //TODO send ws to all registered users for a new user in the team
         req.user.registeredEvents.push(result.event._id);
         req.user.save();
+        return res.json(result);
+    })
+
+}
+
+exports.leaveEvent = function (req, res) {
+    var eid = req.body.eventid;
+
+    Event.leaveFromEvent(eid,req.user._id,function(result){
+        if (!result.status){
+            return res.status(404).json(result)
+        }
+
+        //TODO send ws to all registered users for a new user in the team
+        var index = $rootScope.user.registeredEvents.indexOf(result.event._id);
+        if (index != -1){
+            $rootScope.user.registeredEvents.splice(index,1);
+        }
+
         return res.json(result);
     })
 

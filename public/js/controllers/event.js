@@ -32,4 +32,17 @@ angular.module('PlayzApp')
 	});
 	
      $scope.getMessage();
+
+	$scope.leaveEvent=function(card){
+		console.log("leave ",card)
+		DB_queries.leaveEvent(card._id).then(function(){
+				var index = req.user.registeredEvents.indexOf(card._id);
+				if (index != -1){
+					req.user.registeredEvents.splice(index,1);
+				}
+			},
+			function(err){
+
+			});
+	}
 });
