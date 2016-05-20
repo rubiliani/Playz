@@ -86,6 +86,7 @@ module.exports.createMessage = function (req, res) {
     var data = req.body;
     console.log("event id " + data.event);
     var msg = new Message({
+        event:data.event,
         sender: data.user,
         text: data.message
     })

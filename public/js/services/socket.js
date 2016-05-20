@@ -25,6 +25,11 @@ angular.module('PlayzApp.services')
                 }
             });
 
+            socket.on('newMessageReceived', function (message) {
+                console.log("newMessageReceived", message)
+
+            });
+
         }
 
         return {

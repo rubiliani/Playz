@@ -9,17 +9,17 @@ angular.module('PlayzApp')
     var checkLoggedin = function($q, $timeout, $http, $location, $rootScope,fbLogin){
         // Initialize a new promise
         var deferred = $q.defer();
-        //fbLogin.routeStatus().then(function(){
-        //    deferred.resolve();
-        //},function(){
-        //    deferred.reject();
-        //})
-        if($rootScope.status) {
+        fbLogin.routeStatus().then(function(){
             deferred.resolve();
-        }
-        else {
+        },function(){
             deferred.reject();
-        }
+        })
+        //if($rootScope.status) {
+        //    deferred.resolve();
+        //}
+        //else {
+        //    deferred.reject();
+        //}
         return deferred.promise;
     };
 

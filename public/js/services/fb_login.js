@@ -33,7 +33,7 @@ angular.module('PlayzApp.services',['ngResource','ngRoute','ngStorage','ngFacebo
 			console.log('get route status',response);
 			if (response.status === "connected"){
 				isLoggedIn=true;
-				deferred.resolve(response);
+				deferred.resolve(true);
 			}
 			else{
 				isLoggedIn=false;
