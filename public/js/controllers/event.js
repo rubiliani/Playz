@@ -14,15 +14,22 @@ angular.module('PlayzApp')
 
 	$scope.createMessage = function(){
 		DB_queries.createMessage($rootScope.user._id,$scope.event._id,$scope.textMsg).then(function(messages){
-				$scope.messages.push({
-					event:$scope.event._id,
-					sender:$rootScope.user,
-					text:$scope.textMsg,
-					timestamp:new Date()
-				});
-			$scope.textMsg='';
+			//	$scope.messages.push({
+			//		event:$scope.event._id,
+			//		sender:$rootScope.user,
+			//		text:$scope.textMsg,
+			//		timestamp:new Date()
+			//	});
+			//$scope.textMsg='';
     	});
 	}
 
+	$rootScope.$on('newMessageReceivedFromWS', function(event, msg) {
+		if ($scope.event._id==msg.event){
+			$scope.messages.push(msg);
+			$scope.$apply()
+		}
+	});
+	
      $scope.getMessage();
 });

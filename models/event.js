@@ -170,6 +170,7 @@ eventSchema.statics.addChatMessage=function(msgid,eventid,callback){
 			}
 
 			r.msg.push("addChatMessage success");
+			r.usersEvent=result.registeredUsers;
 			r.status=1;
 			return callback(r);
 		});

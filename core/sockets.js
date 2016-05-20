@@ -43,3 +43,18 @@ module.exports.newEventReceived = function(toUsers,notification){
     })
 }
 
+module.exports.newMessageReceived = function(toUsers,message){
+    //console.log("newEventReceived","*****************"+Object.keys((io)?io.nsps:"no users connected")+"*****************")
+    //console.log("newEventReceived","*****************",toUsers,"*****************")
+    toUsers.forEach(function(val){
+        var index = (io)?Object.keys(io.nsps).indexOf("/"+val):-1;
+        if (index != -1) {
+            try {
+                //console.log("newEventReceived to"+val)
+                clients[val].emit('newMessageReceived',message);
+            }catch (err){
+                console.log('message sockets newMessageReceived',err)
+            }
+        }
+    })
+}

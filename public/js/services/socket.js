@@ -27,7 +27,7 @@ angular.module('PlayzApp.services')
 
             socket.on('newMessageReceived', function (message) {
                 console.log("newMessageReceived", message)
-
+                $rootScope.$broadcast('newMessageReceivedFromWS',message);
             });
 
         }

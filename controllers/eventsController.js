@@ -99,9 +99,20 @@ module.exports.createMessage = function (req, res) {
 
 
         Event.addChatMessage(msg._id, data.event, function (result) {
-            console.log(result);
-            //TODO populate notification
-            //socket.newEventReceived(invitedUsers,notification)
+            console.log('addChatMessage',result);
+            Message.populate(msg, {
+                path: 'sender',
+                model: 'users',
+                select:'id _id name picture'
+
+            }, function (err, populatemsg) {
+                //console.log(err||populatemsg)
+                if (!err) {
+                    socket.newMessageReceived(result.usersEvent,populatemsg);
+                }
+
+            })
+
             if (!result.status) {
                 return res.status(404).json({createMessage: "failed to save msg"})
             }
