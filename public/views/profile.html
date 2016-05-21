@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-3">
             <div class="profile-header text-center blur-bgimage p-a"
-                 style="background-image: url(../assets/img/iceland.jpg); ">
+                 ng-style="user.cover.source ? { 'background-image': 'url(user.cover.source)' } : { 'background-image': 'url(../assets/img/iceland.jpg)' }">
                 <div class="container">
                     <div class="container-inner">
                         <img class="img-circle media-object" id="profileUserPic" src="{{user.picture.data.url}}">

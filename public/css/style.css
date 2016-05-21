@@ -25,3 +25,6 @@ a {
 select option:empty{
     display: none;
 }
+.defProfBack{
+    backgroundImage: url('../assets/img/iceland.jpg') !important;
+}

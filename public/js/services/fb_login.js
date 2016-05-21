@@ -64,7 +64,7 @@ angular.module('PlayzApp.services',['ngResource','ngRoute','ngStorage','ngFacebo
 
   	function getUserData(){
 		var deferred = $q.defer();
-  		$facebook.api('/me?fields=id,email,birthday,gender,age_range,name,first_name,last_name,location,cover,picture.type(large){url}').then(
+  		$facebook.api('/me?fields=id,email,birthday,gender,age_range,name,first_name,last_name,location,cover{source},picture.type(large){url}').then(
 	      function(response) {
 				  console.log('api',response)
 				  isLoggedIn=true;
@@ -93,7 +93,7 @@ angular.module('PlayzApp.services',['ngResource','ngRoute','ngStorage','ngFacebo
 
 	var _getFriends = function(){
 		var deferred = $q.defer();
-		$facebook.api('/me/friends?fields=id,email,name,picture{url}&limit=5&offset=0').then(
+		$facebook.api('/me/friends?fields=id,email,name,picture{url},cover{source}&limit=5&offset=0').then(
 			function(response) {
 				console.log('friends',response)
 				deferred.resolve(response)

@@ -9,6 +9,10 @@ var userSchema = new Schema({
 	age_range: {
 		min: {type : Number, default:0},
 	},
+	cover:{
+		source:{type : String, default:''},
+		id:{type : Number, default:0}
+	},
 	name : { type : String, default:''},
 	first_name: { type : String, default:''},
 	last_name: { type : String, default:''},
