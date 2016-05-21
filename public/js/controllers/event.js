@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('PlayzApp')
-.controller('eventCtrl', function($scope, $http, $rootScope, $location,DB_queries,resolveGetEventById) {
+.controller('eventCtrl', function($scope, $http, $rootScope, $location,DB_queries,resolveGetEventById,$window) {
     $scope.event = resolveGetEventById;
     $scope.messages = [];
     console.log("event controller",$scope);
@@ -36,10 +36,11 @@ angular.module('PlayzApp')
 	$scope.leaveEvent=function(card){
 		console.log("leave ",card)
 		DB_queries.leaveEvent(card._id).then(function(){
-				var index = req.user.registeredEvents.indexOf(card._id);
+				var index = $rootScope.user.registeredEvents.indexOf(card._id);
 				if (index != -1){
-					req.user.registeredEvents.splice(index,1);
+					$rootScope.user.registeredEvents.splice(index,1);
 				}
+				$window.history.back();
 			},
 			function(err){
 

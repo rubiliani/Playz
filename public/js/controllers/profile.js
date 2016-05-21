@@ -20,8 +20,8 @@ angular.module('PlayzApp')
         }
         $scope.updateUser = function () {
             if ($scope.profile.hometown.data) {
-                var lat = ($scope.profile.hometown.data.geometry.location.lat === typeof 'function') ? $scope.profile.hometown.data.geometry.location.lat() : $scope.profile.hometown.data.geometry.location.lat;
-                var lng = ($scope.profile.hometown.data.geometry.location.lng === typeof 'function') ? $scope.profile.hometown.data.geometry.location.lng() : $scope.profile.hometown.data.geometry.location.lng;
+                var lat = (typeof $scope.profile.hometown.data.geometry.location.lat ===  'function') ? $scope.profile.hometown.data.geometry.location.lat() : $scope.profile.hometown.data.geometry.location.lat;
+                var lng = (typeof $scope.profile.hometown.data.geometry.location.lng ===  'function') ? $scope.profile.hometown.data.geometry.location.lng() : $scope.profile.hometown.data.geometry.location.lng;
                 $scope.profile.hometown.name = $scope.profile.hometown.data.formatted_address;
                 $scope.profile.hometown.latitude = lat;
                 $scope.profile.hometown.longitude = lng;

@@ -21,9 +21,9 @@ angular.module('PlayzApp')
             location:{},
             radius:100,
             ageRange:{},
-            creator:$rootScope.user._id,
+            creator:'',
             invitedUsers:[],
-            registeredUsers:[$rootScope.user._id]
+            registeredUsers:[]
         };
          
        $scope.groupSlider = {
@@ -173,6 +173,8 @@ angular.module('PlayzApp')
                 "latitude":$scope.location.lat,
                 "longitude":$scope.location.lng
             };
+            $scope.events.creator=$rootScope.user._id;
+            $scope.registeredUsers.push($rootScope.user._id);
             $scope.whenDate =  new Date($scope.whenDate).setHours(0,0,0,0)
             //sliders
             $scope.event.groupSize = $scope.groupSlider.value;
@@ -246,5 +248,12 @@ angular.module('PlayzApp')
             console.log(friends)
             $scope.friends=friends;
         })
+
+        $scope.getFriends_Next_Prev=function(url){
+            fbLogin.getFriends_Next_Prev(url).then(function(friends){
+                console.log(friends)
+                $scope.friends=friends;
+            })
+        }
 
     });

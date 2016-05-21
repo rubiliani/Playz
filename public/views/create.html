@@ -1,4 +1,4 @@
-<div class="container p-t-m">
+<div class="container p-t-md">
     <div class="row">
         <div class="col-md-6">
             <ul class="list-group media-list media-list-stream">
@@ -249,13 +249,16 @@
 
 
                     <li class="list-group-item">
-                        <div class="  pull-right">
+                        <div class="pull-right" ng-if="friends.paging.next" ng-click="getFriends_Next_Prev(friends.paging.next)">
                             <button type="button" class="btn btn-xs btn-success-outline">Next
                             </button>
                         </div>
-                        <div class="">
+                        <div class="" ng-if="friends.paging.previous" ng-click="getFriends_Next_Prev(friends.paging.previous)">
                             <button type="button" class="btn btn-xs btn-success-outline">Prev
                             </button>
+                        </div>
+                        <div class="" ng-if="!friends.paging.previous && !friends.paging.next">
+                            No More Suggestions
                         </div>
                     </li>
                 </ul>
