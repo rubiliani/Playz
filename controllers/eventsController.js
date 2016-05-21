@@ -336,8 +336,7 @@ exports.getUpcomingEvents = function (req, res) {
             if (emillis >= millis) {
                 return val;
             }
-        }
-        )
+        })
         return res.json(upcomingEvents)
     })
 }
