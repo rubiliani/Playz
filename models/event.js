@@ -63,10 +63,10 @@ eventSchema.statics.joinToEvent=function(eid,uid,callback){
 	};
 
 	var options={
-		upsert:false,
+		upsert:true,
 		new: false
 	}
-	this.model('events').findOneAndUpdate(query,{$addToSet:{registeredUsers:uid}},options)
+	this.model('events').update(query,{$addToSet:{registeredUsers:uid}},options)
 		.exec(function(err,result){
 			if (err){
 				r.msg.push(err);
@@ -129,13 +129,13 @@ eventSchema.statics.create_event=function(event,callback){
 
 eventSchema.statics.getAllEvents=function(user,filter,callback){
 	var r = {msg:[],status:0};
-	console.log(user._id)
+	console.log("get all events for "+user._id)
 	var id = mongoose.Types.ObjectId(user._id);
 	var query = {
 
-		//"registeredUsers":{ $ne : id}
+		registeredUsers:{ $ne : id}
 
-		whenDate:{$gt:new Date()}
+		//whenDate:{$gt:new Date()}
 
 	};
 

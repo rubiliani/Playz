@@ -89,7 +89,7 @@ app.post('/events/leaveEvent', authenticating_user ,controllers.eventsController
 ///notifications
 app.post('/notifications/createNotification', authenticating_user ,controllers.notificationController.createNotification);
 app.post('/notifications/getNotifications', authenticating_user ,controllers.notificationController.getNotifications);
-
+app.post('/notifications/deleteNotification', authenticating_user ,controllers.notificationController.deleteNotification);
 
 
 // app.post('/events/users/:id', controllers.eventsController.addUser);

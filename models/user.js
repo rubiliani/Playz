@@ -106,6 +106,32 @@ userSchema.statics.get_user=function(userid,callback){
 		});
 }
 
+//remove invite notification
+userSchema.statics.delete_invite_notification=function(notificationid,userid,callback){
+	var r = {msg:[],status:0};
+	console.log("notificationid to delete ",notificationid,userid)
+	var query = {
+		_id : userid
+	};
+
+	this.model('users').update(query, {
+			$pull: {
+					notifications: {notification : notificationid}
+			}
+	}).exec(function(err,result){
+			if (err){
+				r.msg.push("delete notification",err);
+				return callback(r);
+			}
+
+			r.msg.push("delete notification");
+			r.status=1;
+
+			return callback(r);
+		});
+}
+
+
 userSchema.statics.invite_users_to_event=function(data,callbackSuccess,callbackError){
 	var r = {msg:[],status:0};
 	var query = {

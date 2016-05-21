@@ -213,6 +213,24 @@ angular.module('PlayzApp.services')
             return deferred.promise;
         }
 
+        var _deleteNotification = function(notificationid,userid){
+            console.log("notificationid",notificationid)
+            console.log("userid",userid)
+            var deferred = $q.defer();
+            $http.post($rootScope.app.domain+'notifications/deleteNotification',{notification:notificationid,user:userid})
+                .success(function(data){
+                    console.log("deleteNotifications success",data)
+                    deferred.resolve(data);
+                }).error(function(err){
+                console.log("deleteNotifications err",err)
+                deferred.reject(err);
+            })
+                ['finally'](function() {
+
+            });
+            return deferred.promise;
+        }
+
         var _getMessages = function(eventid){
             var deferred = $q.defer();
             $http.post($rootScope.app.domain+'events/getMessages',{event:eventid})
@@ -304,6 +322,7 @@ angular.module('PlayzApp.services')
             createEvent:_createEvent,
             inviteFriend: _inviteFriend,
             getNotifications: _getNotifications,
+            deleteNotification: _deleteNotification,
             getAllEvents:_getAllEvents,
             getMyEvents:_getMyEvents,
             getMessages:_getMessages,

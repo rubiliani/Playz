@@ -37,6 +37,9 @@
                     <!--<li class="media  m-b-md" ng-repeat="message in messages | orderBy: 'timestamp':true"-->
                     <li class="media  m-b-md" ng-repeat="message in messages"
                     ng-class="{'media-current-user':user._id==message.sender._id}">
+                     <a class="media-left" href="#" ng-class="{'hide':user._id==message.sender._id}">
+                        <img class="img-circle media-object" ng-src="{{message.sender.picture.data.url}}">
+                      </a>
                       <div class="media-body">
                         <div class="media-body-text">
                          {{message.text}}
@@ -47,7 +50,7 @@
                           </small>
                         </div>
                       </div>
-                      <a class="media-right" href="#">
+                      <a class="media-right" href="#" ng-class="{'hide':user._id!=message.sender._id}">
                         <img class="img-circle media-object" ng-src="{{message.sender.picture.data.url}}">
                       </a>
                     </li>

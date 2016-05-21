@@ -24,6 +24,30 @@ exports.createNotification = function(req,res,next){
 	});
 }
 
+
+exports.deleteNotification = function(req,res,next){
+	var r = {msg:[],status:0};
+	var user = req.body.user;
+	var notification = req.body.notification;
+
+	console.log("delte not data",user,notification);
+
+	/*
+	if (!user || typeof(user) !== 'object' || !user.id){
+		r.msg.push('user not exist or user id not found',user);
+		return res.json(r);
+	}*/
+
+	User.delete_invite_notification(notification,user,function(result){
+		if (!result.status){
+			res.status(404).send("delete notif");
+		}
+		
+		return res.json(result)
+	});
+
+}
+
 exports.getNotifications = function(req,res,next){
 	User.populate(req.user.notifications,{
 			path: 'notification',

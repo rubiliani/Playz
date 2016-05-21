@@ -330,12 +330,14 @@ exports.getUpcomingEvents = function (req, res) {
     populateEvents(req.user, function (user) {
         var millis = new Date().setHours(0, 0, 0, 0);
 
+        
         var upcomingEvents = user.registeredEvents.filter(function (val) {
             var emillis = new Date(val.whenDate).setHours(0, 0, 0, 0);
             if (emillis >= millis) {
                 return val;
             }
-        })
+        }
+        )
         return res.json(upcomingEvents)
     })
 }
