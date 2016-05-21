@@ -21,8 +21,9 @@ angular.module('PlayzApp')
         }
         $scope.updateUser=function(){
             if ($scope.register.hometown.data) {
-                var lat = ($scope.register.hometown.data.geometry.location.lat===typeof 'function')?$scope.register.hometown.data.geometry.location.lat():$scope.register.hometown.data.geometry.location.lat;
-                var lng = ($scope.register.hometown.data.geometry.location.lng===typeof 'function')?$scope.register.hometown.data.geometry.location.lng():$scope.register.hometown.data.geometry.location.lng;
+                console.log($scope.register.hometown.data)
+                var lat = (typeof $scope.register.hometown.data.geometry.location.lat === 'function')?$scope.register.hometown.data.geometry.location.lat():$scope.register.hometown.data.geometry.location.lat;
+                var lng = (typeof $scope.register.hometown.data.geometry.location.lng === 'function')?$scope.register.hometown.data.geometry.location.lng():$scope.register.hometown.data.geometry.location.lng;
                 $scope.register.hometown.name = $scope.register.hometown.data.formatted_address;
                 $scope.register.hometown.latitude = lat;
                 $scope.register.hometown.longitude = lng;
