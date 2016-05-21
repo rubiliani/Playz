@@ -27,10 +27,9 @@ angular.module('PlayzApp')
         $scope.deleteNotification = function(index,eventId,notificationId){
         	console.log("delete id ",eventId,$rootScope.user._id,notificationId);
             DB_queries.deleteNotification(notificationId,$rootScope.user._id).then(function(){
-                $scope.notifications.splice(index, 1);
+                $rootScope.notifications.splice(index, 1);
                 console.log("deleted");
             })
-        	$scope.notifications.splice(index, 1);
         }
         
         

@@ -206,14 +206,15 @@ exports.getMyEvents = function (req, res) {
 
 exports.joinEvent = function (req, res) {
     var eid = req.body.eventid;
-
+    console.log("in join",eid,req.user._id);
     Event.joinToEvent(eid,req.user._id,function(result){
         if (!result.status){
             return res.status(404).json(result)
         }
 
+        
         //TODO send ws to all registered users for a new user in the team
-        req.user.registeredEvents.push(result.event._id);
+        req.user.registeredEvents.push(eid);
         req.user.save();
         return res.json(result);
     })
@@ -328,12 +329,15 @@ module.exports.addUser = function (req, res) {
 
 
 exports.getUpcomingEvents = function (req, res) {
+
+    console.log("upcomingEvents ",req.user)
     populateEvents(req.user, function (user) {
         var millis = new Date().setHours(0, 0, 0, 0);
 
         
         var upcomingEvents = user.registeredEvents.filter(function (val) {
-            var emillis = new Date(val.whenDate).setHours(0, 0, 0, 0);
+            console.log("upcomingEvents val ",val.whenDate);
+            var emillis = new Date(val.whenDate);
             if (emillis >= millis) {
                 return val;
             }
@@ -346,6 +350,7 @@ exports.getPastEvents = function (req, res) {
         var millis = new Date().setHours(0, 0, 0, 0);
 
         var upcomingEvents = user.registeredEvents.filter(function (val) {
+            console.log("pastEvents val ",val.whenDate);
             var emillis = new Date(val.whenDate).setHours(0, 0, 0, 0);
             if (emillis < millis) {
                 return val;

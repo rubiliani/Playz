@@ -173,9 +173,9 @@ angular.module('PlayzApp')
                 "latitude":$scope.location.lat,
                 "longitude":$scope.location.lng
             };
-            $scope.events.creator=$rootScope.user._id;
-            $scope.registeredUsers.push($rootScope.user._id);
-            $scope.whenDate =  new Date($scope.whenDate).setHours(0,0,0,0)
+            $scope.event.creator=$rootScope.user._id;
+            $scope.event.registeredUsers.push($rootScope.user._id);
+            $scope.event.whenDate =  new Date($scope.event.whenDate.setHours(0,0,0,0))
             //sliders
             $scope.event.groupSize = $scope.groupSlider.value;
             $scope.event.ageRange.min = $scope.ageSlider.minValue;
@@ -183,7 +183,7 @@ angular.module('PlayzApp')
             $scope.event.radius = $scope.radiusSlider.value;
 
             console.log($scope.event);
-
+            
             DB_queries.createEvent($scope.event).then(function(event){
                 console.log('events - create event',event)
                 $location.url('/profile')
