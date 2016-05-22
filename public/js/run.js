@@ -6,7 +6,7 @@ angular.module('PlayzApp')
     $rootScope.status=false;
     $rootScope.app = {
         name:'Playz',
-        domain: (document.domain == 'localhost')?'http://localhost:3000/':'https://agile-depths-92655.herokuapp.com/'
+        domain: (document.domain == 'localhost')?'http://localhost:3000/':'https://playzapp.herokuapp.com/'
     };
 
     fbLogin.getStatus().then(function(user){
