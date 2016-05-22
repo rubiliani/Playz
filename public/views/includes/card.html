@@ -10,10 +10,12 @@
 
         <div class="pull-right">
 
+            <!--
             <button type="button" class="btn btn-success" ng-click="joinEvent(card)">
                 <span class="icon icon-add-user"></span>
                 Join
-            </button>
+            </button>-->
+            <a href="#eventModal" data-toggle="modal" ng-click="[$event.preventDefault(),openEvent(card)]">open</a>
 
         </div>
     </div>

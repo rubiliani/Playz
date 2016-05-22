@@ -14,4 +14,13 @@ angular.module('PlayzApp')
 
 		});
 	}
+
+	$scope.openEvent = function(card){
+		console.log("open event ",card)
+		$rootScope.card = card;
+		
+	}
+
+
+
 });

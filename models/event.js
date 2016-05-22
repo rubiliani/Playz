@@ -20,6 +20,7 @@ var eventSchema = new Schema({
 	gender: { type : String, default:''},
 	payedFacility: { type : String, default:''},
 	location: {
+		city: { type : String, default:''},
 		name: { type : String, default:''},
 		latitude: { type : Number, default:0},
 		longitude: { type : Number, default:0}
@@ -140,7 +141,7 @@ eventSchema.statics.getAllEvents=function(user,filter,callback){
 	};
 
 	
-	this.model('events').find(query)
+	this.model('events').find(query).populate('registeredUsers')
 		.exec(function(err,result){
 			if (err){
 				r.msg.push("getAllEvents",err);

@@ -122,55 +122,7 @@
             </ul>
         </div>
 
-        <div class="col-md-6">
-            <ul class="list-group media-list media-list-stream">
-                <li class="media list-group-item p-a">
-                    <h4>Pick Your Partner</h4>
-                </li>
-                <li class="media list-group-item p-a">
-                    <div class="media-body">
-                        <div class="media-body-text">
-                            <div class="media-heading">
-                                <div data-role="rangeslider"
-                                     ng-init="[event.ageRange.min='20' , event.ageRange.max='40']">
-                                    <b> Age Range:</b>
-                                    <rzslider rz-slider-model="ageSlider.minValue" rz-slider-high="ageSlider.maxValue" rz-slider-options="ageSlider.options"></rzslider>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="media list-group-item p-a">
-                    <div class="media-body">
-                        <div class="media-body-text">
-                            <div class="media-heading">
-                                <label class="select">Gender:</label>
-                                <select name="select-choice-0" id="genderSelection" class="custom-select"
-                                        ng-model="event.gender">
-                                    <option ng-repeat="gen in gender track by $index" ng-selected="$index==0">{{gen}}
-                                    </option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="media list-group-item p-a">
-                    <div class="media-body">
-                        <div class="media-body-text">
-                            <div class="media-heading">
-                                <label class="select">Payed facilities:</label>
-                                <select name="select-choice-0" id="payedSelection" class="custom-select"
-                                        ng-model="event.payedFacility">
-                                    <option ng-repeat="pf in paidFacilities track by $index" ng-selected="$index==0">
-                                        {{pf}}
-                                    </option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
+   
         <div class="col-md-6">
             <ul class="list-group media-list media-list-stream">
                 <li class="media list-group-item p-a">
@@ -218,6 +170,56 @@
                                 <circles geometries="mymap.circles.geometries" options="mymap.circles.options"
                                 events="mymap.circle.events"> </circles>
                             </map>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+             <div class="col-md-6">
+            <ul class="list-group media-list media-list-stream">
+                <li class="media list-group-item p-a">
+                    <h4>Pick Your Partner</h4>
+                </li>
+                <li class="media list-group-item p-a">
+                    <div class="media-body">
+                        <div class="media-body-text">
+                            <div class="media-heading">
+                                <div data-role="rangeslider"
+                                     ng-init="[event.ageRange.min='20' , event.ageRange.max='40']">
+                                    <b> Age Range:</b>
+                                    <rzslider rz-slider-model="ageSlider.minValue" rz-slider-high="ageSlider.maxValue" rz-slider-options="ageSlider.options"></rzslider>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="media list-group-item p-a">
+                    <div class="media-body">
+                        <div class="media-body-text">
+                            <div class="media-heading">
+                                <label class="select">Gender:</label>
+                                <select name="select-choice-0" id="genderSelection" class="custom-select"
+                                        ng-model="event.gender">
+                                    <option ng-repeat="gen in gender track by $index" ng-selected="$index==0">{{gen}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="media list-group-item p-a">
+                    <div class="media-body">
+                        <div class="media-body-text">
+                            <div class="media-heading">
+                                <label class="select">Payed facilities:</label>
+                                <select name="select-choice-0" id="payedSelection" class="custom-select"
+                                        ng-model="event.payedFacility">
+                                    <option ng-repeat="pf in paidFacilities track by $index" ng-selected="$index==0">
+                                        {{pf}}
+                                    </option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </li>

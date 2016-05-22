@@ -135,6 +135,7 @@ angular.module('PlayzApp')
                 geocoder.geocode(geocoderRequest, function(results, status){
                     if (status=="OK"){
                         //console.log(results)
+                        $scope.location.city=results[1].address_components[0].long_name;
                         $scope.location.name=results[0].formatted_address;
                         $scope.$apply()
                     }
