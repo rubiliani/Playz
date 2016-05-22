@@ -99,7 +99,7 @@
               <strong>{{card.registeredUsers[0].name}}</strong> and <strong>{{card.registeredUsers.length}}</strong> registered, {{card.groupSize-card.registeredUsers.length}} more places available
             </div>
             <ul class="avatar-list">
-              <li class="avatar-list-item" ng-repeat="user in card.registeredUsers"><img class="img-circle" ng-src="user.picture.data.url">
+              <li class="avatar-list-item" ng-repeat="user in card.registeredUsers"><img class="img-circle" ng-src="{{user.picture.data.url}}">
             </ul>
           </div>
         </li>
@@ -121,9 +121,16 @@
         </div>
 
       </div>
-      <div>
-        <button type="button" class="btn btn-lg btn-pill btn-success" ng-click="joinEvent(card)">Join Now</button>
+      <div class="modal-footer">
+        <!--<button type="button" class="btn btn-lg btn-pill btn-success" ng-click="joinEvent(card)">Join Now</button>-->
+
+        <button type="button" data-dismiss="modal" class="btn btn-success" ng-click="joinEvent(card)">
+          <span class="icon icon-add-user"></span>
+          Join
+        </button>
+
       </div>
+
        
     </div>
   </div>
