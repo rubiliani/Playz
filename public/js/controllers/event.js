@@ -20,7 +20,7 @@ angular.module('PlayzApp')
 			//		text:$scope.textMsg,
 			//		timestamp:new Date()
 			//	});
-			//$scope.textMsg='';
+			$scope.textMsg='';
     	});
 	}
 
