@@ -21,7 +21,7 @@
                     <li class="media list-group-item p-a">
                         <div class="modal-body">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Message" ng-model="textMsg">
+                                <input type="text" class="form-control" placeholder="Message" ng-model="textMsg" ng-keyup="$event.keyCode == 13 && createMessage()">
                                 <div class="input-group-btn">
                                     <button type="button" class="btn btn-default" ng-click="createMessage()">
                                         <span class="icon icon-direction"></span>

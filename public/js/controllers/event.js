@@ -29,6 +29,10 @@ angular.module('PlayzApp')
 			$scope.messages.push(msg);
 			$scope.$apply()
 		}
+		else{
+			//growl
+			$rootScope.growlMessage=msg;
+		}
 	});
 	
      $scope.getMessage();
