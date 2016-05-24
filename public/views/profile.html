@@ -1,9 +1,9 @@
 <div ng-tabs class="container p-t-md">
     <div class="row">
         <div class="col-md-3">
-            
+
             <div class="profile-header text-center blur-bgimage"
-                ng-style="user.cover.source ? { 'background-image': 'url(user.cover.source)' } : { 'background-image': 'url(../assets/img/iceland.jpg)' }">
+                 ng-style="user.cover.source ? { 'background-image': 'url(user.cover.source)' } : { 'background-image': 'url(../assets/img/iceland.jpg)' }">
                 <div class="container">
                     <div class="container-inner">
                         <img class="img-circle media-object" ng-src="{{user.picture.data.url}}">
@@ -29,7 +29,8 @@
                     <ul class="list-unstyled list-spaced">
                         <li><span class="text-muted icon icon-calendar m-r"></span>
                             Birthday &nbsp;
-                            <input type="date" style="width: 100%" ng-model="profile.birthday" ng-value="profile.birthday" ng-disabled="disable">
+                            <input type="date" style="width: 100%" ng-model="profile.birthday"
+                                   ng-value="profile.birthday" ng-disabled="disable">
                         </li>
                         <li><span class="text-muted icon icon-location-pin m-r"></span>
                             Location &nbsp;
@@ -70,20 +71,18 @@
                 </li>
             </ul>
 
-         
+
             <div class="media-list list-group tab-content">
                 <div ng-tab-body="animated bounceInLeft" class="tab-pane media-list list-group">
                     <div class="media-list media-list-stream c-w-md">
-                        
-                        <div class="list-group-item media p-a" ng-repeat="card in upcomingEvents track by $index" 
-                        ng-include src="'views/includes/mycard.html'"> 
-                        </div>
-
+                        <a class="list-group-item media p-a" ng-repeat="card in upcomingEvents track by $index"
+                             ng-include src="'views/includes/mycard.html'"> </a>
                     </div>
                 </div>
-                <div ng-tab-body="animated fadeInUp " class="tab-pane  media-list list-group" style="overflow: hidden">
+                <div ng-tab-body="animated bounceInRight " class="tab-pane  media-list list-group">
                     <div class="media-list media-list-stream c-w-md">
-                        <a class="list-group-item media p-a" ng-repeat="card in pastEvents track by $index" ng-include src="'views/includes/mycard.html'"> </a>
+                        <a class="list-group-item media p-a" ng-repeat="card in pastEvents track by $index"
+                           ng-include src="'views/includes/mycard.html'"> </a>
                     </div>
                 </div>
             </div>

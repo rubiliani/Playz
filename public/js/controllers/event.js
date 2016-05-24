@@ -46,4 +46,8 @@ angular.module('PlayzApp')
 
 			});
 	}
+	$scope.goBack=function(card){
+		$window.history.back();
+
+	}
 });
