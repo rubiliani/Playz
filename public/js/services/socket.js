@@ -21,6 +21,7 @@ angular.module('PlayzApp.services')
                 console.log("newEventReceived", notification)
                 if ($rootScope.notifications){
                     $rootScope.notifications.push({notification:notification});
+                    $rootScope.$broadcast('newNotificationFromWS',notification);
                     $rootScope.$apply();
                 }
             });

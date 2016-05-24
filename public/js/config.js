@@ -1,8 +1,10 @@
 'use strict';
 
 angular.module('PlayzApp')
-.config(function($routeProvider, $locationProvider, $httpProvider) {
-
+.config(function($routeProvider, $locationProvider, $httpProvider,growlProvider) {
+    growlProvider.globalTimeToLive(5000);
+    growlProvider.globalDisableCountDown(true);
+    growlProvider.globalPosition('top-right');
     //================================================
     // Check if the user is connected
     //================================================

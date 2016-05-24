@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('PlayzApp')
-.controller('eventCtrl', function($scope, $http, $rootScope, $location,DB_queries,resolveGetEventById,$window) {
+.controller('eventCtrl', function($scope, $http, $rootScope, $location,DB_queries,resolveGetEventById,$window,growl) {
     $scope.event = resolveGetEventById;
     $scope.messages = [];
     console.log("event controller",$scope);
@@ -30,8 +30,10 @@ angular.module('PlayzApp')
 			$scope.$apply()
 		}
 		else{
-			//growl
-			$rootScope.growlMessage=msg;
+			//growl.warning("This adds a warn message", {title: 'Warning!'});
+			growl.info("New message for "+event.eventTitle||event.sportType+" event", {title: 'New Message'});
+			//growl.success("This adds a success message"); //no title here
+			//growl.error("This adds a error message", {title: 'ALERT WE GOT ERROR'});
 		}
 	});
 	
