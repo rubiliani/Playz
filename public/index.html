@@ -18,14 +18,15 @@
     <link href="angular/tabs/tabs.css" rel="stylesheet">
     <link href="angular/tabs/animate.css" rel="stylesheet">
     <link href="angular/angularjs-slider/dist/rzslider.css" rel="stylesheet">
+    <link href="angular/growl/growl.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
   </head>
   <body ng-class="{'with-top-navbar':status  , 'loginBody':!status }">
     
     <ng-include  ng-show="status"  src="'views/includes/notification.html'"> </ng-include>
-   
     <ng-include  ng-show="status"  src="'views/includes/navbar.html'"> </ng-include>
+    <ng-include  ng-show="status"  src="'views/includes/growl.html'"> </ng-include>
     <ng-include  ng-show="status"  src="'views/includes/profile_completeness.html'"> </ng-include>
    
 
@@ -43,7 +44,8 @@
     <script src='https://maps.googleapis.com/maps/api/js?libraries=places,map,geocode&key=AIzaSyAZ8q8liXvaY9KiWmcFi5ioVdIgDu21J2M'></script>
     <script type="text/javascript" src="angular/map/ngMap.js"></script>
     <script type="text/javascript" src="angular/google_places/googleplaces.js"></script>
-   
+    <script type="text/javascript" src="angular/growl/growl.js"></script>
+
 
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/chart.js"></script>
@@ -80,12 +82,12 @@
             <!--async defer></script>-->
 
     <script>
-      // execute/clear BS loaders for docs
-      //$(function(){
-        //if (window.BS&&window.BS.loader&&window.BS.loader.length) {
-          //while(BS.loader.length){(BS.loader.pop())()}
-        //}
-      //})
+//       execute/clear BS loaders for docs
+      $(function(){
+        if (window.BS&&window.BS.loader&&window.BS.loader.length) {
+          while(BS.loader.length){(BS.loader.pop())()}
+        }
+      })
     </script>
 
     

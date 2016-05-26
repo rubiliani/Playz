@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('PlayzApp')
-    .controller('notificationCtrl', function($scope, $http, $rootScope, $location,DB_queries,$timeout) {
+    .controller('notificationCtrl', function($scope, $http, $rootScope, $location,DB_queries,$timeout,growl) {
         console.log("notif controller")
 
 		$rootScope.getNotifications=function(){
@@ -31,7 +31,12 @@ angular.module('PlayzApp')
                 console.log("deleted");
             })
         }
-        
-        
+
+        $rootScope.$on('newMessageReceivedFromWS', function(notification, msg) {
+                //growl.warning("This adds a warn message", {title: 'Warning!'});
+                growl.info("New Notification for "+notification.event.eventTitle||notification.event.sportType+" event", {title: 'New Notification'});
+                //growl.success("This adds a success message"); //no title here
+                //growl.error("This adds a error message", {title: 'ALERT WE GOT ERROR'});
+        });
     });
 

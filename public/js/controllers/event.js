@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('PlayzApp')
-.controller('eventCtrl', function($scope, $http, $rootScope, $location,DB_queries,resolveGetEventById,$window) {
+.controller('eventCtrl', function($scope, $http, $rootScope, $location,DB_queries,resolveGetEventById,$window,growl) {
     $scope.event = resolveGetEventById;
     $scope.messages = [];
     console.log("event controller",$scope);
@@ -20,7 +20,7 @@ angular.module('PlayzApp')
 			//		text:$scope.textMsg,
 			//		timestamp:new Date()
 			//	});
-			//$scope.textMsg='';
+			$scope.textMsg='';
     	});
 	}
 
@@ -28,6 +28,12 @@ angular.module('PlayzApp')
 		if ($scope.event._id==msg.event){
 			$scope.messages.push(msg);
 			$scope.$apply()
+		}
+		else{
+			//growl.warning("This adds a warn message", {title: 'Warning!'});
+			growl.info("New message for "+event.eventTitle||event.sportType+" event", {title: 'New Message'});
+			//growl.success("This adds a success message"); //no title here
+			//growl.error("This adds a error message", {title: 'ALERT WE GOT ERROR'});
 		}
 	});
 	
@@ -45,5 +51,9 @@ angular.module('PlayzApp')
 			function(err){
 
 			});
+	}
+	$scope.goBack=function(card){
+		$window.history.back();
+
 	}
 });

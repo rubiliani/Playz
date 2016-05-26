@@ -132,13 +132,13 @@ eventSchema.statics.getAllEvents=function(user,filter,callback){
 	var r = {msg:[],status:0};
 	console.log("get all events for "+user._id)
 	var id = mongoose.Types.ObjectId(user._id);
+	var date= new Date().setHours(0,0,0,0);
+
 	var query = {
 
-		'registeredUsers':{ $ne : id},
-		'ageRange.min':{$gt:user.age_range.min},
-		'ageRange.max':{$lt:user.age_range.min}
+		registeredUsers:{ $ne : id},
 
-		//whenDate:{$gt:new Date()}
+		whenDate:{$gte:date}
 
 	};
 
