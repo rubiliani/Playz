@@ -27,11 +27,11 @@
                 <div class=" media-list list-group">
                     <ul class="media-list media-list-stream c-w-md">
 
-                        <li class="">
-                            <a class="list-group-item media p-a animated fadeInUp"
-                               ng-repeat="card in events track by $index"
-                               ng-if="user.registeredEvents.indexOf(card._id)==-1"
-                               ng-include src="'views/includes/card.html'"> </a>
+                        <li class="list-group-item media p-a animated fadeInUp"  ng-repeat="card in events track by $index"
+                               ng-if="user.registeredEvents.indexOf(card._id)==-1">
+                            <a class="list-group-item media"
+                               ng-include src="'views/includes/card.html'" href="#eventModal" ng-click="[$event.preventDefault(),openEvent(card)]"> </a>
+
                         </li>
                     </ul>
                 </div>
