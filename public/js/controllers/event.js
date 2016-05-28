@@ -31,7 +31,7 @@ angular.module('PlayzApp')
 		}
 		else{
 			//growl.warning("This adds a warn message", {title: 'Warning!'});
-			growl.info("New message for "+event.eventTitle||event.sportType+" event", {title: 'New Message'});
+			growl.info("New message for "+event.eventTitle+" event", {title: 'New Message'});
 			//growl.success("This adds a success message"); //no title here
 			//growl.error("This adds a error message", {title: 'ALERT WE GOT ERROR'});
 		}
