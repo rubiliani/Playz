@@ -5,16 +5,24 @@
 angular.module('PlayzApp.services')
     .factory('Sockets', function ($rootScope,$timeout) {
         var socket;
+        var that= this;
         var _connect=function(url,uid) {
             socket = io(url + uid);
 
+            socket.on('connect', function(){console.log('WS ready and connected')});
+            socket.on('disconnect', function(){
+                console.log('WS disconnected');
+                socket = io(url + uid);
+            });
+
             socket.on('on user connected', function (msg) {
                 console.log(msg)
-                socket.emit('ping','ping');
             });
 
             socket.on('ping', function (msg) {
                 console.log(msg)
+                socket.emit('client ping','ping from client'+$rootScope.user._id);
+
             });
 
             socket.on('newEventReceived', function (notification) {

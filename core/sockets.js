@@ -6,8 +6,8 @@ module.exports.init =  function (http) {
     io.on('connection', function (socket) {
         //console.log("##############   sockets active   ##############");
 
-        socket.on('connect_failed', function(){ });
-        socket.on('disconnect', function () {  });
+        socket.on('connect_failed', function(cf){ console.log('socket failed',cf) });
+        socket.on('disconnect', function ( cd ) { console.log('socket disconnected',cd) });
 
     });
 }
@@ -22,7 +22,9 @@ module.exports.onUserConnected = function(user){
 
         setInterval(function(){
             nsp.emit('ping', 'ping');
-        },10000)
+        },10000);
+
+
     },1000)
 
 }
