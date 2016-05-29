@@ -133,13 +133,21 @@ eventSchema.statics.getAllEvents=function(user,filter,callback){
 	console.log("get all events for "+user._id)
 	var id = mongoose.Types.ObjectId(user._id);
 	var date= new Date().setHours(0,0,0,0);
+	
+	var uGender = user.gender;
+	if(uGender==="male")
+		uGender="Male";
+	else
+		uGender="Female";
+
+	console.log("gender",uGender)
 
 	var query = {
-
+		privacyType:"public",
+		gender:{$in:["Co-ed",uGender]},
 		registeredUsers:{ $ne : id},
-
+		//groupSize: {"books" : {$size : {$gt : 1}}},
 		whenDate:{$gte:date}
-
 	};
 
 	

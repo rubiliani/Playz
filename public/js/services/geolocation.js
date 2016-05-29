@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('PlayzApp.services')
-.factory('geolocation', function ($q, $window) {
+.factory('geolocation', function ($q, $window,$http,$rootScope) {
 
     var getCurrentPosition = function () {
         var deferred = $q.defer();
@@ -21,7 +21,30 @@ angular.module('PlayzApp.services')
         return deferred.promise;
     }
 
+    var getDistanceFromPosition = function () {
+        //console.log($scope.user)
+         var deferred = $q.defer();
+        var origin1 = new google.maps.LatLng($rootScope.user.hometown.latitude,$rootScope.user.hometown.longitude);
+        //var origin1 = "Hod Hasharon"
+        var destinationA = "Tel Aviv";
+        var service = new google.maps.DistanceMatrixService();
+        service.getDistanceMatrix(
+          {
+            origins: [origin1],
+            destinations: [destinationA],
+            travelMode: google.maps.TravelMode.DRIVING,
+          }, callback);
+
+        function callback(response, status) {
+          
+          console.log(response);
+          deferred.resolve(response);
+        }
+         return deferred.promise;
+    }
+
     return {
-        getCurrentPosition: getCurrentPosition
+        getCurrentPosition: getCurrentPosition,
+        getDistanceFromPosition: getDistanceFromPosition
     };
 });

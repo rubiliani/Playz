@@ -5,18 +5,18 @@ angular.module('PlayzApp')
         console.log("create controller")
 
         $scope.location={lat:0,lng:0,name:''};
-        $scope.sports=[{name:"basketball"},{name:"tennis"}];
+        $scope.sports=[{name:"Basketball"},{name:"Tennis"},{name:"Soccer"},{name:"Golf"},{name:"TRX"},{name:"Running"}];
         $scope.levels=["Any Level", "Newbie", "Intermediate", "Proffesional"];
         $scope.mindsets=["Just for fun", "Turnament", "By the book"];
-        $scope.gender=["Co-ed", "Male", "Female"]
-        $scope.paidFacilities=["OK", "No Way", "Don't Care"]
+        $scope.genders=["Co-ed","Male", "Female"];
+        $scope.paidFacilities=["OK", "No Way", "Don't Care"];
 
         $scope.event={
             sportType:$scope.sports[0].name,
             level:$scope.levels[0],
             mindset:$scope.mindsets[0],
             whenDate:new Date(),
-            gender:$scope.gender[0],
+            gender:$scope.genders[0],
             payedFacility:$scope.paidFacilities[0],
             location:{},
             radius:100,

@@ -199,11 +199,16 @@
                         <div class="media-body-text">
                             <div class="media-heading">
                                 <label class="select">Gender:</label>
-                                <select name="select-choice-0" id="genderSelection" class="form-control custom-select"
+                                <select ng-model="event.gender" class="form-control custom-select">
+                                      <option ng-repeat="gend in genders">{{gend}}</option>
+                                </select>
+                           
+                                <!--
+                                <select id="genderSelection" class="form-control custom-select"
                                         ng-model="event.gender">
                                     <option ng-repeat="gen in gender track by $index" ng-selected="$index==0">{{gen}}
                                     </option>
-                                </select>
+                                </select>-->
                             </div>
                         </div>
                     </div>
