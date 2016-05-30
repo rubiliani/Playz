@@ -9,9 +9,10 @@ angular.module('PlayzApp')
 				
 				geolocation.getDistanceFromPosition($scope.user.hometown,events).then(function(data){
 					$scope.disatances = data.rows[0].elements;
-					for(var i=0;i<events.length;i++)
-					{
-						events[i].distance = $scope.disatances[i];
+					if($scope.disatances.length>0){
+						for(var i=0;i<events.length;i++){
+							events[i].distance = $scope.disatances[i];
+						}
 					}
 					$scope.events=events;
 
