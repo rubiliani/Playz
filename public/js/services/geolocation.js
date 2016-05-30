@@ -21,25 +21,36 @@ angular.module('PlayzApp.services')
         return deferred.promise;
     }
 
-    var getDistanceFromPosition = function () {
+    var getDistanceFromPosition = function (home,event) {
         //console.log($scope.user)
+        
          var deferred = $q.defer();
-        var origin1 = new google.maps.LatLng($rootScope.user.hometown.latitude,$rootScope.user.hometown.longitude);
-        //var origin1 = "Hod Hasharon"
-        var destinationA = "Tel Aviv";
         var service = new google.maps.DistanceMatrixService();
-        service.getDistanceMatrix(
-          {
-            origins: [origin1],
-            destinations: [destinationA],
-            travelMode: google.maps.TravelMode.DRIVING,
-          }, callback);
+       // var origin1 = new google.maps.LatLng($rootScope.user.hometown.latitude,$rootScope.user.hometown.longitude);
+       
+       var userHome = new google.maps.LatLng(home.latitude, home.longitude);
 
-        function callback(response, status) {
+       var dests = [];
+    
+        for (var i = 0; i < event.length; i++) {
+            dests.push(new google.maps.LatLng(event[i].location.latitude, event[i].location.longitude));
+          }
+
+            service.getDistanceMatrix(
+            {
+              origins: [userHome],
+              destinations: dests,
+              travelMode: google.maps.TravelMode.DRIVING,
+            }, callback);
+
+            function callback(response, status) {
+              console.log(response);
+              deferred.resolve(response);
+            }
           
-          console.log(response);
-          deferred.resolve(response);
-        }
+
+        
+        
          return deferred.promise;
     }
 

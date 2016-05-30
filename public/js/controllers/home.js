@@ -6,8 +6,16 @@ angular.module('PlayzApp')
 
 		$scope.init=function(){
 			DB_queries.getAllEvents().then(function(events){
-				$scope.events=events;
-				geolocation.getDistanceFromPosition();
+				
+				geolocation.getDistanceFromPosition($scope.user.hometown,events).then(function(data){
+					$scope.disatances = data.rows[0].elements;
+					for(var i=0;i<events.length;i++)
+					{
+						events[i].distance = $scope.disatances[i];
+					}
+					$scope.events=events;
+
+				});
 
 			})
 
