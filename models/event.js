@@ -143,8 +143,8 @@ eventSchema.statics.getAllEvents=function(user,filter,callback){
 	console.log("gender",uGender)
 
 	var query = {
-		//privacyType:"public",
-		//gender:{$in:["Co-ed",uGender]},
+		privacyType:"public",
+		gender:{$in:["Co-ed",uGender]},
 		registeredUsers:{ $ne : id},
 		//groupSize: {"books" : {$size : {$gt : 1}}},
 		whenDate:{$gte:date}

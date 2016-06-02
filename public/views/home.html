@@ -25,17 +25,24 @@
             </ul>
             <div>
                 <div class=" media-list list-group">
-                    <ul class="media-list media-list-stream c-w-md">
+                   <!-- <ul class="media-list media-list-stream c-w-md">
 
                         <li class="list-group-item media p-a animated fadeInUp"  ng-repeat="card in events track by $index"
-                               ng-if="user.registeredEvents.indexOf(card._id)==-1">
-                            <a class="list-group-item media"
-                               ng-include src="'views/includes/card.html'" href="#eventModal" ng-click="[$event.preventDefault(),openEvent(card)]"> </a>
+                               ng-if="user.registeredEvents.indexOf(card._id)==-1"
+                                ng-include src="'views/includes/card.html'" href="#eventModal" ng-click="[$event.preventDefault(),openEvent(card)]">
+                            
 
                         </li>
-                    </ul>
+                    </ul> -->
+               
+                <div class="animated fadeInUp tab-pane media-list list-group">
+                    <div class="media-list media-list-stream c-w-md">
+                        <a class="list-group-item media p-a" ng-repeat="card in events track by $index"
+                        ng-if="user.registeredEvents.indexOf(card._id)==-1"
+                        ng-include src="'views/includes/card.html'" href="#eventModal" data-toggle="modal" ng-click="[$event.preventDefault(),openEvent(card)]"> </a>
+                    </div>
                 </div>
-
+                </div>
             </div>
             <!-- <div class="tab-content" style="overflow: hidden">
                 <div ng-tab-body="animated bounceInLeft" class="tab-pane media-list list-group">

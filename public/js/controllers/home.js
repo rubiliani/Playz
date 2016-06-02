@@ -23,6 +23,12 @@ angular.module('PlayzApp')
 		}
 		$scope.init();
 
+		$scope.openEvent = function(card){
+		console.log("open event ",card)
+		$rootScope.card = card;
+		
+	}
+
 
 
 });

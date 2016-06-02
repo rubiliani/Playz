@@ -2,22 +2,21 @@
 
     <small class="pull-right text-muted">{{card.whenDate | date:"dd/MM/yy"}}</small>
 
-
+    
     <div class="media-heading">
-        <strong>{{card.sportType}}</strong> Event in '{{card.mindset}}' mindset<br>at {{card.location.name}}<br>
+        <strong>{{card.sportType}}</strong> Event in '{{card.mindset}}' mindset
+        <br>at {{card.location.name}}<br>
         Group size: {{card.registeredUsers.length}}/{{card.groupSize}}<br>
         Level: {{card.level}}<br>
-        Distance: {{card.distance.distance.text}},{{card.distance.duration.text}} from you
+        Distance: {{card.distance.distance.text}}, {{card.distance.duration.text}} from you.
 
         <div class="pull-right">
 
-
+<!--
             <button type="button" class="btn btn-success" data-toggle="modal" href="#eventModal" ng-click="[$event.preventDefault(),openEvent(card)]">
-                <!--<span class="icon icon-add-user"></span>-->
-                <!--<a href="#eventModal" data-toggle="modal" ng-click="[$event.preventDefault(),openEvent(card)]">open</a>-->
                 Open
             </button>
-
+-->
 
         </div>
     </div>

@@ -2,20 +2,32 @@
     <div class="row">
         <div class="col-md-3">
 
-            <div class="profile-header text-center blur-bgimage"
-                 ng-style="user.cover.source ? { 'background-image': 'url('+user.cover.source+')' } : { 'background-image': 'url(../assets/img/iceland.jpg)' }">
-                <div class="container">
-                    <div class="container-inner">
-                        <img class="img-circle media-object" ng-src="{{user.picture.data.url}}">
-                        <h3 class="profile-header-user" id="currntUserName">
-                            {{user.name}}
-                        </h3>
-                        <p class="profile-header-bio">
-                            {{user.about}}
-                        </p>
-                    </div>
-                </div>
-            </div>
+        <div class="panel panel-default panel-profile m-b-md">
+        <div class="panel-heading"  ng-style="user.cover.source ? { 'background-image': 'url('+user.cover.source+')' } : { 'background-image': 'url(../assets/img/iceland.jpg)'}"></div>
+        <div class="panel-body text-center">
+         
+            <img
+              class="panel-profile-img"
+              ng-src="{{user.picture.data.url}}">
+       
+
+          <h5 class="panel-title">
+            {{user.name}}
+          </h5>
+
+          <p class="m-b-md">{{user.about}}</p>
+
+          <ul class="panel-menu hide">
+            <li class="panel-menu-item">
+              
+                Rank
+                <h5 class="m-y-0">12M</h5>
+           
+            </li>
+
+          </ul>
+        </div>
+      </div>
 
 
             <div class="panel panel-default visible-md-block visible-lg-block">
@@ -32,8 +44,8 @@
                             <input type="date" style="width: 100%" ng-model="profile.birthday"
                                    ng-value="profile.birthday" ng-disabled="disable">
                         </li>
-                        <li><span class="text-muted icon icon-location-pin m-r"></span>
-                            Location &nbsp;
+                        <li><span class="text-muted icon icon-home  m-r"></span>
+                            Home Location &nbsp;
                             <input type="text" class="form-control" ng-disabled="disable" ng-autocomplete
                                    ng-model="profile.hometown.name" options="options" details="profile.hometown.data"/>
                         </li>
@@ -89,51 +101,7 @@
         </div>
 
 
-        <div class="col-md-3 hidden-sm hidden-xs">
-            <ul class="media-list media-list-users list-group">
-                <li class="list-group-item">
-                    <div class="media">
-                        <a class="media-left" href="#">
-                            <img class="media-object img-circle" src="../assets/img/avatar-fat.jpg">
-                        </a>
-                        <div class="media-body">
-                            <button class="btn btn-primary-outline btn-sm pull-right">
-                                <span class="icon icon-add-user"></span> Follow
-                            </button>
-                            <strong>Jacob Thornton</strong>
-                            <small>@fat - San Francisco</small>
-                        </div>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="media">
-                        <a class="media-left" href="#">
-                            <img class="media-object img-circle" src="../assets/img/avatar-dhg.png">
-                        </a>
-                        <div class="media-body">
-                            <button class="btn btn-primary-outline btn-sm pull-right">
-                                <span class="icon icon-add-user"></span> Follow
-                            </button>
-                            <strong>Dave Gamache</strong>
-                            <small>@dhg - Palo Alto</small>
-                        </div>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="media">
-                        <a class="media-left" href="#">
-                            <img class="media-object img-circle" src="../assets/img/avatar-mdo.png">
-                        </a>
-                        <div class="media-body">
-                            <button class="btn btn-primary-outline btn-sm pull-right">
-                                <span class="icon icon-add-user"></span> Follow
-                            </button>
-                            <strong>Mark Otto</strong>
-                            <small>@mdo - San Francisco</small>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
+       
+
     </div>
 </div>
