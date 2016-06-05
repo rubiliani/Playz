@@ -4,11 +4,10 @@
 
     
     <div class="media-heading">
-        <strong>{{card.sportType}}</strong> Event in '{{card.mindset}}' mindset
-        <br>at {{card.location.name}}<br>
-        Group size: {{card.registeredUsers.length}}/{{card.groupSize}}<br>
-        Level: {{card.level}}<br>
-        Distance: {{card.distance.distance.text}}, {{card.distance.duration.text}} from you.
+        <h4>{{card.sportType}}</h4>
+        <span class="icon icon-globe text-muted"></span>  {{card.location.city}}, {{card.airDistance}} KM / {{card.distance.duration.text}} driving from you<br>
+        <span class="icon icon-user text-muted"></span>  {{card.groupSize - card.registeredUsers.length}} more places available
+       
 
         <div class="pull-right">
 

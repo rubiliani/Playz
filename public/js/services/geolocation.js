@@ -23,6 +23,7 @@ angular.module('PlayzApp.services')
 
     var getDistanceFromPosition = function (home,event) {
         //console.log($scope.user)
+
         
          var deferred = $q.defer();
         var service = new google.maps.DistanceMatrixService();
@@ -30,10 +31,14 @@ angular.module('PlayzApp.services')
        
        var userHome = new google.maps.LatLng(home.latitude, home.longitude);
 
+
+
        var dests = [];
     
         for (var i = 0; i < event.length; i++) {
-            dests.push(new google.maps.LatLng(event[i].location.latitude, event[i].location.longitude));
+          var eventLoc = new google.maps.LatLng(event[i].location.latitude, event[i].location.longitude)
+            dests.push(eventLoc);
+           
           }
 
             service.getDistanceMatrix(
@@ -53,6 +58,9 @@ angular.module('PlayzApp.services')
         
          return deferred.promise;
     }
+
+
+    
 
     return {
         getCurrentPosition: getCurrentPosition,

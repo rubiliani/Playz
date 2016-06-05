@@ -19,7 +19,7 @@ angular.module('PlayzApp')
             gender:$scope.genders[0],
             payedFacility:$scope.paidFacilities[0],
             location:{},
-            radius:100,
+            radius:10000,
             ageRange:{},
             creator:'',
             invitedUsers:[],
@@ -53,7 +53,7 @@ angular.module('PlayzApp')
                 step: 5,
                 showTicks: true,
                 onChange:function(){
-                     $scope.event.radius=$scope.radiusSlider.value*10;
+                     $scope.event.radius=$scope.radiusSlider.value*1000;
                     google.maps.event.trigger($scope.refMap, 'click');
                 }
             }
@@ -66,7 +66,7 @@ angular.module('PlayzApp')
             center: [$scope.location.lat, $scope.location.lng],
             options: function() {
                 return {
-                    zoom:15,
+                    zoom:11,
                     streetViewControl: false,
                     scrollwheel: true,
                     draggable: true
@@ -135,7 +135,27 @@ angular.module('PlayzApp')
                 geocoder.geocode(geocoderRequest, function(results, status){
                     if (status=="OK"){
                         //console.log(results)
-                        $scope.location.city=results[1].address_components[0].long_name;
+                        var arrAddress = results[0].address_components;
+                        //var itemRoute='';
+                        var itemLocality='';
+                        //var itemCountry='';
+                        //var itemPc='';
+                        //var itemSnumber='';
+
+                        // iterate through address_component array
+                        $.each(arrAddress, function (i, address_component) {
+                           
+                            if (address_component.types[0] == "locality"){
+                                console.log("town:"+address_component.long_name);
+                                itemLocality = address_component.long_name;
+                            }
+
+                            
+                            //return false; // break the loop   
+                        });
+
+
+                        $scope.location.city=itemLocality;
                         $scope.location.name=results[0].formatted_address;
                         $scope.$apply()
                     }
@@ -170,6 +190,7 @@ angular.module('PlayzApp')
         $scope.createEvent=function(){
             $scope.event.whenDate.setHours(0,0,0,0);
             $scope.event.location={
+                "city":$scope.location.city,
                 "name":$scope.location.name,
                 "latitude":$scope.location.lat,
                 "longitude":$scope.location.lng

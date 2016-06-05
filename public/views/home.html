@@ -4,7 +4,12 @@
             <ul class="list-group media-list media-list-stream">
                 <li class="media list-group-item p-a">
                     <div class="">
-                        <h2>Explore new events</h2>
+                        <h2>Explore new events
+                        <button ng-click="" type="button"
+                                class="btn btn-sm btn-primary pull-right">
+                            Filter
+                        </button>
+                        </h2>
 
                         <!-- <ul class="nav nav-pills nav-justified">
                             <li ng-tab-head="active" ng-click="tabChanged('today')">
@@ -39,7 +44,7 @@
                     <div class="media-list media-list-stream c-w-md">
                         <a class="list-group-item media p-a" ng-repeat="card in events track by $index"
                         ng-if="user.registeredEvents.indexOf(card._id)==-1"
-                        ng-include src="'views/includes/card.html'" href="#eventModal" data-toggle="modal" ng-click="[$event.preventDefault(),openEvent(card)]"> </a>
+                        ng-include src="'views/includes/card.html'" href="#eventModal" data-toggle="modal" ng-click="[$event.preventDefault(),openEvent(card)]"ֲ> </a>
                     </div>
                 </div>
                 </div>

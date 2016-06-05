@@ -21,7 +21,7 @@
 
           <div class="media-body">
             <div class="media-heading">
-              <strong>Event Location:</strong>  {{card.location.name}}
+              <strong>Event Location:</strong>  {{card.location.city}}
             </div>
 
           </div>
@@ -96,14 +96,14 @@
           <div class="media-body">
             
             <div class="media-heading">
-              <strong>{{card.registeredUsers[0].name}}</strong> and <strong>{{card.registeredUsers.length}}</strong> registered, {{card.groupSize-card.registeredUsers.length}} more places available
+              <strong>{{card.registeredUsers[0].name}}</strong> created the event, {{card.groupSize-card.registeredUsers.length}} more places available
             </div>
             <ul class="avatar-list">
               <li class="avatar-list-item" ng-repeat="user in card.registeredUsers"><img class="img-circle" ng-src="{{user.picture.data.url}}">
             </ul>
           </div>
         </li>
-
+<!--
         <li class="list-group-item media p-a">
           <div class="media-left">
             <span class="icon icon-creative-commons-noncommercial-us text-muted"></span>
@@ -115,7 +115,7 @@
             </div>
 
           </div>
-        </li>
+        </li> -->
       </ul>
 
         </div>

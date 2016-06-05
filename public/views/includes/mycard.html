@@ -4,9 +4,10 @@
             <small class="pull-right text-muted">{{card.whenDate |  date:"dd/MM/yy"}}</small>
             
             <div class="media-heading">
-              <strong>{{card.sportType}}</strong> Event in '{{card.mindset}}' mindset, at {{card.location.name}}<br>
-              Group size: {{card.registeredUsers.length}}/{{card.groupSize}}<br>
-              Level: {{card.level}}
+              <h4>{{card.sportType}}</h4>
+              <span class="icon icon-globe text-muted"></span>  {{card.location.city}}<br>
+              <span class="icon icon-user text-muted"></span> {{card.registeredUsers.length}}/{{card.groupSize }} registered users
+             
 
               <div class="pull-right">
             	
