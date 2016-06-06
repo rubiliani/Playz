@@ -20,23 +20,30 @@
           </div>
 
           <div class="media-body">
-            <div class="media-heading">
+            <div class="media-heading" ng-init="filter.locationType='home'">
               <strong>Events Near: </strong><br>
               <div class="radio-inline custom-control custom-radio">
                   <label>
-                      <input type="radio" id="radio1" ng-click="setCurrentLocation()" name="location"
-                             checked>
-                      <span class="custom-control-indicator"></span>
-                      Current Location
-                  </label>
-              </div>
-              <div class="radio-inline custom-control custom-radio">
-                  <label>
-                      <input type="radio" id="radio2" ng-click="setHomeLoc()" name="location">
+                      <input type="radio" id="radio2" name="location" ng-click="locationChanged('home')"
+                              ng-model="filter.locationType"
+                              ng-value="home"
+                             ng-checked="filter.locationType=='home'">
                       <span class="custom-control-indicator"></span>
                       Home Location
                   </label>
               </div>
+              <div class="radio-inline custom-control custom-radio">
+                  <label>
+                      <input type="radio" id="radio1" name="location"
+                              ng-click="locationChanged('current')"
+                              ng-model="filter.locationType"
+                              ng-value="current"
+                             ng-checked="filter.locationType=='current'">
+                      <span class="custom-control-indicator"></span>
+                      Current Location
+                  </label>
+              </div>
+              
             </div>
 
           </div>
@@ -53,7 +60,7 @@
           <div class="media-body">
             <div class="media-heading">
               <strong>Sport Type: </strong>
-               <select id="sportSelection" class="form-control custom-select" ng-model="event.sportType">
+               <select id="sportSelection" class="form-control custom-select" ng-model="filter.sportType">
                   <option ng-repeat="sport in sports track by $index"
                           ng-selected="$index==0"
                   ng-value="sport.name">
@@ -72,7 +79,7 @@
           <div class="media-body">
             <div class="media-heading">
               <strong>Level: </strong>
-              <select name="levelSelect" class="form-control custom-select" ng-model="event.level">
+              <select name="levelSelect" class="form-control custom-select" ng-model="filter.level">
                   <option ng-repeat="level in levels track by $index"
                           ng-selected="$index==0"
                   ng-value="level">
@@ -91,7 +98,7 @@
           <div class="media-body">
             <div class="media-heading">
               <strong>Mindset: </strong> 
-              <select name="mindsetSelect" class="form-control custom-select" ng-model="event.mindset">
+              <select name="mindsetSelect" class="form-control custom-select" ng-model="filter.mindset">
                   <option ng-repeat="mindset in mindsets track by $index"
                           ng-selected="$index==0"
                   ng-value="mindset">

@@ -4,10 +4,22 @@ angular.module('PlayzApp')
 .controller('homeCtrl', function($scope, $http, $rootScope,DB_queries, fbLogin,growl,geolocation) {
 	console.log("home controller")
 
-	 $scope.sports=[{name:"Any Sport"},{name:"Basketball"},{name:"Tennis"},{name:"Soccer"},{name:"Golf"},{name:"TRX"},{name:"Running"}];
+	 	$scope.sports=[{name:"Any Sport"},{name:"Basketball"},{name:"Tennis"},{name:"Soccer"},{name:"Golf"},{name:"TRX"},{name:"Running"}];
         $scope.levels=["Any Level", "Newbie", "Intermediate", "Proffesional"];
         $scope.mindsets=["All Mindsets","Just for fun", "Turnament", "By the book"];
 
+        $scope.filter = {
+        	sportType:"Any Sport",
+        	level:"Any Level",
+        	mindset:"All Mindsets",
+        	locationType:"Home Location"
+
+        }
+
+
+        $scope.locationChanged=function(type){
+            $scope.filter.locationType=type;
+        }
 		$scope.init=function(){
 			DB_queries.getAllEvents().then(function(events){
 				
@@ -56,7 +68,27 @@ angular.module('PlayzApp')
     	};
 
 
-    	$scope.openFilter = function(){
+    	$scope.filterEvents = function(){
+    		DB_queries.getAllEvents().then(function(events){
+				
+				geolocation.getDistanceFromPosition($scope.user.hometown,events).then(function(data){
+					if(events.length>0){
+						$scope.disatances = data.rows[0].elements;
+						for(var i=0;i<events.length;i++){
+							events[i].distance = $scope.disatances[i];
+
+							 var userHome = new google.maps.LatLng($scope.user.hometown.latitude, $scope.user.hometown.longitude);
+							 var eventLoc = new google.maps.LatLng(events[i].location.latitude, events[i].location.longitude);
+
+							 events[i].airDistance = Math.round((getDistance(userHome,eventLoc)/1000),2);
+						}
+					}
+					$scope.events=events;
+
+				});
+
+			})
+
     		
     	}
 
