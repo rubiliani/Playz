@@ -4,6 +4,10 @@ angular.module('PlayzApp')
 .controller('homeCtrl', function($scope, $http, $rootScope,DB_queries, fbLogin,growl,geolocation) {
 	console.log("home controller")
 
+	 $scope.sports=[{name:"Any Sport"},{name:"Basketball"},{name:"Tennis"},{name:"Soccer"},{name:"Golf"},{name:"TRX"},{name:"Running"}];
+        $scope.levels=["Any Level", "Newbie", "Intermediate", "Proffesional"];
+        $scope.mindsets=["All Mindsets","Just for fun", "Turnament", "By the book"];
+
 		$scope.init=function(){
 			DB_queries.getAllEvents().then(function(events){
 				
@@ -24,6 +28,7 @@ angular.module('PlayzApp')
 				});
 
 			})
+
 
 		}
 		$scope.init();
@@ -49,6 +54,13 @@ angular.module('PlayzApp')
       		var d = R * c;
       		return d; // returns the distance in meter
     	};
+
+
+    	$scope.openFilter = function(){
+    		
+    	}
+
+
 
 
 

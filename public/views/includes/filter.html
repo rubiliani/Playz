@@ -1,0 +1,140 @@
+
+<div ng-controller="homeCtrl" class="modal fade" data-target="#filterModal"  id="filterModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+       
+        <h4 class="modal-title">Filter</h4>
+      </div>
+
+      <div class="modal-body p-a-0 js-modalBody">
+        <div class="modal-body-scroller">
+           <ul class="list-group media-list media-list-stream">
+
+        
+
+        <li class="list-group-item media p-a">
+          <div class="media-left">
+            <span class="icon icon-globe text-muted"></span>
+          </div>
+
+          <div class="media-body">
+            <div class="media-heading">
+              <strong>Events Near: </strong><br>
+              <div class="radio-inline custom-control custom-radio">
+                  <label>
+                      <input type="radio" id="radio1" ng-click="setCurrentLocation()" name="location"
+                             checked>
+                      <span class="custom-control-indicator"></span>
+                      Current Location
+                  </label>
+              </div>
+              <div class="radio-inline custom-control custom-radio">
+                  <label>
+                      <input type="radio" id="radio2" ng-click="setHomeLoc()" name="location">
+                      <span class="custom-control-indicator"></span>
+                      Home Location
+                  </label>
+              </div>
+            </div>
+
+          </div>
+        </li>
+
+
+
+
+        <li class="list-group-item media p-a">
+          <div class="media-left">
+            <span class="icon icon-dribbble text-muted"></span>
+          </div>
+
+          <div class="media-body">
+            <div class="media-heading">
+              <strong>Sport Type: </strong>
+               <select id="sportSelection" class="form-control custom-select" ng-model="event.sportType">
+                  <option ng-repeat="sport in sports track by $index"
+                          ng-selected="$index==0"
+                  ng-value="sport.name">
+                      {{sport.name}}
+                  </option>
+              </select>
+            </div>
+
+          </div>
+        </li>
+         <li class="list-group-item media p-a">
+          <div class="media-left">
+            <span class="icon icon-graduation-cap text-muted"></span>
+          </div>
+
+          <div class="media-body">
+            <div class="media-heading">
+              <strong>Level: </strong>
+              <select name="levelSelect" class="form-control custom-select" ng-model="event.level">
+                  <option ng-repeat="level in levels track by $index"
+                          ng-selected="$index==0"
+                  ng-value="level">
+                      {{level}}
+                  </option>
+              </select>
+            </div>
+
+          </div>
+        </li>
+        <li class="list-group-item media p-a">
+          <div class="media-left">
+            <span class="icon icon-emoji-flirt text-muted"></span>
+          </div>
+
+          <div class="media-body">
+            <div class="media-heading">
+              <strong>Mindset: </strong> 
+              <select name="mindsetSelect" class="form-control custom-select" ng-model="event.mindset">
+                  <option ng-repeat="mindset in mindsets track by $index"
+                          ng-selected="$index==0"
+                  ng-value="mindset">
+                      {{mindset}}
+                  </option>
+              </select>
+            </div>
+
+          </div>
+        </li>
+       
+       
+        
+      
+<!--
+        <li class="list-group-item media p-a">
+          <div class="media-left">
+            <span class="icon icon-creative-commons-noncommercial-us text-muted"></span>
+          </div>
+
+          <div class="media-body">
+            <div class="media-heading">
+              <strong>Payed Facilities: </strong> {{card.payedFacility}}
+            </div>
+
+          </div>
+        </li> -->
+      </ul>
+
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <!--<button type="button" class="btn btn-lg btn-pill btn-success" ng-click="joinEvent(card)">Join Now</button>-->
+
+        <button type="button" data-dismiss="modal" class="btn btn-success" ng-click="filterEvents()">
+          <span class="icon icon-funnel"></span>
+          Filter Events
+        </button>
+
+      </div>
+
+       
+    </div>
+  </div>
+</div>
