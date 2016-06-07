@@ -145,12 +145,23 @@ angular.module('PlayzApp.services',['ngResource','ngRoute','ngStorage','ngFacebo
   		$facebook.logout().then(function(response){ });
   	}
 
+  	var _sharePost = function(){
+		var deferred = $q.defer();
+		$facebook.ui({
+		    method: 'share',
+		    display: 'popup',
+		    href: 'http://playzapp.heroku.com/',
+		  }, function(response){});
+		return deferred.promise;
+	}
+
   	return{
   		getStatus:getStatus,
   		login:login,
   		logout:logout,
 		routeStatus:_routeStatus,
 		getFriends:_getFriends,
-		getFriends_Next_Prev:_getFriends_Next_Prev
+		getFriends_Next_Prev:_getFriends_Next_Prev,
+		sharePost:_sharePost
   	}
 })

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('PlayzApp')
-.controller('eventCtrl', function($scope, $http, $rootScope, $location,DB_queries,resolveGetEventById,$window,growl) {
+.controller('eventCtrl', function($scope, $http, $rootScope, $location,DB_queries,resolveGetEventById,$window,growl,fbLogin) {
     $scope.event = resolveGetEventById;
     $scope.messages = [];
     console.log("event controller",$scope);
@@ -55,5 +55,9 @@ angular.module('PlayzApp')
 	$scope.goBack=function(card){
 		$window.history.back();
 
+	}
+
+	$scope.share = function(){
+		fbLogin.sharePost();
 	}
 });

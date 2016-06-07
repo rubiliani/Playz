@@ -2,8 +2,8 @@
     <div class="row">
         <div class="col-md-12">
             <ul class="list-group media-list media-list-stream">
-                <li class="list-group-item p-a" ng-if="user._id==event.creator">
-                    <button type="button" class="btn btn-sm btn-primary pull-right app-new-msg js-newMsg">Edit Event
+                <li class="list-group-item p-a" >
+                    <button type="button" class="btn btn-sm btn-primary pull-right app-new-msg js-newMsg" ng-if="user._id==event.creator._id">Edit Event
                     </button>
                     <h3 class="modal-title">{{event.sportType}}</h3>
                 </li>
@@ -86,7 +86,7 @@
                             <span class="icon icon-add-user"></span>
                             Invite
                         </button>
-                        <button type="button" class="btn btn-lg btn-pill btn-info">
+                        <button type="button" class="btn btn-lg btn-pill btn-info" ng-click="share()">
                             <span class="icon icon-facebook"></span>
                             Share
                         </button>
