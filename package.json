@@ -4,6 +4,7 @@
   "dependencies": {
     "Buffer": "0.0.0",
     "angular": "^1.5.5",
+    "angular-multiple-select": "^1.1.1",
     "angularjs-slider": "^2.13.0",
     "async": "^1.4.2",
     "body-parser": "^1.12.3",

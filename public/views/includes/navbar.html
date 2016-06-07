@@ -23,14 +23,15 @@
 
                 <ul class="nav navbar-nav">
                     <li class="active" ng-click="urlChanged('navHome')">
-                        <a class="navHome" href="#/">Home</a>
+                        <a class="navHome icon icon-home" href="#/"> Home</a>
+                         <span class=""></span>
                     </li>
                     <li ng-click="urlChanged('navProfile')">
-                        <a class="navProfile" href="#/profile">Playzer Card</a>
+                        <a class="navProfile icon icon-user" href="#/profile"> Playzer Card</a>
                     </li>
 
                     <li ng-click="urlChanged()">
-                        <a href="#/login" ng-click="facebookLogout()">Logout</a>
+                        <a href="#/login" class="icon icon-log-out" ng-click="facebookLogout()"> Logout</a>
                     </li>
 
                 </ul>
