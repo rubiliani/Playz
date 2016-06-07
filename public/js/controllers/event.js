@@ -60,4 +60,10 @@ angular.module('PlayzApp')
 	$scope.share = function(){
 		fbLogin.sharePost();
 	}
+
+	$scope.invite = function(){
+		fbLogin.inviteFriends();
+	}
+
+
 });

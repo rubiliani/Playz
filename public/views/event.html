@@ -82,18 +82,14 @@
                         </div>
                     </li>
                     <li class="media list-group-item p-a">
-                        <button type="button" class="btn btn-lg btn-pill btn-primary">
-                            <span class="icon icon-add-user"></span>
-                            Invite
-                        </button>
-                        <button type="button" class="btn btn-lg btn-pill btn-info" ng-click="share()">
-                            <span class="icon icon-facebook"></span>
-                            Share
-                        </button>
+                       
+                        <button type="button" class="btn btn-default-outline" ng-click="invite()"> <span class="icon icon-add-user"></span>  Invite Friends</button>
+                        <button type="button" class="btn btn-primary-outline" ng-click="share()"> <span class="icon icon-facebook"></span>  Share To Facebook</button>
+                       
                     </li>
                     <li class="media list-group-item p-a" >
-                        <button type="button" class="btn btn-lg btn-pill btn-danger" ng-click="leaveEvent(event)">Leave Event</button>
-                        <button type="button" class="btn btn-lg btn-pill btn-info pull-right text-center" ng-click="goBack()">Go Back</button>
+                    <button type="button" class="btn btn-danger"  ng-click="leaveEvent(event)">Leave Event</button>
+                    <button type="button" class="btn btn-info pull-right" ng-click="goBack()">Go Back</button>
 
                     </li>
 
