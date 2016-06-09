@@ -2,15 +2,19 @@
 
 angular.module('PlayzApp') 
 .controller('editCtrl', function($scope, $http,$q, $rootScope, $location,DB_queries,geolocation,$timeout,resolveGetEventById,$window,growl,fbLogin) {
-    $scope.tempevent = resolveGetEventById;
-   
+    $scope.event = resolveGetEventById;
+    $scope.event.whenDate = new Date($scope.event.whenDate);
+
+   console.log("Got event ",$scope.event);
+   	
+
      $scope.location={lat:0,lng:0,name:''};
         $scope.sports=[{name:"Basketball"},{name:"Tennis"},{name:"Soccer"},{name:"Golf"},{name:"TRX"},{name:"Running"}];
         $scope.levels=["Any Level", "Newbie", "Intermediate", "Proffesional"];
         $scope.mindsets=["Just for fun", "Turnament", "By the book"];
         $scope.genders=["Co-ed","Male", "Female"];
         $scope.paidFacilities=["OK", "No Way", "Don't Care"];
-
+/*
         $scope.event={
             sportType:$scope.tempevent.sportType,
             level:$scope.tempevent.level,
@@ -24,10 +28,10 @@ angular.module('PlayzApp')
             creator:$scope.tempevent.creator,
             invitedUsers:$scope.tempevent.invitedUsers,
             registeredUsers:$scope.tempevent.registeredUsers
-        };
+        };*/
          
        $scope.groupSlider = {
-            value:$scope.tempevent.groupSize,
+            value:$scope.event.groupSize,
             options: {
                 floor: 2,
                 ceil: 50,
@@ -36,8 +40,8 @@ angular.module('PlayzApp')
         };
 
         $scope.ageSlider = {
-            minValue: $scope.tempevent.ageRange.min,
-            maxValue: $scope.tempevent.ageRange.max,
+            minValue: $scope.event.ageRange.min,
+            maxValue: $scope.event.ageRange.max,
             options: {
                 floor: 0,
                 ceil: 100,
@@ -46,7 +50,7 @@ angular.module('PlayzApp')
         };
 
         $scope.radiusSlider = {
-            value: $scope.tempevent.radius,
+            value: $scope.event.radius,
             options: {
                 floor: 0,
                 ceil: 100,
@@ -195,7 +199,7 @@ angular.module('PlayzApp')
         $scope.privacyChanged=function(type){
             $scope.event.privacyType=type;
         }
-        $scope.createEvent=function(){
+        $scope.updateEvent=function(){
             $scope.event.whenDate.setHours(0,0,0,0);
             $scope.event.location={
                 "city":$scope.location.city,
@@ -203,8 +207,8 @@ angular.module('PlayzApp')
                 "latitude":$scope.location.lat,
                 "longitude":$scope.location.lng
             };
-            $scope.event.creator=$rootScope.user._id;
-            $scope.event.registeredUsers.push($rootScope.user._id);
+            //$scope.event.creator=$rootScope.user._id;
+            //$scope.event.registeredUsers.push($rootScope.user._id);
             $scope.event.whenDate =  new Date($scope.event.whenDate.setHours(0,0,0,0))
             //sliders
             $scope.event.groupSize = $scope.groupSlider.value;
@@ -214,9 +218,9 @@ angular.module('PlayzApp')
 
             console.log($scope.event);
             
-            DB_queries.createEvent($scope.event).then(function(event){
-                console.log('events - create event',event)
-                $location.url('/profile')
+            DB_queries.updateEvent($scope.event).then(function(event){
+                console.log('events - edit event',event)
+                $location.url('/event/'+$scope.event._id)
             })
 
         }
@@ -273,7 +277,7 @@ angular.module('PlayzApp')
         }
 
 
-
+/*
         fbLogin.getFriends().then(function(friends){
             console.log(friends)
             $scope.friends=friends;
@@ -284,7 +288,7 @@ angular.module('PlayzApp')
                 console.log(friends)
                 $scope.friends=friends;
             })
-        }
+        }*/
 
 
 

@@ -3,7 +3,7 @@
         <div class="col-md-6">
             <ul class="list-group media-list media-list-stream">
                 <li class="media list-group-item p-a">
-                    <h4>Update Your Activity {{event.sportType}}</h4>
+                    <h4>Update Your Activity - {{event.sportType}}</h4>
                 </li>
                 <li class="media list-group-item p-a">
                     <div class="media-body">
@@ -220,8 +220,8 @@
                         <img class="media-object img-circle" ng-src="{{user.picture.data.url}}">
                       </a>
                       <div class="media-body">
-                        <button class="btn btn-primary-outline btn-sm pull-right" ng-show="user._id!=event.creator._id">
-                          <span class="icon icon-add-user"></span> Remove
+                        <button class="btn btn-danger-outline btn-sm pull-right" ng-show="user._id!=event.creator._id">
+                          <span class="icon icon-remove-user"></span> Remove
                         </button>
                         <strong>{{user.name}}</strong><br>
                         <small ng-show="user._id==event.creator._id">Group Admin</small>
@@ -237,7 +237,7 @@
                                     <button type="button" class="btn btn-lg btn-danger" ng-click="cancel()">
                                         Cancel
                                     </button>
-                                    <button type="submit" ng-click="createEvent()"
+                                    <button type="submit" ng-click="updateEvent()"
                                             class="btn btn-lg  btn-success">
                                         Save Changes
                                     </button>

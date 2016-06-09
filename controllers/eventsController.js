@@ -36,6 +36,7 @@ module.exports.create = function (req, res) {
 
 module.exports.update = function (req, res) {
     var event = req.body.event;
+    console.log("got event to update",event);
     if (!event) {
         return res.status(404).json({status: 0, msg: ['no event received']})
     }
