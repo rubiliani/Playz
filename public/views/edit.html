@@ -1,0 +1,270 @@
+<div class="container p-t-md">
+    <div class="row">
+        <div class="col-md-6">
+            <ul class="list-group media-list media-list-stream">
+                <li class="media list-group-item p-a">
+                    <h4>Update Your Activity {{event.sportType}}</h4>
+                </li>
+                <li class="media list-group-item p-a">
+                    <div class="media-body">
+                        <div class="media-body-text">
+                            <div class="media-heading" ng-init="event.privacyType='public'">
+                                <div class="radio-inline custom-control custom-radio">
+                                    <label>
+                                        <input type="radio" name="privacy"
+                                               ng-click="privacyChanged('public')"
+                                               ng-model="event.privacyType"
+                                               ng-value="public"
+                                               ng-checked="event.privacyType=='public'">
+                                        <span class="custom-control-indicator"></span>
+                                        Public Event
+                                    </label>
+
+                                </div>
+                                <div class="radio-inline custom-control custom-radio">
+                                    <label>
+                                        <input type="radio" name="privacy"
+                                               ng-model="event.privacyType"
+                                               ng-value="private"
+                                               ng-click="privacyChanged('private')"
+                                               ng-checked="event.privacyType=='private'">
+                                        <span class="custom-control-indicator"></span>
+                                        Private Event
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </li>
+               
+               
+                 <li class="media list-group-item p-a">
+                    <div class="media-body">
+                        <div class="media-body-text">
+                            <div class="media-heading">
+                                <label class="select">Level of expertese:</label>
+                                <select ng-model="event.level" class="form-control custom-select">
+                                      <option ng-repeat="lev in levels">{{lev}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="media list-group-item p-a">
+                    <div class="media-body">
+                        <div class="media-body-text">
+                            <div class="media-heading">
+                                <label class="select">Mind-set:</label>
+                                <select ng-model="event.mindset" class="form-control custom-select">
+                                      <option ng-repeat="mind in mindsets">{{mind}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
+                <li class="media list-group-item p-a">
+                    <div class="media-body">
+                        <div class="media-body-text">
+                            <div class="media-heading">
+                                <label class="select">When:</label>
+                                <input type="date" ng-value="event.whenDate" ng-blur="validateDate()" class="form-control" ng-model="event.whenDate" >
+                               
+                                <!-- <select name="select-choice-0" id="" class="custom-select" ng-model="event.whenDate"
+                                        ng-value="Today">
+                                    <option ng-repeat="date in whenDates track by $index" ng-selected="$index==0">
+                                        {{date}}
+                                    </option>
+                                </select> -->
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="media list-group-item p-a">
+                    <div class="media-body">
+                        <div class="media-body-text">
+                            <div class="media-heading">
+                                <label class="select">Group Size:</label>
+                                <!--<span ng-model="slider.value">{{slider.value}}</span>-->
+                                <rzslider rz-slider-model="groupSlider.value"
+                                rz-slider-options="groupSlider.options"></rzslider>
+
+                               <!-- <input id="groupSlider" type="text" ng-model="event.groupSize" ng-value=2>  -->
+
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+   
+        <div class="col-md-6">
+            <ul class="list-group media-list media-list-stream">
+                <li class="media list-group-item p-a">
+                    <h4>Pick an Area</h4>
+                </li>
+                <li class="media list-group-item p-a">
+                    <div class="media-body">
+                        <div class="media-body-text">
+                            <div class="media-heading">
+                                <div class="radio-inline custom-control custom-radio">
+                                    <label>
+                                        <input type="radio" id="radio1" ng-click="setCurrentLocation()" name="location"
+                                               checked>
+                                        <span class="custom-control-indicator"></span>
+                                        Current Location
+                                    </label>
+                                </div>
+                                <div class="radio-inline custom-control custom-radio">
+                                    <label>
+                                        <input type="radio" id="radio2" ng-click="setHomeLoc()" name="location">
+                                        <span class="custom-control-indicator"></span>
+                                        Home Location
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="media list-group-item p-a">
+                    <div class="media-body">
+                        <div class="media-body-text">
+                            <div class="media-heading">
+                                <rzslider rz-slider-model="radiusSlider.value"
+                                    rz-slider-options="radiusSlider.options"></rzslider>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="media list-group-item p-a">
+                    <div class="media-body">
+                        <div class="media-body-text map-height">
+                            {{location.city}}
+                            <map ng-transclude class="google-map" center="mymap.center" options="mymap.options" events="mymap.events">
+                                <marker position="mymap.marker.position" options="mymap.marker.options" events="mymap.marker.events"></marker>
+                                <circles geometries="mymap.circles.geometries" options="mymap.circles.options"
+                                events="mymap.circle.events"> </circles>
+                            </map>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+             <div class="col-md-6">
+            <ul class="list-group media-list media-list-stream">
+                <li class="media list-group-item p-a">
+                    <h4>Pick Your Partner</h4>
+                </li>
+                <li class="media list-group-item p-a">
+                    <div class="media-body">
+                        <div class="media-body-text">
+                            <div class="media-heading">
+                                <div data-role="rangeslider"
+                                     ng-init="[event.ageRange.min='20' , event.ageRange.max='40']">
+                                    <b> Age Range:</b>
+                                    <rzslider rz-slider-model="ageSlider.minValue" rz-slider-high="ageSlider.maxValue" rz-slider-options="ageSlider.options"></rzslider>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="media list-group-item p-a">
+                    <div class="media-body">
+                        <div class="media-body-text">
+                            <div class="media-heading">
+                                <label class="select">Gender:</label>
+                                <select ng-model="event.gender" class="form-control custom-select">
+                                      <option ng-repeat="gend in genders">{{gend}}</option>
+                                </select>
+                           
+                                <!--
+                                <select id="genderSelection" class="form-control custom-select"
+                                        ng-model="event.gender">
+                                    <option ng-repeat="gen in gender track by $index" ng-selected="$index==0">{{gen}}
+                                    </option>
+                                </select>-->
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="media list-group-item p-a">
+                    <div class="media-body">
+                        <div class="media-body-text">
+                            <div class="media-heading">
+                                <label class="select">Payed facilities:</label>
+                                <select name="select-choice-0" id="payedSelection" class="form-control custom-select"
+                                        ng-model="event.payedFacility">
+                                    <option ng-repeat="pf in paidFacilities track by $index" ng-selected="$index==0">
+                                        {{pf}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <ul class="list-group media-list media-list-stream">
+                <li class="media list-group-item p-a">
+                    <h4>Registered Users</h4>
+                </li>
+                <ul class="media-list media-list-users list-group">
+                    <li ng-repeat="user in event.registeredUsers" class="list-group-item">
+                        <div class="media">
+                            <a class="media-left" href="#">
+                                <img class="img-circle" ng-src="{{user.picture.data.url}}">
+                            </a>
+                            <div class="media-body">
+                                <button ng-show="event.invitedUsers.indexOf(friend.id)==-1" class="btn btn-primary-outline btn-sm pull-right" ng-click="inviteFriend(friend.id)">
+                                    <span class="icon icon-add-user"></span> Invite
+                                </button>
+                                <button ng-show="event.invitedUsers.indexOf(friend.id)!=-1" class="btn btn-danger-outline btn-sm pull-right" ng-click="cancelInviteFriend($index,friend.id)">
+                                    <span class="icon icon-remove-user"></span> Cancel
+                                </button>
+                                <strong>{{friend.name}}</strong>
+                                <!-- <small>@fat - San Francisco</small> -->
+                            </div>
+                        </div>
+                    </li>
+
+
+                    <li class="list-group-item">
+                        <div class="pull-right" ng-if="friends.paging.next" ng-click="getFriends_Next_Prev(friends.paging.next)">
+                            <button type="button" class="btn btn-xs btn-success-outline">Next
+                            </button>
+                        </div>
+                        <div class="" ng-if="friends.paging.previous" ng-click="getFriends_Next_Prev(friends.paging.previous)">
+                            <button type="button" class="btn btn-xs btn-success-outline">Prev
+                            </button>
+                        </div>
+                        <div class="" ng-if="!friends.paging.previous && !friends.paging.next">
+                            No More Suggestions
+                        </div>
+                    </li>
+                </ul>
+                <li class="media list-group-item p-a">
+                    <div class="media-body">
+                        <div class="media-body-text">
+                            <div class="media-heading text-center" >
+                                <form > 
+                                    <button type="button" class="btn btn-lg btn-danger" ng-click="cancel()">
+                                        Cancel
+                                    </button>
+                                    <button type="submit" ng-click="createEvent()"
+                                            class="btn btn-lg  btn-success">
+                                        Save Changes
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

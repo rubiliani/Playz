@@ -45,30 +45,6 @@ angular.module('PlayzApp')
         $scope.tabChanged=function(type){
             if (type=="upcoming"){
 
-            //    $scope.upcomingEvents=[{
-            //        _id:"aaaa",
-            //    sportType: "Football",
-            //    whenDate: "17/6/16",
-            //    level: "Proffesional",
-            //    mindset: "Just for fun",
-            //    groupSize: 10,
-            //    location: "Hod Hasharon",
-            //    registeredUsers:[
-            //        "1","2","3","4"
-            //    ]
-            //},
-            //{
-            //    _id:"bbbb",
-            //    sportType: "Basketball",
-            //    whenDate: "17/6/16",
-            //    level: "Beginner",
-            //    mindset: "Turnament",
-            //    groupSize: 5,
-            //    location: "Ashdod",
-            //    registeredUsers:[
-            //        "1","2","3","4"
-            //    ]
-            //}]
 
 
                 DB_queries.getUpcomingEvents().then(function(data){
@@ -88,4 +64,10 @@ angular.module('PlayzApp')
             console.log(card)
             $location.url('/event/'+card._id);
         }
+
+        $scope.editProfile=function(){
+         
+            $location.url('/register');
+        }
+
     });

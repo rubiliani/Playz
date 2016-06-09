@@ -99,6 +99,21 @@ angular.module('PlayzApp')
                 }
             }
         })
+        .when('/edit/:id',{
+            templateUrl: 'views/edit.html',
+            controller: 'editCtrl',
+            resolve:{
+                loggedin : checkLoggedin,
+                resolveGetEventById: function($q,DB_queries,$route,$window) {
+                    return DB_queries.getEventById($route.current.params.id).then(function (event) {
+                        return event;
+                    },function(){
+                        $window.history.back()
+                        return false
+                    })
+                }
+            }
+        })
         .when('/profile',{
             controller: 'profileCtrl',
             templateUrl: 'views/profile.html',

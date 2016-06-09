@@ -3,7 +3,7 @@
         <div class="col-md-12">
             <ul class="list-group media-list media-list-stream">
                 <li class="list-group-item p-a" >
-                    <button type="button" class="btn btn-sm btn-primary pull-right app-new-msg js-newMsg" ng-if="user._id==event.creator._id">Edit Event
+                    <button type="button" class="btn btn-sm btn-primary pull-right app-new-msg js-newMsg" ng-if="user._id==event.creator._id" ng-click="editEvent()">Edit Event
                     </button>
                     <h3 class="modal-title">{{event.sportType}}</h3>
                 </li>

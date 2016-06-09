@@ -13,6 +13,8 @@ angular.module('PlayzApp')
 	}
 
 	$scope.createMessage = function(){
+		if($scope.textMsg=='')
+			return;
 		DB_queries.createMessage($rootScope.user._id,$scope.event._id,$scope.textMsg).then(function(messages){
 			//	$scope.messages.push({
 			//		event:$scope.event._id,
@@ -64,6 +66,11 @@ angular.module('PlayzApp')
 	$scope.invite = function(){
 		fbLogin.inviteFriends();
 	}
+
+	$scope.editEvent=function(){
+      
+        $location.url('/edit/'+ $scope.event._id);
+    }
 
 
 });

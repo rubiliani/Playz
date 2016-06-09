@@ -1,10 +1,10 @@
 <form>
 <div class="profile-header text-center blur-bgimage"
-     style="background-image: url(../assets/img/iceland.jpg); ">
+     ng-style="user.cover.source ? { 'background-image': 'url('+user.cover.source+')' } : { 'background-image': 'url(../assets/img/iceland.jpg)'}">
   <div class="container">
     <div class="container-inner">
       <img class="img-circle media-object" id="profileUserPic" src="{{user.picture.data.url}}">
-      <h3 class="profile-header-user" id="currntUserName"></h3>
+      <h3 class="profile-header-user" id="currntUserName">{{user.name}}</h3>
     </div>
   </div>
 </div>
@@ -15,7 +15,7 @@
       <ul class="list-group media-list media-list-stream">
 
     <li class="media list-group-item p-a">
-      <h4>Complete Registration</h4>
+      <h4>Update your personal info</h4>
     </li>
 
         <li class="media list-group-item p-a">
