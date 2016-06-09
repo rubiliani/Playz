@@ -214,39 +214,21 @@
                     <h4>Registered Users</h4>
                 </li>
                 <ul class="media-list media-list-users list-group">
-                    <li ng-repeat="user in event.registeredUsers" class="list-group-item">
-                        <div class="media">
-                            <a class="media-left" href="#">
-                                <img class="img-circle" ng-src="{{user.picture.data.url}}">
-                            </a>
-                            <div class="media-body">
-                                <button ng-show="event.invitedUsers.indexOf(friend.id)==-1" class="btn btn-primary-outline btn-sm pull-right" ng-click="inviteFriend(friend.id)">
-                                    <span class="icon icon-add-user"></span> Invite
-                                </button>
-                                <button ng-show="event.invitedUsers.indexOf(friend.id)!=-1" class="btn btn-danger-outline btn-sm pull-right" ng-click="cancelInviteFriend($index,friend.id)">
-                                    <span class="icon icon-remove-user"></span> Cancel
-                                </button>
-                                <strong>{{friend.name}}</strong>
-                                <!-- <small>@fat - San Francisco</small> -->
-                            </div>
-                        </div>
-                    </li>
-
-
-                    <li class="list-group-item">
-                        <div class="pull-right" ng-if="friends.paging.next" ng-click="getFriends_Next_Prev(friends.paging.next)">
-                            <button type="button" class="btn btn-xs btn-success-outline">Next
-                            </button>
-                        </div>
-                        <div class="" ng-if="friends.paging.previous" ng-click="getFriends_Next_Prev(friends.paging.previous)">
-                            <button type="button" class="btn btn-xs btn-success-outline">Prev
-                            </button>
-                        </div>
-                        <div class="" ng-if="!friends.paging.previous && !friends.paging.next">
-                            No More Suggestions
-                        </div>
-                    </li>
-                </ul>
+                  <li class="list-group-item" ng-repeat="user in event.registeredUsers">
+                    <div class="media">
+                      <a class="media-left" href="#">
+                        <img class="media-object img-circle" ng-src="{{user.picture.data.url}}">
+                      </a>
+                      <div class="media-body">
+                        <button class="btn btn-primary-outline btn-sm pull-right" ng-show="user._id!=event.creator._id">
+                          <span class="icon icon-add-user"></span> Remove
+                        </button>
+                        <strong>{{user.name}}</strong><br>
+                        <small ng-show="user._id==event.creator._id">Group Admin</small>
+                      </div>
+                    </div>
+                  </li>
+                
                 <li class="media list-group-item p-a">
                     <div class="media-body">
                         <div class="media-body-text">
