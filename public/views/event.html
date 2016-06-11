@@ -19,17 +19,7 @@
                         </div>
                     </li>
                     <li class="media list-group-item p-a">
-                        <div class="modal-body">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Message" ng-model="textMsg" ng-keyup="$event.keyCode == 13 && createMessage()">
-                                <div class="input-group-btn">
-                                    <button type="button" class="btn btn-default" ng-click="createMessage()">
-                                        <span class="icon icon-direction"></span>
-                                    </button>
-                                </div>
-                            </div>
-
-                        </div>
+                        
 
                         <div class="modal-body-scroller">
                             <div class="m-a js-conversation">
@@ -58,6 +48,9 @@
                                                  ng-src="{{message.sender.picture.data.url}}">
                                         </a>
                                     </li>
+                                    <div id="bottom" ng-repeat-end>
+                                    
+                                    </div>
 
                                     <!-- <li class="media m-b-md">
                                       <a class="media-left" href="#">
@@ -79,6 +72,17 @@
                                 </ul>
 
                             </div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Message" ng-model="textMsg" ng-keyup="$event.keyCode == 13 && createMessage()">
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="createMessage()">
+                                        <span class="icon icon-direction"></span>
+                                    </button>
+                                </div>
+                            </div>
+
                         </div>
                     </li>
                     <li class="media list-group-item p-a">

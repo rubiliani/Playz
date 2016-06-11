@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('PlayzApp')
-.controller('eventCtrl', function($scope, $http, $rootScope, $location,DB_queries,resolveGetEventById,$window,growl,fbLogin) {
+.controller('eventCtrl', function($scope, $http, $rootScope, $location,DB_queries,resolveGetEventById,$window,growl,fbLogin,$anchorScroll) {
     $scope.event = resolveGetEventById;
     $scope.messages = [];
     console.log("event controller",$scope);
@@ -9,6 +9,10 @@ angular.module('PlayzApp')
     $scope.getMessage = function(){
     	DB_queries.getMessages($scope.event._id).then(function(messages){
 				$scope.messages=messages;
+				 $location.hash('bottom');
+
+			      // call $anchorScroll()
+			      $anchorScroll();
     	});
 	}
 
@@ -39,7 +43,7 @@ angular.module('PlayzApp')
 		}
 	});
 	
-     $scope.getMessage();
+    
 
 	$scope.leaveEvent=function(card){
 		console.log("leave ",card)
@@ -71,6 +75,8 @@ angular.module('PlayzApp')
       
         $location.url('/edit/'+ $scope.event._id);
     }
+
+     $scope.getMessage();
 
 
 });
