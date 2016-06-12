@@ -1,22 +1,17 @@
-<div class="media-body" ng-controller="playzcardCtrl" class="list-group-item" id="playzerCard">
-
-    <small class="pull-right text-muted">{{card.whenDate | date:"dd/MM/yy"}}</small>
-
-    
-    <div class="media-heading">
-        <h4>{{card.sportType}}</h4>
-        <span class="icon icon-globe text-muted"></span>  {{card.location.city}}, {{card.airDistance}} KM / {{card.distance.duration.text}} from you<br>
-        <span class="icon icon-user text-muted"></span>  {{card.groupSize - card.registeredUsers.length}} more places available
-       
-
-        <div class="pull-right">
-
-<!--
-            <button type="button" class="btn btn-success" data-toggle="modal" href="#eventModal" ng-click="[$event.preventDefault(),openEvent(card)]">
-                Open
-            </button>
--->
-
+<div class="media" ng-controller="playzcardCtrl" class="list-group-item" id="playzerCard">
+    <a class="media-left">
+        <img style="max-height:40px;" data-ng-src="assets/img/{{getPic(card.sportType)}}">       
+    </a>
+    <div class="media-body">
+        <div class="media-body-text">
+            <div class="media-heading">
+                <small class="pull-right text-muted">{{card.whenDate | date:"dd/MM/yy"}}</small>
+                <h4>{{card.sportType}}</h4>
+            </div>
+            <p>
+                <span class="icon icon-globe text-muted"></span>  {{card.location.city}}, {{card.airDistance}} KM / {{card.distance.duration.text}} from you<br>
+                <span class="icon icon-user text-muted"></span>  {{card.groupSize - card.registeredUsers.length}} more places available
+            </p>
         </div>
     </div>
 </div>
