@@ -4,7 +4,9 @@ angular.module('PlayzApp')
 .controller('homeCtrl', function($scope, $http, $rootScope,DB_queries, fbLogin,growl,geolocation) {
 	console.log("home controller")
 
-	 	$scope.sports=[{name:"Any Sport"},{name:"Basketball"},{name:"Tennis"},{name:"Soccer"},{name:"Golf"},{name:"TRX"},{name:"Running"}];
+	 	 $scope.sports=[{name:"Baseball"},{name:"Basketball"},{name:"Boxing"},{name:"Diving"},{name:"Fishing"},
+            {name:"Golf"},{name:"Hocky"},{name:"Running"},{name:"Ski"},{name:"Soccer"},{name:"Surfing"},{name:"Swimming"}
+            ,{name:"Table Tennis"},{name:"Tennis"}];
         $scope.levels=["Any Level", "Newbie", "Intermediate", "Proffesional"];
         $scope.mindsets=["All Mindsets","Just for fun", "Turnament", "By the book"];
         $scope.location={latitude:0,longitude:0,name:''};
