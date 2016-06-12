@@ -21,27 +21,7 @@ angular.module('PlayzApp')
 		
 	}
 
-	$scope.getPic = function(type){
-
-		switch(type){
-			case "Basketball":
-				return "Basketball.png";
-			case "Tennis":
-				return "Tennis.png";
-			case "Soccer":
-				return "Soccer.png";
-			case "Golf":
-				return "Golf.png";
-			case "TRX":
-				return "TRX.png";
-			case "Running":
-				return "Running.png";
-			case "Baseball":
-				return "Baseball.png";
-			case "Boxing":
-				return "Boxing.png";
-		}
-	}
+	
 
 
 
