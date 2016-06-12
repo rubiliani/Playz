@@ -15,7 +15,7 @@ angular.module('PlayzApp')
         	sportType:"Any Sport",
         	level:"Any Level",
         	mindset:"All Mindsets",
-        	locationType:"Home Location"
+        	locationType:"home"
 
         }
         $scope.events = [];
@@ -59,7 +59,9 @@ angular.module('PlayzApp')
 
     	
 
-    	$scope.filterEvents = function(events){
+    	$scope.filterEvents = function(){
+    		console.log('my filter',$scope.filter);
+    		var events = $scope.events;
     		if($scope.filter.locationType=="current"){
     			 geolocation.getCurrentPosition().then(function(val){
                 	console.log('create page geo',val);
