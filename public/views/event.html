@@ -23,7 +23,7 @@
 
                         <div class="modal-body-scroller">
                             <div class="m-a js-conversation">
-                                <ul class="media-list media-list-conversation">
+                                <ul class="media-list media-list-conversation" id="msgContainer">
                                     <!--<li class="media  m-b-md" ng-repeat="message in messages | orderBy: 'timestamp':true"-->
                                     <li class="media  m-b-md" ng-repeat="message in messages"
                                         ng-class="{'media-current-user':user._id==message.sender._id}">

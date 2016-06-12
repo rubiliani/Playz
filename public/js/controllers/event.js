@@ -77,7 +77,7 @@ angular.module('PlayzApp')
     }
 
      $scope.getMessage();
-     $location.hash('bottom');
+     //$location.hash('bottom');
 
 
 });
