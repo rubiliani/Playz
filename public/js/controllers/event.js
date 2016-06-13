@@ -73,6 +73,44 @@ angular.module('PlayzApp')
         $location.url('/edit/'+ $scope.event._id);
     }
 
+     $scope.inviteFriend = function(fbId,friend){
+            console.log("invited user " +fbId)
+            //$scope.event.invitedUsers.push(fbId);
+          friend.added=true;
+            //$(".btn-danger-outline").removeClass('hide');
+            //$(".btn-primary-outline").addClass('hide');
+
+            /*
+            DB_queries.inviteFriend($scope.event,fbId).then(function(event){
+                console.log('friend invited',event)
+              
+            })*/
+
+        }
+        $scope.cancelInviteFriend = function($index,friend){
+            console.log("cancel invited user " +friend.id)
+            //$(".btn-danger-outline").addClass('hide');
+            //$(".btn-primary-outline").removeClass('hide');
+            //$scope.event.invitedUsers.splice($index, 1);
+          friend.added=false;
+
+
+        }
+
+    fbLogin.getFriends().then(function(friends){
+            console.log(friends)
+
+            $scope.friends=friends;
+            
+            $scope.event.registeredUsers.forEach(function (user, i) {
+
+            	$scope.friends.data.forEach(function(fbUser,ind){
+            		if(user.id==fbUser.id)
+            			$scope.friends.data.splice(ind, 1);     
+            	});
+            });
+        })
+
      $scope.getMessage();
      //$location.hash('bottom');
 

@@ -18,11 +18,20 @@
                             Where: {{event.location.city}}<br>
                             Registerd Playzers: {{event.registeredUsers.length}}
                         </div>
+                         <ul class="avatar-list">
+                      <li class="avatar-list-item" ng-repeat="user in event.registeredUsers">
+                        <img class="img-circle" ng-src="{{user.picture.data.url}}">
+                      </li>
+                    </ul>
                     </li>
+                   
+                    
 
                     <li class="media list-group-item p-a">
-                       
-                        <button type="button" class="btn btn-default-outline" ng-click="invite()"> <span class="icon icon-add-user"></span>  Invite </button>
+                        <button type="button" class="btn btn btn-primary-outline" 
+                                data-toggle="modal" href="#userModal"> 
+                                <span class="icon icon-add-user"></span>  Invite
+                        </button>
                         <button type="button" class="btn btn-primary-outline" ng-click="share()"> <span class="icon icon-facebook"></span>  Share </button>
                         <button type="button" class="btn btn btn-primary-outline" 
                                 data-toggle="modal" href="#messageModal"> 
@@ -46,5 +55,6 @@
 
     </div>
     <ng-include ng-show="status" src="'views/includes/groupChat.html'"></ng-include>
+     <ng-include ng-show="status" src="'views/includes/inviteUsers.html'"></ng-include>
 </div>
 
