@@ -4,28 +4,25 @@ angular.module('PlayzApp')
 .controller('eventCtrl', function($scope, $http, $rootScope, $location,DB_queries,resolveGetEventById,$window,growl,fbLogin,$anchorScroll) {
     $scope.event = resolveGetEventById;
     $scope.messages = [];
+    $scope.textMsg = "";
     console.log("event controller",$scope);
 
     $scope.getMessage = function(){
     	DB_queries.getMessages($scope.event._id).then(function(messages){
 			$scope.messages=messages;
-			$anchorScroll();
+			
 			    
     	});
     //$anchorScroll();
 	}
 
-	$scope.createMessage = function(){
-		if($scope.textMsg=='')
+	$scope.createMessage = function(txt){
+		if(txt=='')
 			return;
-		DB_queries.createMessage($rootScope.user._id,$scope.event._id,$scope.textMsg).then(function(messages){
-			//	$scope.messages.push({
-			//		event:$scope.event._id,
-			//		sender:$rootScope.user,
-			//		text:$scope.textMsg,
-			//		timestamp:new Date()
-			//	});
-			$scope.textMsg='';
+		DB_queries.createMessage($rootScope.user._id,$scope.event._id,txt).then(function(messages){
+			
+			 $('.input').val("");
+			txt='';
     	});
 	}
 
@@ -33,7 +30,7 @@ angular.module('PlayzApp')
 		if ($scope.event._id==msg.event){
 			$scope.messages.push(msg);
 			$scope.$apply()
-			$anchorScroll();
+			//$anchorScroll();
 		}
 		else{
 			//growl.warning("This adds a warn message", {title: 'Warning!'});
