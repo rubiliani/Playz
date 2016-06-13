@@ -151,7 +151,7 @@ angular.module('PlayzApp.services',['ngResource','ngRoute','ngStorage','ngFacebo
 		    method: 'share',
 		    display: 'touch',
 		    mobile_iframe:"true",
-		    href: 'http://playzapp.herokuapp.com/#/',
+		    href: 'https://playzapp.herokuapp.com',
 		  }, function(response){});
 		return deferred.promise;
 	}
