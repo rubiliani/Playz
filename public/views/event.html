@@ -69,7 +69,64 @@
 
 
     </div>
-    <ng-include ng-show="status" src="'views/includes/groupChat.html'"></ng-include>
-     <ng-include ng-show="status" src="'views/includes/inviteUsers.html'"></ng-include>
+    <!-- <ng-include  src="'views/includes/groupChat.html'"></ng-include> -->
+     <ng-include src="'views/includes/inviteUsers.html'"></ng-include>
+</div>
+
+<div class="modal fade" data-target="#messageModal"  id="messageModal" tabindex="-1">
+   <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Messages</h4>
+      </div>
+      <div class="modal-body">
+          <div class="input-group">
+              <input type="text" class="form-control" placeholder="Message" ng-model="textMsg" ng-keyup="$event.keyCode == 13 && createMessage()">
+              <div class="input-group-btn">
+                  <button type="button" class="btn btn-default" ng-click="createMessage()">
+                      <span class="icon icon-direction"></span>
+                  </button>
+              </div>
+          </div>
+      </div>
+      <div class="modal-body p-a-0 js-modalBody">
+          <div class="media-list media-list-conversation">
+              <div class="modal-body-scroller">
+                  <div class="m-a js-conversation">
+                      <ul class="media-list media-list-conversation" id="msgContainer">
+                          <li class="media  m-b-md" ng-repeat="message in messages" id="{{message._id}}"
+                            ng-class="{'media-current-user':user._id==message.sender._id}">
+                                <a class="media-left" href="#" ng-class="{'hide':user._id==message.sender._id}">
+                                    <img class="img-circle media-object"
+                                        ng-src="{{message.sender.picture.data.url}}">
+                                </a>
+                                <div class="media-body">
+                                    <div class="media-body-text">
+                                        {{message.text}}
+                                    </div>
+                                    <div class="media-footer">
+                                        <small class="text-muted">
+                                            <a href="#">{{message.sender.name}}</a> at {{message.timestamp |
+                                              date:"dd/MM/yy HH:mm"}}
+                                        </small>
+                                    </div>
+                                </div>
+                                <a class="media-right" href="#"
+                                  ng-class="{'hide':user._id!=message.sender._id}">
+                                    <img class="img-circle media-object"
+                                          ng-src="{{message.sender.picture.data.url}}">
+                                </a>
+                          </li>
+                                   
+                        </ul>
+
+                      </div>
+                </div>        
+            </div>
+          </div>
+       
+     
+    </div>
 </div>
 

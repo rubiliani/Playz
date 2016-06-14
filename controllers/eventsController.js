@@ -128,12 +128,18 @@ module.exports.createMessage = function (req, res) {
 
         Event.addChatMessage(msg._id, data.event, function (result) {
             console.log('addChatMessage',result);
-            Message.populate(msg, {
+            Message.populate(msg, [{
                 path: 'sender',
                 model: 'users',
                 select:'id _id name picture'
 
-            }, function (err, populatemsg) {
+            },
+            {
+                path: 'event',
+                model: 'events',
+                select:'_id eventTitle sportType'
+            }
+            ], function (err, populatemsg) {
                 //console.log(err||populatemsg)
                 if (!err) {
                     socket.newMessageReceived(result.usersEvent,populatemsg);
@@ -211,6 +217,7 @@ exports.createEvent = function (req, res, next) {
 
 exports.getAllEvents = function (req, res) {
     var filter = req.body;
+    console.log(req)
     Event.getAllEvents(req.user, filter, function (result) {
         if (!result.status) {
             return res.status(404).json(result)
@@ -430,10 +437,11 @@ function populateEvents(user, callback) {
     User.populate(user, {
         path: 'registeredEvents',
         model: 'events',
+        options:{sort: { 'whenDate': 1 } },
         populate: [{
             path: 'registeredUsers'
             , model: 'users'
-            , select: 'id name picture'
+            , select: 'id name picture',
         }, {
             path: 'creator'
             , model: 'users'

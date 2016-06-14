@@ -191,7 +191,7 @@ angular.module('PlayzApp')
             $scope.event.privacyType=type;
         }
         $scope.createEvent=function(){
-            $scope.event.whenDate.setHours(0,0,0,0);
+            // $scope.event.whenDate.setHours(0,0,0,0);
             $scope.event.location={
                 "city":$scope.location.city,
                 "name":$scope.location.name,

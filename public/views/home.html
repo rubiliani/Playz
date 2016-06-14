@@ -1,7 +1,7 @@
 <div class="container p-t-md">
     <div class="row">
         <div class="col-md-12">
-        <div class="loader centeredDiv" ng-show="splash"></div>
+        
         
             <ul class="list-group media-list media-list-stream">
                 <li class="media list-group-item">
@@ -36,7 +36,7 @@
                 </li>
             </ul>
 
-
+            <div class="loader centeredDiv" ng-show="splash"></div>
             <div>
                 <div class=" media-list list-group">
                    <!-- <ul class="media-list media-list-stream c-w-md">
@@ -51,7 +51,7 @@
                
                 <div class="animated fadeInUp tab-pane media-list list-group">
                     <div class="media-list media-list-stream c-w-md">
-                        <a class="list-group-item media p-a" ng-repeat="card in events track by $index"
+                        <a class="list-group-item media p-a" ng-repeat="card in events track by $index | orderBy: 'whenDate' "
                         ng-if="user.registeredEvents.indexOf(card._id)==-1"
                         ng-include src="'views/includes/card.html'" href="#eventModal" data-toggle="modal" ng-click="[$event.preventDefault(),openEvent(card)]"ֲ
                            ng-show="card.location_show && card.level_show && card.sportType_show && card.mindset_show && card.groupSize>card.registeredUsers.length"
@@ -78,6 +78,6 @@
 
         </div>
     </div>
-    <ng-include ng-show="status" src="'views/includes/eventReview.html'"></ng-include>
-    <ng-include ng-show="status" src="'views/includes/filter.html'"></ng-include>
+    <ng-include  src="'views/includes/eventReview.html'"></ng-include>
+    <ng-include src="'views/includes/filter.html'"></ng-include>
 </div>

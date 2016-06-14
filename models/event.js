@@ -133,6 +133,9 @@ eventSchema.statics.getAllEvents=function(user,filter,callback){
 	console.log("get all events for "+user._id)
 	var id = mongoose.Types.ObjectId(user._id);
 	var date= new Date().setHours(0,0,0,0);
+	// var date= new Date();
+	// date.setDate(date.getDate()-1);
+	// date = date.setHours(0,0,0,0);
 	
 	var uGender = user.gender;
 	if(uGender==="male")
@@ -151,7 +154,7 @@ eventSchema.statics.getAllEvents=function(user,filter,callback){
 	};
 
 	
-	this.model('events').find(query).populate('registeredUsers')
+	this.model('events').find(query).populate('registeredUsers').sort('whenDate')
 		.exec(function(err,result){
 			if (err){
 				r.msg.push("getAllEvents",err);
