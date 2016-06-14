@@ -9,7 +9,8 @@
                 <h4>{{card.sportType}}</h4>
             </div>
             <p>
-                <span class="icon icon-globe text-muted"></span>  {{card.location.city}}, {{card.airDistance}} KM / {{card.distance.duration.text}} from you<br>
+                <span class="icon icon-location text-muted"></span>  {{card.location.city}}<br>
+                <span class="icon icon-ruler text-muted"></span> {{card.airDistance}} KM / {{card.distance.duration.text}} from you<br>
                 <span class="icon icon-user text-muted"></span>  {{card.groupSize - card.registeredUsers.length}} more places available
             </p>
         </div>
