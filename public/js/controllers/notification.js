@@ -34,7 +34,7 @@ angular.module('PlayzApp')
 
         $rootScope.$on('newNotificationFromWS', function(notification, msg) {
                 //growl.warning("This adds a warn message", {title: 'Warning!'});
-                growl.info("New Notification for "+msg.event.eventTitle+" event", {title: 'New Invetation'});
+                growl.info("New invitation notification for "+msg.event.eventTitle+" event", {title: 'New Invitation'});
                 //growl.success("This adds a success message"); //no title here
                 //growl.error("This adds a error message", {title: 'ALERT WE GOT ERROR'});
         });
