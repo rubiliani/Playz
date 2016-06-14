@@ -18,7 +18,12 @@
                             Title: <b>{{event.eventTitle}}</b><br>
                             When: <b>{{event.whenDate | date:"dd/MM/yyyy"}}</b><br>
                             Where: <b>{{event.location.city}}</b><br>
-                            Registerd Playzers: <b>{{event.registeredUsers.length}}</b>
+                            Level: <b> {{event.level}}</b><br>
+                            Mindset: <b>{{event.mindset}}</b><br>
+                            Gender: <b> {{event.gender}}</b><br>
+                            Age Range: <b> {{event.ageRange.min}} - {{event.ageRange.max}}</b><br>
+                            Registerd Playzers: <b>{{event.registeredUsers.length}}/{{event.groupSize}}</b><br>
+    
                         </div>
                          <ul class="avatar-list">
                       <li class="avatar-list-item" ng-repeat="user in event.registeredUsers">
