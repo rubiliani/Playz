@@ -1,7 +1,7 @@
 <div class="container p-t-md">
     <div class="row">
         <div class="col-md-12">
-        <div class="loader centeredDiv" ng-show="splash"></div><br>
+        <div class="loader centeredDiv" ng-show="splash"></div>
         
             <ul class="list-group media-list media-list-stream">
                
@@ -9,10 +9,7 @@
                     <div class="">
                         <h2>Explore events
                     
-                        <button ng-click="[$event.preventDefault()]"ֲ type="button"
-                                class="btn btn-sm btn-primary pull-right" data-toggle="modal" href="#filterModal">
-                            Filter
-                        </button>
+                        
                         </h2>
 
                         <!-- <ul class="nav nav-pills nav-justified">
@@ -30,6 +27,18 @@
                             </li>
                         </ul> -->
                     </div>
+                </li>
+                <li class="media list-group-item p-a">
+                    <button type="button"
+                        class="btn btn-sm btn-primary" ng-click="init()">
+                         <span class="icon icon-cycle"></span>
+                        Refresh
+                    </button>
+                    <button ng-click="[$event.preventDefault()]"ֲ type="button"
+                        class="btn btn-sm btn-primary" data-toggle="modal" href="#filterModal">
+                        <span class="icon icon-funnel"></span>
+                        Filter
+                    </button>
                 </li>
             </ul>
 
