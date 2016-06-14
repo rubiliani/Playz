@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('PlayzApp')
-.controller('eventCtrl', function($scope,$route, $http, $rootScope, $location,DB_queries,resolveGetEventById,$window,growl,fbLogin,$anchorScroll) {
+.controller('eventCtrl', function($scope,$route, $http, $rootScope, $location,DB_queries,resolveGetEventById,$window,growl,fbLogin,$anchorScroll,$timeout) {
     $scope.event = resolveGetEventById;
     $scope.messages = [];
     $scope.textMsg = "";
@@ -10,11 +10,9 @@ angular.module('PlayzApp')
 
     $scope.getMessage = function(){
     	DB_queries.getMessages($scope.event._id).then(function(messages){
-			$scope.messages=messages;
-			
-			    
+				$scope.messages=messages;
     	});
-    //$anchorScroll();
+
 	}
 
 	$scope.createMessage = function(){
@@ -31,8 +29,7 @@ angular.module('PlayzApp')
 
 			if ($rootScope.user.id == msg.sender.id) return;
 			growl.info("New message for "+msg.event.eventTitle+" event", {title: 'New Unread Message'});
-			// $anchorScroll();
-			// $("<a>").attr({'href':"#"+msg._id}).trigger('click')
+
 		}
 		else{
 			//if ($rootScope.user.id == msg.sender.id) return;
@@ -43,8 +40,19 @@ angular.module('PlayzApp')
 		}
 		//growl.info("New message for "+msg.event.eventTitle+" event", {title: 'New Unread Message'});
 	});
-	
-    
+
+  $('#messageModal').on('shown.bs.modal', function (e) {
+    $scope.scrollDown();
+  })
+
+    $scope.scrollDown=function(){
+			console.log('down')
+			$timeout(function(){
+        var element = $("#msgContainer")[0];
+        element.scrollIntoView(false);
+			},100)
+
+		}
 
 	$scope.leaveEvent=function(card){
 		console.log("leave ",card)
@@ -132,4 +140,14 @@ angular.module('PlayzApp')
      //$location.hash('bottom');
 
 
-});
+})
+	.directive("repeatEnd", function(){
+		return {
+			restrict: "A",
+			link: function (scope, element, attrs) {
+				if (scope.$last) {
+					scope.$eval(attrs.repeatEnd);
+				}
+			}
+		};
+	});

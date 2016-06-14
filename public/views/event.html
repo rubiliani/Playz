@@ -2,12 +2,15 @@
     <div class="row">
         <div class="col-md-12">
             <ul class="list-group media-list media-list-stream">
-                <li class="list-group-item p-a" >
-                    <button type="button" class="btn btn-sm btn-primary pull-right app-new-msg js-newMsg" ng-if="user._id==event.creator._id" ng-click="editEvent()">
-                    <span class="icon icon-new-message"></span>  Edit Event
+                <li class="list-group-item p-a">
+                    <button type="button" class="btn btn-sm btn-primary pull-right app-new-msg js-newMsg"
+                            ng-if="user._id==event.creator._id" ng-click="editEvent()">
+                        <span class="icon icon-new-message"></span> Edit Event
                     </button>
-                   
-                    <h3 class="modal-title"> <img style="max-height:40px;" data-ng-src="assets/img/{{event.sportType}}.png">  {{event.sportType}}</h3>
+
+                    <h3 class="modal-title"><img style="max-height:40px;"
+                                                 data-ng-src="assets/img/{{event.sportType}}.png"> {{event.sportType}}
+                    </h3>
                 </li>
                 <div>
                     <li class="media list-group-item p-a">
@@ -15,48 +18,43 @@
                             <div class="media-heading">
                                 <small class="pull-right text-muted"></small>
                             </div>
-                            <span class="icon icon-pencil text-muted"></span> &nbsp;&nbsp;  Title: <b>&nbsp;{{event.eventTitle}}</b><br>
-                            <span class="icon icon-clock text-muted"></span> &nbsp;&nbsp; When: <b>&nbsp;{{event.whenDate | date:"dd/MM/yyyy"}}</b><br>
+                            <span class="icon icon-pencil text-muted"></span> &nbsp;&nbsp; Title: <b>&nbsp;{{event.eventTitle}}</b><br>
+                            <span class="icon icon-clock text-muted"></span> &nbsp;&nbsp; When: <b>&nbsp;{{event.whenDate
+                            | date:"dd/MM/yyyy"}}</b><br>
                             <span class="icon icon-location text-muted"></span> &nbsp;&nbsp; Where: <b>&nbsp;{{event.location.city}}</b><br>
                             <span class="icon icon-graduation-cap text-muted"></span> &nbsp;&nbsp; Level: <b> &nbsp;{{event.level}}</b><br>
                             <span class="icon icon-emoji-flirt text-muted"></span> &nbsp;&nbsp; Mindset: <b>&nbsp;{{event.mindset}}</b><br>
                             <span class="icon icon-slideshare text-muted"></span> &nbsp;&nbsp; Gender: <b> &nbsp;{{event.gender}}</b><br>
-                            <span class="icon icon-ruler text-muted"></span> &nbsp;&nbsp; Age Range: <b> &nbsp;{{event.ageRange.min}} - {{event.ageRange.max}}</b><br>
-                              <span class="icon icon-users text-muted"></span> &nbsp;&nbsp; Registered Playzers: <b>{{event.registeredUsers.length}}/{{event.groupSize}}</b><br><br>
-    
+                            <span class="icon icon-ruler text-muted"></span> &nbsp;&nbsp; Age Range: <b> &nbsp;{{event.ageRange.min}}
+                            - {{event.ageRange.max}}</b><br>
+                            <span class="icon icon-users text-muted"></span> &nbsp;&nbsp; Registered Playzers: <b>{{event.registeredUsers.length}}/{{event.groupSize}}</b><br><br>
+
                         </div>
-                         <ul class="avatar-list">
-                      <li class="avatar-list-item" ng-repeat="user in event.registeredUsers">
-                        <img class="img-circle" ng-src="{{user.picture.data.url}}">
-                      </li>
-                    </ul>
+                        <ul class="avatar-list">
+                            <li class="avatar-list-item" ng-repeat="user in event.registeredUsers">
+                                <img class="img-circle" ng-src="{{user.picture.data.url}}">
+                            </li>
+                        </ul>
                     </li>
-                   
-                    
-
-
-
-      
-       
-       
-
 
 
                     <li class="media list-group-item p-a">
-                        <button type="button" class="btn btn btn-primary-outline" 
-                                data-toggle="modal" href="#userModal"> 
-                                <span class="icon icon-add-user"></span>  Invite
+                        <button type="button" class="btn btn btn-primary-outline"
+                                data-toggle="modal" href="#userModal">
+                            <span class="icon icon-add-user"></span> Invite
                         </button>
-                        <button type="button" class="btn btn-primary-outline" ng-click="share()"> <span class="icon icon-facebook"></span>  Share </button>
-                        <button type="button" class="btn btn btn-primary-outline" 
-                                data-toggle="modal" href="#messageModal"> 
-                                <span class="icon icon-chat"></span>  Chat
+                        <button type="button" class="btn btn-primary-outline" ng-click="share()"><span
+                                class="icon icon-facebook"></span> Share
                         </button>
-                       
+                        <button type="button" class="btn btn btn-primary-outline"
+                                data-toggle="modal" href="#messageModal">
+                            <span class="icon icon-chat"></span> Chat
+                        </button>
+
                     </li>
-                    <li class="media list-group-item p-a" >
-                    <button type="button" class="btn btn-danger"  ng-click="leaveEvent(event)">Leave Event</button>
-                    <button type="button" class="btn btn-info pull-right" ng-click="goBack()">Go Back</button>
+                    <li class="media list-group-item p-a">
+                        <button type="button" class="btn btn-danger" ng-click="leaveEvent(event)">Leave Event</button>
+                        <button type="button" class="btn btn-info pull-right" ng-click="goBack()">Go Back</button>
 
                     </li>
 
@@ -70,63 +68,64 @@
 
     </div>
     <!-- <ng-include  src="'views/includes/groupChat.html'"></ng-include> -->
-     <ng-include src="'views/includes/inviteUsers.html'"></ng-include>
+    <ng-include src="'views/includes/inviteUsers.html'"></ng-include>
 </div>
 
-<div class="modal fade" data-target="#messageModal"  id="messageModal" tabindex="-1">
-   <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Messages</h4>
-      </div>
-      <div class="modal-body">
-          <div class="input-group">
-              <input type="text" class="form-control" placeholder="Message" ng-model="textMsg" ng-keyup="$event.keyCode == 13 && createMessage()">
-              <div class="input-group-btn">
-                  <button type="button" class="btn btn-default" ng-click="createMessage()">
-                      <span class="icon icon-direction"></span>
-                  </button>
-              </div>
-          </div>
-      </div>
-      <div class="modal-body p-a-0 js-modalBody">
-          <div class="media-list media-list-conversation">
-              <div class="modal-body-scroller">
-                  <div class="m-a js-conversation">
-                      <ul class="media-list media-list-conversation" id="msgContainer">
-                          <li class="media  m-b-md" ng-repeat="message in messages" id="{{message._id}}"
-                            ng-class="{'media-current-user':user._id==message.sender._id}">
-                                <a class="media-left" href="#" ng-class="{'hide':user._id==message.sender._id}">
-                                    <img class="img-circle media-object"
-                                        ng-src="{{message.sender.picture.data.url}}">
-                                </a>
-                                <div class="media-body">
-                                    <div class="media-body-text">
-                                        {{message.text}}
-                                    </div>
-                                    <div class="media-footer">
-                                        <small class="text-muted">
-                                            <a href="#">{{message.sender.name}}</a> at {{message.timestamp |
-                                              date:"dd/MM/yy HH:mm"}}
-                                        </small>
-                                    </div>
-                                </div>
-                                <a class="media-right" href="#"
-                                  ng-class="{'hide':user._id!=message.sender._id}">
-                                    <img class="img-circle media-object"
-                                          ng-src="{{message.sender.picture.data.url}}">
-                                </a>
-                          </li>
-                                   
-                        </ul>
-
-                      </div>
-                </div>        
+<div class="modal fade" data-target="#messageModal" id="messageModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Messages</h4>
             </div>
-          </div>
-       
-     
+            <div class="modal-body">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Message" ng-model="textMsg"
+                           ng-keyup="$event.keyCode == 13 && createMessage()">
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="createMessage()">
+                            <span class="icon icon-direction"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body p-a-0 js-modalBody">
+                <div class="media-list media-list-conversation">
+                    <div class="modal-body-scroller">
+                        <div class="m-a js-conversation">
+                            <ul class="media-list media-list-conversation" id="msgContainer">
+                                <li class="media  m-b-md" ng-repeat="message in messages" id="{{message._id}}" repeat-end="scrollDown()"
+                                    ng-class="{'media-current-user':user._id==message.sender._id}">
+                                    <a class="media-left" href="#" ng-class="{'hide':user._id==message.sender._id}">
+                                        <img class="img-circle media-object"
+                                             ng-src="{{message.sender.picture.data.url}}">
+                                    </a>
+                                    <div class="media-body">
+                                        <div class="media-body-text">
+                                            {{message.text}}
+                                        </div>
+                                        <div class="media-footer">
+                                            <small class="text-muted">
+                                                <a href="#">{{message.sender.name}}</a> at {{message.timestamp |
+                                                date:"dd/MM/yy HH:mm"}}
+                                            </small>
+                                        </div>
+                                    </div>
+                                    <a class="media-right" href="#"
+                                       ng-class="{'hide':user._id!=message.sender._id}">
+                                        <img class="img-circle media-object"
+                                             ng-src="{{message.sender.picture.data.url}}">
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
     </div>
 </div>
-
