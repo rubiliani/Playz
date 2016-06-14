@@ -15,9 +15,10 @@
                             <div class="media-heading">
                                 <small class="pull-right text-muted"></small>
                             </div>
-                            When: {{event.whenDate | date:"dd/MM/yyyy"}}<br>
-                            Where: {{event.location.city}}<br>
-                            Registerd Playzers: {{event.registeredUsers.length}}
+                            Title: <b>{{event.eventTitle}}</b><br>
+                            When: <b>{{event.whenDate | date:"dd/MM/yyyy"}}</b><br>
+                            Where: <b>{{event.location.city}}</b><br>
+                            Registerd Playzers: <b>{{event.registeredUsers.length}}</b>
                         </div>
                          <ul class="avatar-list">
                       <li class="avatar-list-item" ng-repeat="user in event.registeredUsers">

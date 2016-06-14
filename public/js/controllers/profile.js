@@ -1,8 +1,9 @@
 'use strict';
 
 angular.module('PlayzApp')
-    .controller('profileCtrl', function ($scope, $http, $rootScope, $location, DB_queries) {
+    .controller('profileCtrl', function ($scope, $http, $rootScope, $location, DB_queries,$interval) {
         console.log("profile controller");
+        $scope.splash = true;
         $scope.disable = true;
         if ($rootScope.user) {
             $scope.profile = {
@@ -42,6 +43,12 @@ angular.module('PlayzApp')
             $scope.disable=!$scope.disable;
         }
 
+        $interval(function(){
+            $scope.splash = true;
+           $scope.tabChanged('upcoming');
+            console.log("refresh")
+        },100000);
+
         $scope.tabChanged=function(type){
             if (type=="upcoming"){
 
@@ -49,6 +56,7 @@ angular.module('PlayzApp')
 
                 DB_queries.getUpcomingEvents().then(function(data){
                     $scope.upcomingEvents=data;
+                     $scope.splash = false;
                 })
             }
             else if (type=="past"){
