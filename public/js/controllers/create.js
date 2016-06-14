@@ -25,6 +25,7 @@ angular.module('PlayzApp')
             ageRange:{},
             creator:'',
             invitedUsers:[],
+            eventTitle:'',
             registeredUsers:[]
         };
          

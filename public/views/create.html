@@ -41,6 +41,16 @@
                     <div class="media-body">
                         <div class="media-body-text">
                             <div class="media-heading">
+                                <label class="select">Event Title:</label>
+                                <input type="text" class="form-control" placeholder="e.g. Monday Soccer" ng-model="event.eventTitle"required> 
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="media list-group-item p-a">
+                    <div class="media-body">
+                        <div class="media-body-text">
+                            <div class="media-heading">
                                 <label class="select">Choose Sport:</label>
                                 <select id="sportSelection" class="form-control custom-select" ng-model="event.sportType">
                                     <option ng-repeat="sport in sports track by $index"

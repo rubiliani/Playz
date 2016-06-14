@@ -3,7 +3,8 @@
         <div class="col-md-12">
             <ul class="list-group media-list media-list-stream">
                 <li class="list-group-item p-a" >
-                    <button type="button" class="btn btn-sm btn-primary pull-right app-new-msg js-newMsg" ng-if="user._id==event.creator._id" ng-click="editEvent()">Edit Event
+                    <button type="button" class="btn btn-sm btn-primary pull-right app-new-msg js-newMsg" ng-if="user._id==event.creator._id" ng-click="editEvent()">
+                    <span class="icon icon-new-message"></span>  Edit Event
                     </button>
                    
                     <h3 class="modal-title"> <img style="max-height:40px;" data-ng-src="assets/img/{{event.sportType}}.png">  {{event.sportType}}</h3>

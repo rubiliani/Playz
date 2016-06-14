@@ -62,10 +62,10 @@
             <ul class="list-group media-list media-list-stream">
                 <li class="list-group-item">
 
-                    <h3 class="">My upcomming events 
+                    <h3 class="">My events 
                         <button ng-click="createNewEvent()" type="button"
                                 class="btn btn-sm btn-primary pull-right">
-                            New event
+                                <span class="icon icon-calendar"></span>  New event
                         </button>
                     </h3>
                 </li>
@@ -87,7 +87,7 @@
             <div class="media-list list-group tab-content">
                 <div ng-tab-body="animated bounceInLeft" class="tab-pane media-list list-group">
                     <div class="media-list media-list-stream c-w-md">
-                        <a class="list-group-item media p-a" ng-repeat="card in upcomingEvents track by $index"
+                        <a class="list-group-item media" ng-repeat="card in upcomingEvents track by $index"
                              ng-include src="'views/includes/mycard.html'"> </a>
                     </div>
                 </div>
