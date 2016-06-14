@@ -54,7 +54,7 @@
                         <a class="list-group-item media p-a" ng-repeat="card in events track by $index"
                         ng-if="user.registeredEvents.indexOf(card._id)==-1"
                         ng-include src="'views/includes/card.html'" href="#eventModal" data-toggle="modal" ng-click="[$event.preventDefault(),openEvent(card)]"ֲ
-                           ng-show="card.location_show && card.level_show && card.sportType_show && card.mindset_show"
+                           ng-show="card.location_show && card.level_show && card.sportType_show && card.mindset_show && card.groupSize>card.registeredUsers.length"
                         > </a>
                     </div>
                 </div>

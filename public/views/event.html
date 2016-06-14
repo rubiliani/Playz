@@ -15,14 +15,14 @@
                             <div class="media-heading">
                                 <small class="pull-right text-muted"></small>
                             </div>
-                            Title: <b>{{event.eventTitle}}</b><br>
-                            When: <b>{{event.whenDate | date:"dd/MM/yyyy"}}</b><br>
-                            Where: <b>{{event.location.city}}</b><br>
-                            Level: <b> {{event.level}}</b><br>
-                            Mindset: <b>{{event.mindset}}</b><br>
-                            Gender: <b> {{event.gender}}</b><br>
-                            Age Range: <b> {{event.ageRange.min}} - {{event.ageRange.max}}</b><br>
-                            Registerd Playzers: <b>{{event.registeredUsers.length}}/{{event.groupSize}}</b><br>
+                            <span class="icon icon-pencil text-muted"></span> &nbsp;&nbsp;  Title: <b>&nbsp;{{event.eventTitle}}</b><br>
+                            <span class="icon icon-clock text-muted"></span> &nbsp;&nbsp; When: <b>&nbsp;{{event.whenDate | date:"dd/MM/yyyy"}}</b><br>
+                            <span class="icon icon-location text-muted"></span> &nbsp;&nbsp; Where: <b>&nbsp;{{event.location.city}}</b><br>
+                            <span class="icon icon-graduation-cap text-muted"></span> &nbsp;&nbsp; Level: <b> &nbsp;{{event.level}}</b><br>
+                            <span class="icon icon-emoji-flirt text-muted"></span> &nbsp;&nbsp; Mindset: <b>&nbsp;{{event.mindset}}</b><br>
+                            <span class="icon icon-slideshare text-muted"></span> &nbsp;&nbsp; Gender: <b> &nbsp;{{event.gender}}</b><br>
+                            <span class="icon icon-ruler text-muted"></span> &nbsp;&nbsp; Age Range: <b> &nbsp;{{event.ageRange.min}} - {{event.ageRange.max}}</b><br>
+                              <span class="icon icon-users text-muted"></span> &nbsp;&nbsp; Registered Playzers: <b>{{event.registeredUsers.length}}/{{event.groupSize}}</b><br><br>
     
                         </div>
                          <ul class="avatar-list">
@@ -33,6 +33,14 @@
                     </li>
                    
                     
+
+
+
+      
+       
+       
+
+
 
                     <li class="media list-group-item p-a">
                         <button type="button" class="btn btn btn-primary-outline" 
