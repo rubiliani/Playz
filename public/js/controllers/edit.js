@@ -4,6 +4,7 @@ angular.module('PlayzApp')
 .controller('editCtrl', function($scope, $http,$q, $rootScope, $location,DB_queries,geolocation,$timeout,resolveGetEventById,$window,growl,fbLogin) {
     $scope.event = resolveGetEventById;
     $scope.event.whenDate = new Date($scope.event.whenDate);
+    $scope.removedUsers = [];
 
    console.log("Got event ",$scope.event);
    	
@@ -222,8 +223,17 @@ angular.module('PlayzApp')
             
             DB_queries.updateEvent($scope.event).then(function(event){
                 console.log('events - edit event',event)
-                $location.url('/event/'+$scope.event._id)
-            })
+                //remove kicked users
+
+                $scope.removedUsers.forEach(function (user, i) {
+                    DB_queries.adminRemoveUserEvent($scope.event._id,user).then(function(event){
+                        console.log('remove user - edit event')
+                    });
+                //$location.url('/event/'+$scope.event._id)
+                    });
+                 $location.url('/event/'+$scope.event._id)
+                } 
+            )
 
         }
 
@@ -275,6 +285,14 @@ angular.module('PlayzApp')
             //$(".btn-primary-outline").removeClass('hide');
             $scope.event.invitedUsers.splice($index, 1);
 
+
+        }
+        $scope.removeFriend = function($index,fbId){
+            console.log("cancel invited user " +fbId)
+            //$(".btn-danger-outline").addClass('hide');
+            //$(".btn-primary-outline").removeClass('hide');
+            $scope.removedUsers.push(fbId._id);
+            $scope.event.registeredUsers.splice($index, 1);
 
         }
 

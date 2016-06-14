@@ -106,7 +106,8 @@ app.get('/sports', controllers.sportsController.getList);
 
 
 //users
-app.post('/users/update_user', controllers.usersController.update_user);
+app.post('/users/update_user', controllers.usersController.update_user); 
+app.post('/users/deleteUserEvent', controllers.usersController.delete_user_from_event); 
 //app.post('/users', controllers.usersController.create);
 //app.post('/users/events/:id', controllers.usersController.addEvent);
 //app.get('/users/events/:id', controllers.usersController.getMyEventList);

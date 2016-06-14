@@ -135,6 +135,31 @@ userSchema.statics.delete_invite_notification=function(notificationid,userid,cal
 		});
 }
 
+//remove invite notification
+userSchema.statics.delete_user_from_event=function(eventid,userid,callback){
+	var r = {msg:[],status:0};
+	console.log("delete user from event",eventid,userid)
+	var query = {
+		_id : userid
+	};
+
+	this.model('users').update(query, {
+			$pull: {
+					registeredEvents : eventid
+			}
+	}).exec(function(err,result){
+			if (err){
+				r.msg.push("delete user",err);
+				return callback(r);
+			}
+
+			r.msg.push("delete user");
+			r.status=1;
+
+			return callback(r);
+		});
+}
+
 
 userSchema.statics.invite_users_to_event=function(data,callbackSuccess,callbackError){
 	var r = {msg:[],status:0};

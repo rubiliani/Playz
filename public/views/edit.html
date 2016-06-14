@@ -220,7 +220,7 @@
                         <img class="media-object img-circle" ng-src="{{user.picture.data.url}}">
                       </a>
                       <div class="media-body">
-                        <button class="btn btn-danger-outline btn-sm pull-right" ng-show="user._id!=event.creator._id">
+                        <button class="btn btn-danger-outline btn-sm pull-right" ng-show="user._id!=event.creator._id" ng-click="removeFriend($index,user)">
                           <span class="icon icon-remove-user"></span> Remove
                         </button>
                         <strong>{{user.name}}</strong><br>

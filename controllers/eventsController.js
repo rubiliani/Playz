@@ -250,8 +250,30 @@ exports.joinEvent = function (req, res) {
 
 exports.leaveEvent = function (req, res) {
     var eid = req.body.eventid;
+    var uid = req.body.userid;
 
     Event.leaveFromEvent(eid,req.user._id,function(result){
+        if (!result.status){
+            return res.status(404).json(result)
+        }
+
+        //TODO send ws to all registered users for a new user in the team
+        var index = req.user.registeredEvents.indexOf(result.event._id);
+        if (index != -1){
+            req.user.registeredEvents.splice(index,1);
+        }
+        req.user.save();
+
+        return res.json(result);
+    })
+
+}
+
+exports.removeUserFromEvent = function (req, res) {
+    var eid = req.body.eventid;
+    var uid = req.body.userid;
+
+    Event.leaveFromEvent(eid,uid,function(result){
         if (!result.status){
             return res.status(404).json(result)
         }

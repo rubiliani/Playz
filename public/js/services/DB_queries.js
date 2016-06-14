@@ -330,6 +330,22 @@ angular.module('PlayzApp.services')
             return deferred.promise;
         }
 
+        var _adminRemoveUserEvent = function(eid,uid){
+            var deferred = $q.defer();
+            $http.post($rootScope.app.domain+'users/deleteUserEvent',{eventid:eid,userid:uid})
+                .success(function(data){
+                    console.log("leaveEvent success",data)
+                    deferred.resolve(data);
+                }).error(function(err){
+                console.log("leaveEvent err",err)
+                deferred.reject(err);
+            })
+                ['finally'](function() {
+
+            });
+            return deferred.promise;
+        }
+
         return {
             getEvents: _getEvents,
             updateUser: _updateUser,
@@ -349,6 +365,7 @@ angular.module('PlayzApp.services')
             createMessage:_createMessage,
             getEventById:_getEventById,
             joinEvent:_joinEvent,
+            adminRemoveUserEvent:_adminRemoveUserEvent,
             leaveEvent:_leaveEvent
 
         }
