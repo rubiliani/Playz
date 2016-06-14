@@ -28,17 +28,20 @@ angular.module('PlayzApp')
 		if ($scope.event._id==msg.event._id){
 			$scope.messages.push(msg);
 			$scope.$apply();
+
+			if ($rootScope.user.id == msg.sender.id) return;
+			growl.info("New message for "+msg.event.eventTitle+" event", {title: 'New Unread Message'});
 			// $anchorScroll();
 			// $("<a>").attr({'href':"#"+msg._id}).trigger('click')
 		}
 		else{
-			if ($rootScope.user.id == msg.sender.id) return;
+			//if ($rootScope.user.id == msg.sender.id) return;
 			//growl.warning("This adds a warn message", {title: 'Warning!'});
-			//growl.info("New message for "+msg.event.eventTitle+" event", {title: 'New Unread Message'});
+			growl.info("New message for "+msg.event.eventTitle+" event", {title: 'New Unread Message'});
 			//growl.success("This adds a success message"); //no title here
 			//growl.error("This adds a error message", {title: 'ALERT WE GOT ERROR'});
 		}
-		growl.info("New message for "+msg.event.eventTitle+" event", {title: 'New Unread Message'});
+		//growl.info("New message for "+msg.event.eventTitle+" event", {title: 'New Unread Message'});
 	});
 	
     
