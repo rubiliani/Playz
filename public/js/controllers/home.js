@@ -19,16 +19,18 @@ angular.module('PlayzApp')
 
     }
     $scope.events = [];
+    $scope.splash = true;
 
 
     $scope.locationChanged = function (type) {
       $scope.filter.locationType = type;
     }
     $scope.init = function () {
-      DB_queries.getAllEvents().then(function (events) {
-        $scope.events = events;
-        $scope.filterEvents();
-      });
+    	$scope.splash = true;
+      	DB_queries.getAllEvents().then(function (events) {
+        	$scope.events = events;
+        	$scope.filterEvents();
+      	});
     }
 
     $interval(function(){
@@ -72,6 +74,7 @@ angular.module('PlayzApp')
 
           if ($scope.filter.locationType == "current") {
             geolocation.getDistanceFromPosition($scope.location, $scope.events).then(function (data) {
+            	$scope.splash = false;
               $scope.events.forEach(function (event, i) {
                 $scope.disatances = data.rows[0].elements;
                 event.distance = $scope.disatances[i];
@@ -91,6 +94,7 @@ angular.module('PlayzApp')
           }
           else {
             geolocation.getDistanceFromPosition($rootScope.user.hometown, $scope.events).then(function (data) {
+            	$scope.splash = false;
               $scope.events.forEach(function (event, i) {
                 $scope.disatances = data.rows[0].elements;
                 event.distance = $scope.disatances[i];
@@ -143,5 +147,6 @@ angular.module('PlayzApp')
 
       })
     }
+
 
   });
