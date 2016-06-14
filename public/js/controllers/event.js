@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('PlayzApp')
-.controller('eventCtrl', function($scope, $http, $rootScope, $location,DB_queries,resolveGetEventById,$window,growl,fbLogin,$anchorScroll) {
+.controller('eventCtrl', function($scope,$route, $http, $rootScope, $location,DB_queries,resolveGetEventById,$window,growl,fbLogin,$anchorScroll) {
     $scope.event = resolveGetEventById;
     $scope.messages = [];
     $scope.textMsg = "";
@@ -76,9 +76,15 @@ angular.module('PlayzApp')
 
 
 
-    $scope.closing=function(){
+    $scope.inviteUsers=function(){
       
-        console.log("close");
+        console.log("inviteUsers");
+		DB_queries.inviteFriends($scope.event,$scope.event.invitedUsers).then(function(){
+			console.log("done inviting");
+			$route.reload();
+		},
+		function(err){
+		});
     }
 
      $scope.inviteFriend = function(fbId,friend){
@@ -100,7 +106,7 @@ angular.module('PlayzApp')
             //$(".btn-danger-outline").addClass('hide');
             //$(".btn-primary-outline").removeClass('hide');
             $scope.event.invitedUsers.splice($index, 1);
-          friend.added=false;
+          	friend.added=false;
 
 
         }

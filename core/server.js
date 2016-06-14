@@ -85,6 +85,8 @@ app.post('/events/getMessages' ,controllers.eventsController.getMessages);
 app.post('/events/createMessage', authenticating_user ,controllers.eventsController.createMessage);
 app.post('/events/joinEvent', authenticating_user ,controllers.eventsController.joinEvent);
 app.post('/events/leaveEvent', authenticating_user ,controllers.eventsController.leaveEvent);
+app.post('/events/inviteFriend', authenticating_user ,controllers.eventsController.inviteToEvent);
+
 
 ///notifications
 app.post('/notifications/createNotification', authenticating_user ,controllers.notificationController.createNotification);

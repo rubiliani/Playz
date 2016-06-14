@@ -180,6 +180,8 @@ angular.module('PlayzApp.services')
             return deferred.promise;
         }
 
+
+
          var _updateEvent = function(event){
             var deferred = $q.defer();
             $http.post($rootScope.app.domain+'events/updateEvent',{event:event})
@@ -197,9 +199,9 @@ angular.module('PlayzApp.services')
             return deferred.promise;
         }
 
-        var _inviteFriend = function(event,fbId){
+        var _inviteFriends = function(event,users){
             var deferred = $q.defer();
-            $http.post($rootScope.app.domain+'notifications/createNotification',{event:event,id:fbId})
+            $http.post($rootScope.app.domain+'events/inviteFriend',{event:event,users:users})
                 .success(function(data){
                     console.log("invite success",data)
                     
@@ -338,7 +340,7 @@ angular.module('PlayzApp.services')
             getNegotiableEvents: _getNegotiableEvents,
             createEvent:_createEvent,
             updateEvent:_updateEvent,
-            inviteFriend: _inviteFriend,
+            inviteFriends: _inviteFriends,
             getNotifications: _getNotifications,
             deleteNotification: _deleteNotification,
             getAllEvents:_getAllEvents,

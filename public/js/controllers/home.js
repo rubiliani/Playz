@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('PlayzApp')
-  .controller('homeCtrl', function ($scope, $http, $rootScope, DB_queries, fbLogin, growl, geolocation) {
+  .controller('homeCtrl', function ($scope, $http, $rootScope,$interval,$route, DB_queries, fbLogin, growl, geolocation) {
     console.log("home controller")
 
     $scope.sports = [{name: "Any Sport"}, {name: "Baseball"}, {name: "Basketball"}, {name: "Boxing"}, {name: "Diving"}, {name: "Fishing"},
@@ -30,6 +30,12 @@ angular.module('PlayzApp')
         $scope.filterEvents();
       });
     }
+
+    $interval(function(){
+		$scope.init();
+		console.log("refresh")
+	},100000);
+
     $scope.init();
 
     $scope.openEvent = function (card) {

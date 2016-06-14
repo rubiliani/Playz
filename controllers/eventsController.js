@@ -35,20 +35,24 @@ module.exports.create = function (req, res) {
 }
 
 module.exports.inviteToEvent = function (req, res) {
-    var event = req.body.event;
-    var user = req.body.user;
-    if (!event) {
+    var evt = req.body.event;
+    var users = req.body.users;
+    if (!evt) {
         return res.status(404).json({status: 0, msg: ['no event']})
     }
 
-    User.get_user_ids(user, function (result) {
+    console.log("got users ",users);
+    User.get_user_ids(users, function (result) {
         var invitedUsers = result.users.map(function (val) {
             return val._id
         });
-        invite_users_to_event(evt, invitedUsers, "create");
+        console.log("invitedUsers",invitedUsers);
+        invite_users_to_event(evt, invitedUsers, "invite");
+        return res.json({event: evt, msg: ['invite event success'], status: 1});
+
         
     }, function (err) {
-        return res.status(404).json({msg: ['create event failed'], status: 0})
+        return res.status(404).json({msg: ['invite event failed'], status: 0})
     })
 
 
