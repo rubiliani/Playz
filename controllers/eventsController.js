@@ -34,6 +34,28 @@ module.exports.create = function (req, res) {
 
 }
 
+module.exports.inviteToEvent = function (req, res) {
+    var event = req.body.event;
+    var user = req.body.user;
+    if (!event) {
+        return res.status(404).json({status: 0, msg: ['no event']})
+    }
+
+    User.get_user_ids(user, function (result) {
+        var invitedUsers = result.users.map(function (val) {
+            return val._id
+        });
+        invite_users_to_event(evt, invitedUsers, "create");
+        
+    }, function (err) {
+        return res.status(404).json({msg: ['create event failed'], status: 0})
+    })
+
+
+}
+
+
+
 module.exports.update = function (req, res) {
     var event = req.body.event;
     console.log("got event to update",event);
