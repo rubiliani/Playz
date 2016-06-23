@@ -80,6 +80,7 @@ app.post('/events/getMyEvents', authenticating_user ,controllers.eventsControlle
 app.post('/events/getUpcomingEvents', authenticating_user ,controllers.eventsController.getUpcomingEvents);
 app.post('/events/getPastEvents', authenticating_user ,controllers.eventsController.getPastEvents);
 app.post('/events/getAllEvents', authenticating_user ,controllers.eventsController.getAllEvents);
+app.post('/events/getAdminEvents', authenticating_user ,controllers.eventsController.getAdminEvents);
 app.post('/events/getEventById', authenticating_user ,controllers.eventsController.getEventById);
 app.post('/events/getMessages' ,controllers.eventsController.getMessages);
 app.post('/events/createMessage', authenticating_user ,controllers.eventsController.createMessage);

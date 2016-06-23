@@ -1,0 +1,64 @@
+<div class="container p-t-md">
+    <div class="row">
+       
+
+   
+        <div class="col-md-6">
+            <ul class="list-group media-list media-list-stream">
+                <li class="media list-group-item p-a">
+                    <h4>Monitoring</h4>
+                </li>
+                <li class="media list-group-item p-a">
+                    <div class="media-body">
+                        <div class="media-body-text">
+                            <div class="media-heading">
+                                <div class="radio-inline custom-control custom-radio">
+                                    <label>
+                                        <input type="radio" id="radio1" ng-click="setCurrentLocation()" name="location"
+                                               checked>
+                                        <span class="custom-control-indicator"></span>
+                                        Show Upcoming Events
+                                    </label>
+                                </div>
+                                <div class="radio-inline custom-control custom-radio">
+                                    <label>
+                                        <input type="radio" id="radio2" ng-click="setHomeLoc()" name="location">
+                                        <span class="custom-control-indicator"></span>
+                                        Show Users
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+               
+                <li class="media list-group-item p-a">
+                    <div class="media-body">
+                        <div class="media-body-text map-height">
+                            <div class="map" id="map"></div>
+                            <!--
+                            <map ng-transclude id="map" class="google-map" center="mymap.center" options="mymap.options" events="mymap.events">
+                            
+                                <marker position="coord.point" ng-repeat="coord in mymap.points.coords" options="mymap.marker.options" events="mymap.marker.events">
+                                     <infowindow position="coord.point" ng-click=>
+                                        <h4>{{coord.header}}</h4>
+                                        {{coord.body}}
+                                    </infowindow>
+                                </marker>
+                                
+                               -->
+                                  <!--<points coords="mymap.points.coords" options="mymap.points.options" events="mymap.points.events" decimals="points.decimals"></points>-->
+
+                                 
+                                <!--
+                                <circles geometries="mymap.circles.geometries" options="mymap.circles.options"
+                                events="mymap.circle.events"> </circles>-->
+                            </map>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>

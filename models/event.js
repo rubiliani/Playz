@@ -168,6 +168,36 @@ eventSchema.statics.getAllEvents=function(user,filter,callback){
 		});
 }
 
+eventSchema.statics.getAdminEvents=function(user,filter,callback){
+	var r = {msg:[],status:0};
+	console.log("get all events for "+user._id)
+	var id = mongoose.Types.ObjectId(user._id);
+	var date= new Date().setHours(0,0,0,0);
+	// var date= new Date();
+	// date.setDate(date.getDate()-1);
+	// date = date.setHours(0,0,0,0);
+
+	var query = {
+		//groupSize: {"books" : {$size : {$gt : 1}}},
+		whenDate:{$gte:date}
+	};
+
+	
+	this.model('events').find(query).populate('registeredUsers').sort('whenDate')
+		.exec(function(err,result){
+			if (err){
+				r.msg.push("getAdmin Events",err);
+				return callback(r);
+			}
+
+			r.msg.push("getAdminEvents found");
+			r.status=1;
+			r.events=result;
+			return callback(r);
+		});
+}
+
+
 
 
 eventSchema.statics.getMyEvents=function(user,filter,callback){

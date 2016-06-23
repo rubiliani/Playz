@@ -114,6 +114,13 @@ angular.module('PlayzApp')
                 }
             }
         })
+        .when('/admin',{
+            templateUrl: 'views/admin.html',
+            controller: 'adminCtrl',
+            resolve:{
+                loggedin : checkLoggedin
+            }
+        })
         .when('/profile',{
             controller: 'profileCtrl',
             templateUrl: 'views/profile.html',

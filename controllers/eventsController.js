@@ -227,6 +227,19 @@ exports.getAllEvents = function (req, res) {
 
 }
 
+exports.getAdminEvents = function (req, res) {
+    var filter = req.body;
+    console.log(req)
+    Event.getAdminEvents(req.user, filter, function (result) {
+        if (!result.status) {
+            return res.status(404).json(result)
+        }
+        return res.json(result)
+    })
+
+}
+
+
 exports.getMyEvents = function (req, res) {
     var filter = req.body;
     Event.getMyEvents(req.user, filter, function (result) {

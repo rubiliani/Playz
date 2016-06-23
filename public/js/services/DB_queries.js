@@ -147,6 +147,22 @@ angular.module('PlayzApp.services')
             return deferred.promise;
         }
 
+        var _getAdminEvents = function (filter) {
+            var deferred = $q.defer();
+            $http.post($rootScope.app.domain + 'events/getAdminEvents',filter)
+                .success(function (data) {
+                    console.log("get adminAllEvents success", data)
+                    deferred.resolve(data.events);
+                }).error(function (err) {
+                console.log("getadminAllEvents err", err)
+                deferred.reject(err);
+            })
+                ['finally'](function () {
+
+            });
+            return deferred.promise;
+        }
+
         var _getNegotiableEvents = function () {
             var deferred = $q.defer();
             $http.post($rootScope.app.domain + 'events/getNegotiableEvents')
@@ -366,6 +382,7 @@ angular.module('PlayzApp.services')
             getEventById:_getEventById,
             joinEvent:_joinEvent,
             adminRemoveUserEvent:_adminRemoveUserEvent,
+            getAdminEvents:_getAdminEvents,
             leaveEvent:_leaveEvent
 
         }
