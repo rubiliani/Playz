@@ -36,29 +36,47 @@
                     <div class="media-body">
                         <div class="media-body-text map-height">
                             <div class="map" id="map"></div>
-                            <!--
-                            <map ng-transclude id="map" class="google-map" center="mymap.center" options="mymap.options" events="mymap.events">
                             
-                                <marker position="coord.point" ng-repeat="coord in mymap.points.coords" options="mymap.marker.options" events="mymap.marker.events">
-                                     <infowindow position="coord.point" ng-click=>
-                                        <h4>{{coord.header}}</h4>
-                                        {{coord.body}}
-                                    </infowindow>
-                                </marker>
-                                
-                               -->
-                                  <!--<points coords="mymap.points.coords" options="mymap.points.options" events="mymap.points.events" decimals="points.decimals"></points>-->
-
-                                 
-                                <!--
-                                <circles geometries="mymap.circles.geometries" options="mymap.circles.options"
-                                events="mymap.circle.events"> </circles>-->
                             </map>
                         </div>
                     </div>
                 </li>
             </ul>
         </div>
+         <div class="col-md-6">
+         <ul class="list-group media-list media-list-stream">
+         <li class="media list-group-item p-a">
+
+        <table st-table="displayedCollection" st-safe-src="events" class="table table-striped">
+            <thead>
+                <tr>
+                    <th st-sort="sportType">Sport Type</th>
+                    <th st-sort="eventTitle">Title</th>
+                    <th st-sort="location.city">Location</th>
+                   
+                </tr>
+                <tr>
+                    <th colspan="5"><input st-search class="form-control" placeholder="filter" type="text"/></th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="event in displayedCollection">
+                <td>{{event.sportType}}</td>
+                <td>{{event.eventTitle}}</td>
+                <td>{{event.location.city}}</td>
+            </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5" class="text-center">
+                        <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+                    </td>
+                </tr>
+        </tfoot>
+        </table>
+        </li>
+        </ul>
+         </div>
 
     </div>
 </div>

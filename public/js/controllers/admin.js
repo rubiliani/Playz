@@ -44,7 +44,7 @@ angular.module('PlayzApp')
 
         //$scope.markers = [];
         var createMarker = function(info) {
-          console.log("map createMarker: " + info.eventTitle);
+         
           var marker = new google.maps.Marker({
             map: self.map,
             position: new google.maps.LatLng(info.location.latitude, info.location.longitude),
