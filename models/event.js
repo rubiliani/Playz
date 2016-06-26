@@ -112,7 +112,7 @@ eventSchema.statics.create_event=function(event,callback){
 		id:event._id
 	};*/
 
-	console.log("in model "+event);
+	
 	
 	this.model('events').save()
 		.exec(function(err,result){

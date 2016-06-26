@@ -8,12 +8,8 @@
               <h4>{{card.sportType}} - {{card.eventTitle}}</h4>
             
               <span class="icon icon-globe text-muted"></span>  {{card.location.city}}<br>
-              <span class="icon icon-user text-muted"></span> {{card.registeredUsers.length}}/{{card.groupSize }} registered users
-             
-
-              <div class="pull-right">
-            	
-            </div>
+              <span class="icon icon-users text-muted"></span> {{card.registeredUsers.length}}/{{card.groupSize }} registered users
+              <div ng-show="card.creator.id==user.id"><span class="icon icon-user text-muted"></span>  You are admin<br>
            
             </div>
            

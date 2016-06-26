@@ -6,6 +6,11 @@ angular.module('PlayzApp')
 		fbLogin.logout();
 	}
 
+	
+	 $scope.playzerCard = function () {
+            $location.url('/profile')
+    }
+
 	$scope.urlChanged=function(elem){
 		if (elem){
 			$("nav ul li").removeClass('active')

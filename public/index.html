@@ -45,6 +45,21 @@
 
     <div ng-class="{'container':status  , 'container-content-middle':!status }" ng-view  autoscroll="true" > </div>
 
+
+<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+<script>
+// Initialize Firebase
+var config = {
+apiKey: "AIzaSyAylcLkVBSii24-qtmAphfixo-rLkvsBaQ",
+authDomain: "api-project-1057642021330.firebaseapp.com",
+databaseURL: "https://api-project-1057642021330.firebaseio.com",
+storageBucket: "",
+};
+firebase.initializeApp(config);
+</script>
+    
+    
+
     <script type="text/javascript" src="angular/angular.min.js"></script>
     <script type="text/javascript" src="angular/angular-resource.min.js"></script>
     <script type="text/javascript" src="angular/tabs/tabs.js"></script>

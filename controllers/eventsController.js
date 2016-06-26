@@ -217,7 +217,6 @@ exports.createEvent = function (req, res, next) {
 
 exports.getAllEvents = function (req, res) {
     var filter = req.body;
-    console.log(req)
     Event.getAllEvents(req.user, filter, function (result) {
         if (!result.status) {
             return res.status(404).json(result)
@@ -229,7 +228,7 @@ exports.getAllEvents = function (req, res) {
 
 exports.getAdminEvents = function (req, res) {
     var filter = req.body;
-    console.log(req)
+   
     Event.getAdminEvents(req.user, filter, function (result) {
         if (!result.status) {
             return res.status(404).json(result)

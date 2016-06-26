@@ -68,6 +68,17 @@ angular.module('PlayzApp')
     $scope.createNewEvent = function () {
             $location.url('/create')
     }
+
+
+     $scope.clearFilter = function(){
+          $scope.filter.sportType = "Any Sport";
+          $scope.filter.level = $scope.levels[0];
+          $scope.filter.mindset = "All Mindsets";
+          $scope.filter.locationType = "home";
+  
+          $scope.filterEvents();
+        
+     }
    
 
 
