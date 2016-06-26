@@ -11,6 +11,7 @@ angular.module('PlayzApp')
 			else{
 				$location.url( "/" );
 			}
+			
 		});
 	}
 });

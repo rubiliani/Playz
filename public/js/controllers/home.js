@@ -27,6 +27,7 @@ angular.module('PlayzApp')
       $scope.filter.locationType = type;
     }
     $scope.init = function () {
+      console.log("subid",pushcrew.subscriberId);
     	$scope.splash = true;
 
       	DB_queries.getAllEvents().then(function (events) {
@@ -75,7 +76,7 @@ angular.module('PlayzApp')
           $scope.filter.level = $scope.levels[0];
           $scope.filter.mindset = "All Mindsets";
           $scope.filter.locationType = "home";
-  
+
           $scope.filterEvents();
         
      }

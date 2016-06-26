@@ -19,6 +19,8 @@ angular.module('PlayzApp')
             componentEnabled: true,
             watchEnter: true
         }
+       
+        
         $scope.updateUser=function(){
             if ($scope.register.hometown.data) {
                 console.log($scope.register.hometown.data)
