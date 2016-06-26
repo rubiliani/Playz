@@ -34,6 +34,20 @@
     <link href="angular/growl/growl.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
+    <script type="text/javascript">
+(function(p,u,s,h){
+    p._pcq=p._pcq||[];
+    p._pcq.push(['_currentTime',Date.now()]);
+    s=u.createElement('script');
+    s.type='text/javascript';
+    s.async=true;
+    s.src='https://cdn.pushcrew.com/js/800f84f8f8f49b9e6f6e4924fdd46c9b.js';
+    h=u.getElementsByTagName('script')[0];
+    h.parentNode.insertBefore(s,h);
+})(window,document);
+</script>
+        
+
   </head>
   <body ng-class="{'with-top-navbar':status  , 'loginBody':!status }">
     
@@ -44,21 +58,6 @@
    
 
     <div ng-class="{'container':status  , 'container-content-middle':!status }" ng-view  autoscroll="true" > </div>
-
-
-<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
-<script>
-// Initialize Firebase
-var config = {
-apiKey: "AIzaSyAylcLkVBSii24-qtmAphfixo-rLkvsBaQ",
-authDomain: "api-project-1057642021330.firebaseapp.com",
-databaseURL: "https://api-project-1057642021330.firebaseio.com",
-storageBucket: "",
-};
-firebase.initializeApp(config);
-</script>
-    
-    
 
     <script type="text/javascript" src="angular/angular.min.js"></script>
     <script type="text/javascript" src="angular/angular-resource.min.js"></script>
