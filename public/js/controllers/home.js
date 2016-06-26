@@ -1,8 +1,9 @@
 'use strict';
 
 angular.module('PlayzApp')
-  .controller('homeCtrl', function ($scope, $http, $rootScope,$interval,$route, DB_queries, fbLogin, growl, geolocation) {
+  .controller('homeCtrl', function ($scope, $http, $rootScope,$interval,$location,$route, DB_queries, fbLogin, growl, geolocation) {
     console.log("home controller")
+    $scope.shownEvents = 0;
 
     $scope.sports = [{name: "Any Sport"}, {name: "Baseball"}, {name: "Basketball"}, {name: "Boxing"}, {name: "Diving"}, {name: "Fishing"},
       {name: "Golf"}, {name: "Hocky"}, {name: "Running"}, {name: "Ski"}, {name: "Soccer"}, {name: "Surfing"}, {name: "Swimming"}
@@ -27,6 +28,7 @@ angular.module('PlayzApp')
     }
     $scope.init = function () {
     	$scope.splash = true;
+
       	DB_queries.getAllEvents().then(function (events) {
         	$scope.events = events;
         	$scope.filterEvents();
@@ -63,8 +65,15 @@ angular.module('PlayzApp')
       return d; // returns the distance in meter
     };
 
+    $scope.createNewEvent = function () {
+            $location.url('/create')
+    }
+   
+
 
     $scope.filterEvents = function () {
+      $scope.splash = true;
+       $scope.shownEvents = 0;
       console.log('my filter', $scope.filter);
       if ($scope.filter.locationType !== "Any place") {
         geolocation.getCurrentPosition().then(function (val) {
@@ -74,7 +83,6 @@ angular.module('PlayzApp')
 
           if ($scope.filter.locationType == "current") {
             geolocation.getDistanceFromPosition($scope.location, $scope.events).then(function (data) {
-            	$scope.splash = false;
               $scope.events.forEach(function (event, i) {
                 $scope.disatances = data.rows[0].elements;
                 event.distance = $scope.disatances[i];
@@ -89,12 +97,22 @@ angular.module('PlayzApp')
                 else {
                   event.location_show = false;
                 }
+
+                if(event.location_show && event.level_show && event.sportType_show && event.mindset_show && event.groupSize>event.registeredUsers.length){
+                  event.showed = true;
+                  $scope.shownEvents++;
+                }
+                else{
+                  event.showed = false;
+                }
+
               })
+               $scope.splash = false;
             });
           }
           else {
             geolocation.getDistanceFromPosition($rootScope.user.hometown, $scope.events).then(function (data) {
-            	$scope.splash = false;
+            	
               $scope.events.forEach(function (event, i) {
                 $scope.disatances = data.rows[0].elements;
                 event.distance = $scope.disatances[i];
@@ -107,7 +125,16 @@ angular.module('PlayzApp')
                 else {
                   event.location_show = false;
                 }
+
+                if(event.location_show && event.level_show && event.sportType_show && event.mindset_show && event.groupSize>event.registeredUsers.length){
+                  event.showed = true;
+                  $scope.shownEvents++;
+                }
+                else{
+                  event.showed = false;
+                }
               });
+              $scope.splash = false;
             })
           }
         });
@@ -146,6 +173,8 @@ angular.module('PlayzApp')
         }
 
       })
+
+
     }
 
 

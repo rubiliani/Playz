@@ -48,14 +48,23 @@
 
                         </li>
                     </ul> -->
+
+                    <!-- card.location_show && card.level_show && card.sportType_show && card.mindset_show && card.groupSize>card.registeredUsers.length"-->
                
                 <div class="animated fadeInUp tab-pane media-list list-group">
                     <div class="media-list media-list-stream c-w-md">
                         <a class="list-group-item media p-a" ng-repeat="card in events track by $index | orderBy: 'whenDate' "
                         ng-if="user.registeredEvents.indexOf(card._id)==-1"
                         ng-include src="'views/includes/card.html'" href="#eventModal" data-toggle="modal" ng-click="[$event.preventDefault(),openEvent(card)]"ֲ
-                           ng-show="card.location_show && card.level_show && card.sportType_show && card.mindset_show && card.groupSize>card.registeredUsers.length"
+                           ng-show="card.showed"
                         > </a>
+                       <div class="list-group-item media p-a" ng-show="shownEvents<1 && splash==false">No suitable events found, But you can start one.
+                        <button ng-click="createNewEvent()" type="button"
+                                class="btn btn-sm btn-primary pull-right">
+                                <span class="icon icon-calendar"></span>  New event
+                        </button>
+                       </div>
+
                     </div>
                 </div>
                 

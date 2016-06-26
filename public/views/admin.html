@@ -36,8 +36,8 @@
                     <div class="media-body">
                         <div class="media-body-text map-height">
                             <div class="map" id="map"></div>
-                            
-                            </map>
+                    
+                           
                         </div>
                     </div>
                 </li>
@@ -53,6 +53,7 @@
                     <th st-sort="sportType">Sport Type</th>
                     <th st-sort="eventTitle">Title</th>
                     <th st-sort="location.city">Location</th>
+                    <th st-sort="location.city">When</th>
                    
                 </tr>
                 <tr>
@@ -64,6 +65,7 @@
                 <td>{{event.sportType}}</td>
                 <td>{{event.eventTitle}}</td>
                 <td>{{event.location.city}}</td>
+                <td>{{event.whenDate | date}}</td>
             </tr>
             </tbody>
             <tfoot>
