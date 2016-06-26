@@ -41,7 +41,8 @@ angular.module('PlayzApp')
       if(pushcrew.isAPIReady) {
         console.log(pushcrew.subscriberId);
         if(pushcrew.subscriberId==false){
-          window._pcq.push(['triggerOptIn',{subscriberSegment: 'global', modal: {text: 'Get instant alerts from our website. Please subscribe.', blackenBackground: true}}]);
+          _pcq.push(['triggerOptIn',{httpWindowOnly: true}]);
+          
         }
       }
     }
