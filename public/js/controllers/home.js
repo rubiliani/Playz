@@ -27,13 +27,23 @@ angular.module('PlayzApp')
       $scope.filter.locationType = type;
     }
     $scope.init = function () {
-      console.log("subid",pushcrew.subscriberId);
+
+        $scope.notification();
     	$scope.splash = true;
 
       	DB_queries.getAllEvents().then(function (events) {
         	$scope.events = events;
         	$scope.filterEvents();
       	});
+    }
+
+    $scope.notification = function(){
+      if(pushcrew.isAPIReady) {
+        console.log(pushcrew.subscriberId);
+        if(pushcrew.subscriberId==false){
+          window._pcq.push(['triggerOptIn',{subscriberSegment: 'global', modal: {text: 'Get instant alerts from our website. Please subscribe.', blackenBackground: true}}]);
+        }
+      }
     }
 
     $interval(function(){
