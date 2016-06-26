@@ -165,6 +165,7 @@
                     <div class="media-body">
                         <div class="media-body-text">
                             <div class="media-heading">
+                            <label class="select">Radius:</label>
                                 <rzslider rz-slider-model="radiusSlider.value"
                                     rz-slider-options="radiusSlider.options"></rzslider>
                             </div>
@@ -243,7 +244,7 @@
         <div class="col-md-6">
             <ul class="list-group media-list media-list-stream">
                 <li class="media list-group-item p-a">
-                    <h4>Partner Suggestions</h4>
+                    <h4>Friends Invitation</h4>
                 </li>
                 <ul class="media-list media-list-users list-group">
                     <li ng-repeat="friend in friends.data track by $index" class="list-group-item">
@@ -266,13 +267,17 @@
 
 
                     <li class="list-group-item">
-                        <div class="pull-right" ng-if="friends.paging.next" ng-click="getFriends_Next_Prev(friends.paging.next)">
-                            <button type="button" class="btn btn-xs btn-success-outline">Next
+                        <div  ng-if="friends.paging.next" ng-click="getFriends_Next_Prev(friends.paging.next)">
+                         <div class="media">
+                            <button type="button" class="btn btn-m btn-success-outline">Next
                             </button>
+                            </div>
                         </div>
-                        <div class="" ng-if="friends.paging.previous" ng-click="getFriends_Next_Prev(friends.paging.previous)">
-                            <button type="button" class="btn btn-xs btn-success-outline">Prev
+                        <div  ng-if="friends.paging.previous" ng-click="getFriends_Next_Prev(friends.paging.previous)">
+                         <div class="media">
+                            <button type="button" class="btn btn-m btn-success-outline">Prev
                             </button>
+                            </div>
                         </div>
                         <div class="" ng-if="!friends.paging.previous && !friends.paging.next">
                             No More Suggestions
