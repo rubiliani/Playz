@@ -38,6 +38,22 @@ angular.module('PlayzApp.services')
             });
             return deferred.promise;
         }
+        var _addUserDevice = function (user,reg) {
+            var deferred = $q.defer();
+            $http.post($rootScope.app.domain + 'users/add_device_user', {userid:user,regid:reg})
+                .success(function (data) {
+                    console.log("update user success", data.user)
+                    
+                    deferred.resolve(data.user);
+                }).error(function (err) {
+                console.log("update user err", err)
+                deferred.reject(err);
+            })
+                ['finally'](function () {
+
+            });
+            return deferred.promise;
+        }
         var _getMyEvents = function () {
             var deferred = $q.defer();
             $http.post($rootScope.app.domain + 'events/getMyEvents')
@@ -383,6 +399,7 @@ angular.module('PlayzApp.services')
             joinEvent:_joinEvent,
             adminRemoveUserEvent:_adminRemoveUserEvent,
             getAdminEvents:_getAdminEvents,
+            addUserDevice:_addUserDevice,
             leaveEvent:_leaveEvent
 
         }

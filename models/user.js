@@ -38,6 +38,10 @@ var userSchema = new Schema({
 		notification:{type : Schema.Types.ObjectId ,  ref: 'notifications'},
 		read: { type : Boolean, default:false}
 	}],
+
+	devices:[{
+		_id:{type : String, unique : true,index : true }
+	}],
 	about:{type : String, default:''}
 });
 
@@ -181,6 +185,29 @@ userSchema.statics.invite_users_to_event=function(data,callbackSuccess,callbackE
 			r.status=1;
 
 			return callbackSuccess(r);
+		});
+}
+
+userSchema.statics.addDeviceToUser=function(userid,regid,callback){
+	var r = {msg:[],status:0};
+	var query = {
+		_id:userid
+	};
+
+	this.model('users').update(query, {
+			$addToSet: {
+					devices: {_id: regid}
+			}
+	}).exec(function(err,result){
+			if (err){
+				r.msg.push("add device to user",err);
+				return callback(r);
+			}
+
+			r.msg.push("add device to user success");
+			r.status=1;
+
+			return callback(r);
 		});
 }
 

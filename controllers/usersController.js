@@ -43,6 +43,22 @@ exports.delete_user_from_event = function(req,res,next){
 	});
 }
 
+exports.add_device_to_user = function(req,res,next){
+	var r = {msg:[],status:0};
+	var userid = req.body.userid;
+	var regid = req.body.regid;
+	
+	console.log("user id", userid);
+	console.log("reg id",regid);
+
+	User.addDeviceToUser(userid,regid,function(result){
+		if (!result.status){
+			res.status(404).send("delete user failed");
+		}
+		return res.json(result)
+	});
+}
+
 //module.exports.create = function(req,res){
 //	//console.log(req.body);
 //    //

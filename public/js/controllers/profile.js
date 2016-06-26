@@ -47,7 +47,7 @@ angular.module('PlayzApp')
             $scope.splash = true;
            $scope.tabChanged('upcoming');
             console.log("refresh")
-        },100000);
+        },300000);
 
         $scope.tabChanged=function(type){
             if (type=="upcoming"){
