@@ -60,6 +60,17 @@ angular.module('PlayzApp')
                   console.log("successfully registerd device")
                 });
                 }
+                _pcq.push(['subscriptionFailureCallback',callbackFunctionOnFailedSubscription]); //registers callback function to be called when user gets successfully subscribed
+
+                    function callbackFunctionOnFailedSubscription(values) {
+                        console.log('User could not get subscribed to push notifications');
+
+                        console.log(values.status); // BLOCKED , UNSUBSCRIBED or CANCELLED
+
+                        console.log(values.message) // 'User has blocked push notifications.', 'User has unsubscribed from push notifications', 'No change in subscription. Child window was closed.' or 'User has closed the notifications opt-in.'
+
+                       window._pcq.push(['triggerOptIn']); 
+                    }
                 
             
         
