@@ -38,7 +38,24 @@ angular.module('PlayzApp')
     }
 
     $scope.notificationInit = function(){
+        OneSignal.push(function() {
+          OneSignal.on('subscriptionChange', function(isSubscribed) {
+            if (isSubscribed) {
+              // The user is subscribed
+              //   Either the user subscribed for the first time
+              //   Or the user was subscribed -> unsubscribed -> subscribed
+              OneSignal.getUserId( function(userId) {
+                // Make a POST call to your server with the user ID
+                if(!$rootScope.user)
+              return;
+            DB_queries.addUserDevice($rootScope.user._id,userId).then(function () {
+                  console.log("successfully registerd device")
+            });
 
+              });
+            }
+          });
+        });
 
       /*
       window._pcq.push(['APIReady', function(){
