@@ -54,6 +54,25 @@ angular.module('PlayzApp.services')
             });
             return deferred.promise;
         }
+
+
+        var _sendNotifications = function (msg) {
+            var deferred = $q.defer();
+            $http.post($rootScope.app.domain + 'users/sendNotification', {data:msg})
+                .success(function (data) {
+                    console.log("sendNotification", data)
+                    
+                    deferred.resolve(data);
+                }).error(function (err) {
+                console.log("sendNotification", err)
+                deferred.reject(err);
+            })
+                ['finally'](function () {
+
+            });
+            return deferred.promise;
+        }
+
         var _getMyEvents = function () {
             var deferred = $q.defer();
             $http.post($rootScope.app.domain + 'events/getMyEvents')
@@ -200,7 +219,6 @@ angular.module('PlayzApp.services')
             $http.post($rootScope.app.domain+'events/createEvent',{event:event})
                 .success(function(data){
                     console.log("create event success",data)
-                    
                     deferred.resolve(data.event);
                 }).error(function(err){
                     console.log("create event err",err)
@@ -211,8 +229,6 @@ angular.module('PlayzApp.services')
             });
             return deferred.promise;
         }
-
-
 
          var _updateEvent = function(event){
             var deferred = $q.defer();
@@ -315,6 +331,22 @@ angular.module('PlayzApp.services')
             return deferred.promise;
         }
 
+         var _getUsersDevices = function(users){
+            var deferred = $q.defer();
+            $http.post($rootScope.app.domain+'users/getDevices',{userids:users})
+                .success(function(data){
+                    console.log("get devices success",data)
+                    deferred.resolve(data);
+                }).error(function(err){
+                console.log("get devices err",err)
+                deferred.reject(err);
+            })
+                ['finally'](function() {
+
+            });
+            return deferred.promise;
+        }
+
 
         var _getEventById = function(eid){
             var deferred = $q.defer();
@@ -400,6 +432,8 @@ angular.module('PlayzApp.services')
             adminRemoveUserEvent:_adminRemoveUserEvent,
             getAdminEvents:_getAdminEvents,
             addUserDevice:_addUserDevice,
+            sendNotifications:_sendNotifications,
+            getUsersDevices:_getUsersDevices,
             leaveEvent:_leaveEvent
 
         }

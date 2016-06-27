@@ -211,6 +211,10 @@ angular.module('PlayzApp')
             
             DB_queries.createEvent($scope.event).then(function(event){
                 console.log('events - create event',event)
+
+                DB_queries.getUsersDevices($scope.event.invitedUsers).then(function(data){
+                    console.log(data);
+                })
                 $location.url('/profile')
             })
 
@@ -248,7 +252,7 @@ angular.module('PlayzApp')
         $scope.inviteFriend = function(fbId,friend){
             console.log("invited user " +fbId)
             $scope.event.invitedUsers.push(fbId);
-          friend.added=true;
+            friend.added=true;
             //$(".btn-danger-outline").removeClass('hide');
             //$(".btn-primary-outline").addClass('hide');
 
@@ -261,10 +265,9 @@ angular.module('PlayzApp')
         }
         $scope.cancelInviteFriend = function($index,friend){
             console.log("cancel invited user " +friend.id)
-            //$(".btn-danger-outline").addClass('hide');
-            //$(".btn-primary-outline").removeClass('hide');
+            
             $scope.event.invitedUsers.splice($index, 1);
-          friend.added=false;
+            friend.added=false;
 
 
         }

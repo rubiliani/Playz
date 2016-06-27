@@ -110,6 +110,9 @@ app.get('/sports', controllers.sportsController.getList);
 app.post('/users/update_user', controllers.usersController.update_user); 
 app.post('/users/deleteUserEvent', controllers.usersController.delete_user_from_event); 
 app.post('/users/add_device_user', controllers.usersController.add_device_to_user); 
+app.post('/users/sendNotification', controllers.usersController.sendNotification); 
+app.post('/users/getDevices', controllers.usersController.get_user_devices); 
+
 //app.post('/users', controllers.usersController.create);
 //app.post('/users/events/:id', controllers.usersController.addEvent);
 //app.get('/users/events/:id', controllers.usersController.getMyEventList);
