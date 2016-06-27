@@ -28,7 +28,7 @@ angular.module('PlayzApp')
     }
     $scope.init = function () {
 
-        $scope.notification();
+      $scope.notificationInit();
     	$scope.splash = true;
 
       	DB_queries.getAllEvents().then(function (events) {
@@ -37,52 +37,24 @@ angular.module('PlayzApp')
       	});
     }
 
-    $scope.notification = function(){
+    $scope.notificationInit = function(){
 
-      
-      if(pushcrew.isAPIReady) {
-         //_pcq.push(['triggerOptOut']);
-         
-        console.log(pushcrew.subscriberId);
-        if(pushcrew.subscriberId==false){
-          window._pcq = window._pcq || [];
-            _pcq.push(['subscriptionSuccessCallback',callbackFunctionOnSuccessfulSubscription]); //registers callback function to be called when user gets successfully subscribed
+      _pcq.push(['APIReady', function(){
+         console.log(pushcrew.subscriberId);
 
-            function callbackFunctionOnSuccessfulSubscription(subscriberId, values) {
-                console.log('User got successfully subscribed.');
+         if(pushcrew.subscriberId==false)
+           window._pcq.push(['triggerOptIn', {subscriberSegment: 'homepage'}]);       
+         else if(pushcrew.subscriberId==-1){
 
-                console.log(subscriberId); //will output the user's subscriberId
-
-                console.log(values.status); // SUBSCRIBED or ALREADYSUBSCRIBED
-
-                console.log(values.message) // 'User has subscribed to push notifications.' or 'User is already subscribed to push notifications.'
-                DB_queries.addUserDevice($rootScope.user._id,ubscriberId).then(function () {
+         }
+         else{
+            if(!$rootScope.user)
+              return;
+            DB_queries.addUserDevice($rootScope.user._id,pushcrew.subscriberId).then(function () {
                   console.log("successfully registerd device")
-                });
-                }
-                _pcq.push(['subscriptionFailureCallback',callbackFunctionOnFailedSubscription]); //registers callback function to be called when user gets successfully subscribed
-
-                    function callbackFunctionOnFailedSubscription(values) {
-                        console.log('User could not get subscribed to push notifications');
-
-                        console.log(values.status); // BLOCKED , UNSUBSCRIBED or CANCELLED
-
-                        console.log(values.message) // 'User has blocked push notifications.', 'User has unsubscribed from push notifications', 'No change in subscription. Child window was closed.' or 'User has closed the notifications opt-in.'
-
-                       window._pcq.push(['triggerOptIn']); 
-                    }
-                
-            
-        
-        }
-        else{
-          if(!$rootScope.user)
-            return;
-           DB_queries.addUserDevice($rootScope.user._id,pushcrew.subscriberId).then(function () {
-                  console.log("successfully registerd device")
-                });
-                
-        }
+            });
+         }
+      }]);
       }
     }
 
