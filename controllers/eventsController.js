@@ -46,7 +46,7 @@ module.exports.inviteToEvent = function (req, res) {
         var invitedUsers = result.users.map(function (val) {
             return val._id
         });
-        console.log("invitedUsers",invitedUsers);
+        //console.log("invitedUsers",invitedUsers);
         invite_users_to_event(evt, invitedUsers, "invite");
         return res.json({event: evt, msg: ['invite event success'], status: 1});
 
@@ -62,7 +62,7 @@ module.exports.inviteToEvent = function (req, res) {
 
 module.exports.update = function (req, res) {
     var event = req.body.event;
-    console.log("got event to update",event);
+    //console.log("got event to update",event);
     if (!event) {
         return res.status(404).json({status: 0, msg: ['no event received']})
     }
@@ -112,7 +112,7 @@ function invite_users_to_event(event, invitedUsers, action) {
 
 module.exports.createMessage = function (req, res) {
     var data = req.body;
-    console.log("event id " + data.event);
+    //console.log("event id " + data.event);
     var msg = new Message({
         event:data.event,
         sender: data.user,
@@ -127,7 +127,7 @@ module.exports.createMessage = function (req, res) {
 
 
         Event.addChatMessage(msg._id, data.event, function (result) {
-            console.log('addChatMessage',result);
+           // console.log('addChatMessage',result);
             Message.populate(msg, [{
                 path: 'sender',
                 model: 'users',
@@ -161,7 +161,7 @@ exports.createEvent = function (req, res, next) {
     var r = {msg: [], status: 0};
     //var event = req.body.event;
     var evt = req.body.event;
-    console.log("in create event: " + evt);
+    //console.log("in create event: " + evt);
 
     Event.create_event(evt, function (err, result) {
         res.json(result);
@@ -252,7 +252,7 @@ exports.getMyEvents = function (req, res) {
 
 exports.joinEvent = function (req, res) {
     var eid = req.body.eventid;
-    console.log("in join",eid,req.user._id);
+    //console.log("in join",eid,req.user._id);
     Event.joinToEvent(eid,req.user._id,function(result){
         if (!result.status){
             return res.status(404).json(result)
@@ -313,7 +313,7 @@ exports.getMessages = function (req, res) {
     //var filter = req.body;
     //console.log(req.body)
     var ev = req.body.event;
-    console.log("event " + ev);
+    //console.log("event " + ev);
     Event.getMessages(ev, function (result) {
         if (!result.status) {
             return res.status(404).json(result)
@@ -398,13 +398,13 @@ module.exports.addUser = function (req, res) {
 
 exports.getUpcomingEvents = function (req, res) {
 
-    console.log("upcomingEvents ",req.user)
+    //console.log("upcomingEvents ",req.user)
     populateEvents(req.user, function (user) {
         var millis = new Date().setHours(0, 0, 0, 0);
 
         
         var upcomingEvents = user.registeredEvents.filter(function (val) {
-            console.log("upcomingEvents val ",val.whenDate);
+           // console.log("upcomingEvents val ",val.whenDate);
             var emillis = new Date(val.whenDate);
             if (emillis >= millis) {
                 return val;
@@ -418,7 +418,7 @@ exports.getPastEvents = function (req, res) {
         var millis = new Date().setHours(0, 0, 0, 0);
 
         var upcomingEvents = user.registeredEvents.filter(function (val) {
-            console.log("pastEvents val ",val.whenDate);
+            //console.log("pastEvents val ",val.whenDate);
             var emillis = new Date(val.whenDate).setHours(0, 0, 0, 0);
             if (emillis < millis) {
                 return val;

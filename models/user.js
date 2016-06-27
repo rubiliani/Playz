@@ -138,7 +138,7 @@ userSchema.statics.get_user=function(userid,callback){
 //remove invite notification
 userSchema.statics.delete_invite_notification=function(notificationid,userid,callback){
 	var r = {msg:[],status:0};
-	console.log("notificationid to delete ",notificationid,userid)
+	//console.log("notificationid to delete ",notificationid,userid)
 	var query = {
 		_id : userid
 	};
@@ -163,7 +163,7 @@ userSchema.statics.delete_invite_notification=function(notificationid,userid,cal
 //remove invite notification
 userSchema.statics.delete_user_from_event=function(eventid,userid,callback){
 	var r = {msg:[],status:0};
-	console.log("delete user from event",eventid,userid)
+	//console.log("delete user from event",eventid,userid)
 	var query = {
 		_id : userid
 	};

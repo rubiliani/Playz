@@ -130,7 +130,7 @@ eventSchema.statics.create_event=function(event,callback){
 
 eventSchema.statics.getAllEvents=function(user,filter,callback){
 	var r = {msg:[],status:0};
-	console.log("get all events for "+user._id)
+	//console.log("get all events for "+user._id)
 	var id = mongoose.Types.ObjectId(user._id);
 	var date= new Date().setHours(0,0,0,0);
 	// var date= new Date();
@@ -143,7 +143,7 @@ eventSchema.statics.getAllEvents=function(user,filter,callback){
 	else
 		uGender="Female";
 
-	console.log("gender",uGender)
+	//console.log("gender",uGender)
 
 	var query = {
 		privacyType:"public",
