@@ -42,9 +42,9 @@ angular.module('PlayzApp.services')
             var deferred = $q.defer();
             $http.post($rootScope.app.domain + 'users/add_device_user', {userid:user,regid:reg})
                 .success(function (data) {
-                    console.log("update user success", data.user)
+                    console.log("update device success", data)
                     
-                    deferred.resolve(data.user);
+                    deferred.resolve(data);
                 }).error(function (err) {
                 console.log("update user err", err)
                 deferred.reject(err);

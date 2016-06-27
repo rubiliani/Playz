@@ -49,7 +49,7 @@ angular.module('PlayzApp')
                 if(!$rootScope.user)
               return;
             DB_queries.addUserDevice($rootScope.user._id,userId).then(function () {
-                  console.log("successfully registerd device")
+                  console.log("successfully registerd device", userId)
             });
 
               });
