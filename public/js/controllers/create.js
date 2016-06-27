@@ -228,9 +228,11 @@ angular.module('PlayzApp')
                         "include_player_ids":$scope.usersDevices,
                          "contents": {"en": "you can't run from me"}
                     }
-                    DB_queries.sendNotifications(msg).then(){
-                        console.log("sendNotifications");
-                    }
+                    DB_queries.sendNotifications(msg).then(function(){
+                             console.log("sendNotifications");
+                    })
+                       
+                    
 
                 })
                 $location.url('/profile')
