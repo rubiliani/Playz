@@ -60,6 +60,7 @@ exports.add_device_to_user = function(req,res,next){
 }
 
 exports.get_user_devices = function(req,res,next){
+	var userDevices = [];
 	var r = {msg:[],status:0};
 	var userids = req.body.userids;
 	
@@ -70,6 +71,23 @@ exports.get_user_devices = function(req,res,next){
 			res.status(404).send("failed to get devices");
 		}
 		console.log("user devices", result);
+
+		result.forEach(function (user, i){
+			user.devices.forEach(function(id,i){
+				userDevices.push(id);
+			})
+		});
+
+
+		var message = { 
+  			app_id: "5eb5a37e-b458-11e3-ac11-000c2940e62c",
+  			contents: {"en": "You invited to event"},
+  			include_player_ids: userDevices
+		};
+
+		sendNotification(message);
+		
+
 		return res.json(result)
 	});
 }
