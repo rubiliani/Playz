@@ -107,7 +107,7 @@ exports.sendNotification = function(requ,res,next) {
 
 
 	console.log("notif data ",data);
-	/*
+	
   var headers = {
     "Content-Type": "application/json",
     "Authorization": "Basic ZjA4NWEyMGItNDk0NS00OTk1LWEwZTAtZDQ4NWVkNmJkM2I4"
@@ -137,7 +137,7 @@ exports.sendNotification = function(requ,res,next) {
   
   req.write(JSON.stringify(data));
   return req.end();
- */	
+ 
 };
 
 /*
