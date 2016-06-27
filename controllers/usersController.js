@@ -81,7 +81,7 @@ exports.get_user_devices = function(req,res,next){
 		console.log("all users devices", userDevices);
 
 		var message = { 
-  			app_id: "5eb5a37e-b458-11e3-ac11-000c2940e62c",
+  			app_id: "84591d87-0267-4172-a9f1-f5a34048f4b3",
   			contents: {"en": "You invited to event"},
   			include_player_ids: userDevices
 		};
