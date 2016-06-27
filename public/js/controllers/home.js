@@ -39,6 +39,8 @@ angular.module('PlayzApp')
 
     $scope.notificationInit = function(){
 
+
+      /*
       window._pcq.push(['APIReady', function(){
          console.log(pushcrew.subscriberId);
          if(pushcrew.subscriberId==false)
@@ -54,6 +56,7 @@ angular.module('PlayzApp')
             });
          }
       }]);
+      */
       
     }
 

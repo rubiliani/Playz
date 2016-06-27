@@ -34,18 +34,18 @@
     <link href="angular/growl/growl.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
-    <script type="text/javascript">
-        (function(p,u,s,h){
-            p._pcq=p._pcq||[];
-            p._pcq.push(['_currentTime',Date.now()]);
-            s=u.createElement('script');
-            s.type='text/javascript';
-            s.async=true;
-            s.src='https://cdn.pushcrew.com/js/800f84f8f8f49b9e6f6e4924fdd46c9b.js';
-            h=u.getElementsByTagName('script')[0];
-            h.parentNode.insertBefore(s,h);
-        })(window,document);
-        </script>
+   <link rel="manifest" href="/manifest.json">
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+  <script>
+    var OneSignal = OneSignal || [];
+    OneSignal.push(["init", {
+      appId: "84591d87-0267-4172-a9f1-f5a34048f4b3",
+      autoRegister: true,
+      notifyButton: {
+        enable: true /* Set to false to hide */
+      }
+    }]);
+  </script>
         
         
 
