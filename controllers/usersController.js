@@ -124,14 +124,15 @@ exports.sendNotification = function(data) {
     console.log("ERROR:");
     console.log(e);
   });
+
   
-  req.write(JSON.stringify(data));
+  req.write(data);
   req.end();
 };
 
 /*
 var message = { 
-  		app_id: "5eb5a37e-b458-11e3-ac11-000c2940e62c",
+  		app_id: "84591d87-0267-4172-a9f1-f5a34048f4b3",
   		contents: {"en": text},
   		include_player_ids: users
 	};*/
