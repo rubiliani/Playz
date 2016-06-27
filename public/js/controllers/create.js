@@ -219,7 +219,7 @@ angular.module('PlayzApp')
 
                     data.users.forEach(function (user, i){
                             user.devices.forEach(function(id,i){
-                                $scope.usersDevices.push(id);
+                                $scope.usersDevices.push(id._id);
                             })
                         });
                 })
