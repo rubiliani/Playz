@@ -38,11 +38,25 @@ angular.module('PlayzApp')
     }
 
     $scope.notificationInit = function(){
-      window._pcq = window._pcq || [ ];
+     _pcq.push(['removeSubscriberFromSegment', 'homepage', callbackForRemoveFromSegment]);
+      _pcq.push(['removeSubscriberFromSegment', 'global', callbackForRemoveFromSegment]);
+
+function callbackForRemoveFromSegment(response) {
+    if(response === -1) {
+        console.log('User is not a subscriber or has blocked notifications');
+    }
+  
+    if(response === false) {
+        console.log('Segment name provided is not valid. Maximum length of segment name can be 30 chars and it can only contain alphanumeric characters, underscore and dash.');
+    }
+  
+    if(response === true) {
+        console.log('User got removed from the segment successfully. Now you may run any code you wish to execute after user gets removed from segment successfully');
+    }
+}
+/*
       window._pcq.push(['APIReady', function(){
          console.log(pushcrew.subscriberId);
-         window._pcq.push(['triggerOptIn',{subscriberSegment: 'homepage', modal: {text: 'Get instant alerts from our website. Please subscribe.', blackenBackground: true}}]);
-
          if(pushcrew.subscriberId==false)
            _pcq.push(['triggerOptIn', {subscriberSegment: 'global'}]);       
          else if(pushcrew.subscriberId==-1){
@@ -55,7 +69,7 @@ angular.module('PlayzApp')
                   console.log("successfully registerd device")
             });
          }
-      }]);
+      }]);*/
       
     }
 
