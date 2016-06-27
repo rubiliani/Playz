@@ -127,7 +127,7 @@ exports.sendNotification = function(data) {
   });
 
   
-  req.write(data);
+  req.write(JSON.stringify(data));
   req.end();
 };
 
