@@ -70,6 +70,8 @@ exports.get_user_devices = function(req,res,next){
 		if (!result.status){
 			res.status(404).send("failed to get devices");
 		}
+
+		/*
 		console.log("user devices", result);
 
 		result.forEach(function (user, i){
@@ -87,7 +89,7 @@ exports.get_user_devices = function(req,res,next){
 		};
 
 		sendNotification(message);
-		
+		*/
 
 		return res.json(result)
 	});

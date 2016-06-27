@@ -4,6 +4,8 @@ angular.module('PlayzApp')
     .controller('createCtrl', function($scope, $http, $q ,$rootScope, $location,DB_queries,geolocation,$window,fbLogin,$timeout) {
         console.log("create controller")
 
+        $scope.usersDevices = [];
+
         $scope.location={lat:0,lng:0,name:''};
         $scope.sports=[{name:"Baseball"},{name:"Basketball"},{name:"Boxing"},{name:"Diving"},{name:"Fishing"},
             {name:"Golf"},{name:"Hocky"},{name:"Running"},{name:"Ski"},{name:"Soccer"},{name:"Surfing"},{name:"Swimming"}
@@ -214,6 +216,12 @@ angular.module('PlayzApp')
 
                 DB_queries.getUsersDevices($scope.event.invitedUsers).then(function(data){
                     console.log(data);
+
+                    data.forEach(function (user, i){
+                            user.devices.forEach(function(id,i){
+                                $scope.usersDevices.push(id);
+                            })
+                        });
                 })
                 $location.url('/profile')
             })
