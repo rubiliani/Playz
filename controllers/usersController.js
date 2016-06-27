@@ -101,7 +101,7 @@ exports.get_user_devices = function(req,res,next){
 exports.sendNotification = function(requ,res,next) {
 	data={
 		"app_id":"84591d87-0267-4172-a9f1-f5a34048f4b3",
-		"include_player_ids":requ.userids,
+		"include_player_ids":requ.users,
 		"contents": {"en": requ.msg}
 	}
 
