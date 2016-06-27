@@ -65,7 +65,7 @@ exports.get_user_devices = function(req,res,next){
 	
 	console.log("user ids", userids);
 
-	User.get_user_ids(userids,function(result){
+	User.get_user_devices(userids,function(result){
 		if (!result.status){
 			res.status(404).send("failed to get devices");
 		}
