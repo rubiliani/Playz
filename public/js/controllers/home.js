@@ -28,7 +28,7 @@ angular.module('PlayzApp')
     }
     $scope.init = function () {
 
-      $scope.notificationInit();
+     
     	$scope.splash = true;
 
       	DB_queries.getAllEvents().then(function (events) {
@@ -64,6 +64,7 @@ angular.module('PlayzApp')
 	},300000);
 
     $scope.init();
+    $scope.notificationInit();
 
     $scope.openEvent = function (card) {
       console.log("open event ", card)
