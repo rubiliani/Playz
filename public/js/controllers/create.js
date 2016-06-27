@@ -217,7 +217,7 @@ angular.module('PlayzApp')
                 DB_queries.getUsersDevices($scope.event.invitedUsers).then(function(data){
                     console.log(data);
 
-                    data.forEach(function (user, i){
+                    data.users.forEach(function (user, i){
                             user.devices.forEach(function(id,i){
                                 $scope.usersDevices.push(id);
                             })
