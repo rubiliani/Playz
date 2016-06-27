@@ -38,9 +38,10 @@ angular.module('PlayzApp')
     }
 
     $scope.notificationInit = function(){
-
-      _pcq.push(['APIReady', function(){
+      window._pcq = window._pcq || [ ];
+      window._pcq.push(['APIReady', function(){
          console.log(pushcrew.subscriberId);
+         window._pcq.push(['triggerOptIn',{subscriberSegment: 'homepage', modal: {text: 'Get instant alerts from our website. Please subscribe.', blackenBackground: true}}]);
 
          if(pushcrew.subscriberId==false)
            _pcq.push(['triggerOptIn', {subscriberSegment: 'global'}]);       
@@ -50,14 +51,6 @@ angular.module('PlayzApp')
          else{
             if(!$rootScope.user)
               return;
-            window._pcq = window._pcq || [ ];
-            window._pcq.push(['triggerOptIn',
-                   { subscriberSegment: 'global', 
-                     modal: { 
-                           text: 'Get instant alerts from our website. Please subscribe.',
-                           blackenBackground: true
-                           }
-                    }]);
             DB_queries.addUserDevice($rootScope.user._id,pushcrew.subscriberId).then(function () {
                   console.log("successfully registerd device")
             });
