@@ -102,6 +102,7 @@ exports.sendNotification = function(requ,res,next) {
 	var data={
 		"app_id":"84591d87-0267-4172-a9f1-f5a34048f4b3",
 		"include_player_ids":requ.body.users,
+		"chrome_web_icon": "https://playzapp.herokuapp.com/assets/img/icon.png",
 		"contents": {"en": requ.body.msg}
 	}
 
