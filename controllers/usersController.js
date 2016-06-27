@@ -78,6 +78,7 @@ exports.get_user_devices = function(req,res,next){
 			})
 		});
 
+		console.log("all users devices", userDevices);
 
 		var message = { 
   			app_id: "5eb5a37e-b458-11e3-ac11-000c2940e62c",
