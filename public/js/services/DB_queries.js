@@ -56,9 +56,9 @@ angular.module('PlayzApp.services')
         }
 
 
-        var _sendNotifications = function (msg) {
+        var _sendNotifications = function (users,msg) {
             var deferred = $q.defer();
-            $http.post($rootScope.app.domain + 'users/sendNotification', {data:msg})
+            $http.post($rootScope.app.domain + 'users/sendNotification', {data:msg,userids:users})
                 .success(function (data) {
                     console.log("sendNotification", data)
                     

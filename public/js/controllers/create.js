@@ -222,12 +222,10 @@ angular.module('PlayzApp')
                                 $scope.usersDevices.push(id._id);
                             })
                         });
-                    var msg = {
-                        "app_id": "84591d87-0267-4172-a9f1-f5a34048f4b3",
-                        "include_segements":["all"],
-                        "contents": {"en": "New Invitation to "+$scope.sportType+" event"}
-                    }
-                    DB_queries.sendNotifications(msg).then(function(){
+
+                    var msg = "New Invitation to "+$scope.sportType+" event";
+                    
+                    DB_queries.sendNotifications($scope.usersDevices,msg).then(function(){
                              console.log("sendNotifications");
                     })
                        
