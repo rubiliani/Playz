@@ -98,7 +98,8 @@ exports.get_user_devices = function(req,res,next){
 
 
 
-exports.sendNotification = function(data) {
+exports.sendNotification = function(requ,res,next) {
+	var data = requ.body;
 	console.log("notif data ",data);
   var headers = {
     "Content-Type": "application/json",
@@ -129,6 +130,7 @@ exports.sendNotification = function(data) {
   
   req.write(JSON.stringify(data));
   req.end();
+ 	return res.json(data);
 };
 
 /*
