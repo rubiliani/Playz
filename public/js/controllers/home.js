@@ -43,13 +43,21 @@ angular.module('PlayzApp')
          console.log(pushcrew.subscriberId);
 
          if(pushcrew.subscriberId==false)
-           window._pcq.push(['triggerOptIn', {subscriberSegment: 'homepage'}]);       
+           _pcq.push(['triggerOptIn', {subscriberSegment: 'global'}]);       
          else if(pushcrew.subscriberId==-1){
 
          }
          else{
             if(!$rootScope.user)
               return;
+            window._pcq = window._pcq || [ ];
+            window._pcq.push(['triggerOptIn',
+                   { subscriberSegment: 'global', 
+                     modal: { 
+                           text: 'Get instant alerts from our website. Please subscribe.',
+                           blackenBackground: true
+                           }
+                    }]);
             DB_queries.addUserDevice($rootScope.user._id,pushcrew.subscriberId).then(function () {
                   console.log("successfully registerd device")
             });
