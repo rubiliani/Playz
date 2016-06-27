@@ -55,7 +55,7 @@ angular.module('PlayzApp')
             });
          }
       }]);
-      }
+      
     }
 
     $interval(function(){
