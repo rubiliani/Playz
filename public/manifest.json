@@ -2,6 +2,6 @@
   "name": "Playz",
   "short_name": "Playz",
   "start_url": "/",
-  "display": "standalone",
+  "display": "fullscreen",
   "gcm_sender_id": "1057642021330"
 }
