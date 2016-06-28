@@ -210,7 +210,7 @@ eventSchema.statics.getMyEvents=function(user,filter,callback){
 	};
 
 	
-	this.model('events').find(query).populate('registeredUsers','picture id _id name')
+	this.model('events').find(query).select('-messages').populate('registeredUsers','picture id _id name')
 		.exec(function(err,result){
 			if (err){
 				r.msg.push("get My Events",err);
