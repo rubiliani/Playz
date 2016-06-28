@@ -13,6 +13,7 @@ angular.module('PlayzApp')
         $scope.levels=["Any Level", "Newbie", "Intermediate", "Proffesional"];
         $scope.mindsets=["Just for fun", "Turnament", "By the book"];
         $scope.genders=["Co-ed","Male", "Female"];
+        $scope.whens=["Don't Care","Morning", "Noon","After Noon", "Evening"];
         $scope.paidFacilities=["OK", "No Way", "Don't Care"];
 
         $scope.event={

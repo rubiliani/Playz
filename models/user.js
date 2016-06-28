@@ -42,6 +42,7 @@ var userSchema = new Schema({
 	devices:[{
 		_id:{type : String, unique : true,index : true }
 	}],
+	admin:{ type : Boolean, default:false},
 	about:{type : String, default:''}
 });
 

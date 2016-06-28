@@ -6,8 +6,7 @@ angular.module('PlayzApp')
 
         $scope.markers = [];
     $scope.places = [];
-    $scope.places.push({lat: 44.99758207, lng: 7.140598296999997, nome: "Vignal", desc: "Easy climb in Chisone Valley"});
-    $scope.places.push({lat: 45.0293769, lng: 7.273120879999965, nome: "Parey", desc: "Classical route climbs in Sangone Valley"});
+    
          var self = this;
 
          var self = this;
