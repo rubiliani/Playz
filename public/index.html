@@ -35,6 +35,32 @@
     <link href="css/style.css" rel="stylesheet">
 
    <link rel="manifest" href="/manifest.json">
+    <script>
+    window.addEventListener('load', function() {
+    
+      
+       
+      window.addEventListener('beforeinstallprompt', function(e) {
+      
+        
+        // e.userChoice will return a Promise. For more details read: http://www.html5rocks.com/en/tutorials/es6/promises/
+        e.userChoice.then(function(choiceResult) {
+          
+          console.log(choiceResult.outcome);
+          
+          if(choiceResult.outcome == 'dismissed') {
+            console.log('User cancelled homescreen install');
+          }
+          else {
+            console.log('User added to homescreen');
+          }
+        });
+        
+      });
+      
+    });
+    </script>
+
   <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
   <script>
     var OneSignal = OneSignal || [];
