@@ -35,6 +35,23 @@
     <link href="css/style.css" rel="stylesheet">
 
    <link rel="manifest" href="/manifest.json">
+   <script> 
+   console.log('launcher script run');
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('OneSignalSDKWorker.js', { scope: './' })
+        .then(function(r) {
+          console.log('registered service worker');
+        })
+        .catch(function(whut) {
+          console.error('uh oh... ');
+          console.error(whut);
+        });
+      window.addEventListener('beforeinstallprompt', function(e) {
+        console.log('beforeinstallprompt');
+      });
+    });
+    </script>
+
   <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
   <script>
     var OneSignal = OneSignal || [];

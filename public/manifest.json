@@ -2,6 +2,14 @@
   "name": "Playz",
   "short_name": "Playz",
   "start_url": "/",
-  "display": "standalone",
+  "display": "fullscreen",
+  "icons": [
+  	{
+      "src": "playz144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "density": 3.0
+    }
+   ],
   "gcm_sender_id": "1057642021330"
 }

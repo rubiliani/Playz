@@ -59,13 +59,17 @@
           <div class="media-body">
             <div class="media-heading">
               <strong>Sport Type: </strong>
+               <select ng-model="filter.sportType" class="form-control custom-select">
+                    <option ng-repeat="sport in sports">{{sport.name}}</option>
+                </select>
+                                <!--
                <select id="sportSelection" class="form-control custom-select" ng-model="filter.sportType">
                   <option ng-repeat="sport in sports track by $index"
                           ng-selected="$index==0"
                           ng-value="sport.name">
                       {{sport.name}}
                   </option>
-              </select>
+              </select>-->
             </div>
 
           </div>
@@ -78,13 +82,17 @@
           <div class="media-body">
             <div class="media-heading">
               <strong>Level: </strong>
+               <select ng-model="filter.level" class="form-control custom-select">
+                    <option ng-repeat="level in levels">{{level}}</option>
+                </select>
+                <!--
               <select name="levelSelect" class="form-control custom-select" ng-model="filter.level">
                   <option ng-repeat="level in levels track by $index"
                           ng-selected="$index==0"
                   ng-value="level">
                       {{level}}
                   </option>
-              </select>
+              </select>-->
             </div>
 
           </div>
@@ -97,13 +105,17 @@
           <div class="media-body">
             <div class="media-heading">
               <strong>Mindset: </strong> 
+               <select ng-model="filter.mindset" class="form-control custom-select">
+                    <option ng-repeat="mind in mindsets">{{mind}}</option>
+                </select>
+              <!--
               <select name="mindsetSelect" class="form-control custom-select" ng-model="filter.mindset">
                   <option ng-repeat="mindset in mindsets track by $index"
                           ng-selected="$index==0"
                   ng-value="mindset">
                       {{mindset}}
                   </option>
-              </select>
+              </select>-->
             </div>
 
           </div>

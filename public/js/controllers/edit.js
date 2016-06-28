@@ -17,6 +17,7 @@ angular.module('PlayzApp')
         $scope.mindsets=["Just for fun", "Turnament", "By the book"];
         $scope.genders=["Co-ed","Male", "Female"];
         $scope.paidFacilities=["OK", "No Way", "Don't Care"];
+        $scope.whens=["Don't Care","Morning", "Noon","After Noon", "Evening"];
 /*
         $scope.event={
             sportType:$scope.tempevent.sportType,

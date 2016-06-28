@@ -41,6 +41,22 @@
                     <div class="media-body">
                         <div class="media-body-text">
                             <div class="media-heading">
+                                <label class="select">Choose Sport:</label>
+                                <select id="sportSelection" class="form-control custom-select" ng-model="event.sportType">
+                                    <option ng-repeat="sport in sports track by $index"
+                                            ng-selected="$index==0"
+                                    ng-value="sport.name">
+                                        {{sport.name}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                 <li class="media list-group-item p-a">
+                    <div class="media-body">
+                        <div class="media-body-text">
+                            <div class="media-heading">
                                 <label class="select">Event Title:</label>
                                 <input type="text" class="form-control" placeholder="e.g. Monday Soccer" ng-model="event.eventTitle"required> 
                             </div>
@@ -51,14 +67,17 @@
                     <div class="media-body">
                         <div class="media-body-text">
                             <div class="media-heading">
-                                <label class="select">Choose Sport:</label>
-                                <select id="sportSelection" class="form-control custom-select" ng-model="event.sportType">
-                                    <option ng-repeat="sport in sports track by $index"
+                                <label class="select">When:</label>
+                                <input type="date" ng-value="event.whenDate" ng-blur="validateDate()" class="form-control" ng-model="event.whenDate" ><br>
+                                <select name="whenSelect" id="whenSelection" class="form-control custom-select"
+                                        ng-model="event.when">
+                                    <option ng-repeat="when in whens track by $index"
                                             ng-selected="$index==0"
-                                    ng-value="sport.name">
-                                        {{sport.name}}
+                                    ng-value="when">
+                                        {{when}}
                                     </option>
                                 </select>
+                                
                             </div>
                         </div>
                     </div>
@@ -96,23 +115,7 @@
                         </div>
                     </div>
                 </li>
-                <li class="media list-group-item p-a">
-                    <div class="media-body">
-                        <div class="media-body-text">
-                            <div class="media-heading">
-                                <label class="select">When:</label>
-                                <input type="date" ng-value="event.whenDate" ng-blur="validateDate()" class="form-control" ng-model="event.whenDate" >
-                               
-                                <!-- <select name="select-choice-0" id="" class="custom-select" ng-model="event.whenDate"
-                                        ng-value="Today">
-                                    <option ng-repeat="date in whenDates track by $index" ng-selected="$index==0">
-                                        {{date}}
-                                    </option>
-                                </select> -->
-                            </div>
-                        </div>
-                    </div>
-                </li>
+                
                 <li class="media list-group-item p-a">
                     <div class="media-body">
                         <div class="media-body-text">
@@ -175,7 +178,7 @@
                 <li class="media list-group-item p-a">
                     <div class="media-body">
                         <div class="media-body-text map-height">
-                            {{location.city}}
+                            City: {{location.city}}
                             <map ng-transclude class="google-map" center="mymap.center" options="mymap.options" events="mymap.events">
                                 <marker position="mymap.marker.position" options="mymap.marker.options" events="mymap.marker.events"></marker>
                                 <circles geometries="mymap.circles.geometries" options="mymap.circles.options"

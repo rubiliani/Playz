@@ -12,6 +12,7 @@ var eventSchema = new Schema({
 	level : {type : String, default:''},
 	mindset: { type : String, default:''},
 	whenDate : { type : Date, default:Date.now},
+	when: { type : String, default:''},
 	groupSize: { type : Number, default:2},
 	ageRange:{
 		min: {type : Number, default:20},
