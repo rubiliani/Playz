@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
 	id : { type : String ,  index : true, unique : true , required :true},
+	regID:{ type : String, default:''},
 	email : { type : String, default:''},
 	gender: { type : String, default:''},
 	birthday : {type : Date, default:''},
