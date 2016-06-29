@@ -6,6 +6,7 @@ angular.module('PlayzApp')
     $scope.messages = [];
     $scope.textMsg = "";
     $scope.event.invitedUsers = [];
+     $scope.usersDevices = [];
     console.log("event controller",$scope);
 
     $scope.getMessage = function(){
@@ -92,6 +93,27 @@ angular.module('PlayzApp')
         console.log("inviteUsers");
 		DB_queries.inviteFriends($scope.event,$scope.event.invitedUsers).then(function(){
 			console.log("done inviting");
+
+			 DB_queries.getUsersDevices($scope.event.invitedUsers).then(function(data){
+                    console.log(data);
+
+                    data.users.forEach(function (user, i){
+                            user.devices.forEach(function(id,i){
+                                $scope.usersDevices.push(id._id);
+                            })
+                        });
+
+                    var msg = $rootScope.user.name+" invited you to "+$scope.event.sportType+" event";
+                    
+                    DB_queries.sendNotifications($scope.usersDevices,msg).then(function(){
+                             console.log("sendNotifications");
+                    })
+                       
+                    
+
+                })
+
+
 			$route.reload();
 		},
 		function(err){
