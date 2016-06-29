@@ -114,6 +114,27 @@ userSchema.statics.get_user_devices=function(regiteredUsers,callbackSuccess,call
 		});
 }
 
+userSchema.statics.get_creator_devices=function(regiteredUsers,callbackSuccess,callbackError){
+	var r = {msg:[],status:0};
+	var query = {
+		_id:{$in:regiteredUsers}
+	};
+
+	this.model('users').find(query).select('devices')
+		.exec(function(err,result){
+			if (err){
+				r.msg.push(err);
+				return callbackError(r);
+			}
+
+			r.msg.push("users found",result);
+			r.users=result;
+			r.status=1;
+
+			return callbackSuccess(r);
+		});
+}
+
 userSchema.statics.get_user=function(userid,callback){
 	var r = {msg:[],status:0};
 	var query = {

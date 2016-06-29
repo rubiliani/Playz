@@ -71,29 +71,27 @@ exports.get_user_devices = function(req,res,next){
 			res.status(404).send("failed to get devices");
 		}
 
-		/*
-		console.log("user devices", result);
+		return res.json(result)
+	});
+}
 
-		result.forEach(function (user, i){
-			user.devices.forEach(function(id,i){
-				userDevices.push(id);
-			})
-		});
+exports.getCreatorDevices = function(req,res,next){
+	var userDevices = [];
+	var r = {msg:[],status:0};
+	var userids = req.body.userids;
+	
+	console.log("user ids", userids);
 
-		console.log("all users devices", userDevices);
-
-		var message = { 
-  			app_id: "84591d87-0267-4172-a9f1-f5a34048f4b3",
-  			contents: {"en": "You invited to event"},
-  			include_player_ids: userDevices
-		};
-
-		sendNotification(message);
-		*/
+	User.get_creator_devices(userids,function(result){
+		if (!result.status){
+			res.status(404).send("failed to get devices");
+		}
 
 		return res.json(result)
 	});
 }
+
+
 
 exports.getAllUsers = function (req, res) {
     var filter = req.body;

@@ -363,6 +363,38 @@ angular.module('PlayzApp.services')
             return deferred.promise;
         }
 
+         var _getUsersDevices = function(users){
+            var deferred = $q.defer();
+            $http.post($rootScope.app.domain+'users/getDevices',{userids:users})
+                .success(function(data){
+                    console.log("get devices success",data)
+                    deferred.resolve(data);
+                }).error(function(err){
+                console.log("get devices err",err)
+                deferred.reject(err);
+            })
+                ['finally'](function() {
+
+            });
+            return deferred.promise;
+        }
+
+         var _getCreatorDevices = function(users){
+            var deferred = $q.defer();
+            $http.post($rootScope.app.domain+'users/getCreatorDevices',{userids:users})
+                .success(function(data){
+                    console.log("get devices success",data)
+                    deferred.resolve(data);
+                }).error(function(err){
+                console.log("get devices err",err)
+                deferred.reject(err);
+            })
+                ['finally'](function() {
+
+            });
+            return deferred.promise;
+        }
+
 
         var _getEventById = function(eid){
             var deferred = $q.defer();
@@ -450,6 +482,7 @@ angular.module('PlayzApp.services')
             addUserDevice:_addUserDevice,
             sendNotifications:_sendNotifications,
             getUsersDevices:_getUsersDevices,
+            getCreatorDevices:_getCreatorDevices,
             getAllUsers:_getAllUsers,
             leaveEvent:_leaveEvent
 

@@ -98,6 +98,7 @@ angular.module('PlayzApp')
                         body: event.eventTitle
                     });*/
                 });
+                $scope.showEvents();
                // console.log( $scope.mymap.points)
             });  
 
@@ -129,9 +130,7 @@ angular.module('PlayzApp')
           google.maps.event.trigger(selectedMarker, 'click');
         };
       }
-      initialize();
-      $scope.updateMap();
-     
+
 
       $scope.showEvents = function(){
           $scope.userMarkers.forEach(function(marker){
@@ -150,6 +149,12 @@ angular.module('PlayzApp')
               marker.setMap(null);
           });
       }
+
+
+        initialize();
+      $scope.updateMap();
+
+     
 
     });
 
