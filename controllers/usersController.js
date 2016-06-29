@@ -95,6 +95,18 @@ exports.get_user_devices = function(req,res,next){
 	});
 }
 
+exports.getAllUsers = function (req, res) {
+    var filter = req.body;
+    User.getAllUsers(filter, function (result) {
+        if (!result.status) {
+            return res.status(404).json(result)
+        }
+        return res.json(result)
+    })
+
+}
+
+
 
 
 
@@ -141,12 +153,7 @@ exports.sendNotification = function(requ,res,next) {
  
 };
 
-/*
-var message = { 
-  		app_id: "84591d87-0267-4172-a9f1-f5a34048f4b3",
-  		contents: {"en": text},
-  		include_player_ids: users
-	};*/
+
 
 
 

@@ -233,4 +233,28 @@ userSchema.statics.addDeviceToUser=function(userid,regid,callback){
 		});
 }
 
+userSchema.statics.getAllUsers=function(filter,callback){
+	var r = {msg:[],status:0};
+
+	//console.log("gender",uGender)
+
+	var query = {
+		
+	};
+
+	
+	this.model('users').find(query)
+		.exec(function(err,result){
+			if (err){
+				r.msg.push("getAllusers",err);
+				return callback(r);
+			}
+
+			r.msg.push("getAllusers found");
+			r.status=1;
+			r.users=result;
+			return callback(r);
+		});
+}
+
 User = mongoose.model('users', userSchema);
