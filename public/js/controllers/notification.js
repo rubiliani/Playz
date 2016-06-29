@@ -32,7 +32,7 @@ angular.module('PlayzApp')
                             })
                         });
 
-                    var msg = $rootScope.user.name+" joined to "+$rootScope.notifications[index].notification.event.sportType+" event";
+                    var msg = $rootScope.user.name+" accepted the invitation to "+$rootScope.notifications[index].notification.event.sportType+" event";
                     
                     DB_queries.sendNotifications($scope.usersDevices,msg).then(function(){
                              console.log("sendNotifications");
