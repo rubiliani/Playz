@@ -10,9 +10,9 @@ angular.module('PlayzApp')
    	
 
      $scope.location={lat:0,lng:0,name:''};
-         $scope.sports=[{name:"Baseball"},{name:"Basketball"},{name:"Boxing"},{name:"Diving"},{name:"Fishing"},
-            {name:"Golf"},{name:"Hocky"},{name:"Running"},{name:"Ski"},{name:"Soccer"},{name:"Surfing"},{name:"Swimming"}
-            ,{name:"Table Tennis"},{name:"Tennis"}];
+         $scope.sports=[{name:"Baseball"},{name:"Basketball"},{name:"Boxing"},{name:"Chess"},{name:"Cycling"},{name:"Fishing"},{name:"Football"},
+            {name:"Golf"},{name:"Hockey"},{name:"Ping-Pong"},{name:"Pool"},{name:"Running"},{name:"Soccer"},{name:"Surfing"},{name:"Swimming"}
+            ,{name:"Tennis"},{name:"Volleyball"}];
         $scope.levels=["Any Level", "Newbie", "Intermediate", "Proffesional"];
         $scope.mindsets=["Just for fun", "Turnament", "By the book"];
         $scope.genders=["Co-ed","Male", "Female"];
