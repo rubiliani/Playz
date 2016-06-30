@@ -1,20 +1,15 @@
 <div class="container p-t-md">
     <div class="row">
-       
-
-   
-        <div class="col-md-6">
+    
+        <div class="col-lg-6">
             <ul class="list-group media-list media-list-stream">
-                <li class="media list-group-item p-a">
-                    <h4>Monitoring</h4>
-                </li>
                 <li class="media list-group-item p-a">
                     <div class="media-body">
                         <div class="media-body-text">
                             <div class="media-heading">
                                 <div class="radio-inline custom-control custom-radio">
                                     <label>
-                                        <input type="radio" id="radio1" ng-click="setCurrentLocation()" name="location"
+                                        <input type="radio" id="radio1" ng-click="showEvents()" name="location"
                                                checked>
                                         <span class="custom-control-indicator"></span>
                                         Show Upcoming Events
@@ -22,7 +17,7 @@
                                 </div>
                                 <div class="radio-inline custom-control custom-radio">
                                     <label>
-                                        <input type="radio" id="radio2" ng-click="setHomeLoc()" name="location">
+                                        <input type="radio" id="radio2" ng-click="showUsers()" name="location">
                                         <span class="custom-control-indicator"></span>
                                         Show Users
                                     </label>
@@ -36,14 +31,12 @@
                     <div class="media-body">
                         <div class="media-body-text">
                             <div class="map" id="map"></div>
-                    
-                           
                         </div>
                     </div>
                 </li>
             </ul>
         </div>
-         <div class="col-md-6">
+         <div class="col-lg-6">
          <ul class="list-group media-list media-list-stream">
          <li class="media list-group-item p-a">
 
@@ -77,8 +70,12 @@
         </tfoot>
         </table>
         </li>
+
         </ul>
+
+        
          </div>
+
 
     </div>
 </div>

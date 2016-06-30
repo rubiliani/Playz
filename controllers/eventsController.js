@@ -1,5 +1,7 @@
 var async = require("async");
 var mongoose = require('mongoose');
+var GCM = require( process.cwd()+"/core/gcm.js");
+// GCM.gcm_service([result.user.regID.token]);
 
 module.exports.create = function (req, res) {
     var event = req.body.event;

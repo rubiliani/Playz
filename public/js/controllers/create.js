@@ -224,7 +224,7 @@ angular.module('PlayzApp')
                             })
                         });
 
-                    var msg = "New Invitation to "+$scope.event.sportType+" event";
+                    var msg = $rootScope.user.name+" invited you to "+$scope.event.sportType+" event";
                     
                     DB_queries.sendNotifications($scope.usersDevices,msg).then(function(){
                              console.log("sendNotifications");

@@ -4,11 +4,9 @@ angular.module('PlayzApp')
     .controller('adminCtrl', function($scope, $http, $q ,$rootScope, $location,DB_queries,geolocation,$window,fbLogin,$timeout) {
         console.log("admin controller")
 
-        $scope.markers = [];
-    $scope.places = [];
+        $scope.userMarkers = [];
+        $scope.eventMarkers = [];
     
-         var self = this;
-
          var self = this;
 
       function initialize() {
@@ -42,29 +40,73 @@ angular.module('PlayzApp')
         });
 
         //$scope.markers = [];
-        var createMarker = function(info) {
+        var createEventMarker = function(info) {
          
+          var image = {
+            url: "assets/img/"+info.sportType+".png", //assets/img/{{card.sportType}}.png
+            scaledSize : new google.maps.Size(22, 32)
+          };
           var marker = new google.maps.Marker({
-            map: self.map,
+           // map: self.map,
             position: new google.maps.LatLng(info.location.latitude, info.location.longitude),
             title: info.sportType,
+            icon: image
             //date: info.data,
             //imagen: info.imagen,
             //nombre_categoria: info.nombre_categoria
           });
           marker.content = '<div class="infoWindowContent">' + info.eventTitle + '</div>';
           google.maps.event.addListener(marker, 'click', function() {
-            infoWindow.setContent('<h4>' + marker.title + '</h4>' + marker.content);
+            infoWindow.setContent('<h5>' + marker.title + '</h5>' + marker.content);
             infoWindow.open(self.map, marker);
           });
-          $scope.markers.push(marker);
+          $scope.eventMarkers.push(marker);
+        };
+
+
+        var createUserMarker = function(info) {
+         
+          var image = {
+            url: info.picture.data.url,
+            scaledSize : new google.maps.Size(32, 32)
+          };
+          var marker = new google.maps.Marker({
+            //map: self.map,
+            position: new google.maps.LatLng(info.hometown.latitude, info.hometown.longitude),
+            title: info.name,
+            //icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+            //date: info.data,
+            //imagen: info.imagen,
+            //nombre_categoria: info.nombre_categoria
+          });
+          marker.content = '<div class="infoWindowContent">' + info.eventTitle + '</div>';
+          google.maps.event.addListener(marker, 'click', function() {
+            infoWindow.setContent('<h5>' + marker.title + '</h5>' +info.hometown.name+ '<br><IMG BORDER="0" style="width:90px;height:90px;" SRC="'+image.url+'">');
+            infoWindow.open(self.map, marker);
+          });
+          $scope.userMarkers.push(marker);
         };
 
         $scope.updateMap=function(){
            DB_queries.getAdminEvents().then(function (events) {
                 $scope.events = events;
                 $scope.events.forEach(function (event, i) {
-                    createMarker(event)
+                    createEventMarker(event)
+                   /* $scope.mymap.points.coords.push({
+                        point: [event.location.latitude,event.location.longitude],
+                        header: event.sportType,
+                        body: event.eventTitle
+                    });*/
+                });
+                $scope.showEvents();
+               // console.log( $scope.mymap.points)
+            });  
+
+
+            DB_queries.getAllUsers().then(function (users) {
+                $scope.users = users;
+                $scope.users.forEach(function (user, i) {
+                    createUserMarker(user)
                    /* $scope.mymap.points.coords.push({
                         point: [event.location.latitude,event.location.longitude],
                         header: event.sportType,
@@ -74,9 +116,12 @@ angular.module('PlayzApp')
                // console.log( $scope.mymap.points)
             });  
 
+
             
         
         }
+
+        
         if (!$scope.$$phase) $scope.$apply();
 
         $scope.openInfoWindow = function(e, selectedMarker) {
@@ -85,138 +130,31 @@ angular.module('PlayzApp')
           google.maps.event.trigger(selectedMarker, 'click');
         };
       }
-      initialize();
+
+
+      $scope.showEvents = function(){
+          $scope.userMarkers.forEach(function(marker){
+              marker.setMap(null);
+          });
+          $scope.eventMarkers.forEach(function(marker){
+              marker.setMap(self.map);
+          });
+      }
+
+      $scope.showUsers = function(){
+          $scope.userMarkers.forEach(function(marker){
+              marker.setMap(self.map);
+          });
+          $scope.eventMarkers.forEach(function(marker){
+              marker.setMap(null);
+          });
+      }
+
+
+        initialize();
       $scope.updateMap();
+
      
-
-         /*
-
-        $scope.location={lat:32.0853,lng:34.7818,name:''};
-       
-
-
-        $scope.event={
-            
-            location:{},
-            radius:10000,
-        };
-
-        $scope.infowindow = {
-            position: null,
-            header:'',
-            body:''
-        }  
-       
-        //http://willleahy.info/ng-maps/#/
-
-        $scope.mymap = {
-            center: [$scope.location.lat, $scope.location.lng],
-            options: function() {
-                return {
-                    zoom:11,
-                    streetViewControl: false,
-                    scrollwheel: true,
-                    draggable: true
-                }
-            },
-            events: {
-                click: function(e, map) {
-                    if (e && e.latLng){
-                        $scope.location.lat=e.latLng.lat()
-                        $scope.location.lng=e.latLng.lng()
-                    }
-
-        
-                    if (e && e.latLng) {
-                        $scope.$apply()
-                    }
-                },
-                drag: function(e, p, map, points) {
-                    // some action here
-                }
-            },
-            marker:{
-                position: null,
-                options: function(){
-                    return {
-                        draggable: false
-                    }
-                },
-                events: {
-                    click: function(e, marker, map, markers) {
-                        $scope.infowindow.position = e.latLng;
-                        $scope.infowindow.header = "rubi"
-                         $scope.infowindow.body = "liani"
-                        $scope.$apply()
-                        console.log(e.latLng.lat() + " " + e.latLng.lng());
-                    }
-                },
-            },
-            points:{
-              coords: [{point:[],
-                        header:'',
-                        body:''}
-              ],
-              options: function(coords, properties, i, map) {
-                return {
-                  draggable: true
-                }
-              },
-              events: {
-                click: function(e, point, map, points) {
-                  alert(point)
-                }
-              },
-              decimals: 14
-            }
-        };
-
-       
-
-    
-
-
-        $scope.setCurrentLocation=function(){
-           geolocation.getCurrentPosition().then(function(val){
-                console.log('create page geo',val)
-                $scope.location.lat = val.coords.latitude;
-                $scope.location.lng = val.coords.longitude;
-                $scope.updateMap();
-               
-           });
-
-
-        }
-        $scope.openme = function(){
-            alert("ya habibi")
-        }
-      
-        $scope.updateMap=function(){
-           DB_queries.getAdminEvents().then(function (events) {
-                $scope.events = events;
-                $scope.events.forEach(function (event, i) {
-
-                    $scope.mymap.points.coords.push({
-                        point: [event.location.latitude,event.location.longitude],
-                        header: event.sportType,
-                        body: event.eventTitle
-                    });
-                });
-                console.log( $scope.mymap.points)
-            });  
-
-            
-        
-        }
-
-         $scope.init=function(){
-            $timeout(function () {
-                $scope.setCurrentLocation();
-            },100);
-        }
-        $scope.init();
-        */
-
 
     });
 

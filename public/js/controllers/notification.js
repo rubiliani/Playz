@@ -3,6 +3,7 @@
 angular.module('PlayzApp')
     .controller('notificationCtrl', function($scope, $http, $rootScope, $location,DB_queries,$timeout,growl) {
         console.log("notif controller")
+        $scope.usersDevices = [];
 
 		$rootScope.getNotifications=function(){
 			DB_queries.getNotifications().then(function(data){
@@ -21,6 +22,25 @@ angular.module('PlayzApp')
                 //$scope.notifications.splice(index, 1);
                 console.log("joined");
                 $scope.deleteNotification(index,eventId,notificationId);
+
+                DB_queries.getCreatorDevices($rootScope.notifications[index].notification.creator._id).then(function(data){
+                    console.log(data);
+
+                    data.users.forEach(function (user, i){
+                            user.devices.forEach(function(id,i){
+                                $scope.usersDevices.push(id._id);
+                            })
+                        });
+
+                    var msg = $rootScope.user.name+" accepted the invitation to "+$rootScope.notifications[index].notification.event.sportType+" event";
+                    
+                    DB_queries.sendNotifications($scope.usersDevices,msg).then(function(){
+                             console.log("sendNotifications");
+                    })
+                       
+                    
+
+                })
             })
         }
 
