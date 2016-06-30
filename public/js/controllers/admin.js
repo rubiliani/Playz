@@ -65,23 +65,33 @@ angular.module('PlayzApp')
 
 
         var createUserMarker = function(info) {
-         
-          var image = {
-            url: info.picture.data.url,
-            scaledSize : new google.maps.Size(32, 32)
+         var image = '';
+         if(info.gender=="male"){
+           image = {
+            url: "assets/img/man.png",
+            scaledSize : new google.maps.Size(52, 52)
           };
+        }
+        else{
+           var image = {
+            url: "assets/img/woman.png",
+            scaledSize : new google.maps.Size(52, 52)
+          };
+        }
+
+       
           var marker = new google.maps.Marker({
             //map: self.map,
             position: new google.maps.LatLng(info.hometown.latitude, info.hometown.longitude),
             title: info.name,
-            //icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+            icon: image
             //date: info.data,
             //imagen: info.imagen,
             //nombre_categoria: info.nombre_categoria
           });
           marker.content = '<div class="infoWindowContent">' + info.eventTitle + '</div>';
           google.maps.event.addListener(marker, 'click', function() {
-            infoWindow.setContent('<h5>' + marker.title + '</h5>' +info.hometown.name+ '<br><IMG BORDER="0" style="width:90px;height:90px;" SRC="'+image.url+'">');
+            infoWindow.setContent('<h5>' + marker.title + '</h5>' +info.hometown.name+ '<br><IMG BORDER="0" style="width:90px;height:90px;" SRC="'+info.picture.data.url+'">');
             infoWindow.open(self.map, marker);
           });
           $scope.userMarkers.push(marker);
