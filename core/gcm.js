@@ -1,18 +1,18 @@
 var gcm = require('node-gcm');
 
-module.exports GCM = function(){
+module.exports.gcm_service = function(users){
   
   var message = new gcm.Message(); 
   var sender = new gcm.Sender('AIzaSyA3QmsDW_2JMTJP3rIIVJZR0ADHhGrN9B4');
-  var message_id = 123;
+  var message_id = Date.now();
   var reg_id = "abc";
 
-  message.addData('title', 'Playz');
-      message.addData('message', 'New Invetation');
+      message.addData('title', 'Playz');
+      message.addData('message', 'New Invitation');
       message.addData('_id', message_id);
 
       message.delay_while_idle = 1;
-      sender.sendNoRetry(message, reg_id, function(err, sentResult)
+      sender.sendNoRetry(message, users, function(err, sentResult)
       {
           if(err)
           {

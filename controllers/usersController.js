@@ -1,4 +1,6 @@
 var moment = require('moment')
+var GCM = require( process.cwd()+"/core/gcm.js");
+
 /**
  * receive user and update or create in the db
  * @param req
@@ -21,6 +23,7 @@ exports.update_user = function(req,res,next){
 			result.newUser=true;
 		}
 		socket.onUserConnected(result.user);
+		// GCM.gcm_service([result.user.regID.token])
 		return res.json(result)
 	});
 }
