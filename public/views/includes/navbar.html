@@ -53,13 +53,13 @@
 
                 </ul>
 
-                <ul class="nav navbar-nav navbar-right m-r-0">
+                <ul class="nav navbar-nav navbar-right m-r-0 hidden-xs">
                     <li>
                         <a href="#notificationModal" data-toggle="modal"
                            ng-click="[$event.preventDefault(),urlChanged(''),openNotification()]">
                             <span class="icon icon-bell hidden-xs"></span>
-                            <span class="icon icon-bell  hidden-lg hidden-md hidden-sm"> Notifications</span>
-                            <span class="badge">{{notifications.length}}</span>
+                            <!--<span class="icon icon-bell  hidden-lg hidden-md hidden-sm"> Notifications</span>-->
+                            <span class="badge ">{{notifications.length}}</span>
                         </a>
                     </li>
                     <li class="hidden-xs">
