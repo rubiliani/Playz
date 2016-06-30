@@ -1613,6 +1613,19 @@ fieldset[disabled] .btn-default.focus {
   color: #ffffff;
   background-color: #536570;
 }
+.btn-notification {
+  color: #ffffff;
+  background-color: #44a762;
+}
+.btn-notification:focus,
+.btn-notification.focus {
+  color: #ffffff;
+  background-color: #3c763d;
+}
+.btn-notification:hover {
+  color: #ffffff;
+  background-color: #3c763d;
+}
 .btn-primary {
   color: #ffffff;
   background-color: #44a762;
