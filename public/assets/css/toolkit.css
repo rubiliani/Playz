@@ -1620,7 +1620,6 @@ fieldset[disabled] .btn-default.focus {
 .btn-notification:focus,
 .btn-notification.focus {
   color: #ffffff;
-  background-color: #3c763d;
 }
 .btn-notification:hover {
   color: #ffffff;
