@@ -46,9 +46,12 @@ angular.module('PlayzApp')
             url: "assets/img/"+info.sportType+".png", //assets/img/{{card.sportType}}.png
             scaledSize : new google.maps.Size(42, 42)
           };
+          var newLat = info.location.latitude + (Math.random() -.5) / 3500;// * (Math.random() * (max - min) + min);
+          var newLng = info.location.longitude + (Math.random() -.5) / 3500;// * (Math.random() * (max - min) + min);
           var marker = new google.maps.Marker({
            // map: self.map,
-            position: new google.maps.LatLng(info.location.latitude, info.location.longitude),
+
+            position: new google.maps.LatLng(newLat, newLng),
             title: info.sportType
             //icon: image
             //date: info.data,
@@ -79,10 +82,12 @@ angular.module('PlayzApp')
           };
         }
 
+          var newLat = info.hometown.latitude + (Math.random() -.5) / 4500;// * (Math.random() * (max - min) + min);
+          var newLng = info.hometown.longitude + (Math.random() -.5) / 4500;// * (Math.random() * (max - min) + min);
        
           var marker = new google.maps.Marker({
             //map: self.map,
-            position: new google.maps.LatLng(info.hometown.latitude, info.hometown.longitude),
+            position: new google.maps.LatLng(newLat, newLng),
             title: info.name,
             icon: image
             //date: info.data,
