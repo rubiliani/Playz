@@ -44,18 +44,18 @@ angular.module('PlayzApp')
          
           var image = {
             url: "assets/img/"+info.sportType+".png", //assets/img/{{card.sportType}}.png
-            scaledSize : new google.maps.Size(22, 32)
+            scaledSize : new google.maps.Size(42, 42)
           };
           var marker = new google.maps.Marker({
            // map: self.map,
             position: new google.maps.LatLng(info.location.latitude, info.location.longitude),
-            title: info.sportType,
-            icon: image
+            title: info.sportType
+            //icon: image
             //date: info.data,
             //imagen: info.imagen,
             //nombre_categoria: info.nombre_categoria
           });
-          marker.content = '<div class="infoWindowContent">' + info.eventTitle + '</div>';
+          marker.content = '<div class="infoWindowContent">' + info.eventTitle + '</div><br><IMG BORDER="0" style="width:70px;height:70px;" SRC="'+image.url+'">';
           google.maps.event.addListener(marker, 'click', function() {
             infoWindow.setContent('<h5>' + marker.title + '</h5>' + marker.content);
             infoWindow.open(self.map, marker);
