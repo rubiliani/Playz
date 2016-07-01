@@ -55,7 +55,7 @@ angular.module('PlayzApp')
             //imagen: info.imagen,
             //nombre_categoria: info.nombre_categoria
           });
-          marker.content = '<div class="infoWindowContent">' + info.eventTitle + '</div><br><IMG BORDER="0" style="width:70px;height:70px;" SRC="'+image.url+'">';
+          marker.content = '<div class="infoWindowContent">' + info.eventTitle + '</div><br><IMG BORDER="0" style="width:50px;height:50px;" SRC="'+image.url+'">';
           google.maps.event.addListener(marker, 'click', function() {
             infoWindow.setContent('<h5>' + marker.title + '</h5>' + marker.content);
             infoWindow.open(self.map, marker);
