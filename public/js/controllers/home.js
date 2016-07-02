@@ -5,7 +5,7 @@ angular.module('PlayzApp')
     console.log("home controller")
     $scope.shownEvents = 0;
 
-    $scope.sports=[{name:"Baseball"},{name:"Basketball"},{name:"Boxing"},{name:"Chess"},{name:"Cycling"},{name:"Fishing"},{name:"Football"},
+    $scope.sports=[{name:"Any Sport"},{name:"Baseball"},{name:"Basketball"},{name:"Boxing"},{name:"Chess"},{name:"Cycling"},{name:"Fishing"},{name:"Football"},
             {name:"Golf"},{name:"Hockey"},{name:"Ping-Pong"},{name:"Pool"},{name:"Running"},{name:"Soccer"},{name:"Surfing"},{name:"Swimming"}
             ,{name:"Tennis"},{name:"Volleyball"}];
     $scope.levels = ["Any Level", "Newbie", "Intermediate", "Proffesional"];
