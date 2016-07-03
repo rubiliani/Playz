@@ -71,6 +71,7 @@ angular.module('PlayzApp')
 			});
 	}
 	$scope.goBack=function(card){
+		 $scope.event = '';
 		$window.history.back();
 
 	}
