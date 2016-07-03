@@ -6,7 +6,7 @@ angular.module('PlayzApp')
     $scope.messages = [];
     $scope.textMsg = "";
     $scope.event.invitedUsers = [];
-     $scope.usersDevices = [];
+    $scope.usersDevices = [];
     console.log("event controller",$scope);
 
     $scope.getMessage = function(){
@@ -138,12 +138,8 @@ angular.module('PlayzApp')
                     
                     DB_queries.sendNotifications($scope.usersDevices,msg).then(function(){
                              console.log("sendNotifications");
-                    })
-                       
-                    
-
-                })
-		
+            })
+         })
     }
 
      $scope.inviteFriend = function(fbId,friend){

@@ -47,34 +47,17 @@ angular.module('PlayzApp')
               OneSignal.getUserId( function(userId) {
                 // Make a POST call to your server with the user ID
                 if(!$rootScope.user)
-              return;
-            DB_queries.addUserDevice($rootScope.user._id,userId).then(function () {
+                    return;
+                DB_queries.addUserDevice($rootScope.user._id,userId).then(function () {
                   console.log("successfully registerd device", userId)
-            });
+                });
 
               });
             }
           });
         });
 
-      /*
-      window._pcq.push(['APIReady', function(){
-         console.log(pushcrew.subscriberId);
-         if(pushcrew.subscriberId==false)
-           _pcq.push(['triggerOptIn', {subscriberSegment: 'global'}]);       
-         else if(pushcrew.subscriberId==-1){
-
-         }
-         else{
-            if(!$rootScope.user)
-              return;
-            DB_queries.addUserDevice($rootScope.user._id,pushcrew.subscriberId).then(function () {
-                  console.log("successfully registerd device")
-            });
-         }
-      }]);
-      */
-      
+     
     }
 
     $interval(function(){

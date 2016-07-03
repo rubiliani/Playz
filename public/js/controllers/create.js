@@ -29,6 +29,7 @@ angular.module('PlayzApp')
             creator:'',
             invitedUsers:[],
             eventTitle:'',
+            when:$scope.whens[0],
             registeredUsers:[]
         };
          
