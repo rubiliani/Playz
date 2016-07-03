@@ -51,9 +51,6 @@ angular.module('PlayzApp')
 
         $scope.tabChanged=function(type){
             if (type=="upcoming"){
-
-
-
                 DB_queries.getUpcomingEvents().then(function(data){
                     $scope.upcomingEvents=data;
                      $scope.splash = false;
@@ -62,6 +59,7 @@ angular.module('PlayzApp')
             else if (type=="past"){
                 DB_queries.getPastEvents().then(function(data){
                     $scope.pastEvents=data;
+                    $scope.splash = false;
                 })
             }
         }
@@ -71,6 +69,10 @@ angular.module('PlayzApp')
         $scope.cardSelected=function(card){
             console.log(card)
             $location.url('/event/'+card._id);
+        }
+         $scope.pastcardSelected=function(card){
+            console.log(card)
+            $location.url('/pastevent/'+card._id);
         }
 
         $scope.editProfile=function(){

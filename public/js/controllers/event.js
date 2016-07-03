@@ -17,7 +17,8 @@ angular.module('PlayzApp')
 	}
 
 	$scope.createMessage = function(){
-		
+		if($scope.textMsg=='')
+			return;
 		DB_queries.createMessage($rootScope.user._id,$scope.event._id,$scope.textMsg).then(function(messages){
 			$scope.textMsg='';
     	});
@@ -94,7 +95,7 @@ angular.module('PlayzApp')
 		DB_queries.inviteFriends($scope.event,$scope.event.invitedUsers).then(function(){
 			console.log("done inviting");
 
-			 DB_queries.getUsersDevices($scope.event.invitedUsers).then(function(data){
+			 DB_queries.getUsersDevicesFbId($scope.event.invitedUsers).then(function(data){
                     console.log(data);
 
                     data.users.forEach(function (user, i){
@@ -104,11 +105,11 @@ angular.module('PlayzApp')
                         });
 
                     var msg = $rootScope.user.name+" invited you to "+$scope.event.sportType+" event";
-                    
-                    DB_queries.sendNotifications($scope.usersDevices,msg).then(function(){
-                             console.log("sendNotifications");
-                    })
-                       
+                    if($scope.usersDevices.length>0){
+	                    DB_queries.sendNotifications($scope.usersDevices,msg).then(function(){
+	                             console.log("sendNotifications");
+	                    })
+                    }
                     
 
                 })
@@ -118,6 +119,30 @@ angular.module('PlayzApp')
 		},
 		function(err){
 		});
+    }
+
+    $scope.requestSchedule=function(){
+      
+        console.log("reschedule");
+        DB_queries.getCreatorDevices($scope.event.creator).then(function(data){
+                    console.log(data);
+
+                    data.users.forEach(function (user, i){
+                            user.devices.forEach(function(id,i){
+                                $scope.usersDevices.push(id._id);
+                            })
+                        });
+
+                     var msg = $rootScope.user.name+" requested reschedule to "+$scope.event.sportType+" event - "+$scope.event.eventTitle;
+                    
+                    DB_queries.sendNotifications($scope.usersDevices,msg).then(function(){
+                             console.log("sendNotifications");
+                    })
+                       
+                    
+
+                })
+		
     }
 
      $scope.inviteFriend = function(fbId,friend){

@@ -5,6 +5,7 @@ angular.module('PlayzApp')
     $scope.event = resolveGetEventById;
     $scope.event.whenDate = new Date($scope.event.whenDate);
     $scope.removedUsers = [];
+    $scope.usersDevices = [];
 
    console.log("Got event ",$scope.event);
    	
@@ -232,6 +233,27 @@ angular.module('PlayzApp')
                     });
                 //$location.url('/event/'+$scope.event._id)
                     });
+
+                DB_queries.getUsersDevices($scope.event.registeredUsers).then(function(data){
+                    console.log(data);
+
+                    data.users.forEach(function (user, i){
+                            user.devices.forEach(function(id,i){
+                                $scope.usersDevices.push(id._id);
+                            })
+                        });
+
+                    var msg = $rootScope.user.name+" updated "+$scope.event.sportType+" - "+$scope.event.eventTitle+" event, get in to check it out!";
+                    if($scope.usersDevices){
+                        DB_queries.sendNotifications($scope.usersDevices,msg).then(function(){
+                                 console.log("sendNotifications");
+                        })
+                    }
+                    
+
+                })
+
+
                  $location.url('/event/'+$scope.event._id)
                 } 
             )

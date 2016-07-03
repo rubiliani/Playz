@@ -1,0 +1,62 @@
+<div class="container p-t-md">
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="list-group media-list media-list-stream">
+                <li class="list-group-item p-a">
+                   
+                    <h3 class="modal-title"><img style="max-height:40px;"
+                                                 data-ng-src="assets/img/{{event.sportType}}.png"> {{event.sportType}}
+                    </h3>
+                </li>
+                <div>
+                    <li class="media list-group-item p-a">
+                        <div class="media-body">
+                            <div class="media-heading">
+                                <small class="pull-right text-muted"></small>
+                            </div>
+                            <span class="icon icon-pencil text-muted"></span> &nbsp;&nbsp; Title: <b>&nbsp;{{event.eventTitle}}</b><br>
+                            <span class="icon icon-clock text-muted"></span> &nbsp;&nbsp; When: <b>&nbsp;{{event.whenDate
+                            | date:"dd/MM/yyyy"}} - {{event.when}}</b><br>
+                            <span class="icon icon-location text-muted"></span> &nbsp;&nbsp; Where: <b>&nbsp;{{event.location.city}}</b><br>
+                            <span class="icon icon-graduation-cap text-muted"></span> &nbsp;&nbsp; Level: <b> &nbsp;{{event.level}}</b><br>
+                            <span class="icon icon-emoji-flirt text-muted"></span> &nbsp;&nbsp; Mindset: <b>&nbsp;{{event.mindset}}</b><br>
+                            <span class="icon icon-slideshare text-muted"></span> &nbsp;&nbsp; Gender: <b> &nbsp;{{event.gender}}</b><br>
+                            <span class="icon icon-ruler text-muted"></span> &nbsp;&nbsp; Age Range: <b> &nbsp;{{event.ageRange.min}}
+                            - {{event.ageRange.max}}</b><br>
+                            <span class="icon icon-users text-muted"></span> &nbsp;&nbsp; Registered Playzers: <b>{{event.registeredUsers.length}}/{{event.groupSize}}</b><br><br>
+
+                        </div>
+                        <ul class="avatar-list">
+                            <li class="avatar-list-item" ng-repeat="user in event.registeredUsers">
+                                <img class="img-circle" ng-src="{{user.picture.data.url}}">
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="media list-group-item p-a">
+                        <button type="button" class="btn btn-lg btn-default-outline" ng-show="event.creator.id==user.id"
+                              ng-click="editEvent()">
+                            <span class="icon icon-retweet"></span> Re-schedule 
+                        </button>
+                        <button type="button" class="btn btn-lg btn-default-outline" ng-click="requestSchedule()" ng-show="event.creator.id!==user.id"><span
+                                class="icon icon-retweet"></span> Request to re-schedule 
+                        </button>
+                    </li>
+                    <li class="media list-group-item p-a">
+                        <button type="button" class="btn btn-danger" ng-click="leaveEvent(event)" >Leave Event</button>
+                        <button type="button" class="btn btn-info pull-right" ng-click="goBack()">Go Back</button>
+
+                    </li>
+
+                </div>
+
+
+            </ul>
+
+        </div>
+
+
+    </div>
+    <!-- <ng-include  src="'views/includes/groupChat.html'"></ng-include> -->
+    <ng-include src="'views/includes/inviteUsers.html'"></ng-include>
+</div>

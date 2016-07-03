@@ -76,6 +76,22 @@ exports.get_user_devices = function(req,res,next){
 	});
 }
 
+exports.getDevicesFbId = function(req,res,next){
+	var userDevices = [];
+	var r = {msg:[],status:0};
+	var userids = req.body.userids;
+	
+	console.log("user ids", userids);
+
+	User.getDevicesFbId(userids,function(result){
+		if (!result.status){
+			res.status(404).send("failed to get devices");
+		}
+
+		return res.json(result)
+	});
+}
+
 exports.getCreatorDevices = function(req,res,next){
 	var userDevices = [];
 	var r = {msg:[],status:0};

@@ -114,6 +114,7 @@ app.post('/users/sendNotification', controllers.usersController.sendNotification
 app.post('/users/getDevices', controllers.usersController.get_user_devices); 
 app.post('/users/getAllUsers', controllers.usersController.getAllUsers); 
 app.post('/users/getCreatorDevices', controllers.usersController.getCreatorDevices); 
+app.post('/users/getDevicesFbId', controllers.usersController.getDevicesFbId); 
 
 //app.post('/users', controllers.usersController.create);
 //app.post('/users/events/:id', controllers.usersController.addEvent);

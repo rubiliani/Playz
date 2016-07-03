@@ -96,6 +96,29 @@ userSchema.statics.get_user_ids=function(regiteredUsers,callbackSuccess,callback
 userSchema.statics.get_user_devices=function(regiteredUsers,callbackSuccess,callbackError){
 	var r = {msg:[],status:0};
 	var query = {
+		_id:{$in:regiteredUsers}
+	};
+
+	this.model('users').find(query).select('devices')
+		.exec(function(err,result){
+			if (err){
+				r.msg.push(err);
+				return callbackError(r);
+			}
+			console.log("device query",result)
+			r.msg.push("users found",result);
+			r.users=result;
+			r.status=1;
+
+			return callbackSuccess(r);
+		});
+}
+
+
+
+userSchema.statics.getDevicesFbId=function(regiteredUsers,callbackSuccess,callbackError){
+	var r = {msg:[],status:0};
+	var query = {
 		id:{$in:regiteredUsers}
 	};
 
@@ -105,7 +128,7 @@ userSchema.statics.get_user_devices=function(regiteredUsers,callbackSuccess,call
 				r.msg.push(err);
 				return callbackError(r);
 			}
-
+			console.log("device query",result)
 			r.msg.push("users found",result);
 			r.users=result;
 			r.status=1;

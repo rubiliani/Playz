@@ -215,7 +215,7 @@ angular.module('PlayzApp')
             DB_queries.createEvent($scope.event).then(function(event){
                 console.log('events - create event',event)
 
-                DB_queries.getUsersDevices($scope.event.invitedUsers).then(function(data){
+                DB_queries.getUsersDevicesFbId($scope.event.invitedUsers).then(function(data){
                     console.log(data);
 
                     data.users.forEach(function (user, i){
