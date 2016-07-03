@@ -25,12 +25,13 @@ angular.module('PlayzApp')
 	}
 
 	$rootScope.$on('newMessageReceivedFromWS', function(event, msg) {
+		if ($rootScope.user.id == msg.sender.id) return;
 		if ($scope.event._id==msg.event._id){
 			$scope.messages.push(msg);
 			$scope.$apply();
 
-			if ($rootScope.user.id == msg.sender.id) return;
-			growl.info("New message for "+msg.event.eventTitle+" event", {title: 'New Unread Message'});
+			
+			//growl.info("New message for "+msg.event.eventTitle+" event", {title: 'New Unread Message'});
 
 		}
 		else{
