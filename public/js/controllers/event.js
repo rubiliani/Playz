@@ -167,7 +167,7 @@ angular.module('PlayzApp')
 
         }
 
-	    fbLogin.getFriends().then(function(friends){
+	    fbLogin.getAllFriends().then(function(friends){
 	            console.log(friends)
 
 	            $scope.friends=friends;
