@@ -402,12 +402,14 @@ exports.getUpcomingEvents = function (req, res) {
 
     //console.log("upcomingEvents ",req.user)
     populateEvents(req.user, function (user) {
-        var millis = new Date().setHours(0, 0, 0, 0);
+        var millis = new Date();//.setHours(23,59, 59, 0);
+        millis.setHours(0,0,0,0);
 
         
         var upcomingEvents = user.registeredEvents.filter(function (val) {
-           // console.log("upcomingEvents val ",val.whenDate);
+            console.log("mill",millis);
             var emillis = new Date(val.whenDate);
+            console.log("upcomingEvents mill",emillis);
             if (emillis >= millis) {
                 return val;
             }
@@ -417,11 +419,11 @@ exports.getUpcomingEvents = function (req, res) {
 }
 exports.getPastEvents = function (req, res) {
     populateEvents(req.user, function (user) {
-        var millis = new Date().setHours(0, 0, 0, 0);
+        var millis = new Date().setHours(23, 59, 0, 0);
 
         var upcomingEvents = user.registeredEvents.filter(function (val) {
             //console.log("pastEvents val ",val.whenDate);
-            var emillis = new Date(val.whenDate).setHours(0, 0, 0, 0);
+            var emillis = new Date(val.whenDate).setHours(23, 59, 0, 0);
             if (emillis < millis) {
                 return val;
             }
