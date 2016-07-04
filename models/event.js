@@ -133,7 +133,7 @@ eventSchema.statics.getAllEvents=function(user,filter,callback){
 	var r = {msg:[],status:0};
 	//console.log("get all events for "+user._id)
 	var id = mongoose.Types.ObjectId(user._id);
-	var date= new Date().setHours(23,59,0,0);
+	var date= new Date().setHours(0,0,0,0);
 	// var date= new Date();
 	// date.setDate(date.getDate()-1);
 	// date = date.setHours(0,0,0,0);
@@ -173,7 +173,7 @@ eventSchema.statics.getAdminEvents=function(user,filter,callback){
 	var r = {msg:[],status:0};
 	console.log("get all events for "+user._id)
 	var id = mongoose.Types.ObjectId(user._id);
-	var date= new Date().setHours(23,59,0,0);
+	var date= new Date().setHours(0,0,0,0);
 	// var date= new Date();
 	// date.setDate(date.getDate()-1);
 	// date = date.setHours(0,0,0,0);
