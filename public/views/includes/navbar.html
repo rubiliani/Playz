@@ -14,15 +14,15 @@
 
 
 
-                 <button class="navbar-nav m-x btn btn-pill btn-notification pull-right hidden-lg" data-toggle="modal"
+                 <button class="navbar-nav m-r btn btn-pill btn-notification pull-right hidden-lg" data-toggle="modal"
                            ng-click="[$event.preventDefault(),urlChanged(''),openNotification()]" data-target="#notificationModal">
-                    
-                     
                             <span class="icon icon-bell hidden-lg"></span>
                             <span class="badge">{{notifications.length}}</span>
-                       
-                    
-                    
+                </button>
+                 <button class="navbar-nav btn btn-pill btn-notification pull-right hidden-lg" data-toggle="modal"
+                           ng-click="[$event.preventDefault(),urlChanged('')]" data-target="#chatModal">
+                            <span class="icon icon-chat hidden-lg"></span>
+                            <span class="badge">{{messages.length}}</span>
                 </button>
                   
                  

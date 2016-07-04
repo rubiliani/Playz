@@ -70,6 +70,7 @@
   </head>
   <body ng-class="{'with-top-navbar':status  , 'loginBody':!status }">
     
+    <ng-include  ng-show="status"  src="'views/includes/chatModal.html'"> </ng-include>
     <ng-include  ng-show="status"  src="'views/includes/notification.html'"> </ng-include>
     <ng-include  ng-show="status"  src="'views/includes/navbar.html'"> </ng-include>
     <ng-include  ng-show="status"  src="'views/includes/growl.html'"> </ng-include>
@@ -116,6 +117,7 @@
     <script type="text/javascript" src="js/controllers/edit.js"></script>
     <script type="text/javascript" src="js/controllers/admin.js"></script>
     <script type="text/javascript" src="js/controllers/notification.js"></script>
+    <script type="text/javascript" src="js/controllers/chatNotif.js"></script>
     <script type="text/javascript" src="js/controllers/navbar.js"></script>
    
     <script type="text/javascript" src="js/config.js"></script>
