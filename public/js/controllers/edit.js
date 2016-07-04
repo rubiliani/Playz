@@ -205,7 +205,7 @@ angular.module('PlayzApp')
             $scope.event.privacyType=type;
         }
         $scope.updateEvent=function(){
-            $scope.event.whenDate.setHours(0,0,0,0);
+            $scope.event.whenDate.setHours(23,59,0,0);
             $scope.event.location={
                 "city":$scope.location.city,
                 "name":$scope.location.name,
@@ -214,7 +214,7 @@ angular.module('PlayzApp')
             };
             //$scope.event.creator=$rootScope.user._id;
             //$scope.event.registeredUsers.push($rootScope.user._id);
-            $scope.event.whenDate =  new Date($scope.event.whenDate.setHours(0,0,0,0))
+            $scope.event.whenDate =  new Date($scope.event.whenDate.setHours(23,59,0,0))
             //sliders
             $scope.event.groupSize = $scope.groupSlider.value;
             $scope.event.ageRange.min = $scope.ageSlider.minValue;
