@@ -24,6 +24,8 @@ angular.module('PlayzApp')
                     DB_queries.sendNotifications($scope.usersDevices,msg).then(function(){
                              console.log("sendNotifications");
                     })
+
+                     $location.url('/event/'+ card._id);
                        
                     
 
